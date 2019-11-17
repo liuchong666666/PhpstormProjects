@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆|注册</title>
+    <style type="text/css">
+        #user {
+            padding: 30px 10px 5px 10px;
+            border: 3px solid whitesmoke;
+            width: 350px;
+        }
+
+        #sex {
+            padding: 10px 10px 10px 10px;
+        }
+
+        #sport {
+            padding: 10px 10px 10px 10px;
+        }
+
+        #nianji {
+            padding: 10px 10px 10px 10px;
+        }
+
+        #file {
+            padding: 10px 10px 10px 10px;
+        }
+
+        #div1 {
+            background: #EAEAEA url("images/images61-4.png") no-repeat 0px 0px;
+            width: 400px;
+            height: 600px;
+            margin: 0px auto;
+            border: 1px solid red;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: white;
+            padding: 16px 20px;
+            font-family: 微软雅黑;
+            margin: 0;
+        }
+
+        #div2 {
+            width: 400px;
+            height: 60px;
+
+        }
+
+        #My97 {
+            float: left;
+        }
+    </style>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.theme.min.css"/>
+    <script src="My97/jquery-1.11.1.js"></script>
+    <script src="jQuery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="JS/Log.js"></script>
+    <script src="My97/WdatePicker.js"></script>
+    <link rel="stylesheet" href="formValidator/style/validator.css"/>
+    <script src="formValidator/formValidator_min.js"></script>
+    <script src="formValidator/formValidatorRegex.js"></script><!--//需要正则就引入正则的js文件，最好引入一下，可能这个里面引用了相关内容-->
+</head>
+<body>
+<div id="My97">
+    <input type="text" class="Wdate" id="txtDate"/>
+    <input type="text" class="Wdate" id="txtNewDate"/>
+    <input type="button" id="btn" value="click"/>
+</div>
+<div id="div1" onload="start();">
+    <div id="div2"><h3>登录</h3></div>
+    <div id="yz_frm" title="确认信息">
+        用户名：<span id="username_span"></span><br/>
+        密 码：<span id="password_span"></span>
+    </div>
+    <form action="https://ssl.zc.qq.com/v3/index-chs.html" id="user" method="post">
+        <label for="username"> username:</label> <input type="text" name="user" style="width: 190px" id="username"
+                                                        value=""> <br>
+        <div id="usernameTip"></div>
+        <label for="password1">请输入密码: </label><input type="password" name="password1" style="width: 190px"
+                                                        id="password1" value=""> <br>
+        <div id="password1Tip"></div>
+        <label for="password2"> 重复密码: </label><input type="password" name="password2" style="width: 190px"
+                                                        id="password2" value=""> <br>
+        <div id="password2Tip"></div>
+        <label for="input_yzm">请输入验证码</label>
+        <input type="text" name="yzm" style="width: 90px" id="input_yzm" value="请输入验证码">
+        <input type="text" style="width: 50px" id="creat_yzm">
+        <input type="button" value="验证" onclick="check();">
+        <br>
+        <input type="submit" value="登录" formtarget="_blank" id="denglu"/>
+        <input type="submit" formtarget="_blank" value="注册"/>
+        <input type="reset" value="重置">
+        <input type="hidden" value="1233">
+    </form>
+
+    <br>
+    <form action="" id="sex">
+        性别： <input type="radio" name="sex" value="male" id="male"/>
+        <label for="male">男</label>
+        <input type="radio" name="sex" value="female" id="female">
+        <label for="female">女</label>
+    </form>
+    <form action="" id="sport">
+        你喜欢什么运动：
+        <input type="checkbox" id="basketball">
+        <label for="basketball">篮球</label>
+        <input type="checkbox" id="football">
+        <label for="football">足球</label>
+        <input type="checkbox" id="bingbing" checked>
+        <label for="bingbing">兵兵</label>
+    </form>
+    <form action="" id="nianji">
+        你所在的年级：<select name="nianji">
+        <option value="dayi">大一</option>
+        <option value="daer" selected>大二</option>
+        <option value="dasan">大三</option>
+        <option value="大四">大四</option>
+    </select>
+    </form>
+    <div id="file"><label for="atch"> 上传文件：</label> <input type="file" id="atch"/></div>
+</div>
+</body>
+</html>

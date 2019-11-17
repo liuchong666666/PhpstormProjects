@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery选择器</title>
+    <style type="text/css">
+        .ipt {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.js">
+
+    </script>
+</head>
+<body>
+<!--演示基本选择器-->
+<div id="d1">
+    <h1>jQuery选择器</h1>
+    <p>包括如下种类：</p>
+    <p>1.基本选择器</p>
+    <p class="ipt">2.层次选择器</p>
+    <p class="ipt">3.过滤选择器</p>
+    <p>4.表单选择器</p>
+    <p style="display: none;">5.其他选择器</p>
+</div>
+<!--演示层次选择器-->
+<div id="d2">
+    <ul>
+        <li>杭州</li>
+        <li id="nb">宁波</li>
+        <li>温州</li>
+        <li>嘉兴</li>
+    </ul>
+</div>
+<!--演示基本过滤选择器-->
+<div id="d3">
+    <table>
+        <tr>
+            <td>鼠标</td>
+            <td>黑色</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>键盘</td>
+            <td>白色</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>耳机</td>
+            <td>红色</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>U盘</td>
+            <td>蓝色</td>
+            <td>60</td>
+        </tr>
+    </table>
+</div>
+<!--状态过滤选择器-->
+<div>
+    <!--disabled 表示文本框不可用-->
+    <p>国籍：<input type="text" value="中国" disabled="disabled"/>
+    </p>
+    <p>账号：<input type="text" />
+    </p>
+    <p>密码：<input type="password" />
+    </p>
+    <p>
+        篮球：<input type="checkbox" name="fvs">
+        足球：<input type="checkbox" name="fvs">
+        乒乓：<input type="checkbox" name="fvs">
+    </p>
+    <p>
+        <select name="" id="">
+            <option value="">小学</option>
+            <option value="">初中</option>
+            <option value="">高中</option>
+            <option value="">大专</option>
+            <option value="">本科</option>
+        </select>
+    </p>
+</div>
+</body>
+</html>

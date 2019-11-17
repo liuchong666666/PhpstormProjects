@@ -1,0 +1,366 @@
+/*1.设置页面整体布局*/
+/*body内外边距都是0，页面边缘无缝隙*/
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/*为了便于调试设置出div边框，待完成时再去掉边框*/
+/*div统一设置为水平居中*/
+div {
+    border: 1px solid red;
+    margin: 0 auto; /*先统一   如果有变化 再写 会覆盖*/
+}
+
+/*分别设置div的宽高*/
+#logo {
+    width: 960px;
+    height: 61px;
+}
+
+#nav {
+    width: 100%;
+    height: 91px;
+    background-color: #0080e0;
+}
+
+#main {
+    width: 100%;
+    height: 410px;
+    padding: 10px 0 0 0;
+}
+
+#footer {
+    width: 960px;
+    height: 50px;
+}
+
+#content {
+    width: 950px;
+    height: 390px;
+    border: 5px solid #8ac1db;
+}
+
+#operate, #page {
+    width: 910px;
+    height: 40px;
+}
+
+#data {
+    width: 910px;
+    height: 310px;
+}
+
+body {
+    background-color: #0EA8D8;
+}
+
+#content {
+    background-color: #e8f3f8;
+}
+
+#logo {
+    background: url("image/2.png") repeat-x center;
+}
+
+/*#top1{
+    width: 100%;
+    height: 6px;
+    border: 1px solid red;
+    background: url("image/jb.png") repeat-x ;
+}*/
+#main {
+    background: url("image/jb.png");
+
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+/*3.设置文本格式*/
+body {
+    font-family: '微软雅黑', '文泉驿正黑', '黑体';
+    font-size: 14px;
+
+}
+
+#logo, #footer {
+    color: white;
+}
+
+#logo a:link /*没访问过的超链接*/
+{
+    color: white;
+}
+
+#logo a:visited /*访问过的超链接*/
+{
+    color: white;
+}
+
+#logo a {
+    text-decoration: none; /*去掉超链接或者文本下划线*/
+    margin-right: 40px;
+    line-height: 61px; /*行高与元素高度一样文本垂直居中*/
+}
+
+#logo {
+    text-align: right;
+
+}
+
+#logo a:hover {
+    font-weight: bold; /*光标悬浮时加粗*/
+}
+
+#footer p {
+    /*border: 1px solid blue;*/
+    text-align: center;
+    margin: 0;
+    line-height: 25px; /*让这两个各自行高25px 正好充满50px的区域*/
+}
+
+#t2 thead th {
+    border: 1px solid #cccccc;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fbedce;
+}
+
+#t2 tbody td {
+    border: 1px solid #cccccc;
+    height: 32px;
+    line-height: 32px; /*行高与元素相同  垂直居中*/
+    text-align: center; /*水平居中*/
+}
+
+/*设置表格样式*/
+#t2 {
+    width: 910px;
+    height: 200px;
+    border: 1px solid blue;
+    background-color: white;
+    border-collapse: collapse; /*无缝隙*/
+}
+
+#t2 tbody tr:hover {
+    background-color: #f7f9fd;
+
+}
+
+.modify {
+    cursor: pointer; /*将鼠标变成手型*/
+    border: 0;
+    padding: 5px 5px 5px 15px;
+    background: url("image/ture.png") no-repeat left;
+}
+
+.delete {
+    cursor: pointer; /*将鼠标变成手型*/
+    border: 0;
+    padding: 5px 5px 5px 15px;
+    background: url("image/delete.png") no-repeat left;
+}
+
+/*#t3{*/
+/*height: 91px;*/
+/*}*/
+/*#t3 tr{*/
+/*height: 91px;*/
+/*}*/
+/*#t3 tr th{*/
+
+/*height: 91px;*/
+/*padding: 0px;*/
+/*margin: 0px;*/
+/*}*/
+/*#t3 th:hover{*/
+/*background-color: #26a5f0;*/
+/*}*/
+
+/*操作区按钮*/
+#operate /*让按钮在右边并垂直居中在父亲元素上设置样式*/
+{
+    text-align: right; /*将按钮设置在右边*/
+    line-height: 40px; /*按钮文本与高等高 设置垂直居中*/
+    /*padding: 7px 0;*/
+}
+
+.add /*设置按钮的背景图片和大小*/
+{
+    background-image: url("images/anniu.png");
+    width: 71px;
+    height: 26px;
+    border: 0;
+    color: white; /*前景色为白色*/
+
+}
+
+/*分页*/
+
+#page {
+    text-align: center;
+    /*line-height: 40px;*/
+
+}
+
+#page a {
+    text-decoration: none;
+    color: black;
+    /*为了调试超链接而加的*/
+    border: 1px solid #e8f3f8;
+    margin: 0;
+    padding: 5px 10px;
+}
+
+#page .current_page /*当前页的样式*/
+{
+    border: 1px solid #97B9C9;
+    background-color: #fff;
+}
+
+#page a:hover {
+    border: 1px solid #97B9C9;
+    background-color: #CDDDE4;
+    color: #067DB5;
+}
+
+/*通过浮动来调整logo图片的位置，使之居左*/
+#logo img {
+    float: left;
+}
+
+#content {
+    position: relative;
+}
+
+/*将消息框绝对定位在content中心位置*/
+#msg {
+    position: absolute;
+    left: 250px;
+    top: 105px;
+    width: 400px;
+    height: 50px;
+    /*z-index: 9;*/
+    border: 1px solid #F68A8A;
+
+    padding: 10px 10px 10px 40px;
+    background: url("images/ok.png") 10px 25px no-repeat; /*向右偏移10  向下偏移30px*/
+    /*background: url("images/ok.png");   第二种方法分开写*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 10px 25px;  第一个水平位置  第二个垂直位置   */
+    background-color: #FDECEC;
+}
+
+#msg input {
+    float: right;
+    border: 0px;
+    width: 28px;
+    height: 29px;
+    background-image: url("images/chacha.png");
+    cursor: pointer; /*将鼠标变成手型*/
+}
+
+#msg p {
+    /*border: 1px solid blue;*/
+}
+
+/*设置导航栏中的功能列表*/
+ul, li {
+    /*border: 1px solid black;*/
+}
+
+ul {
+    width: 960px;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+li {
+    width: 68px;
+    height: 77px;
+    margin: 7px 14px;
+    float: left;
+}
+
+/*将超链接改为块，并设置宽高等于li的宽高，
+这样鼠标点击li就是点击超链接了*/
+li a {
+    display: block;
+    width: 68px;
+    height: 77px;
+}
+
+.index_off{
+    background-image: url("images/index_off.png");
+}
+.index_off:hover{
+    background-image: url("images/index_on.png");
+}
+/*.role_on{*/
+    /*background-image: url("images/role_on.png");*/
+/*}*/
+.role_off{
+    background-image: url("images/role_off.png");
+}
+.role_off:hover{
+    background-image: url("images/role_on.png");
+}
+.admin_off{
+    background-image: url("images/admin_off.png");
+}
+.admin_off:hover{
+    background-image: url("images/admin_on.png");
+}
+.fee_off{
+    background-image: url("images/fee_off.png");
+}
+.fee_off:hover{
+    background-image: url("images/fee_on.png");
+}
+
+.account_off{
+    background-image: url("images/account_off.png");
+}
+.account_off:hover{
+    background-image: url("images/account_on.png");
+}
+/*默认*/
+.bill_on{
+    background-image: url("images/bill_on.png");
+}
+
+
+
+.service_off{
+    background-image: url("images/service_off.png");
+}
+.service_off:hover{
+    background-image: url("images/service_on.png");
+}
+.report_off{
+
+    background-image: url("images/report_off.png");
+}
+.report_off:hover{
+    background-image: url("images/report_on.png");
+}
+.info_off{
+    background-image: url("images/info_off.png");
+
+}
+.info_off:hover{
+    background-image: url("images/info_on.png");
+}
+.pwd_off{
+    background-image: url("images/pwd_off.png");
+
+}
+.pwd_off:hover{
+    background-image: url("images/pwd_on.png");
+}
+div{
+    border: 0;
+}
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.title = '欢迎来到';
+    var counter = 0;
+
+    function changeTitle() {
+        if (counter % 8 == 0) {
+            document.title = '欢迎来到';
+        } else if (counter % 8 == 1) {
+            document.title = '迎来到魔';
+        } else if (counter % 8 == 2) {
+            document.title = '来到魔兽';
+        } else if (counter % 8 == 3) {
+            document.title = '到魔兽世';
+        } else if (counter % 8 == 4) {
+            document.title = '魔兽世界';
+        } else if (counter % 8 == 5) {
+            document.title = '兽世界欢';
+        } else if (counter % 8 == 6) {
+            document.title = '世界欢迎';
+        } else if (counter % 8 == 7) {
+            document.title = '界欢迎来';
+        }
+        counter++;
+    }
+setInterval(changeTitle,300);
+</script>
+</body>
+</html>

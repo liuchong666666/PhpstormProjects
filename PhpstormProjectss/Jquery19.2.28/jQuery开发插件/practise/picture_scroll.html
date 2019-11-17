@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮播插件</title>
+    <script src="../js/jquery-1.11.1.js"></script>
+    <script src="../js/picture_scroll.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function scroll() {
+                ($("ul").animate({left: "-500px"}, function () {
+                    //将第一个图片移除并复制追加到后面
+//                $(this).eq(0).remove().clone().appendTo(this);
+                    $(this).css({left: "0px"}); //使用回调函数,设置使容器左外边距回到0，使两张图片的基点回到原位置
+                    $(this).children().eq(0).remove().clone().appendTo(this);
+//                console.log($(this).children().eq(1));
+                }))
+            }
+//            setInterval(scroll,2000);
+           $("ul").pic_scroll();
+        })
+    </script>
+    <style type="text/css">
+        #ul1 {
+            /*div是最外面的容器，将ul整体往左移动，需要用animate， 但需要脱离流定位，所以需要相对定位（相对父级（div））*/
+            /*给图片重新定位一下,才能用animate，脱离流定位*/
+            position: relative; /*相对定位 */
+            border: 1px solid red;
+            width: 1006px;
+            height: 320px;
+            margin: 0 auto;
+            padding: 0px;
+        }
+
+        li {
+
+            float: left;
+            border: 1px solid rebeccapurple;
+            list-style-type: none;
+        }
+
+        img {
+
+            width: 500px;
+            height: 320px;
+        }
+
+        #div1 {
+            width: 500px;
+            height: 320px;
+            /*overflow: hidden; !*超出容器部分就隐藏*!*/
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<div id="div1">
+    <ul id="ul1">
+        <li><img src="../../picture/1.jpg"></li>
+        <li><img src="../../picture/2.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

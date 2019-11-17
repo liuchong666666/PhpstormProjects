@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #del {
+            background: #cccccc;
+            border: 2px solid red;
+            width: 400px;
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+        }
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        function dele() {
+            //假设已经删除成功了
+            //给与动态提示
+            //1.先将提示信息显示出来
+            var p = document.getElementById("del");
+            p.className = "show";
+            //2.然后过2秒再隐藏掉
+            //先过2秒后 ,在执行function
+            var id=  setTimeout(function () {
+                p.className="hide";
+                clearTimeout(id);
+            },2000);
+        }
+    </script>
+</head>
+<body>
+<button onclick="dele();">删除</button>
+<p id="del" class="hide">
+    删除成功！！！
+</p>
+</body>
+</html>

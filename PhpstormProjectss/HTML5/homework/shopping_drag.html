@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 购物车</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            float: left;
+            margin-left: 10px;
+            text-align: center;
+        }
+
+        p {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .price {
+            color: orangered;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            border-bottom: 1px solid red;
+        }
+
+        #logo {
+            width: 60px;
+            height: 50px;
+            background-image: url(../img/iconlist_2.png);
+            float: right;
+        }
+
+        #data {
+            width: 200px;
+            height: 50px;
+            border: 1px solid red;
+            float: right;
+            margin-right: 50px;
+        }
+
+        #imgTip, #gouwucheTip {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            float: left;
+        }
+    </style>
+    <script src="shopping_drag.js"></script>
+</head>
+<body>
+<ul>
+    <li>
+        <img src="../img/14121.jpg" name="14121" goodsName="iphone6"  amount="0" price="5988.00" alt="14121">
+        <p><a href="">iPhone</a></p>
+        <p class="price">￥5988.00</p>
+        <p>北京有货</p>
+    </li>
+    <li>
+        <img src="../img/14122.jpg" name="14122" goodsName="手链" amount="0" price="238.00" alt="14122">
+        <p><a href="">手链</a></p>
+        <p class="price">￥238.00</p>
+        <p>北京有货</p>
+    </li>
+    <li>
+        <img src="../img/14123.jpg" name="14123" goodsName="狗粮" amount="0" price="198.00" alt="14123">
+        <p><a href="">狗粮</a></p>
+        <p class="price">￥198.00</p>
+        <p>北京有货</p>
+    </li>
+</ul>
+<div id="gouwuche">
+    <a href="shopping_table.html" target="_blank">
+    <div id="data"></div>
+    <div id="logo"></div>
+    </a>
+</div>
+<div id="clear" style="clear: both">
+</div>
+<div id="imgTip">
+    <div id="d_start"></div>
+    <div id="d_drag"></div>
+    <div id="d_end"></div>
+</div>
+<div id="gouwucheTip">
+    <div id="d_enter"></div>
+    <div id="d_over"></div>
+    <div id="d_drop"></div>
+    <div id="d_leave"></div>
+</div>
+</body>
+</html>

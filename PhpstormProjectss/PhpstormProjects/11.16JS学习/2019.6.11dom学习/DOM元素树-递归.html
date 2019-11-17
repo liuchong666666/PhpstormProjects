@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM元素树</title>
+</head>
+<!--body开始了-->
+<body>
+<span class="header">遍历元素树</span>
+<div>一个<span>区</span>块</div>
+<script>
+    /*
+    console.log("nodeType\t\tnodeName\t\tnodeValue");
+
+    var node0=document;//元素树根   #document
+    console.log(node0.nodeType+"\t\t\t\t"+node0.nodeName+"\t\t"+node0.nodeValue);
+
+    var node1=document.firstElementChild;//HTML
+    console.log(node1.nodeType+"\t\t\t\t"+node1.nodeName+"\t\t\t"+node1.nodeValue);
+  //  console.log(node1.attributes);
+
+    var node2=node1.firstElementChild;//HEAD
+    console.log(node2.nodeType+"\t\t\t\t"+node2.nodeName+"\t\t\t"+node2.nodeValue);
+
+    var node3=node2.nextElementSibling;//BODY
+    console.log(node3.nodeType+"\t\t\t\t"+node3.nodeName+"\t\t\t"+node3.nodeValue);
+   // console.log(node0.childNodes.length+"    "+node0.children.length);
+
+    var node4 = node3.children[1];//DIV
+    console.log(node4.nodeType+"\t\t\t\t"+node4.nodeName+"\t\t\t"+node4.nodeValue);
+
+    var node5 = node3.firstElementChild;//SPAN
+    console.log(node5.nodeType+"\t\t\t\t"+node5.nodeName+"\t\t\t"+node5.nodeValue);
+
+    console.log(node1===document.documentElement);//HTML
+    console.log(node3===document.body)//BODY元素
+    */
+</script>
+
+<script>
+    console.log("nodeType\t\tnodeName\t\tnodeValue");
+
+    //遍历整个元素树
+    function triverse(node) {
+        if (node.nodeType == 1 || node.nodeType == 9) {
+            console.log(node.nodeType+'\t\t'+node.nodeName+'\t\t'+node.nodeValue);
+            for(var i=0;i<node.children.length;i++){
+                var child = node.children[i];
+                triverse(child);//递归
+            }
+        }
+    }
+    triverse(document);
+</script>
+</body>
+</html>

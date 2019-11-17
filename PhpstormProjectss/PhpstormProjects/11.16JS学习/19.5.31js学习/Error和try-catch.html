@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body style="height: 1000px;">
+<script>
+    /*
+    var n=22.567;
+    document.write(n.toFixed(-1));//RangError:*****参数超出范围******，比如:num.toFixed(n)    0=<n=<100  超出范围抛出RangeError
+*/
+    /*
+    var n="a";
+    document.write(n.toFixed(2));//typeError:toFixed时number类型的方法
+*/
+    /**
+     *
+     *如何处理错误：先进入try，如果没错，会跳过catch 进入finally
+     先进入try，如果出错，会进入catch 再进入finally
+     try{
+		可能出错的代码
+	}catch(err){   在只要抛出错误，都会创建一个Error对象
+		错误处理的代码
+		1.获得错误信息：err.message//用处不大
+			         err.name    类型  //非常有用
+		2.根据错误的类型，执行不同的处理
+	}finally{
+		无论是否出错，都必须执行的代码
+	}
+     * */
+    var str = "no zuo no die";
+    var kw = prompt("search");
+    var reg = new RegExp(kw, "g");
+    var arr = str.match(reg);
+    try {
+        document.write("共找到" + arr.length + "个");
+    } catch (err) {
+        if (err.name == "TypeError") {
+            document.write("没找到！");
+        }
+    } finally {//可有可无，程序中使用了大对象！一定要在finally中主动释放!
+        // 无论是否出错，都必须执行的代码
+        arr = null;
+        reg = null;
+        kw = null;
+        str = null;
+        console.log("释放对象");
+    }
+    //能用if...elese解决的问题，就不用try catch！
+    //何时使用try catch？try catch处理的是无法预料的问题！
+</script>
+</body>
+</html>

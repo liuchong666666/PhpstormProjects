@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //循环条件：  input!=-1
+    //循环变量：input
+    //循环体：
+    //总分+=input；人数++
+    //平均=总分/总人数
+    var sum = 0;
+    var count = 0;
+    var input;
+    /* do {
+         var input = parseInt(prompt("输入成绩："));
+         if (input == -1) {
+             break;
+         } else {
+             sum += input;
+             count++;
+         }
+     } while (true);//true可以换成input!=-1*/
+    while ((input = parseInt(prompt("请输入平均分"))) != -1) {
+        sum += input;
+        count++;
+    }
+    console.log("平均分：" + (sum / count).toFixed(2));
+</script>
+</body>
+</html>

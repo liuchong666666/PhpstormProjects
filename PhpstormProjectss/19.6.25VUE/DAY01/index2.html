@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性绑定和双向数据绑定</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--v-bind:title属性绑定  里面也可以用js（'del lee'+title）-->
+    <!--v-bind:  可以用：代替-->
+    <div :title="'del lee'+title">hello world</div>
+    <!--<input :value="content"/>-->
+    <!--v-model="content" ：input里面的值变了，div里面的content也会变-->
+    <input v-model="content"/>
+    <div>{{content}}</div>
+</div>
+<script>
+    new Vue({
+        el: "#root",
+        data: {
+            title: "this is title",
+            content: "this is content"
+        }
+    })
+</script>
+</body>
+</html>

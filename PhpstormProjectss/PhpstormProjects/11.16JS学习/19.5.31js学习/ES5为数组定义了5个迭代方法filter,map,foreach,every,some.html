@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //ES5为数组定义了5个迭代方法，每个方法都接受两个参数：1.要在每一项上运行的函数 2.运行该迭代方法函数的作用域对象
+    //函数会接受三个参数：1.数组项的值，2.该项再数组中的位置 3.数组对象本身
+
+    //forEach
+    var array = ["B3", "D2", "F1", "A9", "D12", "A2", "C1", "Z0", "B1"]
+
+    array.forEach(function(item,index,arr){
+       console.log(item)
+    })
+
+    console.log('==============================================================')
+
+
+    //map
+    var array1 = ["B3", "D2", "F1", "A9", "D12", "A2", "C1", "Z0", "B1"]
+
+    var arr_map = array1.map(function(item,index,arr){
+        return item.slice(1)//取数组每一项从下标为1开始后面所有
+    })
+    console.log(arr_map)
+
+    console.log('==============================================================')
+
+    //filter //返回为true的数
+    var array2=[1,3,2,5,3.33,5,1,8,3.3,5.5]
+    console.log('a2'>5)//NaN>5 false
+    console.log(parseInt('a2'))
+//    fliter执行返回true的元素
+    var arr_filter=array2.filter(function(item,index,arr){
+        return item>3//true的才被选出来//取所有大于3的数
+    })
+    console.log(arr_filter)
+
+    console.log('==============================================================')
+    var array3=[1,3,2,5,3.33,5,1,8,3.3,5.5]
+    //every()  对数组每一项给定函数，如果每一项都返回true，则返回true， 反之有一项不为true就返回false 相当于"与"
+    var bool_every = array3.every(function(item,index,arr){
+//        return item>3 //false  并不是所有都大于3
+        return item>0 //true     所有都大于0
+    })
+    console.log('bool_every:'+bool_every)
+
+    console.log('==============================================================')
+
+    //some()  对数组每一项给定函数，如果有一项都返回true，则返回true， 反之所有不为true就返回false 相当于"或"
+    var array4=[1,3,2,5,3.33,5,1,8,3.3,5.5]
+    //every()  对数组每一项给定函数，如果每一项都返回true，则返回true， 反之有一项不为true就返回false 相当于"与"
+    var bool_some = array4.some(function(item,index,arr){
+//        return item>3 //true    有一项大于3就返回true
+        return item<0 //false  所有都小于0
+    })
+    console.log('bool_some:'+bool_some)
+
+    console.log('==============================================================')
+
+
+    //数组去重，求交集，求差集
+    var array5=[1,1,3,5,4,3,5,6]
+    var array6=[3,5,7,8,9]
+    var hash=[]
+    //去重
+    array5.forEach(function (item,index,arr) {
+        if(hash.indexOf(item)===-1){
+            hash.push(item)
+        }
+    })
+    console.log('去重后的hash:'+hash)
+    //求交集
+    var arr5 = array6.filter(function (item,index,arr) {
+        return array5.indexOf(item)!==-1
+    })
+    console.log("交集arr5:"+arr5)
+    //求差集
+    var arr6=array5.concat(array6).filter(function (item,index,arr) {
+        return array5.indexOf(item)===-1||array6.indexOf(item)===-1
+    })
+    console.log('差集：'+arr6)
+
+
+</script>
+</body>
+</html>

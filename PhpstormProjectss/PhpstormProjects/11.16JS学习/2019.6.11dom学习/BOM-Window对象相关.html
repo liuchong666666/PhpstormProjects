@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="closeWin()">关闭窗口</button>
+<br/>
+<input type="checkbox"/>我同意本站的<a href="javascript:void(0)" onclick="openWin()">使用条款</a>
+<a href="http://www.baidu.com" target="SiteAgreement">123</a>
+<!--SiteAgreement下面窗口的名字   打开的页面就在这个页面-->
+<script>
+    //四个特殊运算符
+    // typeof：String
+    //    instanceof：boolean
+    //    delete：？
+    //	void：undefined//无论是什么都是undefined，让页面不跳转
+    /*
+    alert('123');
+    var input = prompt("请输入",'20');  //没输入点确定就是  长度为0的字符串，  点取消就是null或者点确定：用户输入的字符串
+    console.log("用户输入了"+null);
+    var cfm = confirm('123');
+    console.log(cfm);
+    */
+    function openWin() {
+//        console.log(123);
+//        return 'abc';
+//         open("http://www.baidu.com"');
+//        open("http://www.baidu.com","SiteAgreement");
+        open(
+            '2.html',
+            'SiteAgree',
+//            'channelmode=1'
+//            'directories=1,channelmode=1,fullscreen=1'
+//            'channelmode=1,width=500,height=100'
+            'width = 100,height=100,left = 200,top=0,location = 0,resizeable=1,titlebar=1,toolbar = 1'
+
+        );//打开新窗口（‘链接’，‘设置个名称’）
+    }
+
+    function closeWin() {
+        window.close();//要放在服务器上
+    }
+</script>
+</body>
+</html>

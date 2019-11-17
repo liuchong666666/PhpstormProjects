@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #myDiv{
+            width: 100px;
+            height: 100px;
+            background: red;
+            opacity: 0.2;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var div=document.getElementById("myDiv");
+            //获取样式
+            var op=window.getComputedStyle(div).opacity;
+            console.log(op);
+            var op1=window.getComputedStyle(div).getPropertyValue("opacity");
+            console.log(op1);
+        }        
+    </script>
+</head>
+<body>
+<div id="myDiv"></div>
+</body>
+</html>

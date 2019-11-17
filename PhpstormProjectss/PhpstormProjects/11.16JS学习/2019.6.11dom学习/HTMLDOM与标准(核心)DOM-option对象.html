@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMLDOM与标准(核心)DOM-option对象</title>
+</head>
+<body>
+<select name="city">
+
+</select>
+<script>
+    var select = document.getElementsByName('city')[0];
+    console.log(select.name);
+    console.log(select.value);
+    console.log(select.multiple);
+    console.log(select.size);
+    console.log(select.options);//select.options里面的所有选项
+
+    var opt0 = new Option('北京市', 'bj');
+    select.add(opt0);//option对象中的方法
+    var arr = [
+        {text: '天津市', value: 'tj'},
+        {text: '河北省', value: "hb"}
+    ];
+    for (var i = 0; i < arr.length; i++) {
+        var p = arr[i];
+//       Option(text, value)对象
+        var opt = new Option(p.text, p.value);
+        select.add(opt);
+    }
+    //设定天津市为默认选定项
+    //select.selectedIndex=1;
+    //console.log(select.selectedIndex);//selectedIndex当前被选定的下标
+    //select.options,   select里面的所有options选项
+    for (var i = 0; i < select.options.length; i++) {
+        //       Option(text, value)对象
+        var txt = select.options[i].text;
+        if(txt === '天津市'){
+            select.selectedIndex=i;
+            break;
+        }
+    }
+</script>
+</body>
+</html>

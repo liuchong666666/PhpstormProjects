@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-querySelector</title>
+</head>
+<body>
+<div id="main">
+    <span class="s1">a</span>
+    <span class="s2">b</span>
+    <span class="s1">v</span>
+    <span class="s2 s1 s3">v</span>
+</div>
+<script>
+    /*css学过的选择器都可以用
+    （5）document.querySelector('css选择器');//返回ElementNode，返回第一个匹配元素
+	（6）document.querySelectorAll('css选择器');//NodeList，返回所有的元素
+    */
+    //可以用所有选择器  div>span  div span，且只返回第一个
+   /* var x = document.querySelector('#main .s1');
+    console.log(x);*/
+
+//用css选择器时 才有.
+    var x = document.querySelectorAll('#main .s1');//用css选择器时 才有.
+    console.log(x);
+
+    var div = document.getElementById("main");
+    var list = div.querySelectorAll(".s1");//用css选择器时 才有.
+    console.log(list);
+</script>
+</body>
+</html>

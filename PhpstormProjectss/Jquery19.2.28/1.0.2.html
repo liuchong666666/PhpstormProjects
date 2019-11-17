@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="tQuery-1.0.2.js"></script>
+    <script>
+        //alert(window.navigator.userAgent);
+        //判断浏览器，兼容
+        /*   if (window.navigator.userAgent.toLowerCase().indexOf("firefox") != -1) {
+               alert("火狐浏览器");
+
+               function btn() {
+                   //测试text（）
+                   //console.log($(".red").text("<h1>hello world</h1>").size());
+                   //测试val（）
+                   console.log($("button").val(22));
+               }
+
+
+           } else if (window.navigator.userAgent.toLowerCase().indexOf("chrome") != -1) {
+               alert("谷歌浏览器");
+
+               function btn() {
+   //                console.log($(".red").text("<h1>hello world</h1>"));
+                   console.log($("button").val(22));
+               }
+           }*/
+        window.onload = function () {
+            console.log($("#myDiv").html());
+        }
+
+        function btn() {
+            //测试val（）方法，获取输入框的值
+            console.log($("#btnname").val());
+        }
+
+        function btn_setvalue() {
+            //测试val（）方法，设置输入框的值
+            $("#btnname").val("hello");
+        }
+
+        function attr() {
+//             $("div").attr("class","setwidth");
+            console.log($(".gre").attr("id"));
+        }
+
+        function addclass() {
+            $("div").addClass("setwidth").addClass("green");
+        }
+
+        function removeclass() {
+//            $("#container").removeClass("red");
+            $("#container").removeClass();
+            $("#myDiv").$("<div>1212233</div>");
+        }
+    </script>
+    <style type="text/css">
+        .setwidth {
+            width: 100px;
+            height: 100px;
+            /*border: 1px solid red;*/
+        }
+
+        .red {
+            border: 1px solid red;
+        }
+
+        .green {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+<div class="red" id="myDiv">1</div>
+<div class="red  setwidth" id="container">2</div>
+<div class="gre" id="greenid">3</div>
+用户名称：<input type="text" id="btnname" value=""/>
+<input type="button" value="测试" onclick="btn();"/>
+<input type="button" value="设置值" onclick="btn_setvalue();">
+<input type="button" value="attr" onclick="attr();">
+<input type="button" value="addclass" onclick="addclass();">
+<input type="button" value="removeclass" onclick="removeclass();">
+</body>
+</html>

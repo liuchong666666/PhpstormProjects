@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-navigator对象</title>
+</head>
+<body>
+<h2>BOM-navigator对象</h2>
+<script>
+    var emp = {ename: 'tom'};
+    var coder = Object.create(emp);
+    coder.skilledLanguage = 'js';
+    for (var attr in coder) {
+        if (coder.hasOwnProperty(attr)) {//自己具备的属性
+            console.log(attr + '=>' + coder[attr]);
+        }
+    }
+    for(var attr in navigator){
+        console.log(attr+'=>'+navigator[attr]);
+    }
+</script>
+</body>
+</html>

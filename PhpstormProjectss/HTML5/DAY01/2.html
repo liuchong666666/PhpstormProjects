@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" name="form1" id="form1">
+    用户名称：
+    <!--required防止域为空时提交表单，该值可以设置一个布尔类型的值-->
+    <input type="text" name="txtName" id="txtName"
+           placeholder="请输入用户名" required/>
+    <br/>
+    电子邮件：
+    <!--multiple填多个--><!--autofocus网页加载时自动获取焦点-->
+    <input type="email" id="txtEmail" name="txtEmail" multiple autofocus/>
+    <br/>
+    <!--Pattern属性的作用是实现元素的验证，它支持使用正则表达式定制验证规则-->
+    移动电话:
+    <!--<input type="text" pattern="13[0-9]\d{8}" name="phone"/>-->
+
+
+
+    <br/>
+    <input type="submit" value="提交"/>
+</form>
+<!--form一个实用的附加功能，它可用于在form标签之外声明表单元素-->
+对本网站的评价：<input type="text" name="txtComment" value="Very Good" form="form1"/>
+
+</body>
+</html>

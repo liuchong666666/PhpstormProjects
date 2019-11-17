@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event对象6</title>
+</head>
+<body>
+
+<!--onkeydown:按键被按下，按键的值尚未被目标接收到-->
+请输入你的取款金额：<input id="money" onkeydown="return checkNum(event)"/>
+<script>
+    //只允许1-9的数字输入 ，键盘上的两处数字键的code不一样
+    function checkNum(event) {
+//        console.log(event.keyCode);
+        var c = event.keyCode;
+        if ((c >= 48 && c <= 57) || (c >= 96 && c <= 105)) {
+            console.log(event.keyCode);
+            return true;
+        } else {
+            console.log("else：" + event.keyCode);
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单计算器</title>
+    <script type="text/javascript">
+        function cal() {
+            //获取文本框
+            var input = document.getElementById("text");
+            //获取span
+            var span = document.getElementById("result");
+            //获取文本框中的字符串
+            var text = input.value;
+            //将此字符串当作一个表r达式执行
+
+            //try catch捕获异常
+            try{
+                var r = eval("("+text+")");//括起来避免出现问题
+                span.innerHTML=r;
+            }catch (e){
+                //如果执行时发生异常，则给予提示
+                span.innerHTML="输入有误";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="text">
+<button onclick="cal();">
+    =
+</button>
+<span id="result"></span>
+</body>
+</html>

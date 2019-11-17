@@ -1,0 +1,62 @@
+/*#lol  {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*background: url("../lol_image/1.jpg");*/
+    /*!*background-repeat:no-repeat;*!*/
+/*}*/
+
+/*#lol a {*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*#lol #Totop {*/
+
+    /*!*border: 1px solid red;*!*/
+    /*position: fixed;*/
+    /*bottom: 20px;*/
+    /*right: 20px;*/
+
+/*}*/
+/*#lol .tb{*/
+    /*list-style-lol_image: url("../lol_image/weikeduo.jpg");*/
+
+/*}*/
+/*#lol .tb2{*/
+    /*list-style-lol_image: url("../lol_image/xia.jpg");*/
+/*}*/
+/*#lol .tb3{*/
+    /*list-style-lol_image: url("../lol_image/luo.jpg");*/
+/*}*/
+/*#lol div,table{*/
+    /*!*border: 1px solid red;*!*/
+/*}*/
+/*#lol #tishi{*/
+    /*width: 400px;*/
+    /*height: 50px;*/
+
+/*}*/
+/*#lol table{*/
+    /*height: 200px;*/
+/*}*/
+/*#lol #content{*/
+    /*position: relative;*/
+/*}*/
+/*#lol #tishi{*/
+    /*position: absolute;*/
+    /*top:240px;*/
+    /*left: 150px;*/
+    /*padding: 10px 10px 10px 40px;*/
+/*}*/
+/*#lol #tishi input{*/
+    /*width: 28px;*/
+    /*height: 29px;*/
+    /*float: right;*/
+/*}*/
+/*#lol #tishi{*/
+    /*background: url("../lol_image/ok.png") 8px 25px no-repeat;*/
+    /*background-color:rgba(192,192,192,0.5);*/
+/*}*/
+/*#lol #chacha{*/
+    /*background-lol_image: url("../lol_image/chacha.png");*/
+    /*border: 0;*/
+/*}*/

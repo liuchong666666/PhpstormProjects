@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<h4>计算1+2+3+...+N</h4>
+<script type="text/javascript">
+    var n=prompt("输入整数N",10);     //（1分）
+    if (n!=null)                        //（1分）
+    {
+        for (var i=1,sum=0;i<=n ;i++ )       //（2分）
+        {
+            sum=sum+i;
+        }
+        document.write("1+...+"+n+"="+sum);   //（1分）
+    }else{alert("请重新输入整数N！");}       //（1分）
+</script>
+
+
+</body>
+</html>

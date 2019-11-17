@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event对象2</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        float: left;
+        border: 1px solid #aaa;
+        text-align: center;
+    }
+
+    #d2 {
+        background: darkorange;
+    }
+
+    h2 {
+        height: 50px;
+    }
+</style>
+<body>
+<h2>事件发生的坐标</h2>
+<div>111</div>
+<div id="d2">222</div>
+<div>333</div>
+
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<script>
+    /*
+    * 鼠标事件：onclick 、 ondblclick、onmousedown、onmouseup、onmouseover、onmouseout、onmousemove(移动就触发)
+		键盘事件：onkeydown、onkeyup  （键盘上所有的键）
+		状态事件：onload（加载）、onunload（取消加载）、onchange、onfocus（聚焦）、onblur(失去焦点)、onresize（窗口大小改变）、onsubmit
+
+    * */
+    document.body.onkeydown = function () {
+        console.log("DOWN:"+event.keyCode)
+    };
+    document.body.onkeyup = function () {
+        console.log("UP:"+event.keyCode)
+    };
+  /*  document.getElementById('d2').onmousemove = function (e) {
+        console.log(e.clientX + '-' + e.clientY);
+    }*/
+
+    function btnPressed(e){
+
+        var src = e.srcElement || e.target;
+        console.log(src.innerHTML);
+    }
+
+    var arr=document.getElementsByTagName('button');
+  for(var i=0;i<arr.length;i++){
+      arr[i].onclick=btnPressed;
+  }
+</script>
+</body>
+</html>

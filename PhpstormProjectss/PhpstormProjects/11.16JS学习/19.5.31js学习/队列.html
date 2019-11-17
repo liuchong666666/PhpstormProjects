@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>队列</title>
+</head>
+<body>
+<script>
+    /*
+    * 队列：FIFO
+          入队列：arr.push(值1,....)  	//从结尾进去，push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。
+          出队列：var first = arr.shift()	//从开头出来，shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+    * */
+    var count = 5;
+    var queue = [];
+    for (var i = 0; i <= 5; i++) {
+        queue.push("顾客" + i);
+    }
+    queue.push("你");
+    document.write("当前排队顾客" + queue+"<br/>");
+    while (count > 0) {
+        var customer = queue.shift();
+        document.write(customer + "抢购成功"+"<br/>");
+        count--;
+    }
+    document.write(queue + "没抢上"+"<br/>");
+</script>
+</body>
+</html>

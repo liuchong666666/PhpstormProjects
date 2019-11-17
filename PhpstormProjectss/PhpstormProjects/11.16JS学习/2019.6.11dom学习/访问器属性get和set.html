@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /*
+    //创建一个正方形对象
+    var square1={
+      width:10,
+      perimeter:40,//周长
+      size:100  //面积
+    };
+    square1.width = 11;//数据完整性出问题了，因为改了边长，但周长面积还没变
+    */
+
+    var square2 = {
+        // width:10,//数据属性
+        _width: 0,//属性以下划线开头，相当于其它语言的私有属性，不让随便访问，但还是可以访问
+        get width() {
+            return this._width;
+        },
+        //好处：可以控制修改与只读
+        //若把set去掉   那这个width就只能只读，不可以修改 比如：square2.width=20不能修改width
+        set width(value) {
+            this._width = value;
+        },
+
+        get perimeter() {//get 访问器属性,get 只读，，，这里本质是个函数
+            console.log("perimeter属性的get访问器被调用了");
+            return this.width * 4;//因为,这里本质是个函数，不写this。他以为这是局部变量width
+        },
+        set perimeter(value) {//set 访问器属性,set  可写
+            console.log("perimeter属性的set访问器被调用了");
+            this.width = value / 4;
+        },
+        get size() {//面积
+            return this.width * this.width;
+        },
+        set size(value) {  //通过传入的面积值算边长
+            this.width = Math.sqrt(value);
+        }
+    };
+    square2.width = 20;
+    console.log(square2.width);
+    console.log(square2.perimeter);
+
+    square2.width = 20;//只要改边长，周长和面积都会改
+    console.log(square2.width);
+    console.log(square2.perimeter);
+
+    square2.perimeter = 200;//没设置set时，修改周长无效
+    console.log(square2.width);
+    console.log(square2.perimeter);
+
+    console.log(square2.size);//访问器属性是属性，size后面不能加括号
+
+    square2.size = 10000;//本质修改边长width
+    console.log(square2.width);
+    console.log(square2.size);
+
+console.log("----------------------------------------------------------------------------------------------------------------------------");
+    var square3 = {};
+//width：普通数据属性
+    Object.defineProperty(
+        square3,
+        'width',
+        {
+            value: 10,
+            writable: true,
+            enumerable: true,
+            configurable: false
+        }
+    );
+    //
+    Object.defineProperty(
+        square3,
+        'perimeter',
+        {
+            get: function () {
+                return this.width * 4;
+            },
+            set: function (value) {
+                this.width = value / 4;
+            },
+            enumerable: true,
+            configurable: false
+        }
+    );
+    Object.defineProperty(
+        square3,
+        'size',
+        {
+            get: function () {
+                return this.width * this.width;
+            },
+            set: function (value) {
+                this.width = Math.sqrt(value);
+            },
+            enumerable: true,
+            configurable: false
+        }
+    );
+
+    //枚举square3
+    for (var key in square3) {
+        console.log(key + "=>" + square3[key]);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>联动菜单</title>
+    <script type="text/javascript">
+        //事先预置颜色
+        var cities = [
+          /*  ["请选择"],
+            ["red", "blue", "white"],
+            ["yellow", "green", "black"],
+            ["orange", "purple", "scarlet"]*/
+            ["请选择"],
+            ["青岛", "济南", "烟台"],
+            ["杭州", "宁波", "温州"],
+            ["南京", "无锡", "苏州"]
+        ];
+
+        function change() {
+            //获取当前选中的英雄
+            var province= document.getElementById("province");
+            var pindex = province.value;
+            //删除所有颜色
+            var city = document.getElementById("city");
+
+
+         /*   var options = city.getElementsByTagName("option");//获取城市下面的option
+            //遍历
+            for (var i = 0; i < options.length; i++) {
+                options[i].parentNode.removeChild(options[i]);
+            }*/
+
+           /* var color = document.getElementById("color");
+
+            var options = color.getElementsByTagName("option");
+            for (var i = 0; i < options.length; i++) {
+                options[i].parentNode.removeChild(options[i]);
+            }*/
+            city.innerHTML="";
+            //重新添加英雄属性下面的颜色
+            var pcities = cities[pindex];//获取当前英雄下的颜色
+            for (var i = 0; i < pcities.length; i++) {
+                //创建节点
+                var option = document.createElement("option");
+                //设置新节点的值
+                option.setAttribute("value", i);
+                option.innerHTML = pcities[i];
+                //将新节点追加到颜色下拉列表中
+               city.appendChild(option);
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+英雄：
+<select id="province" onchange="change();">
+    <option value="0">请选择</option>
+    <option value="1">亚索</option>
+    <option value="2">Vn</option>
+    <option value="3">剑圣</option>
+</select>
+皮肤颜色：
+<select id="city">
+    <option>请选择</option>
+</select>
+</body>
+</html>

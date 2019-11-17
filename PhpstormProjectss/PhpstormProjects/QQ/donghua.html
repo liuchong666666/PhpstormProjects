@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+</head>
+<body >
+<div align="center">
+<video width="500px" height="500px" controls="controls" id="video1" >
+    <source src="yasuo.mp4" type="video/mp4">
+    <object data="yasuo.mp4" type="video/mp4">
+    <embed src="yasuo.mp4" type="video/mp4">
+    </object>
+
+</video>
+    <div>
+    <button onclick="playPause();">播放/暂停</button>
+    <button onclick="makeBig();">大</button>
+    <button onclick="makeNormal();">中</button>
+    <button onclick="makeSmall();">小</button>
+    </div>
+    <script type="text/javascript">
+        var myVideo=document.getElementById("video1");
+    function playPause() {
+        if(myVideo.paused)
+            myVideo.play()
+        else
+            myVideo.pause();
+    }
+    function makeBig() {
+        myVideo.width=600;
+
+    }
+    function makeNormal() {
+        myVideo.width=500;
+    }
+    function makeSmall() {
+        myVideo.width=450;
+    }
+    </script>
+    <p>音乐</p>
+    <audio src="donghua/song.ogg" controls></audio>
+</div>
+</body>
+</html>

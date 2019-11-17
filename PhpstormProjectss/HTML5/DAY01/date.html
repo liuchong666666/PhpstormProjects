@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function  initial() {
+            //1获取元素
+            txtDate=$("txtDate");
+            btn=$("btn");
+            //2绑定事件
+            btn.addEventListener("click",btn_click,false);
+        }
+        function  btn_click() {
+            console.log(txtDate.value);
+            console.log($("txtWeek").value);
+            console.log($("txtTime").value);
+        }
+        window.addEventListener("load",initial,false);
+    </script>
+</head>
+<body>
+日期类型：<input type="date" id="txtDate"/>
+周类型: <input type="week" id="txtWeek"/>
+本地日期与时间类型： <input type="datetime-local" id="txtTime"/>
+<input type="button" value="View" id="btn"/>
+</body>
+</html>

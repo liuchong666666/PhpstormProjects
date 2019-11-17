@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const a = () => {
+        console.log('123')
+    }
+    var i=60;
+    var time = setInterval(function () {
+        b();
+        i--
+        console.log(i)
+    },1000);
+    const b = () => {
+        //怎么完善这个b()函数，才能让函数b在60s内多次被执行，而函数a必须60s后才能执行且执行1次
+        if(i==0)
+            a()
+        clearInterval(time)
+    }
+</script>
+</body>
+</html>

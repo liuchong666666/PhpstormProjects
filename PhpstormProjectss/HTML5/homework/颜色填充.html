@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>颜色填充</title>
+    <style>
+        #myDiv{
+            width: 200px;
+            height: 200px;
+            background-color:red;
+        }
+    </style>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function initial(){
+//            $("range1").addEventListener("change",color_change,false);
+//            $("range2").addEventListener("change",color_change,false);
+//            $("range3").addEventListener("change",color_change,false);
+            var elems=document.getElementsByTagName("input");
+            for(var i=0;i<elems.length;i++){
+                if(elems[i].type=="range"){
+                    elems[i].addEventListener("change",color_change,false);
+                }
+            }
+        }
+     /*   function initial(){
+            //1、获取元素
+            myDiv=$("myDiv");
+            //2、绑定事件
+            var elems=document.getElementsByTagName("input");
+            for(var i=0;i<elems.length;i++){
+                var elem=elems[i];
+                if(elem.type == "range"){
+                    elem.addEventListener("change",color_change,false);
+                }
+//            }
+//        }*/
+
+        function color_change(){
+           var r=$("range1").value;
+            console.log(r);
+           var g=$("range2").value;
+            console.log(g);
+           var b=$("range3").value;
+            $("myDiv").style.backgroundColor="rgb("+r+","+g+","+b+")";
+
+        }
+        window.addEventListener("load",initial,false);
+    </script>
+</head>
+<body>
+<div id="myDiv"></div>
+R<input type="range" min="0" max="255" id="range1">255g<br/>
+G<input type="range" min="0" max="255" id="range2">255r<br/>
+B<input type="range" min="0" max="255" id="range3">255b
+</body>
+</html>

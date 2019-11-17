@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12.7练手</title>
+    <style type="text/css">
+        div {
+            width: 960px;
+            /*border: 1px solid red;*/
+            margin: 0 auto;
+            background-color: greenyellow;
+        }
+
+        #top {
+            height: 100px;
+        }
+
+        #center {
+            height: 350px;
+        }
+
+        #bottom_1 {
+            height: 30px;
+            background-color: #999999;
+        }
+
+        #bottom_2 {
+            height: 50px;
+        }
+
+        #hx {
+            margin: 0;
+            padding: 0;
+        }
+
+        #center_1 {
+            height: 40px;
+            border: 0px;
+            border-bottom: 1px solid #009933;
+        }
+        #center_2{
+            height: 310px;
+        }
+
+        #center_1 p {
+            margin: 0px;
+            padding-top: 10px;
+            padding-left: 20px;
+            color: #00CC33;
+        }
+
+        #center_1 a {
+            color: #009933;
+        }
+        #center_2 ul{
+            list-style-type: none;
+            margin: 0px;
+            padding-top: 100px;
+            padding-left: 300px;
+        }
+        li{
+            margin-top: 5px;
+        }
+        button{
+          color: #00CC33;
+        }
+        #zh{
+            width: 251px;
+        }
+        #an{
+            background-color: #0C3;
+        }
+    </style>
+</head>
+<body>
+<div id="top"></div>
+<hr id="hx">
+<div id="center">
+    <div id="center_1">
+        <a href=""><p> 查询账单</p></a>
+    </div>
+    <div id="center_2">
+        <ul>
+            <li><input type="text" value="请输入账户" id="zh"></li>
+            <li><input type="text" value="请输入验证码" id="yzm"></li>
+            <li><input type="button" value="查询" id="an"></li>
+        </ul>
+    </div>
+</div>
+<div id="bottom_1"></div>
+<div id="bottom_2"></div>
+</body>
+</html>

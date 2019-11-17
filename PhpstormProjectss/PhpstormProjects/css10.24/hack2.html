@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .d1{
+            background: #afa;
+        }
+        /*  *html前缀 只有IE6能理解  */
+        *html .d1{
+            background:#faa;
+        }
+        /**+html只有IE7能理解的选择器*/
+        *+html .d1{
+            background:#faa;
+        }
+    </style>
+</head>
+<body>
+<div class="d1">12</div>
+</body>
+</html>

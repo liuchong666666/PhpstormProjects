@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包closure</title>
+</head>
+<body>
+<script>
+    function counter() {
+        var n = 0;
+        function getUnique() {
+         //   var n=0;//如果这里有n，这就不是闭包了，就不会用上面那个n,就会用这个n
+            return n++;
+        }
+        return getUnique;
+    }
+    //调用方法创建3个对象：
+    //方法的运行环境对象：不保存任何东西
+    //方法的活动对象：保存所有局部变量
+    //方法的作用域链对象：保存所有可用变量所在对象的地址
+    var c= counter();
+    //调用完，活动对象释放！！
+    //c中保存的是可以执行的方法对象
+    console.log(c());//0
+    n=0;//自动声明为全局变量，不会影响闭包里面的n
+    console.log(c());//1
+    console.log(c());//2
+    c=null;//释放闭包占用的资源
+
+</script>
+
+</body >
+</html>

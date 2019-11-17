@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>出栈和入栈</title>
+</head>
+<body>
+<script>
+    //结尾入栈出栈： 先进的后出！后进的先出
+    //和大巴车上人一样，但只有一个门，先进的后出
+    var bus = [];
+    /*上车*/
+    for (var i = 0; i <= 5; i++) {
+        var c = bus.push("乘客" + i);
+    }
+    document.write("上车后：" + bus + "<br/>");
+    /*下车*/
+    while (bus.length > 0) {
+        var customer = bus.pop();
+        document.write(customer + "下车" + "<br/>");
+    }
+    document.write("下车后" + bus);
+
+//=====================================================================================================
+    document.write("<hr/>");
+
+    //开头入栈出栈  先进的后出！后进的先出
+    var bus1 = [];
+    /*上车*/
+    for (var i = 0; i <= 5; i++) {
+        bus1.unshift("乘客" + i);
+    }
+    document.write("上车后：" + bus1 + "<br/>");
+    /*下车*/
+    while (bus1.length > 0) {
+        var customer1 = bus1.shift();
+        document.write(customer1 +"下车<br/>");
+    }
+    document.write("下车后" + bus1);
+</script>
+</body>
+</html>

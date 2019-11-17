@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车.11</title>
+    <style type="text/css">
+        h1 {
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        table {
+
+            border: 3px solid #CCCCCC;
+            margin: 20px auto;
+            width: 600px;
+            height: 300px;
+            border-collapse: collapse;
+
+        }
+
+        table td, table th {
+            border: 3px solid #CCCCCC;
+            padding: 10px;
+
+        }
+
+        #table2 {
+            width: 600px;
+            height: auto;
+        }
+
+        table th {
+            background: #eeeeee;
+        }
+    </style>
+    <script type="text/javascript">
+        function add_shoppingcart(btn) {//btn是button
+            /*1.根据点击的按钮，获取同行的商品名和单价*/
+            var tr = btn.parentNode.parentNode;//btn和商品名，单价是堂兄
+            //所以先找btn和商品名，单价一样的爷爷（tr）
+            // 然后通过爷爷tr的所有td的孩子
+            var tds = tr.getElementsByTagName("td");
+            //第一个td的内容是商品名
+            var name = tds[0].innerText;
+            //第二个td的内容是单价
+            var price = tds[1].innerText;
+            alert(name + "," + price);
+            /*2.创建一个tr，将它插入购物车中*/
+            var tbody = document.getElementById("goods");
+
+            /*var new_tr=document.createElement("tr");
+            var new_td0=document.crerateElement("td);
+            var new_td1=document.createElement("td);
+            然后将4个td插入tr(用tr.appendChild())    再将t插入购物车 一层一层的*/
+
+            var ntr = tbody.insertRow();//这行意思是在tbody下插入一行tr
+
+            // ntr.appendChild("td");
+            //然后td里面设置内容
+            //以上两步可以用下面这个innerHTML代替
+            ntr.innerHTML =
+                '<td>' + name + '</td>' +
+                '<td>' + price + '</td>' +
+                ' <td align="center">' +
+                '  <input type="button" value="-">' +
+                '  <input type="text" value="1" style="width: 50px" readonly="readonly" size="3">' +
+                '  <input type="button" value="+">' +
+                '</td>' +
+                '<td>' + price + '</td>' +
+                '<td style="text-align: center">' +
+                '<input type="button" value="X">' +
+                '</td>';
+        }
+    </script>
+</head>
+<body>
+<h1>真划算</h1>
+<table border="1" cellpadding="5">
+
+    <tr>
+        <th>商品</th>
+        <th>单价（元）</th>
+        <th>颜色</th>
+        <th>库存</th>
+        <th>好评率</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>罗技M185鼠标</td>
+        <td>80</td>
+        <td>黑色</td>
+        <td>893</td>
+        <td>98%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+            <!--this就是当前正在单击的button-->
+        </td>
+    </tr>
+    <tr>
+        <td>微软X470键盘</td>
+        <td>150</td>
+        <td>黑色</td>
+        <td>9028</td>
+        <td>96%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>洛克iphone6手机壳</td>
+        <td>60</td>
+        <td>透明</td>
+        <td>672</td>
+        <td>99%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>蓝牙耳机</td>
+        <td>100</td>
+        <td>蓝色</td>
+        <td>8937</td>
+        <td>95%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>金士顿U盘</td>
+        <td>70</td>
+        <td>红色</td>
+        <td>482</td>
+        <td>100%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+</table>
+&nbsp;&nbsp;&nbsp;
+<h1>购物车</h1>
+<table border="1" id="table2">
+    <thead>
+    <tr>
+        <th>商品</th>
+        <th>单价（元）</th>
+        <th>数量</th>
+        <th>金额（元）</th>
+        <th>删除</th>
+    </tr>
+    </thead>
+    <tbody id="goods">
+    <!--这个tr只是最初的演示-->
+    <!--
+    <tr>
+        <td>罗技M185鼠标</td>
+        <td>80</td>
+        <td align="center">
+            <input type="button" value="-">
+            <input type="text" value="1" style="width: 50px" readonly="readonly" size="3">
+            <input type="button" value="+">
+        </td>
+        <td>80</td>
+        <td style="text-align: center">
+            <input type="button" value="X">
+        </td>
+    </tr>
+    -->
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" align="right">总计</td>
+        <td id="total"></td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

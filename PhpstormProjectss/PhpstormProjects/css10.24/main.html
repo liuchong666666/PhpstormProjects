@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Title</title>
+    <style type="text/css">
+        /*从来没点过的超链接*/
+        a:link {
+            color: blue;
+        }
+
+        /*访问过的链接*/
+        a:visited {
+            color: red;
+        }
+        /*a:hover {*/
+            /*color: cornflowerblue;*/
+        /*}*/
+        /*选择激活（正被点中）的元素*/
+        #btn:active{
+            background-color: blue;
+        }
+/*选择鼠标悬停的目标*/
+        img:hover{
+            width: 450px;
+            height: 350px;
+        }
+        /*选择有焦点的文本框*/
+        #t1:focus{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<p>成都市<u>龙泉驿区<b>十陵街道</b></u>十陵上街一号</p>
+<a href="https://www.baidu1.com/" target="_blank">百度1</a>
+<input type="button" name="点我" value="点我" id="btn">
+<img src="images/3.png" alt="" width="100px " height="100px">
+<p><input type="text"  id="t1"></p>
+</body>
+</html>

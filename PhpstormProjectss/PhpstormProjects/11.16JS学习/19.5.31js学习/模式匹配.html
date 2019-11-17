@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模式匹配</title>
+</head>
+<body>
+<script>
+    //       var reg=/no/i;  no是要查找的关键字原文，不加“” i表示忽略大小写！g表示全局查找和替换
+    //
+    //	    String类型中，提供了专门支持模式匹配的API!
+    //        按模式替换关键字：str = str.replace(reg,"新值")
+    var str = "No zuo no die";
+//   var reg = /no/i;//忽略大小写!只替换一个
+ //   var reg = /aa/ig;//替换全局的no
+    var reg = /no/ig;//替换全局的no
+
+
+    //    match:*****如果未找到，返回null！**** **都要先判断!=null，再处理*********
+    //    如果未找到，返回null！则下面的null.length会出错， 要在堆中实实在在的对象才能点（.）  null啥也没有，所以不能.length
+    var kwords = str.match(reg);//返回数组//获取*所有*关键字的*内容*：var kwoords = str.match(reg);//返回数组
+    document.write(kwords+"<br/>");
+
+    str = str.replace(reg, "***");
+    document.write(str+"<br/>");
+
+    //    match:*****如果未找到，返回null！**** **都要先判断!=null，再处理*********
+    //    如果未找到，返回null！则下面的null.length会出错， 要在堆中实实在在的对象才能点（.）  null啥也没有，所以不能.length
+    if(kwords!=null){
+        document.write("共替换了多少处："+kwords.length);
+    }
+
+    var  html="<h2><a href=\"http://www.baidu.com?k=jajaj&p=10\">";
+    html =html.replace(/&/g,"&amp;");
+    html = html.replace(/</g,"&lt;");
+    html =html.replace(/>/g,"&gt;");
+    html =html.replace(/"/g,"&quot;");
+    html =html.replace(/ /g,"&nbsp;");
+    document.write(html);
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>apply和call的使用</title>
+</head>
+<body>
+<script>
+/*
+    //    'use strict';//严格模式
+    //apply和call的使用
+    //作用：可以改变this的指向
+    function f1(x, y) {
+        console.log('结果是：' + (x + y) + this);
+        return '10000';
+    }
+
+    f1(10, 20);//函数的调用
+
+    console.log('===============');
+    //此时的f1实际上是当成对象来使用的，对象可以调用方法
+    //apply和call方法也是函数的调用的方式
+//    f1.apply();
+//     f1.call();
+//    console.log('===============');
+//    f1.apply(null);
+//    f1.call(null);
+//    console.log('===============');
+    //apply和call方法中如果没有传入参数，或者传入的是null，
+    // 那么调用该方法的函数对象中的this就是默认的window
+
+    f1.apply(null, [100, 200]);
+    f1.call(null, 100, 200);
+
+    //    apply和call都可以让函数或者方法来调用，传入参数和函数自己调用的写法不一样，但是效果是一样的
+    var reuslt1 = f1.apply(null, [10, 20]);
+    var reuslt2 = f1.call(null, 10, 20);
+    console.log(reuslt1);
+    console.log(reuslt2);
+    console.log('=================================================');
+
+
+    function f2(x, y) {
+        console.log('这个函数是window对象的一个方法' + (x + y) + this.age);
+    }
+
+    window.f2(10, 20);
+
+    console.log('=================================================');
+
+
+    //obj是一个对象
+    var obj = {
+        age: 10,
+        sex: "男"
+    };
+    window.f2.apply(obj, [10, 20]);//传入obj后，f1就不属于window下的函数了，f1函数属于obj对象下的的方法了
+    window.f2.call(obj, 10, 20);
+    console.dir(obj);//console.dir()可以显示一个对象所有的属性和方法。
+
+    //apply和call可以改变this的指向
+    console.log('=================================================');
+*/
+
+    function Person(age, sex) {
+        this.age = age;
+        this.sex = sex;
+    }
+
+    //通过原型添加方法
+    Person.prototype.sayHi = function (x,y) {//通过原型给Person对象添加方法
+        console.log("你好啊" + this.sex);
+        console.log(x+'-'+y);
+//        console.log(this);
+        return 1000;
+    };
+
+    var per = new Person(10, '男');
+    per.sayHi();
+
+    console.log('=================================================');
+
+    function Student(name, sex) {
+        this.name = name;
+        this.sex = sex;
+    }
+
+    var stu = new Student("小明", 'man');
+    var r1 = per.sayHi.apply(stu,[10,20]);
+    var r2 = per.sayHi.call(stu,10,20);
+    console.log(r1+'-'+r2);
+    /**js  apply和call底层代码
+     @param {Object} [thisArg]//对象
+     @param {Array} [argArray]//数组
+     @return {*}
+     */
+    //Function.prototype.apply = function(thisArg,argArray) {};
+    /**
+     @param {Object} [thisArg]//对象
+     @param {...*} [args] 三个点表示可以传入多个数据，*代表任意类型
+     @return {*}
+     */
+    //Function.prototype.call = function(thisArg,args) {};
+    //Function = {};
+
+</script>
+</body>
+</html>

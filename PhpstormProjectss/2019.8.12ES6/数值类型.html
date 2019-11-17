@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    Number.isNaN函数
+    Number.isNaN('abc'); //结果：false
+    isNaN('abc');//结果：true
+    //'abc'无法转为一个数值，返回true
+//    Number.isFinite函数：Number.isFinite函数：用来检查一个数值是否非无穷
+    Number.isFinite(1);
+    //结果：true，数值1是有穷，即非无穷
+    Number.isFinite(Infinity);
+    //结果：false，Infinity表示无穷大的特殊值
+    Number.isFinite('abc'); //结果：false
+//    Number.parseInt函数:parseInt函数：解析一个字符串，返回一个整数。
+//    Number.parseFloat函数：parseFloat函数：解析一个字符串，并返回一个浮点数。
+//    Number.isInteger函数： Number.isInteger函数：用来判断是否是整数。
+    Number.isInteger(3.2);
+    //结果：false
+    Number.isInteger(3);
+    //结果：true
+    Number.isInteger(3.0);
+    //结果：true
+    Number.isInteger(3.00);
+    //结果：true
+//    Math.sign函数： Math.sign函数：用来判断一个数到底是正数、负数、还是零（正、负、零)
+    Math.sign(3);
+    //结果：1
+    Math.sign(-3);
+    //结果：-1
+    Math.sign(0);
+    //结果：0
+    Math.sign('abc');
+    //结果：NaN
+//Math.cbrt函数：用于计算一个数的立方根。
+    Math.cbrt(8);
+    //结果：2
+    Math.cbrt(27);
+    //结果：3
+//Math.trunc函数：用于去除一个数的小数部分，返回整数部分。
+//整数部分为0时也会判断符号
+console.log(Math.trunc(0.5))//0
+console.log(Math.trunc(-0.5))//-0
+    Math.trunc(3);
+    //结果：3
+    Math.trunc(3.1);
+    //结果：3
+    Math.trunc('asdas')//NaN
+</script>
+</body>
+</html>

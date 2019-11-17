@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市联动菜单</title>
+    <script type="text/javascript">
+        //事先预置好每个省所对应的市
+        // 这是一个二维数组， 数组的下标对应着省的序号
+        //即0——无 ，1——山东，2——浙江，3——江苏。
+        //数组中的每一个元素都是数组，其值就是当前这个省
+        //所对应的城市的名称。
+        var cities = [
+            ["请选择"],
+            ["青岛", "济南", "烟台"],
+            ["杭州", "宁波", "温州"],
+            ["南京", "无锡", "苏州"]
+        ];
+
+        function change() {
+            //获取当前选中的省
+            var province = document.getElementById("province");
+            var pindex = province.value;
+            //删除所有的市
+            var city = document.getElementById("city");
+
+
+            /* var options = city.getElementsByTagName("option");//获取城市下面的option
+
+             //遍历
+             for (var i = 0; i < options.length; i++) {
+                 options[i].parentNode.removeChild(options[i]);
+             }
+            */
+
+            city.innerHTML = "";//清空内容，如果删除某一个元素，得用上面的
+
+            //然后重新添加这个省下面的市
+            var pcities = cities[pindex];//获取当前省的城市
+            for (var i = 0; i < pcities.length; i++) {
+                //创建option节点
+                var option = document.createElement("option");
+                //设置新节点的值
+                option.setAttribute("value", i);
+                option.innerHTML = pcities[i];
+                //将新节点追加到城市下拉选中
+                city.appendChild(option);
+            }
+        }
+    </script>
+</head>
+<body>
+<!--option的内容是下拉选选项显示的值，
+而option的value是获取select节点返回值，
+返回的是选中的option的value值。-->
+
+<!--onchange是值改变事件，当值发生改变时触发-->
+省：
+<select id="province" onchange="change();">
+    <option value="0">请选择</option>
+    <option value="1">山东省</option>
+    <option value="2">浙江省</option>
+    <option value="3">江苏省</option>
+</select>
+&nbsp;&nbsp;&nbsp;
+市：
+<select id="city">
+    <option>请选择</option>
+</select>
+</body>
+</html>

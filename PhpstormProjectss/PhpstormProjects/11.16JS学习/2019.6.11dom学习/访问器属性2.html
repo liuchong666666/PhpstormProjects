@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var stu = {chinese: 90};//为对象添加属性
+    stu.math = 80;//为对象添加属性
+
+    console.log(stu.chinese);
+    console.log(stu.math);
+    //遍历、枚举对象的每个属性
+    for (var p in stu) {
+        console.log(p + '=>' + stu[p]);
+    }
+    //遍历、枚举对象的每个属性
+    var arr = Object.keys(stu);
+    console.log('stu对象中属性的个数' + arr.length);//可以for循环出每个属性
+
+
+    //为对象添加一个新的数据属性 Object.defineProperty--ECMAScript5新添加的语法
+    Object.defineProperty(
+        stu,//在哪个对象里添加
+        'english',//需要添加的属性名是什么
+        {//属性描述符对象
+            //对该添加的属性增加特性
+            //1.数据属性的特性：value、writable（可写吗）、enumerable（可枚举吗）、configurable（可配置吗） 后面三个默认值是false
+            value: 99,
+            //下面三个属性性，可写可不写。默认false
+            writable: false,//可写吗，能否被修改
+            enumerable: true,//可枚举吗:能否被遍历
+            confirgurable: false//可配置吗
+        }
+    );
+    console.log(stu.english);
+    stu.english = 100;//   writable:false, 不可修改
+    console.log(stu.english);
+
+    //使用属性的特性定义一个新的访问器属性
+    Object.defineProperty(
+        stu,
+        'total',
+        {//属性的描述符对象--定义属性的特性
+            get: function () {
+                return this.chinese + this.math + this.english;
+            },
+            /* set: function (value) {
+                 //因为total是三门总和，不能通过这个总成绩分配给三门成绩
+             },*/
+            enumerable: true,
+            configurable: true
+        }
+    );
+    console.log(stu.total);
+
+    //遍历、枚举对象的每个属性
+    for (var p in stu) {
+        console.log(p + '=>' + stu[p]);
+    }
+    //遍历、枚举对象的每个属性
+    var arr = Object.keys(stu);
+    console.log('stu对象中属性的个数' + arr.length);//可以for循环出每个属性
+
+    /*
+    //重新配置属性的特性
+    Object.defineProperty(
+        stu,
+        'english',
+        {
+            value:98,
+            writable:true//修改无效，因为上面的confirgurable:false//不可修改
+        }
+    );*/
+</script>
+</body>
+</html>

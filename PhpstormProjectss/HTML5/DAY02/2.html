@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+
+        function initial() {
+//            invalid事件时候必须用true才能捕获，//invalid获取产生错误的元素
+            document.frmLogin.addEventListener("invalid",frmLogin_invalid,true);
+        }
+
+        //表单执行遇到错误时激发的事件
+        function  frmLogin_invalid(e){
+            //获取产生错误的元素
+            var tar = e.target;
+//            console.log(tar);
+//            所有元素出错都可以加一个Tip就变成了<span id=" tar.id+"Tip" "></span>提示文本框
+            var tipId = tar.id+"Tip";//所有元素出错都可以加一个Tip就变成了<span id=" tar.id+"Tip" "></span>提示文本框
+            $(tipId).innerHTML="请输入正确数据";
+        }
+        window.addEventListener("load",initial,false);
+    </script>
+</head>
+<body>
+<form action="" name="frmLogin">
+    用户名称：<input type="text" id="txtName" required/>
+    <span id="txtNameTip"></span><br/>
+    <!--//如果没有required,默认可以为空-->
+    用户Email：<input type="email" id="txtEmail" required/>
+    <span id="txtEmailTip"></span><br/>
+
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

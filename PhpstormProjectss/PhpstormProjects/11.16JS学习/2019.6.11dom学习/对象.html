@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num1 = 10;
+    var num2 = new Number(20);
+    //获取一个对象的原型
+    // Object.getPrototypeOf(obj)
+    console.log(Object.getPrototypeOf(num1));// 原型Number
+    console.log(Object.getPrototypeOf(num2));// 原型Number
+
+    var s1 = new String('abc');
+    var s2 = "adc";
+    console.log(Object.getPrototypeOf(s1));// 原型String
+    console.log(Object.getPrototypeOf(s2));// 原型String
+
+    console.log("...............。。。................................................");
+
+    console.log("创建对象的方法");
+    var plane = {
+        capacity: 200,
+        speed: 0,
+        load: function () {
+            console.log("飞机。。。");
+
+        }
+    };
+    console.log(plane.speed);
+    console.log(plane.load());
+
+    console.log("...............。。。................................................");
+    console.log("方法一");
+    var plane1 = new Object();
+    plane1.speed = 200;
+    plane1.load = function () {
+        console.log("飞机1。。。");
+
+    };
+    console.log(plane1.speed);
+    console.log(plane1.load());
+
+    console.log("...............。。。................................................");
+    console.log("方法二");
+    //构造方法
+    //函数本质是对象，函数名 Flying相当于对象引用
+    function Flying(name, speed) {
+        //必须用this，因为这个对象默认没有任何属性，他继承至object
+        this.name = name;
+        this.speed = speed;
+        this.fly = function () {
+            console.log("fly");//最好把函数放全局里面，每次要用的时候就直接用   ，就不用每次重新创建function对象
+        },
+            this.load = function () {
+                console.log("load");
+            }
+    }
+
+    var s = new Flying('a', 1200);
+    console.log(s.name + s.speed);
+    console.log(s.load());
+
+    console.log("...............。。。................................................");
+    console.log("方法三，推荐这个");
+    //var fo1 = new Flying('', 0);//Flying上面的对象
+
+    //继承模板，推荐这种方式!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    function Plane(name, speed, capacity) {
+        //修改当前对象的原型对象
+        Object.setPrototypeOf(this, new Flying(name, speed));//这样写每当创建一个飞机，就创建 new FlyObject(name, speed)新父对象
+        //Object.setPrototypeOf(this, fo1);//这样写每次创建飞机的时候，都继承一个父对象fo1
+         this.capacity = capacity;
+        this.load = function () {
+            console.log("推荐这个feiji");
+        }
+    }
+    var plane2 = new Plane('A380',2000,200);
+
+    console.log(plane2.name);
+    console.log(plane2.speed);
+    console.log(plane2.capacity);
+    console.log(plane2.load());
+
+
+    console.log("...............。。。................................................");
+
+    console.log("方法4");
+    function  Plance(capacity){
+        this.capacity=capacity;
+        this.load = function () {
+            console.log("123");
+        }
+    }
+    Plance.prototype=new Flying('飞行物',0);//强行修改Plance的原型
+    var plane4 = new Plance('A380',2000,200);
+
+    console.log(plane4.name);
+    console.log(plane4.speed);
+    console.log(plane4.capacity);
+    console.log(plane4.load());
+
+
+    console.log("...............。。。................................................");
+    console.log("方法5");
+  //  var fo1 = Object.create(null);//不继承自object，完全独立的对象,不想要object就可以这样写
+   /* var fo1 = Object.create( {
+        name: '飞行物',
+        speed: 0,
+        load: function () {
+            console.log("飞机。。。");
+        }
+    }）;
+    这个和下面的是一样的
+    */
+    var fo1 = {
+        name: '飞行物',
+        speed: 0,
+        load: function () {
+            console.log("飞机。。。");
+        }
+    };
+
+    var plane5 = Object.create(fo1);
+    plane5.capacity=200;
+    plane5.load=function () {
+        console.log("装乘客");
+    };
+    console.log(plane5.speed);
+    console.log(plane5.capacity);
+    console.log(plane5.load());
+
+
+</script>
+</body>
+</html>

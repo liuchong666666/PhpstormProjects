@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二进制</title>
+</head>
+<body>
+<script>
+
+    //数反复/2，保留每次的余数
+    //当相除的结果（商）为0，结束
+    //循环条件：商不等于0
+    //循环变量：商
+    //循环体：上一次的商%2（余数），余数结果存入数组
+    //商替换为商/2
+    //最后将余数反转
+
+
+    bin.reverse();//反转余数 var bin=[];
+    var num=131;//除2后的商
+    while(num!=0){
+        bin.push(num%2);//取余数//或者 bin[bin.length]=num%2,向数组末尾追加数
+        num=parseInt(num/2);
+    }
+    document.write(bin.join(""));//10000011
+    //1   0  0   0   0   0  1  1  反转后的余数
+    //128 64 32  16  8   4  2  1
+    //1*128 + 64*0 + 32*0 +16*0 +8*0+4*0+1*2+1*1 =131
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title></title>
+    <style type="text/css">
+        *{margin:0; padding:0;}
+        div,span{
+            border: 1px solid #000;
+        }
+        span{
+            padding: 70px 0;
+        }
+      /*  img{
+            vertical-align: middle;
+            transform-origin: left top;指定变形的原点
+            transform: scale(0.5, 0.5);
+        }*/
+       /*img{*/
+            /*vertical-align:middle;*/
+            /*!*3D旋转*!*/
+            /*-webkit-perspective:85px;perspective：视距，表示视点距离屏幕的长短。视点，用于模拟透视效果时人眼的位置。*/
+            /*transform:rotateX(45deg);*/
+        /*}*/
+        img{
+            vertical-align: middle;
+            transform-origin: center center;
+            transform: skew(45deg)  translate(100px) rotate(45deg);
+        }
+    body{
+        -webkit-perspective:200px;
+
+    }
+    /*img{*/
+        /*vertical-align: middle;*/
+        /*transform: scaleZ(1.5) translateZ(50px) rotateX(45deg) ;*/
+
+    /*}*/
+        @-webkit-keyframes vAnim{
+            0%{
+                transform: translate(0);
+            }
+            45%{
+                transform: translate(0,200px);
+            }
+            100%{
+                transform: translate(300px,0);
+            }
+        }
+        img{
+            -webkit-animation:vAnim 4s;
+        }
+    </style>
+</head>
+
+<body>
+<div>一个区块1</div>
+<div style="text-align:center;"><span>一个内联2</span>
+
+<img src="images/i6.png"/>
+<span>一个内联3</span>
+<div style="transform:scale(1.5) translate(200px, 10px);">一个区块4</div></div>
+</body>
+</html>

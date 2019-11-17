@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证插件</title>
+    <link rel="stylesheet" href="formValidator/style/validator.css"/>
+    <script src="formValidator/jquery-1.11.1.js"></script>
+    <script src="formValidator/formValidator_min.js"></script>
+    <script src="formValidator/formValidatorRegex.js"></script><!--//需要正则就引入正则的js文件，最好引入一下，可能这个里面引用了相关内容-->
+    <script>
+        $(document).ready(function () {
+            //1、表单验证初始化($.formValidator.initConfig)
+            $.formValidator.initConfig();
+
+            //2、初始化uname
+            $("#uname").formValidator({
+                onempty: "用户名称不能为空",
+                onshow: "请输入用户名称,6-18位",
+                onfocus: "字母、数字、下划线组成",
+                oncorrect: "恭喜你,用户名称可用"
+            });
+            //可以连缀接上面的后面如}).InputValidator({});
+            $("#uname").InputValidator({
+                type: "size", //默认值，可以省略
+                min: 6,
+                max: 18,
+                onerror: "用户名称必须是6-18位"
+            });
+
+//            密码推荐步骤:
+//            1、对两个控件进行初始化formValidator函数
+//            2、对用户密码进行校验设置 InputValidator
+//            3、对确认密码进行校验设置 CompareValidator
+            $("#password1").formValidator({
+//                onempty: "密码不能为空",
+                onshow: "请输入密码",
+                onfocus: "密码不能为空",
+                oncorrect: "密码合法"
+            });
+
+            //可以连缀接上面的后面如}).InputValidator({});
+            $("#password1").InputValidator({
+                min: 1,
+                onerror: "密码不能为空"
+            });
+            $("#password2").formValidator({
+                onshow: "请重复输入密码",
+                onfocus: "两次密码必须一致哦",
+                oncorrect: "密码一致"
+            }).InputValidator({
+                min: 1,
+                onerror: "重复密码不能为空"
+            }).CompareValidator({
+                desID: "password1",
+                operateor: "=",
+                onerror: "2次密码不一致,请确认"
+            });
+            /*
+            $("#password1").formValidator({
+                onshow:"请输入密码",
+                onfocus:"密码不能为空",
+                oncorrect:"密码合法"})
+                .InputValidator({
+                    min:1,
+                    onerror:"密码不能为空,请确认"
+                });
+
+
+            $("#password2").formValidator({onshow:"请输入重复密码",
+                    onfocus:"两次密码必须一致哦",
+                    oncorrect:"密码一致"}).InputValidator({
+                    min:1,onerror:"重复密码不能为空,请确认"}).CompareValidator({
+                    desID:"password1",
+                    operateor:"=",
+                    onerror:"2次密码不一致,请确认"});*/
+            //3、表单验证事件
+            $("#frmLogin").submit(function () {
+//                return false;//无论如何都提交不上去
+                return $.formValidator.PageIsValid();//表单输入没错误就可以提交上去
+            })
+        });
+
+    </script>
+</head>
+<body>
+<form id="frmLogin" method="get">
+    <table>
+        <tr>
+            <td>用户名称</td>
+            <td>
+                <input type="text" name="unname" id="uname"/>
+            </td>
+            <td>
+                <div id="unameTip"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>用户密码</td>
+            <td>
+                <input type="password" name="password1" id="password1"/>
+            </td>
+            <td>
+                <div id="password1Tip"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>确认密码</td>
+            <td>
+                <input type="password" name="password2" id="password2"/>
+            </td>
+            <td>
+                <div id="password2Tip"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="提交"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

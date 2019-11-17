@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            background-color:#fff;
+            /*指定要过渡的属性*/
+            transition-property: transform;
+            /*transition-property: transform,background-color;*/
+            /*transition-property:all;*/
+            /*过度效果持续的时间*/
+            -webkit-transition-duration: 1000ms;
+            -moz-transition-duration: 1000ms;
+            -ms-transition-duration: 1000ms;
+            -o-transition-duration: 1000ms;
+            transition-duration: 1000ms;
+            /*过度进程的速度函数*/
+            -webkit-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+            /*过度效果延迟多久开始进行*/
+            -webkit-transition-delay: 0s;
+            -moz-transition-delay: 0s;
+            -ms-transition-delay: 0s;
+            -o-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+        div:hover{
+            background-color:#f00;
+            transform: translate(500px); /*rotate(360deg)  ;*/
+
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList组件与实例关系.html</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div>
+        <input v-model="inputValue"/>
+        <button @click="handleSubmit">提交</button>
+    </div>
+    <ul>
+        <todo-item v-for="(item,index) of list"
+                   :key="index"
+                   :content="item"
+        >
+        </todo-item>
+    </ul>
+</div>
+<script>
+
+    //每一个vue组件都是vue的实例
+    //每个组件也可以写data属性等,,,,,
+
+
+    //全局组件
+    Vue.component('todo-item', {
+        props: ['content'],//接受content传递过来的参数
+        template: '<li @click="handleClick">{{content}}</li>',
+        methods:{
+            handleClick:function () {
+                alert('clicked')
+            }
+        }
+    });
+
+    //局部组件,要使用就需要在Vue里面注册好
+    //var TodoItem={
+    //    template:'<li>item</li>'
+    //};
+
+
+    //大Vue,如果不定义template,就会使用挂载点下的模板
+    new Vue({
+        el: "#root",
+//        components:{
+//            'todo-item':TodoItem
+//        },
+        data: {
+            inputValue: '',
+            list: []
+        },
+        methods: {
+            handleSubmit: function () {
+                this.list.push(this.inputValue);
+                this.inputValue = ''
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二维数组</title>
+</head>
+<body>
+<script>
+    var arr = [];
+    arr[0] = [1];
+    arr[1] = [2, 3, 4];
+    arr[2] = [5, 6, 7];
+    document.write(arr[2][1]);//6
+
+    var provs = ['北京市', '天津市', '河北省'];
+    var cities = [
+        ['朝阳区', '海定区', '东城区'],
+        ['南开区', '和平区', '河东区'],
+        ['石家庄市', '保定市', '廊坊市']
+    ];
+
+    function getCitiesByProv(prov) {
+        //如何确定prov在provs中的下标？
+        var index;
+        for (var i = 0; i < provs.length; i++) {
+            if (prov == provs[i]) {
+                index = i;
+                break;
+            }
+        }
+        if (index != undefined) {
+            console.log(cities[index].toString());//得省下得所有市
+        }
+    }
+
+    //-------------------------------------------------------------------------------------------------------------------------------
+
+    //关联数组,以后最好用这种方式处理二维数组！！！！！！！！！！尽量别用上面的方式！！！！！！！！！
+    var content = {
+        'lol': ['lol1', 'lol2'],
+        'cf': ['cf1', 'cf2'],
+        'qq': ['qq1', 'qq2']
+    };
+
+    function getGame(name) {
+        //通过关联数组的key / value
+        console.log(content[name].toString());
+    }
+//------------------------------------------------------------------------------------------------------------------------------
+    //遍历二维数组
+    var cities1 = [
+        ['朝阳区', '海定区', '东城区'],
+        ['南开区', '和平区', '河东区'],
+        ['石家庄市', '保定市', '廊坊市']
+    ];
+    for(var i=0;i<cities1.length;i++){
+        for(var j=0;j<cities1.length;j++){
+            console.log(cities1[i][j]);
+        }
+    }
+</script>
+<input type="button" value="点击" onclick="getCitiesByProv('北京市')"/>
+<button onclick="getCitiesByProv('天津市')">天津市</button>
+<button onclick="getCitiesByProv('河北省')">河北省</button>
+<button onclick="getGame('lol')">lol</button>
+<button onclick="getGame('cf')">cf</button>
+<button onclick="getGame('qq')">qq</button>
+</body>
+</html>

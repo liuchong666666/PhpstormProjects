@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div {
+            /*border: 1px solid red;*/
+        }
+
+        #top {
+            width: auto;
+            height: 200px;
+        }
+
+        #head {
+            width: auto;
+            line-height: 100px;
+
+        }
+
+        #head img {
+            margin-left: 50px;
+            vertical-align: middle;
+        }
+
+        #search {
+            margin-right: 50px;
+            float: right;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #nav td {
+            width: 165px;
+            height: 40px;
+            /*background: #DDDDDD;*/
+            /*opacity:0.2;*/
+        }
+
+        #picture {
+            /*margin-top: 20px;*/
+            width: 100%;
+            /*height: ;*/
+            height: 337px;
+            background-color: yellow;
+        }
+
+        #main {
+
+            width: 100%;
+            height: 225px;
+            text-align: center;
+
+        }
+
+        #left {
+            margin-left: 50px;
+            width:250px;
+            height: 200px;
+            /*background: red;*/
+            float: left;
+        }
+
+        #center {
+            margin-left: 50px;
+            width: 500px;
+            height: 200px;
+            /*background-color: blue;*/
+            float: left;
+
+        }
+
+        #right {
+            margin-right: 50px;
+            width: 350px;
+            height: 200px;
+            /*background-color: rebeccapurple;*/
+            float: right;
+        }
+
+        #foot {
+
+            margin: 0px;
+            width: auto;
+            height: 200px;
+            /*background-color: aquamarine;*/
+            background-color: darkgray;
+        }
+        #btn_sousuo{
+            background-image: url("photos/serach.png");
+            width: 55px;
+            height: 23px;
+            vertical-align:middle
+        }
+        .line{
+        background: url("photos/line.png") no-repeat right center;
+        }
+        #left ul{
+            margin: 0px;
+            padding: 0;
+        }
+        #left li{
+            width: 200px;
+            font-size: 1px;
+            border-bottom: 1px dotted silver;
+            list-style-type: none;
+        }
+        #right p{
+            clear: both;
+            margin-left: 25px;
+            text-align: left;
+        }
+        marquee img{
+            height: 175px;
+        }
+        #foot p{
+            padding-top: 100px;
+            font-size: 2em;
+        }
+        button{
+            outline:none;
+        }
+        a{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="top">
+
+        <div id="head">
+            <img src="photos/logo.png" alt="" style="width: 199px;height: 42px">
+            <div id="search"> 关键字：<input type="text" style="height: 19px;padding: 0px;margin: 0px;">
+                <button id="btn_sousuo"></button>
+            </div>
+        </div>
+        <div id="nav">
+            <table>
+                <tr>
+                    <td class="line">首页</td>
+                    <td class="line">关于我们</td>
+                    <td class="line">产品展示</td>
+                    <td class="line">新闻资讯</td>
+                    <td class="line">人才招聘</td>
+                    <td>联系我们</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="picture">
+        <img src="photos/big_zw9021.png" alt="" style="width: 100%;height: 337px; ">
+    </div>
+    <div id="main">
+
+        <div id="left">
+            <img src="photos/xwzx.jpg" border="0" alt="" style="float: left">
+            <input type="image" src="photos/more.png" style="float: left;margin-top: 20px">
+
+            <ul style="clear: both">
+                <li><a href="">本公司正式上线欢迎你的访问..&nbsp;&nbsp;2018-10-10</a></li>
+                <li><a href="">本公司正式上线欢迎你的访问..&nbsp;&nbsp;2018-10-10</a></li>
+                <li><a href="">本公司正式上线欢迎你的访问..&nbsp;&nbsp;2018-10-10</a></li>
+                <li><a href="">本公司正式上线欢迎你的访问..&nbsp;&nbsp;2018-10-10</a></li>
+                <li><a href="">本公司正式上线欢迎你的访问..&nbsp;&nbsp;2018-10-10</a></li>
+            </ul>
+        </div>
+        <div id="center">
+            <img src="photos/zxcp.jpg" alt="" style="float: left">
+            <input type="image" src="photos/more.png" style="float: left;margin-top: 20px">
+            <marquee onmouseover="this.stop()" onmouseout="this.start()">
+                <img src="photos/ZL9012.jpg" alt="ZL9012">
+                <img src="photos/ZW0409B.jpg" alt="">
+                <img src="photos/ZW9020.jpg" alt="">
+                <img src="photos/ZW9021.jpg" alt="">
+            </marquee>
+        </div>
+        <div id="right">
+            <img src="photos/lianxi.png" alt=""  style="float: left;margin-left: 25px">
+            <p>咨询热线：</p>
+            <p>固定电话：0512-65787572</p>
+            <p>Email：123456789@qq.com</p>
+        </div>
+
+    </div>
+    <hr style="margin: 1px">
+    <span style="float: right;margin-bottom: 20px"><a href="#head"> 回顶部</a></span>
+    <div id="foot">
+        <p style="text-align: center ;"> 版权所有&copy;LC</p>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            font-size: 16px;
+            margin: 0 auto;
+            width: 600px;
+            border: 1px solid red;
+        }
+        td,th{
+            height: 50px;
+            text-align: center;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="shopping_table.js"></script>
+</head>
+<body>
+<h1>购物清单</h1>
+<table>
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>价格</th>
+        <th>数量</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" style="text-align: right">
+            总计：<input type="text" id="total" readonly/>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

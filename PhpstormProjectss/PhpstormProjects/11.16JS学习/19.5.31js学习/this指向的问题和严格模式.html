@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this指向的问题和严格模式</title>
+</head>
+<body>
+<script>
+    /*
+    * 普通函数中的this是谁？----window
+    * 对象.方法中的this是谁 ----当前实例对象
+    * 定时器方法中的this是谁----window
+    * 构造函数中的this是谁  ----实例对象
+    * 原型对象方法中的this是谁---实例对象
+    *
+    * */
+
+    //普通函数
+    //    function f1(){
+    //        console.log(this);
+    //    }
+    //    f1();
+
+
+    //定时器中的this
+    //    window.setInterval(function () {
+    //        console.log(this);
+    //    },1000);
+
+
+    //构造函数
+//        function person(){
+//            console.log(this);
+//            this.sayHi=function () {
+//                console.log(this);
+//            };
+//        }
+//        var per = new person();
+//        console.log(per);//构造函数中的this是谁  ----实例对象
+//        per.sayHi();//对象.方法中的this是谁 ----当前实例对象
+
+    //原型对象方法
+    //    person.prototype.eat=function () {
+    //        console.log(this);
+    //    };
+    //    per.eat();//对象.方法中的this是谁 ----当前实例对象
+
+
+    //BOM:中顶级对象是window，浏览器中所有的东西都是window的
+
+
+    //严格模式：//h4
+//    'use strict';
+//
+//    function f1() {
+//        console.log(this);
+//    }
+//
+//    window.f1();
+
+</script>
+</body>
+</html>

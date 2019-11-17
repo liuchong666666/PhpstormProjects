@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩计算</title>
+    <style type="text/css">
+        body {
+            font-size: 20px;
+        }
+
+        #div0 {
+            margin: 0 auto;
+            width:400px;
+            height: 450px;
+            border: 20px inset cornflowerblue;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #get_score {
+
+            width: 200px;
+            height: 20px;
+        }
+
+        #jisuan {
+            background: cornflowerblue;
+            height: 26px;
+            margin-left: 50px;
+        }
+
+        hr {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px        }
+    </style>
+    <script type="text/javascript">
+        function jisuan() {
+            //成绩与等级转换函数
+            /*参数：score，表示输入成绩
+              返回值：result，是等级*/
+
+            //获取文本框的值
+            var text1 = document.getElementById("get_score");
+            var p = document.getElementById("span");
+            var p1 = document.getElementById("span1");
+            //接受文本框的值
+            var score = text1.value;
+            if (score == null || isNaN(score)) {
+                alert("请重新输入");
+            } else {
+                //定义等级结果和水平
+                var result = "", level = 0;
+//           if(score>=90){level=1;result="优秀"};
+                if (score >= 90) {
+                    level = 1;
+                }
+                ;
+                if (score < 90 && score >= 80) {
+                    level = 2;
+                }
+                ;
+                if (score < 80 && score >= 70) {
+                    level = 3;
+                }
+                ;
+                if (score < 70 && score >= 60) {
+                    level = 4;
+                }
+                ;
+                if (score < 60) {
+                    level = 5;
+                }
+                ;
+                switch (level) {
+                    case 1:
+                        result = "优秀";
+                        break;
+                    case 2:
+                        result = "较优";
+                        break;
+                    case 3:
+                        result = "良";
+                        break;
+                    case 4:
+                        result = "中";
+                        break;
+                    default: {
+                        result = "不及格";
+                    }
+
+                }
+                p.innerHTML = result;
+                p1.innerHTML = level;
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="div0">
+    <h1>成绩计算</h1>
+    <hr size="10" color="cornflowerblue">
+    <input type="text" value="" id="get_score"><input type="button" value="计算成绩" id="jisuan" onclick="jisuan();">
+    <br>
+    等级：<p id="span"></p>
+    水平：<p id="span1"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算三角形面积</title>
+    <style type="text/css">
+        
+    </style>
+    <script type="text/javascript">
+        function mianji() {
+            //获取abc三条边文本框的值
+            var inputa = document.getElementById("numa");
+//            var inputb = document.getElementById("numb");
+//            var inputc = document.getElementById("numc");
+
+            //获取span向其中写入值
+            var span = document.getElementById("result");
+            //获取文本框的值
+            var a = inputa.value;
+//            var b = inputb.value;
+//            var c = inputc.value;
+
+            //判断是否为数字，从而进行公式计算
+            if(a==""|| isNaN(a)){
+                span.innerHTML="请输入数字";
+            }else{
+               span.innerHTML=a*a;
+            }
+        }
+//            if(b==""|| isNaN(b)){
+//                span.innerHTML="请输入数字";
+//            }else{
+//                b.s();
+//            }
+//            if(c==""|| isNaN(c)){
+//                span.innerHTML="请输入数字";
+//            }else{
+//                c.s();
+//            }
+//
+//        }
+
+//function s() {
+//span.innerHTML= a*b*c;
+//}
+    </script>
+</head>
+<body>
+<!--先输入三个数字-->
+第一条边a：<input type="text" id="numa"><br>
+<!--第二条边b：<input type="text"id="numb"><br>-->
+<!--第三条边c：<input type="text" id="numc"><br>-->
+
+<input type="button" value="面积" onclick="mianji();">
+<!--<input type="button" value="面积" onclick="s();">-->
+=
+<span id="result"></span>
+</body>
+</html>

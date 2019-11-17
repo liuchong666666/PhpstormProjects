@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-删除和替换removeChild和replaceChild</title>
+</head>
+<body>
+<ul id="menu">
+    <li>233</li>
+    <li>332</li>
+</ul>
+<button onclick="deleteLi()">删除</button>
+<button onclick="replaceLi()">替换</button>
+<script>
+    function replaceLi(){
+        var ul=document.getElementById('menu');
+        var newLi= document.createElement('li');
+        newLi.innerHTML='招聘';
+        ul.replaceChild(newLi,ul.lastElementChild);
+    }
+    function deleteLi(){
+        var ul=document.getElementById('menu');
+        /*console.log(ul.childNodes.length);
+        ul.removeChild(ul.lastChild);//这个会有空白符
+        console.log(ul.childNodes.length);*/
+        console.log(ul.childNodes.length);
+        //子节点被删除前应该接触所有绑定的事件，否则无法回收事件绑定所占内存
+        ul.removeChild(ul.lastElementChild);//这个直接删元素，不包括空白符
+        console.log(ul.childNodes.length);
+    }
+</script>
+</body>
+</html>

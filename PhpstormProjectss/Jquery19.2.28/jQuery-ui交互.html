@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery交互</title>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.theme.min.css"/>
+    <script src="jquery-1.11.1.js"></script>
+    <script src="jQuery-ui/jquery-ui.min.js"></script>
+    <style type="text/css">
+        #myDiv{
+            width: 200px;
+            height: 200px;
+            background: blue;
+            border: 10px solid red;
+        }
+        li{
+            list-style-type: none;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#myDiv").droppable();
+            $("ul").sortable();
+        });
+    </script>
+
+</head>
+<body>
+<div id="myDiv"></div>
+<div>
+    <ul>
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+        <li>嗯哼</li>
+        <li>智者</li>
+        <li>人生</li>
+    </ul>
+</div>
+</body>
+</html>

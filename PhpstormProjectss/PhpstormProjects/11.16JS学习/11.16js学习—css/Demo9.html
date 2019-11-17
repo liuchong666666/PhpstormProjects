@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一次性时钟</title>
+    <style type="text/css">
+        /*隐藏*/
+        .hide {
+            display: none;
+        }
+
+        /*显示*/
+        .show {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        function del() {
+            //假设已经删除成功了
+            //给与动态提示
+            //1.先将提示信息显示出来
+            var p = document.getElementById("msg");
+            p.className = "show";
+            //2.然后过2秒再隐藏掉
+            //先过2秒后 ,在执行function
+           var id=  setTimeout(function () {
+                p.className="hide";
+                clearTimeout(id);
+            },2000);
+        }
+    </script>
+</head>
+<body>
+<p>
+    <button onclick="del();">删除</button>
+</p>
+<p id="msg" class="hide">
+    操作成功！
+</p>
+</body>
+</html>

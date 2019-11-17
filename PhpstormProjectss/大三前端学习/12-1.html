@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易福彩投注程序</title>
+    <style type="text/css">
+        div{width:450px;height:260px;margin:0px auto;
+            border:2px solid #ff3300; color:white;}
+        h2{font-size:28px;text-align:center;}
+        td{font-weight:bold;font-size:18px;}
+    </style>
+    <script type="text/javascript">
+        function $(id){return document.getElementById(id);}
+        function selectnumber(num){
+            //彩票选号助手,参数num是对像的id
+            var number=new Array();
+            for (i=0;i<=6 ;i++ )
+            {
+                tmp=Math.floor(Math.random()*30+1); //下舍入
+                for (var j=0;j<=number.length-1 ;j++ )
+                {
+                    if (tmp==number[j])
+                    { //重号处理，如果重号又重新随机
+                        tmp=Math.floor(Math.random()*30+1);
+                        j=0;
+                    }
+                }
+                //小于10就在前面加个0
+                if(tmp<10){
+                    number[i]="0"+tmp;
+                }else{number[i]=tmp;}
+            }
+            $(num).value=number.sort().join("  ");//join( separator)指定字符串分开数组的每个元素。如果省略，则数组元素用逗号分隔。
+        }
+    </script>
+
+</head>
+<body>
+<div id="" class="">
+<img src="ico_7l.gif" width="76" height="72" border="0" alt="">
+<form method="post" action="">
+    <table align="center">
+        <caption><h3>简易福彩投注程序</h3></caption>
+        <tr>
+            <td>彩票号码</td>
+            <td><input type="text" name="number1" size="28" id="number1" readonly></td>
+            <td><input type="button" value="投注" onclick="selectnumber('number1');">
+            </td>
+            <td rowspan="3"><input style="height:80px" type="reset" value="清空" >
+            </td>
+        </tr>
+        <tr>
+            <td>彩票号码</td>
+            <td><input type="text" name="number2" size="28" id="number2" readonly></td>
+            <td><input type="button" value="投注" onclick="selectnumber('number2');">
+            </td>
+        </tr>
+        <tr>
+            <td>彩票号码</td>
+            <td><input type="text" name="number3" size="28"  id="number3" readonly></td>
+            <td><input type="button" value="投注" onclick="selectnumber('number3');">
+            </td>
+        </tr>
+    </table>
+</form>
+</div>
+
+</body>
+</html>

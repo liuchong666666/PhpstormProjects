@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>沙箱操作页面元素</title>
+</head>
+<body>
+<div>div</div>
+<div>div</div>
+<div>div</div>
+<p>p</p>
+<p>p</p>
+<p>p</p>
+<script>
+    var getTag = 10;
+    var divobjs = 10;
+    var pobjs = 10;
+
+    (function () {
+        //根据标签名获取元素
+        function getTag(tagName) {
+            return document.getElementsByTagName(tagName);
+        }
+
+        //获取所有div
+        var divobjs = getTag('div');
+        for (var i = 0; i < divobjs.length; i++) {
+            divobjs[i].style.border = "1px solid pink";
+        }
+
+        var pobjs = getTag('p');
+        for (var i = 0; i < pobjs.length; i++) {
+            pobjs[i].style.border = "1px solid pink";
+        }
+
+    }());
+//放沙箱里面，上面也能输出，样式也能出来，两个互不影响
+    console.log(getTag);
+    console.log(divobjs);
+    console.log(pobjs);
+</script>
+</body>
+</html>

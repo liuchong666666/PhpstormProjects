@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包小案例</title>
+</head>
+<body>
+<script>
+    //    function f1(){
+    //        var num = 10;
+    //        num++;
+    //        console.log(num);
+    //    }
+    //    f1();//11
+    //    f1();//11
+    //    f1();//11
+
+
+    function f1() {
+        var num = 10;
+        return function () {
+            num++;
+            return num;
+        }
+    }
+
+   // console.log(f1());
+    var ff = f1();//用变量接收f1（）这个方法，这样意味着f1这个方法只调用了一次，var num只声明了一次，没有缓存数据
+    console.log(ff());//ff()表示调用f1里面的匿名函数，这里只调用了匿名函数
+    console.log(ff());
+    console.log(ff());
+</script>
+</body>
+</html>

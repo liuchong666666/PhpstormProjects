@@ -1,0 +1,597 @@
+/** {*/
+/*margin: 0;*/
+/*padding: 0;*/
+/*}*/
+
+/*body {*/
+/*margin: 0 auto;*/
+/*}*/
+#main {
+    width: 1496px;
+    height: 2612px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+#d0 {
+    height: 40px;
+    background-color: #607439;
+    position: relative;
+}
+
+#d1, #d2, #d3, #d4, #d5, #d6 {
+    display: inline;
+
+}
+
+#d1 {
+    width: 330px;
+    height: 29px;
+    /*border: 1px solid blue;*/
+    margin: 0 17px 0 50px;
+    /*margin-left: 47px;*/
+    /*margin-right: 17px;*/
+}
+
+#d2 {
+    width: 250px;
+    height: 29px;
+    /*border: 1px solid greenyellow;*/
+    margin-right: 155px;
+}
+
+#d3 {
+    width: 53px;
+    height: 29px;
+    /*border: 1px solid yellow;*/
+    margin-right: 17px;
+}
+
+#d4 {
+    width: 157px;
+    height: 29px;
+    /*border: 1px solid firebrick;*/
+    margin-right: 16px;
+}
+
+#d5 {
+    width: 104px;
+    height: 29px;
+    /*border: 1px solid seagreen;*/
+    margin-right: 12px;
+}
+
+#d6 {
+    width: 95px;
+    height: 29px;
+    /*border: 1px solid cornflowerblue;*/
+    margin-right: 75px;
+}
+
+#d0 ul, #d0 li {
+    cursor: pointer;
+    /*border: 1px solid black;*/
+    float: left;
+    margin-top: 0;
+
+}
+
+#d0 ul {
+    list-style-type: none;
+}
+
+#d0 li {
+    height: 29px;
+}
+
+#logo li {
+    width: 110px;
+}
+
+#logo a {
+    display: block;
+    width: 110px;
+    height: 29px;
+}
+
+#type li {
+    width: 72px;
+}
+
+#type a {
+    display: block;
+    width: 72px;
+    height: 29px;
+}
+
+#music li {
+    width: 25px;
+    margin: 0 3px 0 0;
+}
+
+#music a {
+    display: block;
+    width: 25px;
+    height: 29px;
+}
+
+#sousuo {
+    border-spacing: 0px;
+    border: 0;
+    /*margin: 0;*/
+    /*padding: 0;*/
+    overflow: hidden;
+}
+
+#sousuo tr {
+    float: left;
+}
+
+#sousuo td {
+    height: 29px;
+    /*border: 1px solid black;*/
+    float: left;
+    padding: 0px;
+}
+
+#s_1 {
+    width: 4px;
+    height: 29px;
+    background-image: url("../images/s_1.gif");
+}
+
+#s_2_text {
+    width: 126px;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 6px;
+    border: none;
+}
+
+#s_2 {
+    width: 129px;
+    height: 29px;
+    background-image: url("../images/s_2.gif");
+    background-repeat: repeat;
+}
+
+#s_3 {
+    cursor: pointer;
+    /*width: 24px;*/
+    /*height: 29px;*/
+    /*z-index:1;*/
+    /*background-lol_image: url("images/s_3.gif");*/
+}
+
+#s_3 button {
+    /*display: inline-block;*/
+    cursor: pointer;
+    border: none;
+    width: 24px;
+    height: 29px;
+    margin: 0;
+    background-image: url("../images/s_3.gif");
+    background-repeat: no-repeat;
+}
+
+#s_3 a {
+    display: block;
+    width: 24px;
+    height: 29px;
+}
+
+#d5 {
+
+    display: inline-block;
+    /*border: 1px solid black;*/
+}
+
+/*#d5 p {*/
+/*margin: 0px;*/
+/*line-height: 29px;*/
+/*float: right;*/
+/*color: white;*/
+/*margin-right: 10px;*/
+/*}*/
+
+#d6_1 {
+    float: right;
+    margin-right: 85px;
+    /*border: 1px solid black;*/
+
+}
+
+#d6_1 li {
+    margin-left: 3px;
+    width: 25px;
+    height: 29px;
+
+}
+
+#d6 a {
+    display: block;
+    width: 25px;
+    height: 29px;
+}
+
+/*#d{border: 1px solid red;*/
+/*height: 40px;*/
+/*width: 100%;*/
+/*background-color: #607439;*/
+
+/*}*/
+/*#d0{*/
+/*!*border: 1px solid red;*!*/
+/*margin-top: 5.5px;*/
+/*}*/
+#logo, #type, #sousuo, #d5, #d6_1, #music {
+    float: left;
+    position: absolute;
+    top: 13.75%;
+
+}
+
+#logo {
+    position: absolute;
+    right: 67%;
+}
+
+#type {
+    position: absolute;
+    right: 50.5%;
+}
+
+#music {
+    position: absolute;
+    right: 38%;
+}
+
+#sousuo {
+    position: absolute;
+    right: 25%;
+    /*left: 59.3%;*/
+
+}
+
+#d5 {
+    position: absolute;
+    right: 16%;
+    /*left: 75%;*/
+}
+
+#d6_1 {
+    position: absolute;
+
+    right: 2.2%;
+}
+
+#logo li {
+
+    display: block;
+    width: 110px;
+    height: 29px;
+}
+
+.logo_01 {
+    background-image: url("../images/logo_01.gif");
+}
+
+.logo_02 {
+    background-image: url("../images/logo_02.gif");
+}
+
+.logo_02:hover {
+    background-image: url("../image_on/02_on.png");
+}
+
+.logo_03 {
+    background-image: url("../images/logo_03.gif");
+}
+
+.logo_03:hover {
+    background-image: url("../image_on/03_on.png");
+}
+
+.type_04 {
+    background-image: url("../images/type_04.gif");
+}
+
+.type_04:hover {
+    background-image: url("../image_on/04_on.png");
+}
+
+.type_05 {
+    background-image: url("../images/type_05.gif")
+}
+
+.type_05:hover {
+    background-image: url("../image_on/05_on.png")
+}
+
+.type_06 {
+    background-image: url("../images/type_06.gif")
+}
+
+.type_06:hover {
+    background-image: url("../image_on/06_on.png")
+}
+
+.music_play {
+    background-image: url("../images/music_play.gif")
+}
+
+.music_play:hover {
+    background-image: url("../image_on/music_play_on.png")
+}
+
+.music_liebiao {
+    background-image: url("../images/music_liebiao.gif")
+}
+
+.music_liebiao:hover {
+    background-image: url("../image_on/music_liebiao_on.png")
+}
+
+/*.d5_01 {*/
+
+/*}*/
+/*#d5 span{*/
+/*display: block;*/
+/*width: 28px;*/
+/*height: 29px;*/
+/*}*/
+
+/*.d5_01 {*/
+/*background-lol_image: url("images/d5_1.gif");*/
+/*}*/
+/*.d5_01:hover{background-lol_image: url("image_on/d5_1_on.png")}*/
+/*#d5 p{*/
+/*display: inline;*/
+/*!*position: relative;*!*/
+/*!*float: right;*!*/
+/*line-height: 29px;*/
+/*top: 0;*/
+/*}*/
+#d5 {
+    color: white;
+    position: absolute;
+    height: 29px;
+    line-height: 29px;
+    padding: 0 20px 0 0px;
+
+}
+
+#d5 ul {
+    width: 110px;
+}
+
+.d5_01 {
+
+    width: 28px;
+    height: 29px;
+    background-image: url("../images/d5_1.gif");
+    /*background-repeat: no-repeat;*/
+}
+
+#d5 a {
+    display: block;
+    width: 28px;
+    height: 29px;
+}
+
+.d5_01:hover {
+    z-index: 1;
+    background-image: url("../image_on/d5_1_on.png");
+
+}
+
+.d5_02 {
+    float: left;
+    display: inline;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.d6_1 {
+    background-image: url("../images/d6_1.gif");
+
+}
+
+.d6_1:hover {
+    background-image: url("../image_on/d6_1_on.png");
+}
+
+.d6_2 {
+    background-image: url("../images/d6_2.gif");
+}
+
+.d6_2:hover {
+    background-image: url("../image_on/d6_2_on.png");
+}
+
+.d6_3 {
+    background-image: url("../images/d6_3.jpg");
+}
+
+.d6_3:hover {
+    background-image: url("../image_on/d6_3_on.png");
+}
+
+#d4 a {
+    display: block;
+    width: 24px;
+    height: 29px;
+}
+
+#lol {
+    width: 100%;
+    /*height: 100%;*/
+    background-image: url("../lol_image/1.jpg");
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;//拉动页面动画时背景图不动*/
+    background-size: 100% 100%;
+
+}
+
+#lol a {
+    text-decoration: none;
+}
+
+#Totop {
+
+    /*border: 1px solid red;*/
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+
+}
+
+#Tobottom {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.tb {
+    list-style-image: url("../lol_image/weikeduo.jpg");
+
+}
+
+.tb2 {
+    list-style-image: url("../lol_image/xia.jpg");
+}
+
+.tb3 {
+    list-style-image: url("../lol_image/luo.jpg");
+}
+
+#lol div, table {
+    /*border: 1px solid red;*/
+}
+
+#tishi {
+    width: 400px;
+    height: 50px;
+
+}
+
+#lol table {
+    height: 200px;
+}
+
+#content {
+    position: relative;
+}
+
+#tishi {
+    position: absolute;
+    top: 240px;
+    left: 150px;
+    padding: 10px 10px 10px 40px;
+}
+
+#del {
+    position: absolute;
+    top: 1720px;
+    left: 150px;
+    padding: 10px 10px 10px 40px;
+}
+
+#tishi input {
+    width: 28px;
+    height: 29px;
+    float: right;
+}
+
+#tishi {
+    background: url("../lol_image/ok.png") 8px 25px no-repeat;
+    background-color: rgba(192, 192, 192, 0.5);
+}
+
+#chacha {
+    background-image: url("../lol_image/chacha.png");
+    border: 0;
+}
+
+#lol_ol li {
+    /*display: block;*/
+    float: none;
+    /*border: 1px solid red;*/
+}
+
+#denglu {
+    height: 40px;
+    line-height: 40px;
+    /*position: absolute;*/
+    /*top: 10px;*/
+    /*left: 20px;*/
+    /*display: block;*/
+    /*width: 80px;*/
+    /*height: 21px;*/
+    margin-left: 20px;
+    text-decoration: none
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+p {
+    cursor: default;
+}
+
+#lol_photos {
+    /*border: 2px solid red;*/
+    list-style-type: none;
+    width: 1920px;
+    height: 350px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+#lol_photos li {
+    width: 960px;
+    height: 350px;
+    margin: 0px;
+    padding: 0;
+    float: left;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+#lol_photos img {
+    height: 350px;
+    width: 960px;
+}
+
+#hero {
+    width: 80px;
+}
+
+#color {
+    width: 80px;
+}
+
+#del {
+    background: #cccccc;
+    border: 2px solid red;
+    width: 400px;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+
+}

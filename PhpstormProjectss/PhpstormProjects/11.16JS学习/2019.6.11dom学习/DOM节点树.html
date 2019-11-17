@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM节点</title>
+</head>
+<!--body开始了-->
+<body>
+<h2>2号标题</h2>
+<div id="main">一个 <span>区</span>块</div>
+
+</body>
+<script>
+    console.log('nodeType\tnodeName\tnodeValue');
+    var node0 = document;
+    console.log(node0.nodeType + '\t\t\t' + node0.nodeName + '\t' + node0.nodeValue);
+
+    var node1 = document.firstChild;//doctType
+    console.log(node1.nodeType + '\t\t\t' + node1.nodeName + '\t\t' + node1.nodeValue);
+
+    var node2 = node1.nextSibling;//html元素
+    console.log(node2.nodeType + '\t\t\t' + node2.nodeName + '\t\t' + node2.nodeValue);
+
+    var node3 = node2.attributes[0];//lang="en"
+    console.log(node3.nodeType + '\t\t\t' + node3.nodeName + '\t\t' + node3.nodeValue);
+
+    var node4 = node2.firstChild;//head
+    console.log(node4.nodeType + '\t\t\t' + node4.nodeName + '\t\t' + node4.nodeValue);
+
+    var node5 = node4.nextSibling;//回车行
+    console.log(node5.nodeType + '\t\t\t' + node5.nodeName + '\t\t' + node5.nodeValue);
+
+    var node6 = node5.nextSibling;//comment 注释
+    console.log(node6.nodeType + '\t\t\t' + node6.nodeName + '\t\t' + node6.nodeValue);
+
+    var node7 = node6.nextSibling;//回车行
+    console.log(node7.nodeType + '\t\t\t' + node7.nodeName + '\t\t' + node7.nodeValue);
+
+    var node8 = node7.nextSibling;//body
+    console.log(node8.nodeType + '\t\t\t' + node8.nodeName + '\t\t' + node8.nodeValue);
+    console.log("head的child")
+    var node41 = node4.firstChild;//head的child
+    console.log(node41.nodeType + '\t\t\t' + node41.nodeName + '\t\t' + node41.nodeValue);
+
+    var node42 = node41.nextSibling;//
+    console.log(node42.nodeType + '\t\t\t' + node42.nodeName + '\t\t' + node42.nodeValue);
+
+    var node43 = node42.nextSibling;
+    console.log(node43.nodeType + '\t\t\t' + node43.nodeName + '\t\t' + node43.nodeValue);
+
+    var node44 = node43.nextSibling;//
+    console.log(node44.nodeType + '\t\t\t' + node44.nodeName + '\t\t' + node44.nodeValue);
+    console.log("body的child");
+    var node81 = node8.firstChild;//
+    console.log(node81.nodeType + '\t\t\t' + node81.nodeName + '\t\t' + node81.nodeValue);
+
+    var node82 = node81.nextSibling;//h2
+    console.log(node82.nodeType + '\t\t\t' + node82.nodeName + '\t\t' + node82.nodeValue);
+
+    var node83 = node82.nextSibling;//
+    console.log(node83.nodeType + '\t\t\t' + node83.nodeName + '\t\t' + node83.nodeValue);
+
+    var node84 = node83.nextSibling;//div
+    console.log(node84.nodeType + '\t\t\t' + node84.nodeName + '\t\t' + node84.nodeValue);
+
+    var node85 = node84.nextSibling;//
+    console.log(node85.nodeType + '\t\t\t' + node85.nodeName + '\t\t' + node85.nodeValue);
+
+    console.log("h2");
+    var node821 = node82.firstChild;//h2
+    console.log(node821.nodeType + '\t\t\t' + node821.nodeName + '\t\t' + node821.nodeValue);
+
+    console.log("div");
+    var node841 = node84.attributes[0];//div
+    console.log(node841.nodeType + '\t\t\t' + node841.nodeName + '\t\t' + node841.nodeValue);
+
+    var node842 = node84.firstChild;//div
+    console.log(node842.nodeType + '\t\t\t' + node842.nodeName + '\t\t' + node842.nodeValue);
+
+    var node843 = node842.nextSibling;//span
+    console.log(node843.nodeType + '\t\t\t' + node843.nodeName + '\t\t' + node843.nodeValue);
+
+    var node844 = node843.nextSibling;//div
+    console.log(node844.nodeType + '\t\t\t' + node844.nodeName + '\t\t' + node844.nodeValue);
+    console.log("span");
+
+    var node8431 = node843.firstChild;//span
+    console.log(node8431.nodeType + '\t\t\t' + node8431.nodeName + '\t\t' + node8431.nodeValue);
+
+    for (var i = 0; i < node8.childNodes.length; i++) {
+        console.log(node8.childNodes[i].nodeName);
+    }
+    //script会被放到body里面
+//    html只认为 html下面两个孩子，head和body
+
+    var div = document.getElementById('main');
+    console.log(typeof(div.innerHTML));//string
+    div.innerHTML='新<span style="color:red">闻</span>标题  \n \tABC';
+
+    console.log("textContent"+div.textContent);//类似于源代码效果
+    console.log("innerText"+div.innerText);//类似于浏览器解析后的效果
+</script>
+</html>

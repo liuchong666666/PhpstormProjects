@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email</title>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        //初始化函数
+        function initial(){
+            //1.获取界面元素
+            txtRange=$("txtRange");
+            txtRangeValue=$("txtRangeValue");
+
+            //2、绑定事件
+            txtRange.addEventListener("change",txtRange_change,false);
+
+
+
+            //验证封装的函数
+            btn=$("btn");
+            bind(btn,"click",function(){
+                alert("Hello World");
+            });
+
+        }
+        //滑块移动时激发操作
+        function txtRange_change(){
+            txtRangeValue.value=txtRange.value;
+
+        }
+        //绑定初始化操作
+        window.addEventListener("load",initial,false);
+
+//       封装函数
+        // function bind(eventName,fn,params){//eventName事件名字,fn函数,params参数
+//           //处理params，将params东西传递给fn
+//            window.addEventListener(eventName,fn,false);
+//        }
+      //  function bind(obj,eventName,fn){//eventName事件名字,fn函数
+        //            obj.addEventListener(eventName,fn,false);
+        //        }
+        //封装函数
+        function bind(obj,eventName,fn){//eventName事件名字,fn函数
+             obj.addEventListener(eventName,fn,false);
+      }
+    </script>
+</head>
+<body>
+<form action="">
+    email: <input type="email" id="txtEmail"/><br/>
+    搜索名称： <input type="search" id="txtSearch"/><br/>
+    个人主页（网址:http://www.baidu.com）：
+    <input type="url" id="txtUrl"/><br/>
+    请输入电话（电话类型，主要兼容手机端)：
+    <input type="tel" id="txtTel"/><br/>
+    数字类型
+    <input type="number" min="5" max="10" step="2"/><br/>
+
+    数值范围
+    <input type="range" min="10" max="1000" step="5" value="50" id="txtRange"/><br/>
+    范围值
+    <input type="text" id="txtRangeValue"/><br/>
+    日期：
+    <input type="date"/><br/>
+    <input type="week"/><br/>
+    <input type="month"/><br/>
+    <input type="datetime-local"/><br/>
+    颜色类型：
+    <input type="color"/><br/>
+
+
+    <input type="submit" value="提交"/><br/>
+    <input type="button" value="click" id="btn">
+</form>
+</body>
+</html>

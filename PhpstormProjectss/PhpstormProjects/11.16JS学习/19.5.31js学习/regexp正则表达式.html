@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+<script>
+    /*
+
+	*******test方法默认：只要找到就返回true！******
+	*******强制test全部匹配，不能部分匹配：正则表达式前加^,后加$     ******
+    var regExp=/^\w+@\w+([-.]\w+)*(\.\w+)+$/;
+    while(true){
+        var input = prompt("请输入邮箱");
+        if(regExp.test(input)){
+            document.write("注册成功");
+            break;
+        }else {
+            alert("邮箱格式有误");
+        }
+    }*/
+
+
+
+    /*
+//exec方法，详情见exec.jpg
+    var str="明明喜欢我，却不告诉我；别理我，我想静静，静静是谁，你TM先告诉我！";
+    var regExp=/明明|静静/g;//  在正则表达式中|表示或
+    var arr=[];
+    while((arr=regExp.exec(str))!=null){
+        //arr[0]关键字的内容
+        //arr.index：关键字的位置
+        document.write("在位置"+arr.index+"发现"+arr[0]+"<br/>");
+    }
+    var regExp1 = /我/g;
+    while((arr=regExp1.exec(str))!=null){
+        document.write("在位置"+arr.index+"发现"+arr[0]+"<br/>");
+    }*/
+
+
+
+    //匹配超链接：<a(.+?)href="(.*?)"(.*?)>
+    var txt = '<script href="a.js"/>' +
+        '<a href = "cost/list.do">链接1</a>' +
+        '<a class="main" href = "cost/add.do">链接2</a>';
+    var regExp = /<a(.+?)href\s*=\s*['"](.*?)['"](.*?)>/ig;//注意最好每次都加g，防止出不来，下面while进行死循环
+    /*var arr=[];
+    while((arr=regExp.exec(txt))!=null){
+        console.log(arr[0]);//链接   用document.write出不来
+        document.write(RegExp.$2+"<br/>");//从正则表达式匹配的内容中，取一部分：RegExp.$n
+		                                //n:正则表达式中第n个分组，其实就是第n个圆括号（）// 分组
+		                                //( ):分组：改变模式的匹配顺序
+		                                //强调：分组从1开始
+		                                //必须通过RegExp类型，直接调用$n,不能使用对象！
+
+    }*/
+    var arr = txt.match(regExp);//只找超链接，不找里面内容时，用这个最简单
+    console.log(arr);
+
+
+    /*
+        var str = "那天我去了她家，我说：我草";
+        str = str.replace(/我[去草]/g, "**");
+        document.write(str);
+        */
+    /*
+        var str = "no zuo no  die";
+        var words= str.split(/\s+/);
+        for(var i=0;i<words.length;i++){
+            var first=words[i][0].toUpperCase();
+            words[i][0]=first+words[i].substring(1);
+        }
+        document.write(words.join(" "));*/
+
+
+    var code = "4A7b";
+    while (true) {
+        // var input= prompt("输入验证码").trim();//trim功能：去除字符串开始和结尾的空格。中间空格不去掉！！IE8不支持trim（）方法！
+        var input = prompt("输入验证码");
+        input = trim(input);
+        if (input.toUpperCase() == code.toUpperCase()) {
+            document.write("登录成功");
+            break;
+        } else {
+            alert("验证码错误");
+        }
+    }
+
+    function trim(str) {//自己定义trim（）方法
+        //使用正则表达式替换开头和结尾的空字符
+        var regExp = /(^\s+)|(\s+$)/g; //g全局，  两边都去掉
+        str = str.replace(regExp,"");
+        return str;
+    }
+</script>
+</body>
+</html>

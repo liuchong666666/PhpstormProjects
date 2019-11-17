@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        :target{
+            border:1px solid red;
+        }
+        div{
+            display: none;
+        }
+        div:target{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<!--点哪个锚点就会再哪个目标加样式-->
+<a href="#d1">锚点1：目标1</a>
+<a href="#d2">锚点2：目标2</a>
+<a href="#d3">锚点3：目标3</a>
+<a href="#d4">锚点4：目标4</a>
+<!--这个name设置成id也是一样的效果-->
+<a name="d1">1231</a><br/>
+<a name="d2">17897</a><br/>
+<!--只要id存在超链接里面 就是目标元素-->
+<div id="d3">17897</div>
+<div id="d4">sdfsd</div>
+</body>
+</html>

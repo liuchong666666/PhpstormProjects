@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // var num = parseInt(prompt("请选择服务种类："));case和num是用全等严格相等（===）,num 不用parseInt的话 case就需要加引号
+    var num = (prompt("请选择服务种类："));
+    switch(num){
+//        case 1:
+        case "1"://case和num是用全等严格相等（===）,前面num 不用parseInt的话 这里就需要加引号
+            console.log("余额查询中。。");
+            break;
+//       case 2:
+        case "2":
+            console.log("取款进行中。。");
+            break;
+//       case 0:
+        case "0":
+            console.log("退出系统，谢谢使用");
+        default:
+            console.log("输入有误");
+    }
+</script>
+</body>
+</html>

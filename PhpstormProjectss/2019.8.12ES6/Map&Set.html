@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //mmap基本使用
+    let map = new Map();
+    map.set('name','张三')
+    map.set('age',11)
+    map.set('已婚',false)
+    console.log(map.get('name'))
+    console.log(map.get('age'))
+    console.log(map.get('已婚'))
+
+    //key是对象
+    let obj={}
+    map.set(obj,'对象')
+    console.log(map.get(obj))
+
+    //key是函数
+    let func = function(){}
+    map.set(func,'函数')
+    console.log(map.get(func))
+
+    //key是NaN
+    map.set(NaN,'NaN')
+    console.log(map.get(NaN))
+//    console.log(Number('aaa'))//NaN
+    console.log(map.get(Number('aaa')))//Number('aaa')===NaN
+
+</script>
+</body>
+</html>

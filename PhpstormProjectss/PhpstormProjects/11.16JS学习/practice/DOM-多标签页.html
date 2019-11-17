@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多标签页</title>
+</head>
+<style>
+    ul {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    li {
+        list-style-type: none;
+        float: left;
+        width: 80px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+
+    #d0 {
+        width: 360px;
+        height: 200px;
+        /*border: 1px solid red;*/
+        overflow: hidden;
+    }
+
+    .content {
+        /*border: 1px solid red;*/
+        width: 350px;
+        height: 150px;
+        float: left;
+        top: 50px;
+        text-align: center;
+    }
+
+    #d1 {
+        background-color: gold;
+    }
+
+    #d2 {
+        background-color: darkorchid
+    }
+
+    #d3 {
+        background-color: blue
+    }
+</style>
+
+<body>
+<div id="d0">
+    <ul>
+        <li style="background-color: gold">10元套餐</li>
+        <li style="background-color:darkorchid">30元套餐</li>
+        <li style="background-color: blue">50元套餐</li>
+    </ul>
+    <div id="d1" class="content">10元套餐详情
+        <p>每月套餐内拨打100/分钟</p>
+    </div>
+    <div id="d2" class="content">30元套餐详情
+        <p>每月套餐内拨打300/分钟</p></div>
+    <div id="d3" class="content">50元套餐详情
+        <p>每月套餐内拨打500/分钟</p></div>
+</div>
+<script>
+    var lis = document.getElementsByTagName("li");
+    var divs = document.getElementsByClassName("content");
+    console.log(divs[0]);
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].setAttribute("index", i);
+        lis[i].onclick = function () {
+            /*  for (var j = 0; j < divs.length; j++) {
+  // document.getElementById("d"+j);
+                  divs[j].style.display = "none";
+ //  console.log(divs[j]);
+              }
+              var index = parseInt(this.getAttribute("index"));
+              divs[index].style.display = "block";
+            }
+  */
+            for (var j = 0; j < divs.length; j++) {
+                var index = parseInt(this.getAttribute("index"));
+                if (parseInt(this.getAttribute("index")) != j) {
+                    divs[j].style.display = "none";
+                } else {
+                    divs[index].style.display = "block";
+                }
+            }
+        }
+    }
+</script>
+</body>
+
+</html>

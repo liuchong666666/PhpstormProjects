@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event对象</title>
+</head>
+<style>
+    #d1 {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+    }
+
+    #d2 {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+</style>
+<body>
+<button onclick="console.log(1);console.log(2)">按钮1</button>
+<!--html中绑定两次，只有第一次生效-->
+<button onclick="f1()" onclick="f2()">按钮2</button>
+<button id="bt3">按钮3</button>
+<button id="bt4" onclick="f2()">按钮4</button>
+
+<form id="searchForm" action="9-1.php">
+    产品搜索：<input name="kw">
+    <input type="button" onclick="sub()" value="搜索">
+    <input type="submit" onclick="return  sub()" value="搜索">
+
+</form>
+
+
+<div id="d1">
+    <div id="d2"></div>
+</div>
+
+
+<button onclick="alert(event)">event1</button>
+<button id="bt2" onclick="fbt2(event)">event2</button>
+<button id="btt3">event3</button>
+<script>
+
+    function sub() {
+        return false;//阻止提交
+        document.getElementById("searchForm").submit();
+    }
+
+    var bt3 = document.getElementById('bt3');
+    //  bt3.onclick = f1;//f1不能用括号，用了括号就成了返回值
+    // bt3.onclick = f2;//js中绑定两次，会覆盖前面的，默认，绑定不了两次
+    bt3.setAttribute('onclick', 'f1()');
+    bt3.setAttribute('onclick', 'f2()');
+
+    var bt4 = document.getElementById('bt4');
+    bt4.onclick = function () {
+        console.log(999);
+    };
+
+    function f1() {
+        console.log(3);
+        console.log(4);
+        console.log(arguments.length);
+    }
+
+    function f2() {
+        console.log(5);
+        console.log(6);
+        console.log(arguments.length);
+    }
+
+    (function () {
+        console.log(a);
+        var a = 110;
+        console.log(a);
+    })();
+
+    console.log(b);//undefined  ,变量声明提前，但赋值不提前
+    var b = 110;
+    //==========================================================================================
+    //    事件冒泡
+    var d1 = document.getElementById('d1');
+    var d2 = document.getElementById('d2');
+    d1.onclick = function () {
+        console.log('d1');
+
+    }
+    d2.onclick = function () {
+        console.log('d2');
+//            console.log(event.cancelBubble);
+        event.cancelBubble = true;//取消事件冒泡
+    }
+    //==========================================================================================
+    document.getElementById('bt2').onclick = function () {
+        alert(event.clientY);
+    }
+
+    function fbt2(e) {
+        alert(event);
+    }
+    document.getElementById('btt3').onclick = function (e) {
+        alert(e);
+    }
+</script>
+</body>
+</html>

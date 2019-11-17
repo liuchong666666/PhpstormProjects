@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function initial() {
+            //获取页面元素
+            txtName = $("txtName");
+
+            rdoMale = $("rdoMale");
+            rdoFemale = $("rdoFemale");
+
+            selXueLi = $("selXueLi");
+            frmLogin = $("frmLogin");
+            btnSign = $("btnSign");
+            //添加默认验证消息
+//           setCustomValidity 修改提示框内容
+//            txtName.setCustomValidity("用户名不能为空");
+            rdoMale.setCustomValidity("请选择一种性别");
+            selXueLi.setCustomValidity("请选择学历");
+            //绑定事件
+            txtName.addEventListener("blur",txtName_blur,false);
+            rdoMale.addEventListener("change",rdoGender_change,false);
+            rdoFemale.addEventListener("change",rdoGender_change,false);
+            selXueLi.addEventListener("change",sel_change,false);
+            frmLogin.addEventListener("submit",frmLogin_submit,false);
+            btnSign.addEventListener("click",btnSign_click,false);
+        }
+        function btnSign_click() {
+            var ret =  frmLogin.checkValidity();
+//            alert(ret);
+            if(ret){
+                frmLogin.submit();
+            }
+        }
+        function frmLogin_submit() {
+           var ret =  frmLogin.checkValidity();
+           alert(ret);
+        }
+        function rdoGender_change(e){
+            var tar = e.target;//获取真正的表单元素
+            rdoMale.setCustomValidity("");
+        }
+        function sel_change() {
+            var value = selXueLi.value;
+            console.log(value);
+            if(value!=0){
+                selXueLi.setCustomValidity("");
+            }
+        }
+
+        function txtName_blur() {
+            var value = txtName.value;
+            if(value.length == 0){
+                //如果为空
+                txtName.setCustomValidity("用户名不能为空");
+            }else{
+                //清空自定义验证消息，让文本框通过验证
+                txtName.setCustomValidity("");
+            }
+            if(txtName.validity.customError){
+                alert("验证不通过");
+            }
+
+
+            //通过checkValidity()实现实时验证
+            var ret = txtName.checkValidity();
+//            window.alert(ret);
+            if(ret){
+                $("txtNameTip").innerHTML="通过";
+            }else{
+                $("txtNameTip").innerHTML="用户名不能为空";
+            }
+        }
+        window.addEventListener("load",initial,false);
+    </script>
+</head>
+<body>
+<form method="get" name="frmLogin" id="frmLogin">
+    <table>
+        <tr>
+            <td>用户名称</td>
+            <td>
+                <input type="text" required name="txtName" id="txtName"/>
+                <span id="txtNameTip"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>用户性别</td>
+            <td>
+                <input type="radio" name="rdoGender" id="rdoMale"
+                value="0"/>男
+                <input type="radio" name="rdoGender" id="rdoFemale"
+                       value="1"/>女
+                <div id="rdoGenderTip"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>用户学历</td>
+            <td>
+                <select name="" id="selXueLi">
+                    <option value="0">请选择...</option>
+                    <option value="1">小学</option>
+                    <option value="2">初中</option>
+                    <option value="3">高中</option>
+                    <option value="4">大学</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="提交">
+                <input type="button" value="signUp" id="btnSign">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

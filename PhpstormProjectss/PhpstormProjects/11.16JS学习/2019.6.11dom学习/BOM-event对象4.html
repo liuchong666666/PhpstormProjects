@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event对象4</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #zhuantou {
+        width: 240px;
+        height: 360px;
+        background: #a89911;
+        position: fixed;
+        left: 100px;
+        top: 50px;
+    }
+</style>
+<body>
+<div id="zhuantou"></div>
+<script>
+    var zt = document.querySelector('#zhuantou');
+  /*  var isPressed = false;
+    var offsetX = 0;
+    var offsetY = 0;
+    zt.onmousedown = function (event) {
+        isPressed = true;
+        this.style.cursor = 'move';//修改鼠标标志
+        offsetX = event.offsetX;
+        offsetY = event.offsetY;
+    };
+    zt.onmouseup = function () {
+        isPressed = false;
+        this.style.cursor = 'default';
+    };
+    zt.onmousemove = function (event) {
+        if (!isPressed) {//当前被按下
+            return;
+        }
+        // console.log(event.offsetX+"-"+event.offsetY);
+        zt.style.left = (event.clientX - offsetX) + 'px';
+        zt.style.top = (event.clientY - offsetY) + 'px';
+    };
+    zt.onmouseout = function () {
+//        isPressed = false;
+    }
+*/
+    zt.onmousedown = function (e) {
+        //获取此时的可视区域的横坐标-此时登录框距离左侧页面的横坐标
+        var spaceX = e.clientX - zt.offsetLeft;
+        var spaceY = e.clientY - zt.offsetTop;
+        console.log('e.clientX:'+e.clientX +"-"+'e.clientY'+e.clientY);
+//        console.log('zt.offsetLeft'+zt.offsetLeft+'-'+'zt.offsetTop'+zt.offsetTop);
+        console.log('e.offsetX'+e.offsetX);
+        console.log('e.offsetY'+e.offsetY);
+        //移动的事件
+        document.onmousemove = function (e) {
+            console.log("-----------------------------------");
+            console.log('e.clientX:'+e.clientX +"-"+'e.clientY'+e.clientY);
+            console.log('e.offsetX'+e.offsetX);
+            console.log('e.offsetY'+e.offsetY);
+            //新的可视区域的横坐标-spaceX====>新的值--->登录框的left属性
+            var x = e.clientX - e.offsetX;
+            var y = e.clientY - e.offsetY;
+            zt.style.left = x + "px";
+            zt.style.top = y + "px";
+
+            console.log('x'+x);
+            console.log('y'+y);
+
+        }
+    };
+    document.onmouseup=function () {
+        document.onmousemove=null;//当鼠标抬起的时候,把鼠标移动事件干掉
+    };
+
+</script>
+</body>
+</html>

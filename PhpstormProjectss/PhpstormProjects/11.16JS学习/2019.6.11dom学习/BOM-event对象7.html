@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event对象7</title>
+</head>
+<style>
+    input {
+        width: 200px;
+        color: #aaa;
+    }
+</style>
+<body>
+<!--tabindex  tab键序-->
+请输入用户名：<input id="userName" tabindex="1">
+请输入用户名：<input id="userName2" tabindex="4">
+请输入用户名：<input id="userName3" tabindex="2">
+请输入用户名：<input id="userName4" tabindex="3"><br/>
+
+<select onchange="console.log(this.value)">
+    <option value="10">东城区</option>
+    <option value="11">西城区</option>
+    <option value="12">东海区</option>
+</select><br/>
+
+<input id="userPwd" onchange="console.log(this.value)"/>
+<input type="image">
+<script>
+    var hint = "请输入手机号/邮箱/QQ号";
+    var input = document.querySelector('#userName');
+    input.value = hint;
+    input.onfocus = function () {
+        if (this.value == hint) {
+            this.value = '';
+        }
+    };
+    input.onblur = function () {
+        if (this.value == "") {
+            this.value = hint;
+        }
+    };
+    document.body.onload = function () {
+        document.querySelector('#userPwd').focus();//focus();获取焦点
+    }
+</script>
+</body>
+</html>

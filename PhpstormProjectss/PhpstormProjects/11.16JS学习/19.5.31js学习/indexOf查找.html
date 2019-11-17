@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>indexof查找</title>
+</head>
+<body>
+<script>
+    var str = "我草，女神说要来了，我草草的收拾了房间，结果她又说不来了。我说：我草！我草";
+    // var index = str.indexOf("我草");
+    //index = str.indexOf("我草",index+1);
+    //今后用indexOf就用这个while循环 ，固定套路
+   // var index=-1;
+    //index+1表示从上次找到位置之后，开始
+     // while((index = str.indexOf("我草",index+1))!=-1){//从开头往后找
+    var index = str.length;
+    while ((index = str.lastIndexOf("我草", index - 1)) != -1) {//从末尾往前找
+        console.log("位置" + index + "发现"+str.charAt(index));
+       if (index == 0) {
+            break;
+        }
+    }
+</script>
+</body>
+</html>

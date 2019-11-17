@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义排序方法</title>
+</head>
+<body>
+<script>
+    //任意两数比较
+    //js进入后，全局var声明和function声明自动提前，赋值不能提前
+    /*function compare(a,b){
+        return a-b;
+    }*/
+    //var compare = new Function("a", "b", "return a-b");//这种声明方法js不会提前，所以得放使用前面，参数方法体，a，b是参数，//注意！将方法做为对象传递时，仅使用方法名，后不加圆括号
+    //只是把var compare提前，而=后面的没提前，就相当var compare此时是undefined
+    ////js进入后，全局var声明和function声明自动提前，赋值不能提前
+    var arr2 = [123, 2, 3, 56, 7, 89, 1, 234, 23, 336];
+    var compare = new Function("a", "b", "return a-b");////必须定义在使用之前！原因：仅声明提前。赋值不能提前！
+    arr2.sort(compare);///sort()默认升序排列。默认都转为字符串排序！//把自定义比较方法compare传进去，更改sort默认比较方式
+    document.write(arr2);
+
+    // 升序
+    function compareASC(a, b) {
+        return a - b;
+    }
+
+    //比较器   降序
+    function compareDESC(a, b) {
+        return -(a - b);
+    }
+
+    var aa = 2;
+    var bb = 12;
+    var r = compareDESC(aa, bb);//降序
+    if (r > 0) {
+        console.log(aa + ">" + bb);  //2>12
+    } else if (r < 0) {
+        console.log(aa + "<" + bb);
+    }
+</script>
+</body>
+</html>

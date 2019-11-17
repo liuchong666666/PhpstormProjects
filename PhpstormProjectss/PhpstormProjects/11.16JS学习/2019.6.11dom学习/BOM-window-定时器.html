@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+</head>
+<body>
+<h2>周期性定时器
+</h2>
+<!--<script>-->
+<!--//每隔半秒就执行一次-->
+<!--//task：打印i-->
+<!--//time：500-->
+<!--/*-->
+<!--function print(){-->
+    <!--var i=0;-->
+    <!--document.write(i);-->
+<!--}-->
+<!--var timer = window.setInterval(print,1000);-->
+<!--*/-->
+<!--var i=0;-->
+   <!--var timer = window.setInterval(function () {-->
+        <!--document.write(i+'<br/>');-->
+        <!--i++;-->
+        <!--if(i>=10){//当i>=1就可以当一次性定时器-->
+            <!--window.clearInterval(timer);-->
+        <!--}-->
+    <!--},500);-->
+<!--</script>-->
+<h2>一次性定时器</h2>
+<button onclick="stoptimer()">停止一次性定时器</button>
+<script>
+     var i=999;
+     //3秒钟后打印一遍i
+    //task：打印i
+    //time：3000
+    function printValue(){
+        i++;
+        document.write(i);
+        window.setTimeout(printValue,3000);//递归调用，模拟周期性定时器
+    }
+  var timer2=  window.setTimeout(printValue,3000);
+    function stoptimer(){
+        clearTimeout(timer2);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //splice方法 删除 替换 插入
+    var arr1=[1,2,3,4,9,8];
+    //    arr1.splice(4,1);//删除 从下标为4的开始  第一个元素
+    // document.write( arr1.splice(4,1,2,2)+"<br/>");//替换，从下标为4的开始  第一个元素 替换成2，2
+    document.write( arr1.splice(4,0,2,2)+"<br/>");//插入，从下标为4的开始  第0个元素 替换成2，2  就是插入
+    document.write(arr1);
+</script>
+</body>
+</html>

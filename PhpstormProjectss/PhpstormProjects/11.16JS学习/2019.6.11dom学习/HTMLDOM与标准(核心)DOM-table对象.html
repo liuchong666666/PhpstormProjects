@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMLDOM与标准(核心)DOM-table对象</title>
+</head>
+<body>
+<table id="table1" border="1" width="200">
+    <tr>
+        <td>AA</td>
+        <td>BB</td>
+    </tr>
+    <tr>
+        <td>CC</td>
+        <td>DD</td>
+    </tr>
+</table>
+
+<script>
+    var table = document.querySelector('#table1');
+    console.log(table.id);
+    console.log(table.border);
+    console.log(table.width);
+    //var table2 = new Table();//错误，不能new Table对象
+    console.log(table.rows);
+    //    console.log(table.cells);//undefined
+    var c = table.createCaption();//为表格增加标题
+    c.innerHTML='第一季销售总计';//标题增加内容
+
+</script>
+</body>
+</html>

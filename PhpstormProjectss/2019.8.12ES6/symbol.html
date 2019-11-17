@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let s = Symbol(`123`);
+    let s2 = Symbol(`123`);
+    console.log(s)
+    console.log(s2)
+    console.log(s===s2)
+
+
+    //定义一个对象
+    //Symbol防止对象里面的属性名重复而被替换掉
+    let s3= Symbol('address')
+    let s4= Symbol('address')
+    let obj = {name:"jack",age:10}
+//    obj.address='北京路'
+    //obj.address='南京路'//会被替换掉
+    obj[s3]='南京路'
+    obj[s4]='北京路'
+    console.log(obj)
+    //Object.getOwnPropertySymbols方法，可以获取指定对象的所有 Symbol 属性名。
+
+//    Object.getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。
+    console.log(Object.getOwnPropertySymbols(obj))
+//    Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。
+    console.log(Reflect.ownKeys(obj))
+    for(var i in obj){
+        console.log(i)
+    }
+
+    //定义常量的时候也用到//防止值一样
+    const  System_key=Symbol('abc')
+    const  Other_key=Symbol('abc')
+
+    //Symbol.for():全局搜索指定key的Symbol，找到的话，就返回该Symbol，找不到，就新建一个
+    let foo = Symbol.for('foo22')
+    console.log(foo)
+    let foo2 = Symbol.for('foo')
+    console.log(foo2)
+    console.log(foo === foo2)//true
+
+/*
+    Symbol.for()与Symbol()这两种写法，都会生成新的 Symbol。
+    它们的区别是，前者会被登记在全局环境中供搜索，后者不会。
+    Symbol.for()不会每次调用就返回一个新的 Symbol 类型的值，
+    而是会先检查给定的key是否已经存在，如果不存在才会新建一个值。
+    比如，如果你调用Symbol.for("cat")30 次，每次都会返回同一个 Symbol 值，
+    但是调用Symbol("cat")30 次，会返回 30 个不同的 Symbol 值。
+
+    */
+
+
+/*上面代码中，由于Symbol()写法没有登记机制，
+所以每次调用都会返回一个不同的值。
+Symbol.keyFor()方法返回一个已登记的 Symbol 类型值的key。*/
+
+
+    //Symbol.keyFor()
+    //Symbol.keyFor() 返回一个已登记的Symbol类型值的key，用来检测该字符串参数作为名称的Symbol值是否已被登记
+   //let fooKey = Symbol.keyFor(bar1)//Uncaught TypeError: bar1 is not a symbolat Function.keyFor (<anonymous>)
+    let bar = Symbol.for('barKey')
+    let fooKey = Symbol.keyFor(s)
+    console.log(fooKey)
+</script>
+</body>
+</html>

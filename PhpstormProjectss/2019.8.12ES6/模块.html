@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    /*
+    // type="module" 必须这样，不然会报错
+//    name as myName 把name名字重命名为myName,用name就不行了
+    import {name as myName,age,fun as myFun,myCLass as myC} from './export.js';
+    console.log(myName)
+//    console.log(age,myFun(),myCLass.a)
+    console.log(age,myFun(),myC.a)
+    */
+
+//    import name from './export.js';
+//    console.log(name)
+
+
+    import student from './export.js'
+    //student接收导入的一个对象
+    console.log(student)
+    console.log(student.name)
+    console.log(student.getInfo())
+</script>
+</body>
+</html>

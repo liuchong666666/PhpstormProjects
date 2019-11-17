@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定与反绑</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        /*
+                $(document).ready(function () {
+                   //1.为btnbind绑定事件
+                     $("#btnbind").click(function () {
+                         console.log("绑定事件成功");
+                     })
+                    //2.为btnclick绑定事件
+                    $("#btnclick").click(function () {
+                        $("#btnbind").unbind("click");
+                    });
+                })
+                */
+        function f1(event) {
+            console.log("i am f1");
+            console.log(event);
+        }
+
+        /*
+    4.1获取事件源:获取的事件源全是DOM对象
+	    1.event.tareget
+	    2.this
+	    e:事件对象
+	    e.target:为事件源
+        * */
+        function f2(e) {
+            //e.pageX,e.pageY
+            //e.target
+            console.log("i am f2");
+            console.log($(this).val());
+            console.log($(e.target).val());
+        }
+
+        $(document).ready(function () {
+            //btnbind绑定事件
+            $("#btnbind").click(f1);
+            $("#btnbind").click(f2);
+            //解绑
+            $("#btnclick").click(function () {
+                $("#btnbind").unbind("click", f1);//解绑f1，f2在
+            })
+        });
+    </script>
+</head>
+<body>
+<input type="button" id="btnbind" value="绑定/反绑">
+<input type="button" id="btnclick" value="click">
+</body>
+</html>

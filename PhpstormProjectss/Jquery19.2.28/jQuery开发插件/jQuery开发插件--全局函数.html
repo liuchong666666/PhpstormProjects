@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery开发插件</title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/array_option.js"></script>
+    <script>
+
+        //1、添加一个全局函数
+        /*方式一：
+        jQuery.myFunction = function(){
+              console.log("Hello world");
+          };
+          jQuery.myFunction1 =  function(msg){
+              console.log(msg);
+          };*/
+        //方式二：通过extend整合全局函数
+        jQuery.extend({
+            myFunction: function () {
+                console.log("hello world");
+            },
+            myFunction1: function (msg) {
+                console.log("abcd");
+            }
+        });
+        $(document).ready(function () {
+            //调用全局函数
+            $.myFunction();
+            $.myFunction1("abcd");
+
+            //调用插件中的myFunction函数
+            $.array_option.myFunction();
+            $.array_option.myFunction1("today is fine");
+
+            //创建一个数组
+            var a=[1,5,3,-1,20];
+            $.add_array.sum(a);
+            var sum=$.add_array.sum1(a);
+            console.log(sum);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

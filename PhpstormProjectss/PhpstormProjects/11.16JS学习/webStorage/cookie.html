@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+<script>
+    /*
+    * cookie
+    *   浏览器暂时存储一些数据的东西
+    *   存放在本机电脑上的
+    *   以各个站点为单位
+    *   不同浏览器之间，cookie不共用
+    *   要在服务器环境下才能设置cookie
+    * */
+    /*
+    *   document.cookie
+    *       ！！！一次只能设置一个cookie值！！！
+    *       expires设置有效期，值是一个日期对象(国际标准时间)字符串
+    * */
+    //    alert(new Date());
+    var date = new Date().getTime();//先转换成毫秒数，东八区时间
+    //一个月
+    var newD = new Date(date + 30 * 24 * 60 * 60 * 1000);//加上有效期时间后再换成日期对象
+
+
+    document.cookie = "xm=LC;expires=" + newD.toUTCString();//newD是东八区时间和现在相差八个小时，所以得转为格林威治时间
+</script>
+</body>
+</html>

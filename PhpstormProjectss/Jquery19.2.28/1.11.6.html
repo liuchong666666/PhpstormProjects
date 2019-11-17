@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            //绑定事件
+//            $("input[type=button]")
+//            $("input[value='click me']")
+            $("#btn").bind("click", function () {
+                console.log("点我呀点我呀");
+            });
+            //多个事件可以并存
+            $("#btn").bind("click", function () {
+                console.log("第二个点我呀点我呀");
+            });
+            // 模拟事件
+            $("#bttxt").click(function () {
+               // $("#frm").submit(function () {});//提价表单绑定的事件
+                $("#frm").submit();//提交表单
+            })
+        });
+    </script>
+</head>
+<body>
+<form action="test.do" id="frm">
+    姓名：<input type="text" name="txt">
+</form>
+<input type="button" id="btn" value="click me">
+<input type="button" id="bttxt" value="cli">
+</body>
+</html>

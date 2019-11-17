@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //定义一个类
+    class Per{
+        //定义一个构造方法
+        constructor(name,age){
+            console.log('父类构造方法')
+            this.name=name;
+            this.age=age;
+        }
+        //定义普通方法
+        getInfo(){
+            console.log('父类getInfo')
+            return `姓名：${this.name},年龄：${this.age}`
+        }
+    }
+    let per =  new Per('lc',18);
+    console.log(per)
+    console.log(per.getInfo())
+
+
+    //用extends实现继承
+    class BPer extends  Per{
+        constructor(name,age,height){
+            super(name,age);//父类的
+            console.log('子类构造方法')
+            this.height=height;
+        }
+        //重写父类方法
+        getInfo(){
+            console.log('父类getInfo')
+            return `姓名：${this.name},年龄：${this.age}，身高：${this.height}`
+        }
+    }
+    let bper = new BPer('Jhon',18,118)
+    console.log(bper)
+    console.log(bper.getInfo())
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东登录页面</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        div {
+            /*border: 1px solid red;*/
+        }
+
+        #top {
+            width: auto;
+            height: 90px;
+        }
+
+        #top a {
+
+            position: relative;
+            float: right;
+            text-decoration: none;
+            color: grey;
+            top: 52px;
+            right: 50px;
+            font-size: 12px;
+
+        }
+        #center_bottom2_center a:hover{
+            color: red;
+        }
+
+        #top a img {
+            /*display: inline-block;*/
+            vertical-align: middle;
+        }
+
+        #center {
+            width: auto;
+            height: 514px;
+        }
+
+        #center_top {
+            color: grey;
+            height: 39px;
+            font-size: 12px;
+            background: #fff8f0;
+        }
+
+        #center_top img {
+            float: left;
+            vertical-align: middle;
+        }
+
+        #center_top1 {
+
+            padding-top: 11px;
+            margin: auto;
+            width: 790px;
+        }
+
+        #center_top1 a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #center_bottom {
+            width: 100%;
+            height: 475px;
+            background-color: #0d7fff;
+
+        }
+
+        #center_bottom1 {
+            height: 475px;
+            width: 990px;
+            background: url("image/bgimg.jpg") 0px 0px no-repeat;
+            margin: 0 auto;
+        }
+
+        #center_bottom2 {
+            width: 346px;
+            height: 438px;
+            background-color: white;
+            position: relative;
+            top: 10px;
+            float: right;
+        }
+
+        #center_bottom2_top {
+            color: #666;
+            width: auto;
+            height: 39px;
+            font-size: 12px;
+            background: #fff8f0;
+        }
+
+        #center_bottom2_top img {
+            float: left;
+            vertical-align: middle;
+        }
+
+        #center_bottom2_top1 {
+            width: 280px;
+            margin: 0 auto;
+            padding: 11px 0px;
+            background-color: #fff8f0;
+        }
+
+        #center_bottom2_center_left, #center_bottom2_center_right {
+            width: 172px;
+            height: 55px;
+            line-height: 55px;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #f4f4f4;
+        }
+
+        #center_bottom2_center a {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            height: 55px;
+            width: 173px;
+
+        }
+
+        #center_bottom2_center_left a {
+            border-right: 1px solid #f4f4f4;
+        }
+
+        #center_bottom2_bottom {
+            text-align: center;
+            padding-top: 10px;
+            font-size: 10px;
+        }
+
+        #center_bottom2_bottom img {
+            padding-top: 20px;
+        }
+
+        #center_bottom2_bottom p {
+            padding-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+
+        }
+
+        li {
+            float: left;
+        }
+
+        #a0 {
+
+            width: 266px;
+            height: 25px;
+            margin: 20px auto;
+            color:#666;
+
+        }
+
+        #a0 li {
+            margin-right: 18px;
+            width: 68px;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        #a0 b {
+            margin-left: 7px;
+            width: 25px;
+            height: 25px;
+            display: block;
+            float: left;
+        }
+
+        #a1 {
+            background: url("image/qr-coagent.png") no-repeat;
+        }
+
+        #a2 {
+            background: url("image/qr-coagent.png") no-repeat;
+            background-position: -27px;
+        }
+
+        #a3 {
+            background: url("image/qr-coagent.png") no-repeat;
+            background-position: -54px;
+        }
+
+        #a4 {
+            background-color: #fcfcfc;;
+            width: auto;
+            height: 50px;
+            border-top: 1px solid #f4f4f4;
+            margin: 48px auto;
+        }
+
+        #a4 b {
+            margin-left: 7px;
+            float: left;
+            display: block;
+            width: 25px;
+            height: 18px;
+        }
+
+        #a4 li {
+            height: 50px;
+            line-height: 50px;
+        }
+
+        #a5 {
+            background: url("image/QQ-weixin.png") no-repeat;
+            background-position: 5px;
+            position: relative;
+            top: 15px;
+            margin-right: 4px;
+        }
+
+        #a6 {
+            background: url("image/QQ-weixin.png") no-repeat;
+            background-position: -19px;
+            position: relative;
+            top: 15px
+        }
+
+        .line {
+            color: #ccc;
+            padding: 0 10px;
+        }
+
+        .a7 {
+            float: right;
+            margin-right: 20px;
+        }
+
+        #a8 {
+            background: url("image/pwd-icons-new.png") -104px -75px no-repeat;
+            position: relative;
+            top: 16px
+        }
+
+        #bottom {
+            width: auto;
+            font: 12px/150% Arial, Verdana, "\5b8b\4f53";
+            color: #666;
+        }
+
+        .bottom_ul {
+            /*width: auto;*/
+            /*display:table;*/
+            /*text-align: center;*/
+            margin: 0 auto;
+            display: table;
+        }
+
+        .blank {
+            width: auto;
+            height: 20px;
+        }
+
+        #bottom p {
+            margin: 15px 0px 50px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="top">
+    <img src="image/logo-201305-b.png" alt="" style=" margin: 15px 10px 15px 200px; width: 170px;height: 60px; ">
+    <img src="image/l-icon.png" alt="" style=" margin: 15px 10px ;">
+    <a href=""><img src="image/q-icon.png" alt="">登录页面，调查问卷</a>
+</div>
+<div id="center">
+    <div id="center_top">
+        <div id="center_top1">
+            <img src="image/icon-tips.png" alt="">
+            <p>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版<a href="https://about.jd.com/privacy/" class="black"
+                                                         target="_blank">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。</p>
+
+        </div>
+    </div>
+    <div id="center_bottom">
+        <div id="center_bottom1">
+            <div id="center_bottom2">
+                <div id="center_bottom2_top">
+                    <div id="center_bottom2_top1">
+                        <img src="image/icon-tips.png" alt="">
+                        <p>京东不会以任何理由要求您转账汇款，谨防诈骗。</p>
+                    </div>
+                </div>
+                <div id="center_bottom2_center">
+                    <div id="center_bottom2_center_left">
+                        <a href=""><p>扫码登录</p></a>
+                    </div>
+                    <div id="center_bottom2_center_right">
+                        <a href=""><p>账户登录</p></a>
+                    </div>
+                </div>
+                <div id="center_bottom2_bottom">
+                    <img src="image/erweima.png" alt="">
+                    <p>打开 <span style="color: red">手机京东</span> 扫描二维码</p>
+                    <ul id="a0">
+                        <li>
+                            <b id="a1"></b>
+                            免输入
+                        </li>
+                        <li>
+                            <b id="a2"></b>
+                            更快&nbsp;
+                        </li>
+                        <li>
+                            <b id="a3"></b>
+                            更安全
+                        </li>
+                    </ul>
+                    <ul id="a4">
+                        <li>
+                            <b id="a5">
+
+                            </b>
+                            QQ
+                            <span class="line">|</span>
+                        </li>
+                        <li>
+                            <b id="a6"></b>
+                            微信
+                        </li>
+                        <li class="a7" style="color: red;">
+                            <b id="a8"></b>
+                            立即注册
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blank"></div>
+<div id="bottom">
+    <ul class="bottom_ul">
+        <li>关于我们
+            <span class="line">|</span>
+        </li>
+
+        <li>联系我们<span class="line">|</span></li>
+
+        <li>人才招聘<span class="line">|</span></li>
+
+        <li>商家入驻<span class="line">|</span></li>
+
+        <li>广告服务<span class="line">|</span></li>
+
+        <li>手机京东<span class="line">|</span></li>
+
+        <li>友情链接<span class="line">|</span></li>
+
+        <li>销售联盟 <span class="line">|</span></li>
+
+        <li>京东社区<span class="line">|</span></li>
+
+        <li>京东公益<span class="line">|</span></li>
+
+        <li>English Site</li>
+
+    </ul>
+    <p>Copyright © 2004-2019 京东JD.com 版权所有</p>
+</div>
+</body>
+</html>

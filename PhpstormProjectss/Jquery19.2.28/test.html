@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <meta charset="UTF-8">
+        <title>jquery克隆</title>
+        <script type="text/javascript" src="jquery-1.11.1.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#clickBtn").click(function(){
+                    alert(1);
+                });
+            });
+            function cloneBtn(){
+                var c = $("#clickBtn").clone(true);//false潜克隆 :不会克隆事件         true深克隆:会克隆事件
+                $("#myDiv").append(c);
+            }
+
+        </script>
+    </head>
+<body>
+<input type="button" onclick="cloneBtn()" value="点击克隆">
+<input type="button" onclick="a()" value="sum">
+<div style="width: 100px;height: 100px;background-color: red;">
+    <input type="button" value="按钮" id="clickBtn">
+</div>
+<hr/>
+<div id="myDiv" style="width: 500px;height: 500px;background-color: red;"></div>
+</body>
+
+</html>

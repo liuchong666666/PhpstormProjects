@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+//    将一个正整数分解质因数。例如：输入90,打印出90=2*3*3*5。而这四个数都是质数，质因数
+    var i=2;
+    var num=90;
+    while(i<=num){
+        if(num%i==0){
+            console.log(i);
+            num/=i;
+        }else{
+            i++
+        }
+    }*/
+    //判断一个数是不是质数（素数）,只能被1和本身整除的数   2个数
+    var num=73;
+    var  count =0;
+    for(var i=0;i<=num;i++){
+        if(num%i==0){
+            console.log(i);
+            count++;
+        }
+    }
+    if(count==2){
+        console.log("是素数")
+    }else{
+        console.log("不是素数");
+    }
+</script>
+</body>
+</html>

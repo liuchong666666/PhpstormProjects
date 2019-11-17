@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js</title>
+    <style type="text/css">
+        #as {
+            width: 100px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+    <script>
+        /*var arr=1234;
+//        console.log(arr.substring(0,4));
+        console.log(arr.valueOf());
+        console.log(arr.toString());
+        console.log(typeof(arr));
+        console.log(arr.toLocaleString());
+//        console.log(arr.join("-"));
+        console.log(arr+""+123);*/
+       function a() {
+            var div1 = document.getElementById("as");
+            console.log(div1.offsetHeight);
+//            console.log(div1.style.height);
+           div1.style.height=300+"px";
+           console.log(div1.style.height);
+           console.log(div1.offsetHeight);
+           div1.offsetHeight=400;
+           console.log(div1.style.height);
+           console.log(div1.offsetHeight);
+        }
+    </script>
+
+</head>
+<body>
+<div id="as">
+    123
+</div>
+<input type="button" value="a" onclick="a();">
+</body>
+</html>

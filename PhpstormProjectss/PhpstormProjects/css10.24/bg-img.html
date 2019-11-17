@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bg-img</title>
+    <style>
+        body{
+            background-image:url(images/repeatbg.jpg);
+            /*background-repeat:repeat-x;*/
+            background-attachment:fixed;
+        }
+        #d1{
+            width: 305px;
+            height: 150px;
+            border: 20px solid transparent; /*边框宽度得和图片大小（60px*60px 一单元格）合适*/
+            border-image: url("images/box.png") 20 round; /*round四舍五入*/
+        }
+
+        #comment {
+            width: 400px;
+            height: 180px;
+            /*background-image:url(images/jd_logo.png);*/
+            background-image: url(images/comment.gif);
+            background-color:red;
+            background-repeat: no-repeat;
+            background-position: 80px 70px;
+        }
+
+        .star {
+            width: 76px;
+            height: 15px;
+            border-bottom: 1px solid #aaa;
+            background-image: url(images/icons.png);
+            background-position: -108px -238px;
+        }
+        #d2{
+            height: 600px;
+            /*background-image: linear-gradient(180deg,#f00 0%,#ff0 70%,#fff 100%);//纯css实现线性渐变背景*/
+            background-image: radial-gradient(500px at 0px 0px,#f00 0%,#ff0 70%,#fff 100%);//纯css实现径向渐变背景
+        }
+        span{
+            border: 1px solid #fff;
+            padding: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+    <textarea name="" id="comment" cols="30" rows="10"></textarea>
+    <div class="star"></div>
+    <div id="d2"></div>
+    <span class="span">回复</span>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
+</body>
+</html>

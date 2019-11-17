@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投注彩票</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #div0 {
+            /*text-align: center;*/
+            margin: 100px auto;
+            width: 450px;
+            height: 265px;
+            border: 3px dashed orangered;
+        }
+
+        table {
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        td {
+            font-size: 20px;
+            font-family: 黑体;
+            padding: 5px 5px;
+        }
+    #submit{
+       margin: 0 auto;
+    }
+    </style>
+    <script type="text/javascript">
+        //定义取id
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function selectnum(num) {
+
+            //定义一组数组
+        /*   var number1=$('number1');
+            var number2=$('number2');
+            var number3=$('number3');*/
+            var number = new Array();
+//            var dat
+            /*获取7个随机数*/
+            //判断是否重号
+            //将每个随机数后面加两个空格字符串
+            for (var i = 0; i <= 6; i++) {
+                var tmp = Math.floor(Math.random() * 30 + 1);
+                //重号处理
+                for (var j = 0; j <= number.length - 1; j++) {
+                    if (number[j] == tmp) {
+                        tmp = Math.floor(Math.random() * 30 + 1);
+                        j = 0;
+                    }
+                }
+                if (tmp < 10) {
+                    number[i] = '0' + tmp;
+                } else {
+                    number[i] = tmp;
+                }
+            }
+            console.log(12);
+            //将获得数组赋给number
+            $(num).value = number.sort().join("  ");
+            /*localStorage本地存储*/
+//            首先在使用localStorage的时候，我们需要判断浏览器是否支持localStorage这个属性
+            // 第一个页面存值
+            //localStorage.setItem('name', name);
+            // 第二个页面取值
+           // localStorage.getItem('name');
+
+            if(!window.localStorage){
+                alert("浏览器支持localstorage");
+                return false;
+            }else{
+
+                localStorage.setItem('number1',  $('number1').value);
+                localStorage.setItem('number2',  $('number2').value);
+                localStorage.setItem('number3',  $('number3').value);
+            }
+
+
+             }
+            //清除单个数据
+            //localStorage.removeItem('number1');
+             //清空所有的数据
+             function storageclear() {
+                 localStorage.clear();
+             }
+    </script>
+</head>;
+<body>
+<div id="div0">
+    <img src="images/ico_7l.gif" alt="">
+    <form action="lottery2.html" method="post" target="_blank">
+        <table>
+            <tr>
+                <td colspan="4">简易福彩投注程序</td>
+            </tr>
+            <tr>
+                <td>彩票号码</td>
+                <!--火狐里面刷新后清除的填的表单内容，autocomplete="off"-->
+                <td><input type="text" size="28" name="number1" id="number1"autocomplete="off" ></td>
+                <td><input type="button" value="投注" onclick="selectnum('number1');"></td>
+                <td rowspan="3"><input type="reset" value="清空" style="height:102px; width:50px;" onclick="storageclear();"></td>
+            </tr>
+            <tr>
+                <td>彩票号码</td>
+                <td><input type="text" size="28" name="number2" id="number2"autocomplete="off"></td>
+                <td><input type="button" value="投注" onclick="selectnum('number2');"></td>
+            </tr>
+            <tr>
+                <td>彩票号码</td>
+                <td><input type="text" size="28" name="number3" id="number3"autocomplete="off"></td>
+                <td><input type="button" value="投注" onclick="selectnum('number3');"></td>
+            </tr>
+            <tr>
+                <td colspan="4"> <input type="submit" value="确定" id="submit" style="width:100px;height: 30px;" ></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序+比较器</title>
+</head>
+<body>
+<script>
+    //循环条件：当前元素下标<length-1 ，length-1 是最后一个元素只有自己
+    //循环变量，下标，从0开始
+    //循环体：当前元素>下一个元素 交换！
+    var arr = [2, 6, 3, 9, 5, 8, 7, 0, 10,23,33,24,123];
+    //将最大数置换到最后一个元素
+    //从第一个元素开始，依次取出每个元素和下一个元素比较
+    for (var j = arr.length - 1; j > 0; j--) {
+        //或者 for (var j=0; j<=arr.length - 1 ; j++) {
+        for (var i = 0; i < j; i++) {
+            var curr = arr[i];//当前
+            var next = arr[i + 1];//后一个
+            if (curr > next) {//交换
+                var temp;//空盒子
+                temp = arr[i];//先把arr[i]放空盒子里
+                arr[i] = arr[i + 1];//再把arr[i+1]放arr[i]盒子里面
+                arr[i + 1] = temp;//最后把temp盒子里的arr[i]的值放arr[i+1]盒子里
+            }
+        }
+    }
+    document.write("</br>" + arr);
+    document.write("</br>" + arr.join(""));
+    document.write("</br>" + arr.join(","));
+    document.write("<hr/>");
+    /////////////////////////////////////////////////////////////////////////////////////
+    /*对任意数组执行冒泡排序,升序*/
+    function compareASC(a, b) {
+        return a-b;
+    }
+    /*降序*/
+    function compareDESC(a,b){
+        return -(a-b);
+    }
+    function bubblesort(arr) {
+        for (var j = arr.length - 1; j > 0; j--) {
+            //或者 for (var j=0; j<=arr.length - 1 ; j++) {
+            for (var i = 0; i < j; i++) {
+                var curr = arr[i];//当前
+                var next = arr[i + 1];//后一个
+                if (compareASC(arr[i],arr[i+1])>0) {//交换   或者if (arr[i]>arr[i+1]) {
+                    var temp;//空盒子
+                    temp = arr[i];//先把arr[i]放空盒子里
+                    arr[i] = arr[i + 1];//再把arr[i+1]放arr[i]盒子里面
+                    arr[i + 1] = temp;//最后把temp盒子里的arr[i]的值放arr[i+1]盒子里
+                }
+            }
+        }
+    }
+    bubblesort(arr);
+    document.write(arr);
+    document.write("<hr/>");
+    var arr1 = [123, 2, 3, 56, 7, 89, 1, 234, 23, 336];
+    document.write("升序"+arr1.sort(compareASC) + "<br/>");//sort()默认升序排列。默认都转为字符串排序！//把自定义比较方法compare传进去，更改sort默认比较方式
+    document.write("降序"+arr1.sort(compareDESC) + "<br/>");
+    //    document.write(arr1 + "<br/>");
+    bubblesort(arr1);//只有值传递，因为内存中变量地址一样，所以这个能改变原数组
+                     //引用类型传入方法中，就得小心了，因为会改变内容
+    //bubblesort(arr1);一执行完，bubblesort(arr1)环境栈就出栈了
+    //但原数据已经被修改了，全局的变量arr的地址指向的堆中内容已经被修改了
+    document.write("arr1已经被修改"+arr1);
+
+
+    /*这里的就全在栈中，和堆没关系*/
+    function fun(num) {
+        num -= 3;
+        console.log(num);
+    }
+
+    var num = 10;
+    fun(num);//7
+    console.log(num);//10
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event对象5</title>
+</head>
+<body>
+<script>
+    var body = document.body;
+    var i = 0;
+    body.onkeydown = function (event) {
+        console.log('DOWN' + event.keyCode)
+    };
+    body.onkeyup = function (event) {
+        console.log('UP' + event.keyCode)
+    };
+    body.onkeypress = function (event) {
+        console.log('press' + i + event.keyCode);
+        i++;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关联数组</title>
+</head>
+<body>
+<script>
+    var fbb={"名字":"范冰冰","英语":90,"数学":100};
+  /*  var fbb=[];
+    fbb["名字"]="范冰冰";
+    fbb["英语"]=90;
+    fbb["数学"]=100;*/
+    //关联数组直接量定义方式：强调：大括号
+    // {"key1":value1,"key2":value2,....}
+    // var fbb={"名字":"范冰冰","英语":90,"数学":100}
+    for(var key in fbb){//取所有值
+       console.log(key+":"+fbb[key]+"</br>");
+    }
+</script>
+</body>
+</html>

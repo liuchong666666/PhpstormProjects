@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车.1</title>
+    <style type="text/css">
+        h1 {
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        table {
+
+            border: 3px solid #CCCCCC;
+            margin: 20px auto;
+            width: 600px;
+            height: 300px;
+            border-collapse: collapse;
+
+        }
+
+        table td, table th {
+            border: 3px solid #CCCCCC;
+            padding: 10px;
+
+        }
+
+        #table2 {
+            width: 600px;
+            height: auto;
+        }
+
+        table th {
+            background: #eeeeee;
+        }
+    </style>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript">
+        //加入购物车
+        function add_shoppingcart(btn) {
+            /*1.找到按钮同行的商品名和单价*/
+            //找到按钮的父亲td，然后找他父亲的兄弟，
+            //其大哥，二哥是我们要找的目标
+            var $tds = $(btn).parent().siblings();
+            //eq(i)是获取第i个元素，返回了jQuery对象
+            var name = $tds.eq(0).text(); //商品名
+            var price = $tds.eq(1).text();//价格
+
+            /*2.创建一行，插入到tbody下*/
+            var $tr =
+                $('<tr>' +
+                    '<td>' + name + '</td>' +
+                    '<td>' + price + '</td>' +
+                    '<td align="center">' +
+                    '    <input type="button" value="-" onclick="decrease(this)">' +
+                    '    <input type="text" value="1" style="width: 50px" readonly="readonly" size="3">' +
+                    '    <input type="button" value="+" onclick="increase(this)">' +
+                    '</td>' +
+                    '<td>' + price + '</td>' +
+                    '<td style="text-align: center">' +
+                    '    <input type="button" value="X" onclick="del(this);">' +
+                    '</td>' +
+                    '</tr>');
+            $("#goods").append($tr);
+            total();
+        }
+
+        /*删除*/
+        function del(btn) {
+            $(btn).parent().parent().remove();
+            total();
+        }
+
+        /*增加*/
+        function increase(btn) {
+            //1.先获取文本框，并将其值加1
+            //文本框是“+号”的哥哥
+            var $text = $(btn).prev();
+            //获取文本框的值($text.val())，然后强转一下，再+1
+            var amount = parseInt($text.val());
+            //然后赋值,赋值和取值都是.val();
+            $text.val(++amount);
+
+            //2.获取单价，计算金额
+            //单价所在的td是“+号”的大爷
+            var $td2 = $(btn).parent().prev();
+            var price = parseFloat($td2.text());
+            //计算金额
+            var mny = price * amount;
+            //金额所在的td是加号按钮的叔叔
+            $(btn).parent().next().text(mny);
+            total();
+        }
+
+        /* var $td=$(btn).parent().siblings();
+           console.log($td);
+           var price=$td.eq(1).text();
+           console.log(price);
+           $td.eq(3).text(price*amount);
+           console.log($td.eq(3).text(price*amount));*/
+        /*var price=$("#goods td").eq(1).text();
+           $("#goods td").eq(3).text(price*amount);*/
+
+        //减少
+        function decrease(btn) {
+            //获取文本框的值
+            var $text = $(btn).next();
+            var amount = parseInt($text.val());
+            //判断amount是否等于1
+            if (amount == 1) {
+                return;
+                返回不执行下面的程序
+            }
+            $text.val(--amount);
+            //获取单价
+            var $td2 = $(btn).parent().prev();
+            var price = $td2.text();
+            console.log(price);
+            //金额
+            $(btn).parent().next().text(price * amount);
+            total();
+        }
+
+        //计算合计
+        function total() {
+            //获取购物车列表下所有的商品行（tbody下）
+            var $trs = $("#goods tr");
+            //遍历这些行
+            var sum = 0;
+            for (var i = 0; i < $trs.length; i++) {
+                //获取每一行的金额
+                var $td = $trs.eq(i).children().eq(3);
+                //从这一列中获取金额，并累加
+                var mny = parseFloat($td.text());
+                sum += mny;
+            }
+            //将合计值设置给对应的列
+            $("#total").text(sum);
+
+        }
+
+    </script>
+</head>
+<body>
+<h1>真划算</h1>
+<table border="1" cellpadding="5">
+
+    <tr>
+        <th>商品</th>
+        <th>单价（元）</th>
+        <th>颜色</th>
+        <th>库存</th>
+        <th>好评率</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>罗技M185鼠标</td>
+        <td>80</td>
+        <td>黑色</td>
+        <td>893</td>
+        <td>98%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+            <!--this就是当前正在单击的button-->
+        </td>
+    </tr>
+    <tr>
+        <td>微软X470键盘</td>
+        <td>150</td>
+        <td>黑色</td>
+        <td>9028</td>
+        <td>96%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>洛克iphone6手机壳</td>
+        <td>60</td>
+        <td>透明</td>
+        <td>672</td>
+        <td>99%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>蓝牙耳机</td>
+        <td>100</td>
+        <td>蓝色</td>
+        <td>8937</td>
+        <td>95%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>金士顿U盘</td>
+        <td>70</td>
+        <td>红色</td>
+        <td>482</td>
+        <td>100%</td>
+        <td style="text-align: center">
+            <input type="button" value="加入购物车" onclick="add_shoppingcart(this);">
+        </td>
+    </tr>
+</table>
+&nbsp;&nbsp;&nbsp;
+<h1>购物车</h1>
+<table border="1" id="table2">
+    <thead>
+    <tr>
+        <th>商品</th>
+        <th>单价（元）</th>
+        <th>数量</th>
+        <th>金额（元）</th>
+        <th>删除</th>
+    </tr>
+    </thead>
+    <tbody id="goods">
+    <!--这个tr只是最初的演示-->
+    <!--
+    <tr>
+        <td>罗技M185鼠标</td>
+        <td>80</td>
+        <td align="center">
+            <input type="button" value="-">
+            <input type="text" value="1" style="width: 50px" readonly="readonly" size="3">
+            <input type="button" value="+">
+        </td>
+        <td>80</td>
+        <td style="text-align: center">
+            <input type="button" value="X">
+        </td>
+    </tr>
+    -->
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" align="right">总计</td>
+        <td id="total"></td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

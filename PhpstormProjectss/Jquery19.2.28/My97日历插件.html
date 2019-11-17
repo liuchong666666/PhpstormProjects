@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历插件My97</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script src="My97/WdatePicker.js"></script>
+    <script>
+        $(function () {
+            /*
+               //为txtDate添加focus事件（focus事件相当于click事件）
+               $("#btn").focus(function () {
+                   WdatePicker({
+                       el:"txtDate",//将日历绑定到txtDate，不绑定，点一个时间就会在btn按钮上
+   //                    dateFmt:"yyyy-MM-dd"，
+                       firstDayOfWeek:0,//周的第一天0表示星期日，1表示星期一
+
+                   });
+
+               })
+           })*/
+            $("#btn").click(function () {
+               console.log("去程日期："+$("#txtDate").val()+"返程日期："+$("#txtNewDate").val());
+            });
+            $("#txtDate").focus(function () {
+                WdatePicker({
+                    isShowToday: false,//是否显示今天按钮
+                    isShowClear: false,
+                    isShowOk: false,
+                    minDate: "%y-%M-%d",//最小日期为今天
+                    maxDate: "%y-%M-{%d+19}",
+                    onpicked:function () {
+                        $("#txtNewDate").val($(this).val());//把选取的旧值赋值给新的日期上面，让新的日期初始值变成选取的旧值为开始
+                        $("#txtNewDate").focus();//选完前面的，直接聚焦到后面的
+                    }
+                });
+
+            });
+            $("#txtNewDate").focus(function () {
+                WdatePicker({
+                    isShowToday: false,//是否显示今天按钮
+                    isShowClear: false,
+                    isShowOk: false,
+                    minDate:"#F{$dp.$D('txtDate') || '%y-%M-%d'}",//txtDate为上面的日期
+                    maxDate:"%y-%M-{%d+19}",
+                    onpicking:function (dp) {
+                        var oldDate = dp.cal.getDateStr();//获取返回前的日期对象格式化值
+                        var newDate = dp.cal.getNewDateStr();//获取返回选择后的日期对象的格式化值
+                        if (newDate != oldDate) {
+                            var ret = window.confirm("是否用" + newDate + "取代" + oldDate);
+                            if (ret) {
+                                return false;//不取消
+                            } else {
+                                return true;//取消当前的事件
+                            }
+                        }
+                    }
+
+                });
+            })
+        })
+
+    </script>
+</head>
+<body>
+<input type="text" class="Wdate" id="txtDate"/>
+<input type="text" class="Wdate" id="txtNewDate"/>
+<input type="button" id="btn" value="click"/>
+</body>
+</html>

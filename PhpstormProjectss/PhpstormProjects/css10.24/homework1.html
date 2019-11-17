@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片列表</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 100px;
+            border: 2px solid blueviolet;
+            overflow: scroll;
+        }
+        #div2{
+            width:600px;
+       /*height: 80px;*/
+        }
+        img{
+            border:2px solid #a1a1a1;
+            border-radius:10px ;
+        }
+        img:hover{
+            box-shadow:3px 3px  2px #a1a1a1;
+        }
+        #div3{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+        .div{
+            float: left;/*浮动了 margin不会合并*/
+            width: 100px;
+            height: 100px;
+            margin: 5px;/*margin会合并*/
+            border: 1px solid red;
+        }
+        .div1{
+            float: left;/*浮动了 margin不会合并*/
+            width: 100px;
+            height: 100px;
+            margin: 5px;/*margin会合并*/
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+
+    <img src="images/p_small_001.jpg" />
+    <img src="images/p_small_002.jpg" />
+    <img src="images/p_small_003.jpg" />
+    <img src="images/p_small_004.jpg" />
+    <img src="images/p_small_005.jpg" />
+    <img src="images/p_small_006.jpg" />
+    <img src="images/p_small_007.jpg" />
+    </div>
+</div>
+<div id="div3">
+    <div class="div"></div>
+    <div class="div1"></div>
+</div>
+</body>
+</html>

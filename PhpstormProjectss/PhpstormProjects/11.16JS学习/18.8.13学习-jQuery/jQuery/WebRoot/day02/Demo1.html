@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery实现事件绑定</title>
+    <style type="text/css">
+        div {
+            border: 1px solid #CCCCCC;
+            margin: 10px;
+            padding: 20px;
+
+        }
+
+        #d1 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        #d2 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        #d3 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        function f1() {
+            alert("f1");
+        }
+
+        //$()中的函数是在页面加载后执行
+        //此时$()的功能等价于onload（）
+        $(function () {
+            //给按钮2注册事件
+//            $("button:eq(1)");//选中按钮2或者内容过滤选择器$("button:contains('按钮2')")
+            $("button:contains('按钮2')").click(function (e) {
+                alert(e.pageX + "," + e.pageY);
+            })
+            //给div注册事件
+            $("div").click(function (e) {
+                //使用jQuery注册事件时，在函数有2种办法可以获取当前点击的元素
+                //1.获取事件源
+                //2.this  （等价于事件源）
+                alert($(this).html());
+                e.stopPropagation();//取消冒泡
+            });
+            //给图片注册事件
+            $("img").hover(
+                /*鼠标悬停时调用*/
+                function () {
+                    $(this).width("300px").height("300px");
+                },
+                /*鼠标悬停时调用*/
+                function () {
+                    $(this).width("418px").height("218px");
+                }
+            );
+            //给【切换】注册事件
+            $("#chg").click(function () {
+                //将图片在显示与隐藏状态之间切换
+                $("img").toggle();
+            })
+        });
+    </script>
+</head>
+<body>
+<button onclick="f1();">按钮1</button>
+<button>按钮2</button>
+
+
+<div id="d1">
+    d1
+    <div id="d2">
+        d2
+        <div id="d3">
+            d3
+        </div>
+    </div>
+</div>
+
+<p>
+    <button id="chg">切换</button>
+</p>
+<p>
+    <img src="../image/1.jpg" alt="">
+</p>
+</body>
+</html>

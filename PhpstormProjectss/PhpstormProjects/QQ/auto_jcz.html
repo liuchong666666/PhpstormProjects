@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算节操值</title>
+    <style type="text/css">
+        div {
+            margin: 0 auto;
+        }
+
+        table {
+            /*background-color: #CCCCCC;*/
+            border: 3px solid #CCCCCC;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        h1{
+            text-align: center;
+        }
+        button{
+            width:100px;
+            height: 20px;
+        }
+        table td,table th{
+            border: 3px solid #CCCCCC;
+            padding: 10px;
+        }
+        tab
+    </style>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script>
+        //在页面加载后执行此function
+        $(function () {
+            //给button注册单击事件
+            $("button").click(auto_jc);
+        });
+
+        function auto_jc() {
+            //获取文本框
+            var $texts=$(":text");
+            //设置循环变量i
+            var i=0;
+            /*当循环执行到第7次（i=6时）结束*/
+            //启动定时器，1秒一次执行function
+            var id=setInterval(function () {
+                //执行7次（文本框的个数）结束
+                if(i==$texts.length){
+
+                clearInterval(id);
+                }                //随机算出一个值
+                var jc=Math.round(Math.random()*100);
+                //获取当前i的文本框
+                $texts.eq(i);
+                console.log($texts.eq(0));
+                //将值赋给这个文本框
+                $texts.eq(i++).trigger("focus").val(jc);
+                //i++先执行完语句再加1，再赋值给后面
+                console.log(i);
+            },1000);
+        }
+    </script>
+</head>
+<body>
+<div>
+
+    <!--<p>亚索：&nbsp;<input type="text"></p>-->
+    <!--<p>VN：&nbsp;&nbsp;&nbsp;<input type="text"></p>-->
+    <!--<p>滑板鞋:<input type="text"></p>-->
+    <!--<p>洛克：&nbsp;<input type="text"></p>-->
+    <!--<p>光辉：&nbsp;<input type="text"></p>-->
+    <!--<p>EZ：&nbsp;&nbsp;&nbsp;<input type="text"></p>-->
+    <!--<p>你自己：<input type="text"></p>-->
+
+    <h1>计算节操值</h1>
+
+    <tbody>
+    <table>
+        <thead>
+        <tr>
+            <th>英雄</th>
+            <th>节操值</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td>亚索</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>滑板鞋</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>VN</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>鱼人</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>剑圣</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>你自己</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button value="开始自动计算">开始自动计算</button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>

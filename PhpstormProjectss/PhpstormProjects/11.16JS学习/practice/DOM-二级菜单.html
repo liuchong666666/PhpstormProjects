@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级菜单</title>
+</head>
+<style>
+    .ul2 {
+        list-style-type: none;
+        display: none;
+    }
+
+    #ul1 > li {
+        list-style-type: circle;
+
+    }
+
+    .dispear {
+        list-style-type: none;
+        display: block;
+    }
+</style>
+<body>
+<ul id="ul1">
+    <li><span onclick="toggle(this)">考勤管理</span>
+        <ul class="ul2">
+            <li>日常考勤</li>
+            <li>请假申请</li>
+            <li>加班/出差</li>
+        </ul>
+    </li>
+    <li>
+        <span onclick="toggle(this)">信息中心</span>
+        <ul class="ul2">
+            <li>日常考勤</li>
+            <li>请假申请</li>
+            <li>加班/出差</li>
+        </ul>
+    </li>
+    <li>
+        <span onclick="toggle(this)">协同办公</span>
+        <ul class="ul2">
+            <li>日常考勤</li>
+            <li>请假申请</li>
+            <li>加班/出差</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    /*
+        var lis1 = document.querySelectorAll('#ul1>li');
+        var lis2 = document.getElementsByClassName("ul2");
+        console.log(lis2);
+        //    console.log(lis1);
+        for (var i = 0; i < lis1.length; i++) {
+            var lis = lis1[i];
+            liOpen(lis, i);
+        }
+
+        function liOpen(li, num) {
+            li.onclick = function () {
+                for (var i = 0; i < lis2.length; i++) {
+                    if (num == i) {
+                        if (lis2[num].style.display == "none") {
+                            lis2[num].style.display = "block";
+                        } else {
+                            lis2[num].style.display = "none";
+                        }
+                    } else {
+                        lis2[i].style.display = 'none';
+                    }
+                }
+    //            if (lis2[num].style.display == "none") {
+    //                lis2[num].style.display = "block";
+    //            } else {
+    //                lis2[num].style.display = "none";
+    //            }
+            }
+        }*/
+
+
+    function toggle(span) {
+        //让其他的已显示的li ul隐藏
+        var ulList = document.querySelectorAll('ul li ul');
+        for (var i = 0; i < ulList.length; i++) {
+            var ul = ulList[i];
+            if (ul.hasAttribute('class')) {
+                ul.setAttribute('class', 'ul2');
+            }
+        }
+        //让当前的显示
+        var ul = span.nextElementSibling;//没有空格和回车符之类的内容
+        if (ul.hasAttribute("ul2")) {
+            ul.removeAttribute('ul2');
+        } else {
+            ul.setAttribute('class', 'dispear');
+        }
+    }
+</script>
+</body>
+</html>

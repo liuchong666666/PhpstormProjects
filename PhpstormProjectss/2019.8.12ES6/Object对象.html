@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    Object.assign()方法
+//    Object.assign()可以设置一个对象从另一个对象接受属性和方法。
+//    Object.assign()接受任意数量的供应者，而接受者会按照供应者在参数的顺序来依次接收他们的属性。
+//    这意味着在接收者中，第二个供应者的属性可能会覆盖第一个供应者的
+
+//    用于将源对象的所有可枚举属性复制到目标对象中。
+//    基本用法
+    let target = {a: 1};
+    let object2 = {b: 2};
+    let object3 = {c: 3};
+    let rs = Object.assign(target,object2,object3);
+    // 第一个参数是目标对象，后面的参数是源对象
+   console.log(target);  // {a: 1, b: 2, c: 3}
+   console.log(rs);  // {a: 1, b: 2, c: 3}
+
+//assign 的属性拷贝是浅拷贝:
+let sourceObj = { a: { b: 1}};
+let targetObj = {c: 3};
+Object.assign(targetObj, sourceObj);
+targetObj.a.b = 2;
+sourceObj.a.b;  // 2//也就是浅拷贝是copy的一个引用（指针），
+                //深拷贝的话，sourceObj.a.b就是1
+
+
+
+
+//Object.is(value1, value2)
+//用来比较两个值是否严格相等，与（===）基本类似。
+Object.is("q","q");      // true
+Object.is(1,1);          // true
+Object.is('1',1)//false
+"1"==1//ture
+Object.is([1],[1]);      // false//两个不同的引用
+Object.is({q:1},{q:1});  // false
+</script>
+</body>
+</html>

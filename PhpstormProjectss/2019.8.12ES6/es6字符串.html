@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    0）indexOf() 查找字符串是否包含指定字符串，查找第一次出现的位置，从0开始,没找到就-1
+    * 一）includes(string)：返回布尔值，表示是否找到了参数字符串。
+    （二）startsWith(string)：返回布尔值，表示参数字符串是否在原字符串的头部。
+    （三）endsWith(string)：返回布尔值，表示参数字符串是否在原字符串的尾部
+
+    repeat方法返回一个新字符串，表示将原字符串重复n次。       
+    repeat方法参数可能有下列情况：       
+    （一）参数为1，就是返回的新字符串的内容就只是重复源字符串1次       
+   （二）参数如果是小数，会被取整数部分。       
+   （三）参数如果是小于或等于-1的负数或者无穷大Infinity的数时，会报错       
+   （四）参数是（-1-0）区间的小数，repeat()方法会自动转换成-0  等同于repeat(0)       
+   （五）参数是数字型字符串的话，repeat方法会自动进行隐式转换成数字的       
+   （六）参数是NaN的话，等同于repeat(0)
+
+    * */
+
+    let str ='es6,ni da ye'
+    console.log(str.indexOf('da'))//返回7
+    console.log(str.includes('ni'))//返回ture
+    console.log(str.startsWith('es'))//返回ture
+    console.log(str.endsWith('ye'))//返回ture
+
+    console.log('hi'.repeat(3))//hihihi
+
+    /*
+    *
+    *
+    * padStart(minNumber，string)，padEnd(minNumber，string)        
+    * 这两个API具有字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。
+    * padStart( )用于头部补全，padEnd( )用于尾部补全。        
+    * padStart(minNumber，string)方法和padEnd(minNumber，string)方法一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。可能出现以下情况：       
+    * （1）如果原字符串的长度，等于或大于指定的最小长度minNumber，则这两个方法都返回原字符串。        
+    * （2）如果用来补全的字符串与原字符串，两者的长度之和超过了指定的小长度（minNumber），则会截去超出位数的补全字符串。        
+    * （3）如果省略第二个参数，默认使用空格补全长度。
+
+    * */
+
+    console.log('11'.padStart(5,'0'))//00011//常用于金融类的补全
+    console.log('11'.padEnd(5,'0'))//11000
+    console.log('11'.padStart(5))//   11 //3个空格11
+</script>
+</body>
+</html>

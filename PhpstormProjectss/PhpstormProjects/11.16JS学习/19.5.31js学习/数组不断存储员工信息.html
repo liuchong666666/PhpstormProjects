@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组不断存储员工信息</title>
+</head>
+<body>
+<script>
+    var input;
+    var emps = [];
+   /* while (true) {//true 可以换成  input != "exit"
+        input = prompt("输入员工姓名");//因为先输入，所以后面也要写个判断
+        if (input != "exit") {
+            emps[emps.length] = input;//像数组结尾追加新元素
+        } else {
+            break;
+        }
+    }*/
+   //赋值同时，用表达式的值判断！
+   while((input=prompt("请输入员工姓名"))!="exit"){
+       emps[emps.length]=input;
+   }
+    document.write(emps);
+</script>
+</body>
+</html>

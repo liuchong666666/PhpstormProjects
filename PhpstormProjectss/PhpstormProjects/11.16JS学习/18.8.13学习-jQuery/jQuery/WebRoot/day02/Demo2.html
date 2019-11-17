@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟操作，自动计算节操值</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript">
+        //页面加载后执行此function
+        $(function () {
+            //给button注册单击事件
+            //调用自动计算节操值的函数
+            $("button").click(auto_jc);
+        });
+
+        //自动计算节操值
+        function auto_jc() {
+            //获取文本框
+            var $texts = $(":text");
+            //循环变量
+            var i = 0;
+            //启动定时器，每隔一秒执行一次function
+            var id = setInterval(function () {
+                //执行5次（文本框的个数）后束
+                if (i == $texts.length) {
+                    clearInterval(id);
+                }
+                //随机算出一个值
+                var jc = Math.round(Math.random() * 100);
+                //获取当前（i）的文本框。模拟光标切入事件
+                // 然后给这个框设置值
+                $texts.eq(i++).trigger("focus").val(jc);
+
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+<p>
+    <button>自动计算节操</button>
+</p>
+<p>范传奇：<input type="text"/></p>
+<p>王克晶：<input type="text"/></p>
+<p>苍老师：<input type="text"/></p>
+<p>李老师：<input type="text"/></p>
+<p>程祖红：<input type="text"/></p>
+
+</body>
+</html>

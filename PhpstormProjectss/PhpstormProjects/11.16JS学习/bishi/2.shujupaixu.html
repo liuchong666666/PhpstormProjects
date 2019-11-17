@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据排序</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+        window.onload = function () {
+            getAnswer();
+            getArr1();
+            document.getElementById('result').innerHTML=arr1;
+        };
+    var array = ["B3", "D2", "F1", "A9", "D12", "A2", "C1", "Z0", "B1"]
+  /*  var array = ["B3", "D2", "F1", "A9", "D12", "A2", "C1", "Z0", "B1"]
+    var arr1 = array.map(function (item) {
+        return item.slice(1)
+    })
+    console.log(arr1)
+    var arr2 = array.map(function (item) {
+        return item.slice(0, 1)
+    })
+    console.log(arr2)
+    var arr3 = arr1.map(function (item, index) {
+        return arr2[index] + ',' + item
+    })
+    console.log(arr3)*/
+    //["Z0","B1","C1","F1","A2","D2","B3","A9","D12"]
+    var arr1 = [];
+    var arr2 = [];
+
+    function getAnswer() {
+        array.forEach(function (item, index) {
+            arr1.push(item.split(/[A-Z]/))
+            arr2.push(item[0])
+        })
+    }
+
+    function getArr1() {
+        for (var i = 0; i < arr2.length; i++) {
+            arr1[i][0] = arr2[i]
+        }
+        for (var i = 0; i < arr1.length - 1; i++) {
+            for (var j = 0; j < arr1.length - 1 - i; j++) {
+                if (parseInt(arr1[j][1]) > arr1[j + 1][1]) {
+                    var tmp = arr1[j];
+                    arr1[j] = arr1[j + 1];
+                    arr1[j + 1] = tmp;
+                }
+            }
+        }
+        for (var i = 0; i < arr1.length - 1; i++) {
+            for (var j = 0; j < arr1.length - 1 - i; j++) {
+                if (parseInt(arr1[j][1]) == arr1[j + 1][1]) {
+                    if (arr1[j][0] > arr1[j + 1][0]) {
+                        var tmp = arr1[j];
+                        arr1[j] = arr1[j + 1];
+                        arr1[j + 1] = tmp;
+                    }
+                }
+            }
+        }
+        arr1.forEach(function (item, index) {
+            arr1[index] = item[0] + item[1]
+        })
+    }
+
+</script>
+</body>
+</html>

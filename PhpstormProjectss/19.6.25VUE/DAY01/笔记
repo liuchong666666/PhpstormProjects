@@ -1,0 +1,8 @@
+webpack-ES6的处理
+    ES6的模块，vue本身默认支持es6的模块导入导出
+    babel
+        -babel-loader（内部依赖babel-core）
+            +关键字（presets es2015）
+            +函数（plugins babel-plugin-transform-runtime）
+ES6 中的模块
+    import

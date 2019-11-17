@@ -1,0 +1,151 @@
+/*search 整个搜索模块的样式*/
+/*搜索框模块*/
+.ct_search {
+    width: 100%;
+    padding: 10px 10px 0 10px;
+}
+
+.ct_search input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #006699;
+    line-height: 28px;
+    background: #ffffff;
+    font-size: 12px;
+    text-align: left;
+    padding: 0 0 0 10px;
+    border-radius: 4px;
+}
+
+.ct_search a {
+    width: 60px;
+    height: 30px;
+    background: #006699;
+    color: #FFFFFF;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    /*前四个x轴方向的半径*/
+    /*后四个y轴方向的半径*/
+    /*因为可能有椭圆 就需要两个来控制*/
+    /*border-radius:0 0 0 0 / 0 0 0 0;*/
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+/*排序模块*/
+.ct_order {
+    width: 100%;
+    height: 30px;
+    background: #cccccc;
+}
+
+.ct_order a {
+    width: 25%;
+    float: left;
+    height: 30px;
+    color: #333;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.ct_order a.now {
+    color: orange;
+}
+
+/*商品模块*/
+/*商品*/
+.ct_product {
+    width: 100%;
+    padding: 0 10px;
+    min-height: 300px;
+}
+
+.ct_product .pro_item {
+    width: 48%;
+    float: left;
+    margin-top: 10px;
+}
+
+.ct_product .pro_item:nth-child(2n) {
+    margin-left: 4%;
+}
+
+.ct_product .pro_item .pro_item_box {
+    width: 100%;
+    min-height: 200px;
+    box-shadow: 0 0 3px #ddd;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.ct_product .pro_item .pro_item_box img {
+    width: 100%;
+    display: block;
+}
+
+.ct_product .pro_item .pro_item_box p:first-of-type {
+    padding: 0 10px;
+}
+
+.ct_product .pro_item .pro_item_box .nowPrice {
+    font-size: 12px;
+    color: red;
+}
+
+.ct_product .pro_item .pro_item_box p:last-of-type {
+    text-align: center;
+}
+
+.ct_product .pro_item .pro_item_box .oldPrice {
+    font-size: 12px;
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+.ct_product .pro_item .pro_item_box button {
+    background: #006699;
+    color: #fff;
+}
+
+.ct_history {
+    font-size: 12px;
+    color: #666;
+    padding: 0 10px;
+}
+
+.ct_history .title {
+    line-height: 20px;
+}
+.ct_history .icon_clear {
+    line-height: 20px;
+    float: right;
+}
+.ct_history ul{
+    margin-top: 10px;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    border-bottom:1px solid #ccc;;
+}
+.ct_history ul li{
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    padding: 0 10px;
+}
+.ct_history ul li a{
+    font-size: 12px;
+    color: #666;
+}
+.ct_history .icon_delete {
+    line-height: 20px;
+    float: right;
+    margin-top: 5px;
+}

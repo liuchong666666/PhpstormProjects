@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event对象使用</title>
+    <script type="text/javascript">
+        //参数e接收传入的event对象
+        function f1(e){
+            alert(e);//输出鼠标对象事件
+            alert(e.clientX+","+e.clientY);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="f1(event);">按钮1</button>
+</body>
+</html>

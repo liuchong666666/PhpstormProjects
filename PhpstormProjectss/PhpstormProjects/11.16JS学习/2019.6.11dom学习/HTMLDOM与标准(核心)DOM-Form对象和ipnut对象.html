@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form对象和ipnut对象</title>
+</head>
+<body>
+<h2>添加商品</h2>
+<form action="" id="addProductForm">
+    <!-- readonly="" 只读  ，， disabled=""禁用-->
+    用户名：<input type="text" name="userName" value="请输入qq号/邮箱/手机号"/><br/>
+    <!--checked默认勾选-->
+    <input type="checkbox" name="agree" value="agree" onclick="checkAgree(this)"/>同意使用条款
+    <!--当上面勾选了，下面的submit的disable就取消，就可以提交-->
+    <input type="submit" id="btSubmit" disabled/>
+</form>
+
+
+<script>
+    var f1 = document.querySelector("#addProductForm");
+    var f2 = document.forms[0];//document.forms可以快速获取表单  forms[]
+    console.log(f1 === f2);
+    f2.action = '12.html';
+    f2.method = 'POST';//GET/POST
+    f2.enctype = 'application/x-www-form-urlencoded';//Encoded Type:text/plain(不做任何编码处理)  multipart/x-www-form-data(提交文件)  application-x-www-form-urlencoded(对提交数据进行编码)
+
+
+    //查看Text对象的属性
+    //    console.log(f2.elements)//f2中的所有元素集合
+    var userName = f2.elements[0];
+    console.log(userName.type);
+    console.log(userName.name);
+    console.log(userName.value);
+    userName.readOnly=true;     //HTML中只要出现就是只读，DOM中其类型为Boolean
+    console.log(userName.readOnly);//boolean，
+    userName.disabled=true;
+    console.log(userName.disabled);
+
+    function checkAgree(checkbox){
+        //用户勾选了，就将submit提交按钮禁用改为不禁用
+        console.log(checkbox.checked);//boolean
+        document.querySelector('#btSubmit').disabled=!checkbox.checked;
+    }
+
+
+</script>
+</body>
+</html>

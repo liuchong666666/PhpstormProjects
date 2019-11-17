@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #srcDiv, #tarDiv {
+            width: 300px;
+            height: 500px;
+            border: 1px solid red;
+            float: left;
+        }
+
+        #srcDivTip {
+            width: 300px;
+            height: 150px;
+            border: 1px solid red;
+            clear: both;
+            float: left;
+        }
+
+        #tarDivTip,#canvasTip {
+            width: 300px;
+            height: 150px;
+            border: 1px solid red;
+            float: left;
+        }
+        #canvas{
+            border: 1px solid red;
+
+            float: left;
+        }
+    </style>
+    <script src="drag_1.js">
+
+    </script>
+</head>
+<body>
+<div id="srcDiv">
+    <!--<img src="../img/flower.png" id="img"/>-->
+    <img src="../img/bike.jpg" id="img">
+</div>
+
+<div id="tarDiv"></div>
+<canvas id="canvas" width="300px" height="500px">
+    你的浏览器不支持canvas
+</canvas>
+<div id="srcDivTip">
+    <div id="d_start"></div>
+    <div id="d_drag"></div>
+    <div id="d_end"></div>
+</div>
+<div id="tarDivTip">
+    <div id="d_enter"></div>
+    <div id="d_over"></div>
+    <div id="d_drop"></div>
+    <div id="d_leave"></div>
+</div>
+<div id="canvasTip">
+    <div id="c_enter"></div>
+    <div id="c_over"></div>
+    <div id="c_drop"></div>
+    <div id="c_leave"></div>
+</div>
+</body>
+</html>

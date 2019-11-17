@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跳跳球</title>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        var x = 50, y = 50, r = 50, direction = 1, WIDTH, HEIGHT, x2 = 500, y2 = 750, WIDTH2, HEIGHT2, x3 = x2 + 200;
+
+        function initial() {
+            canvas = $("canvas");
+            canvas2 = $("canvas2");
+            ctx = canvas.getContext("2d");
+
+
+            //画板子
+            ctx2 = canvas2.getContext("2d");
+            ctx2.beginPath();
+            ctx2.rect(x2, y2, 200, 10);
+            ctx2.closePath();
+            ctx2.fill();
+
+
+//            //画一个小球
+//            ctx.beginPath();
+//            ctx.arc(x, y, 50, 0, 2 * Math.PI, true);
+//            ctx.fillStyle = "red";
+//            ctx.fill();
+//            ctx.closePath();
+//            var direction = 1;//方向：1右下(X++  Y++)  2 右上(X++  Y--)  3  左上(X-- Y--)  4  左下(X--  Y++)
+            WIDTH = canvas.width;
+            HEIGHT = canvas.height;
+            setInterval(function () {
+                if (direction == 1) {
+                    x++;
+                    y++;
+                    if (y >= HEIGHT - r) {
+                        direction = 2;
+//                        alert("接下来右上"+x+","+y);
+                    }
+                    if (x >= WIDTH - r) {
+                        direction = 4;
+//                        alert("接下来左下"+x+","+y);
+                    }
+                    //如果和木板碰撞，就改变方向
+                    if (x2 <= x && x <= x3 && y >= 700) {
+                        direction = 2;
+                    }
+                }
+                else if (direction == 2) {
+                    x++;
+                    y--;
+                    if (y <= r) {
+                        direction = 1;
+//                        alert("接下来右下"+x+","+y);
+                    }
+                    if (x >= WIDTH - r) {
+                        direction = 3;
+//                        alert("接下来左上"+x+","+y);
+                    }
+                }
+                else if (direction == 3) {
+                    x--;
+                    y--;
+                    if (x <= r) {
+                        direction = 2;
+//                        alert("接下来右上"+x+","+y);
+                    }
+                    if (y <= r) {
+                        direction = 4;
+//                        alert("接下来左下"+x+","+y);
+                    }
+
+                }
+                else if (direction == 4) {
+                    x--;
+                    y++;
+                    if (x <= r) {
+                        direction = 1;
+
+//                        alert("接下来右下"+x+","+y);
+                    }
+                    if (y >= HEIGHT - r) {
+                        direction = 3;
+
+//                        alert("接下左上"+x+","+y);
+                    }
+                    //如果和木板碰撞，就改变方向
+                    if (x2 <= x && x <= x3 && y >= 700) {
+                        direction = 3;
+                    }
+                }
+
+                /*    else if (0 <= x <= 1000 && y >= 800) {
+                        x++;
+                        y--;
+                    } else if (x >= 1000 && 0 <= y <= 800) {
+                        x--;
+                        y++;
+                    } else if (x >= 1000 && y >= 800) {
+                        x--;
+                        y--;
+                    }*/
+                ctx.clearRect(0, 0, WIDTH, HEIGHT);
+                ctx.beginPath();
+                ctx.arc(x, y, 50, 0, 2 * Math.PI, true);
+                ctx.fillStyle = "red";
+                ctx.fill();
+                ctx.closePath();
+            }, 1);
+            window.addEventListener("keydown", ctx2_keydown, true);//为板子增加移动事件
+        }
+
+
+        function ctx2_keydown(e) {
+            var key = e.keyCode ? e.keyCode : e.which;
+            console.log(key);
+            console.log(x2);
+            WIDTH2 = canvas2.width;
+            HEIGHT2 = canvas2.height;
+            x3 = x2 + 200;
+            if (key == 37) {
+                x3 = x2 + 200;
+                x2 -= 5;
+                if (x2>=0) {
+                    ctx2.clearRect(0, 0, WIDTH2, HEIGHT2);
+                    ctx2.beginPath();
+                    ctx2.rect(x2, y2, 200, 10);
+                    ctx2.closePath();
+                    ctx2.fill();
+                    console.log("x2"+x2);
+
+                }else{
+                    x2=0;
+                }
+                return;
+            }
+            if (key == 39) {
+                x3 = x2 + 200;
+                x2 += 5;
+                if (x3<=1000) {
+                    ctx2.clearRect(0, 0, WIDTH2, HEIGHT2);
+                    ctx2.beginPath();
+                    ctx2.rect(x2, y2, 200, 10);
+                    ctx2.closePath();
+                    ctx2.fill();
+                    console.log("x3"+x3);
+
+                }else{
+                    x2 = 800;
+                }
+            }
+        }
+
+        //触碰事件
+
+
+        window.addEventListener("load", initial, false);
+    </script>
+    <style>
+        #canvas {
+            position: absolute;
+            background: brown;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #canvas2 {
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas" width="1000" height="800">
+
+</canvas>
+<canvas id="canvas2" width="1000" height="800">
+
+</canvas>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        . {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            width: 100%;
+            border: 20px solid pink;
+            height: 1000px;
+
+            /*移动端常用布局都是非固定像素*/
+            box-sizing: border-box;/*防止内容溢出，不会出现左右滚动条，提高用户体验*/
+        }
+    </style>
+</head>
+<body>
+<!--
+1.移动端以流式布局为主
+2.百分比布局
+3.非固定像素布局
+4.无法准确计算容器的尺寸
+-->
+<div class="box"></div>
+</body>
+</html>

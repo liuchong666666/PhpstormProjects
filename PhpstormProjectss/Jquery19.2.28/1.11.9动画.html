@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>donghua</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("input[value='hide()']").click(function () {
+               $("#mydiv").hide(1000,function () {
+                   $("input[value='hide()']").hide();
+               });
+            });
+            $("input[value='show()']").click(function () {
+                $("#mydiv").show(1000,function () {
+                    $("input[value='hide()']").show();
+                });
+            });
+            $("input[value='slideUp()']").click(function () {
+                $("#mydiv").slideUp('slow');
+            });
+            $("input[value='slideDown()']").click(function () {
+                $("#mydiv").slideDown('slow');
+            });
+            $("input[value='fadeOut()']").click(function () {
+                $("#mydiv").fadeOut('slow');
+            });
+            $("input[value='fadeIn()']").click(function () {
+                $("#mydiv").fadeIn('slow');
+            })
+            $("input[value='animate()']").click(function () {
+                $("#mydiv").animate({width:"200px",height:"100px",left:"500px",
+                    top:"300px",borderRadius:"50%"},5000)
+                    .animate({
+                        width:"50px",height:"100px",left:"100px",top:"50px"},5000
+                );
+            })
+        });
+    </script>
+    <style type="text/css">
+        #mydiv{
+            position: absolute;
+            top:50px;
+            left: 100px;
+            background: red;
+            width: 50px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="mydiv"></div>
+<input type="button" value="hide()"/>
+<input type="button" value="show()"/>
+<input type="button" value="slideUp()"/>
+<input type="button" value="slideDown()"/>
+<input type="button" value="fadeOut()"/>
+<input type="button" value="fadeIn()"/>
+<input type="button" value="animate()"/>
+</body>
+</html>

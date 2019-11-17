@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jquery-1.11.1.js"></script>-->
+    <script src="tQuery-1.1.0.js"></script>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        jQuery.noConflict();// 交出$控制权
+        function btn() {
+            console.log($("#mydiv"));
+        }
+
+            //多库并存时：将$变成jquery的工厂函数
+        jQuery(document).ready(function ($) {
+            //  $表示的是jQuery的工厂函数
+            console.log($("#mydiv"));
+        })
+
+        jQuery(function ($) {
+            //  $表示的是jQuery的工厂函数
+        })
+    </script>
+</head>
+<body>
+<div id="mydiv">123</div>
+<input type="button" value="测试" onclick="btn();">
+</body>
+</html>

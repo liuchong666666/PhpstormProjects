@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>身份验证</title>
+    <link rel="stylesheet" href="formValidator/style/validator.css"/>
+    <script src="formValidator/jquery-1.11.1.js"></script>
+    <script src="formValidator/formValidator_min.js"></script>
+    <script src="formValidator/formValidatorRegex.js"></script><!--//需要正则就引入正则的js文件，最好引入一下，可能这个里面引用了相关内容-->
+    <script>
+        $(document).ready(function () {
+
+            //对校验组进行初始化
+            //默认第一组初始化
+            //第二组，当用户选择勾选选填资料就初始化，否则不初始化
+            $.formValidator.initConfig({
+                validatorGroup: "1"
+            });
+            $("#checkbox").click(function () {
+
+                $.formValidator.initConfig({
+                    validatorGroup: "2"
+                });
+                $("#phone").formValidator({
+                    validatorGroup: "2",
+                    onshow: "请输入手机号",
+                    onfocus: "请输入手机号，11位",
+                    oncorrec: "输入正确",
+                }).RegexValidator({
+                    regexp: "mobile",
+                    datatype: "enum",
+//                    min:1,
+                    onerror: "手机号不正确"
+                });
+                $("#QQnumber").formValidator({
+                    validatorGroup: "2",
+                    onshow: "请输入qq",
+                    onfocus: "请输入正确的qq",
+                    oncorrect: "输入正确",
+                }).RegexValidator({
+                    regexp: "^[1-9]*[1-9][0-9]*$",//用这个时候就不能写  datatype:"enum",这个了
+                    onerror: "输入不正确"
+                });
+            });
+            $("#name").formValidator({
+                validatorGrounp: "1",//将name设置为校验组1的
+                onshow: "请输入名字",
+                onfocus: "请输入本人的名字",
+                onempty: "名字不能为空",
+                oncorrect: "正确"
+            }).InputValidator({
+                min: 4,
+                max: 6,
+                onerror: "输入不正确"
+            });
+            $("#card").formValidator({
+                validatorGroup: "1",
+                onshow: "请输入15或18位的身份证",
+                onfocus: "输入15或18位的身份证",
+                oncorrect: "输入正确",
+            }).FunctionValidator({
+                fun: isCardID,
+            });
+            console.log("123");
+            //  console.log($("#checkbox").prop("checked"));//它将“属性”与“特性”做了区别，属性指的是“name，id”等等，特性指的是“selectedIndex, tagName, nodeName”等等。
+            //JQ1.6之后，可以通过attr方法去获得属性，通过prop方法去获得特性
+            $("#frm").submit(function () {
+                if ($("#checkbox").prop("checked") == true) {
+                    var v1 = $.formValidator.PageIsValid("1");//判断校验组1表单输入没错误就是true
+                    var v2 = $.formValidator.PageIsValid("2");//判断校验组2表单输入没错误就是true
+                    console.log(v1);
+                    console.log(v2);
+                    if (v1 && v2) {
+                        console.log("123");
+                        return true;
+                    } else {
+                        console.log("456");
+                        return false;
+                    }
+                }
+                else {
+                    return $.formValidator.PageIsValid();
+                }
+            });
+
+
+        });
+    </script>
+    <style type="text/css">
+        #div1, #div2 {
+            width: 600px;
+            height: 100px;
+            border: 3px solid #cccccc;
+            text-align: center;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<h1>必填资料</h1>
+<form action="" id="frm">
+    <div id="div1">
+        真实姓名 <input type="text" id="name">
+        <div id="nameTip"></div>
+        身份证号 <input type="text" id="card">
+        <div id="cardTip"></div>
+    </div>
+    <input type="checkbox" name="" id="checkbox">选填资料
+    <div id="div2">
+        手机号 <input type="text" id="phone">
+        <div id="phoneTip"></div>
+        QQ号 <input type="text" id="QQnumber">
+        <div id="QQnumberTip"></div>
+    </div>
+    <input type="submit" value="提交" id="frm_submit">
+</form>
+</body>
+</html>

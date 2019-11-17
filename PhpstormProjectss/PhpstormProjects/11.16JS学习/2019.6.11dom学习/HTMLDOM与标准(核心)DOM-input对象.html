@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+</head>
+<body>
+<input id="userName" onfocus=""/><br/>
+<input id="tele"/><br/>
+<input type="submit" value="提交" onclick="check()"/>
+<script>
+    //    document.querySelector('#userName').focus();
+    function check() {
+        var patt = /^1[3589]\d{9}$/;
+        var tele = document.querySelector("#tele");
+        if (patt.test(tele.value)) {
+            console.log('电话号码合法');
+        } else {
+            console.log('电话号码不合法');
+            tele.focus();   //申请获得焦点
+            tele.select();  //选择全部文本
+        }
+    }
+</script>
+</body>
+</html>

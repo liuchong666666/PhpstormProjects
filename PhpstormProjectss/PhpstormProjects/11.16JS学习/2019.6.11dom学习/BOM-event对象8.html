@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event对象8</title>
+</head>
+<body onload="initial()" onerror="alert('你的浏览器版本不支持srcElement')">
+<button id="btn1">1</button>
+<button id="btn2">2</button>
+<img src="1.jpg" onerror="alert('你的图片不存在')">
+<script>
+    document.getElementById('btn1').onclick = function (event) {
+        console.log("123");
+        console.log(event.srcElement);
+    };
+
+    function initial() {
+        document.getElementById('btn2').onclick = function () {
+            console.log("456");
+        }
+    }
+    console.log("=======================================================");
+    function b(){
+        a=10;
+        console.log(a);
+        var  a;
+    }
+    b();//10
+    console.log(a)//error  没有声明
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-event-计算器</title>
+</head>
+<style>
+    table {
+        width: 200px;
+        height: 300px;
+        border: 1px solid red;
+    }
+
+    td {
+        text-align: center;
+        width: 49.5px;
+        border: 1px solid yellow;
+    }
+
+    input {
+        width: 194px;
+        height: 50px;
+    }
+    #client{
+        width: 200px;
+        height: 100px;
+        background: darkorange;
+    }
+</style>
+<body>
+<h1>获取坐标</h1>
+<div id="client"></div>
+<h1>计算器</h1>
+<table>
+    <thead>
+    <tr>
+        <td colspan="4"><input type="text" id="ipt"></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>+</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>*</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>.</td>
+        <td>=</td>
+        <td>/</td>
+
+    </tr>
+    </tbody>
+</table>
+<script>
+    var tds = document.getElementsByTagName('td');
+    var ipt = document.getElementById('ipt');
+    var client = document.getElementById('client');
+
+
+
+    function getSrc(e) {
+        var src = e.srcElement || e.target;
+        if (src.innerHTML == "=") {
+            console.log(typeof(ipt.value));
+            console.log(eval(ipt.value));
+            ipt.value = eval(ipt.value);
+        } else {
+            ipt.value += src.innerHTML;
+        }
+
+    }
+
+    for (var i = 0; i < tds.length; i++) {
+        var td = tds[i];
+        td.onclick = getSrc;
+    }
+
+
+    client.onmousemove =getClient;
+    function getClient(e){
+        console.log(e.clientX+",,"+e.clientY);
+    }
+</script>
+</body>
+</html>

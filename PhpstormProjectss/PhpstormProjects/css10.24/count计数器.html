@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>count计数器</title>
+    <style>
+        body{
+            /* counter-reset尽量放body，html，因为只有一个body，html*/
+            /*初始化一个计数器*/
+            /*counter-reset:myCount1;//随便指定个名字*/
+            counter-reset:mc1 0 mc2 1   mc3 10;/*变量 初始值*/
+        }
+        p:before{
+            /*使用计数器的当前值*/
+            /*content:'<' counter(myCount1) '>';*/
+            content:'<' counter(mc3) '>';
+            counter-increment: mc3 2;/*mc3每次加2*/
+        }
+        p{
+            /*让计数器的值增加*/
+            /*counter-increment:myCount1;*/
+            /*counter-increment: mc3 2;/*mc3每次加2*/
+
+        }
+    </style>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<p>呃呃呃呃呃呃呃呃呃</p>
+<p>呃呃呃呃呃呃呃呃呃</p>
+<p>呃呃呃呃呃呃呃呃呃</p>
+<p>呃呃呃呃呃呃呃呃呃</p>
+</body>
+</html>

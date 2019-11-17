@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频播放器</title>
+    <script src="shipinbofangqi.js"></script>
+    <style>
+        section {
+            margin: 0 auto;
+            width: 800px;
+            height: 500px;
+            border: 1px solid red;
+            text-align: center;
+        }
+
+        #left {
+            float: left;
+            margin-left: 30px;
+        }
+
+        #bar {
+            position: relative;
+            left: 100px;
+            bottom: 8px;
+            width: 600px;
+            height: 40px;
+            border: 1px solid red;
+        }
+
+        #progress {
+            position: absolute;
+            top: 1px;
+            /*width: 500px;*/
+            height: 38px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <video width="750px" height="450px" id="media">
+        <source src="../source/video.mp4"/>
+    </video>
+    <div id="nav">
+        <div id="left"><input type="button" id="btnPlay" value="播放"/></div>
+        <div id="bar">
+            <div id="progress"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

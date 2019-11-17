@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json数据</title>
+</head>
+<script>
+    function showData() {
+        //json对象
+        var str = '[{"ename":"Tom","salary":3500,"age":25},{"ename":"Tom","salary":3500,"age":25},{"ename":"Tom","salary":3500,"age":25}]';
+        //var data = eval('('+str+')');//解析json
+        var arr = JSON.parse(str);//解析json
+//        console.log(arr);
+//        var tbody =document.querySelectorAll("table tbody")[0];
+        var tbody =document.querySelector("table tbody");
+
+        for(var i=0;i<arr.length;i++){
+            var emp=arr[i];
+            var ename=emp.ename;
+            var salary=emp.salary;
+            var age = emp.age;
+            console.log(ename+",,"+salary+",,"+age);
+            var tr =document.createElement('tr');
+            var td0 = document.createElement('td');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var txt0=document.createTextNode(ename);
+            var txt1=document.createTextNode(salary);
+            var txt2=document.createTextNode(age);
+            var fragment = document.createDocumentFragment();
+
+        }
+
+    }
+</script>
+<body>
+<button onclick="showData()">获取数据</button>
+<table border="1" width="500">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>工资</th>
+        <th>年龄</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</body>
+</html>

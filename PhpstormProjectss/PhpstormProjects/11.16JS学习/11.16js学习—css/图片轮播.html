@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮播</title>
+    <style type="text/css">
+        img {
+            list-style-type: none;
+        }
+
+        ul {
+            border: 2px solid red;
+            width: 720px;
+            height: 963px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        li {
+            width: 720px;
+            height: 963px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /*显示*/
+        .show {
+            display: block;
+        }
+
+        /*隐藏*/
+        .hide {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        var index = 0;//循环次数，默认为0
+        function start() {
+            //每隔一秒执行一次function
+            setInterval(function () {
+                //将所有的li隐藏
+                var ul = document.getElementById("photos");
+                var lis = ul.getElementsByTagName("li");//根据标签名获得，在某一元素下获得其子元素
+
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = "hide";
+                }
+                //将下一个li显示
+                index++;
+                //有几张图片就除以几
+                lis[index % lis.length].className = "show";
+            }, 1000)
+        }
+    </script>
+</head>
+<!--onload是页面加载事件
+  表示再页面加载后调用start（）函数-->
+<body onload="start();">
+<ul id="photos">
+    <li class="show"><img src="image/1.jpg" alt=""></li>
+    <li class="hide"><img src="image/2.jpg" alt=""></li>
+    <li class="hide"><img src="image/3.png" alt=""></li>
+    <li class="hide"><img src="image/4.png" alt=""></li>
+</ul>
+</body>
+</html>

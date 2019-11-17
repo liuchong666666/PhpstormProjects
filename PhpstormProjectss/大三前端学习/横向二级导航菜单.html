@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>横向二级导航菜单</title>
+    <style type="text/css">
+        /*先设置外层图层样式*/
+        #menu {
+            /*padding-left: 100px;*/
+            margin: 0 auto;
+            width: 1280px;
+            height: 100px;
+            text-align: center;
+            background: #808080;
+            border: 1px solid #333333;
+        }
+
+        /*考虑到不同浏览器的兼容性*/
+        #menu ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /*定义存放子菜单的图层样式*/
+        #menu1 {
+            width: 900px;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        #submenu, #submenu1 {
+            width: 908px;
+            height: 60px;
+            /*text-align: center;*/
+            border: 1px solid red;
+            text-align: center;
+            position: absolute;
+            left: 0px;
+            top: 40px;
+
+        }
+
+        ul li #submenu ul, ul li #submenu1 ul {
+            margin: 0px auto;
+        }
+
+        /*定义主菜单样式*/
+        #menu ul li {
+            width: 150px;
+            height: 40px;
+            list-style: none;
+            float: left;
+            font: 0.9em Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        /*定义子菜单列表项高度，与主菜单不同*/
+        ul li #submenu ul li, ul li #submenu1 ul li {
+            height: 35px;
+        }
+
+        /*定义子菜单中超链接样式*/
+        ul li #submenu ul li a, ul li #submenu1 ul li a {
+            background: #55AAEE;
+            line-height: 34px;
+        }
+
+        /*定义主菜单中超链接样式*/
+        #menu ul li a {
+            color: #ffffff;
+            width: 149px;
+            margin: 0px;
+            text-decoration: none;
+            display: block;
+            background: #55A0FF;
+            line-height: 39px;
+            border-bottom: 1px solid #cccccc;
+            padding: 0 0 0 8px;
+
+        }
+
+        /*定义子菜单中列表项样式*/
+        #submenu ul li, #submenu1 ul li {
+            height: 34px;
+            width: 150px;
+            list-style: none;
+            float: left;
+            display: inline;
+            font: 0.8em Arial, Helvetica, sans-serif;
+            text-align: center;
+
+        }
+
+        /*定义主菜单鼠标滑过时的样式*/
+
+        #menu ul li a:hover {
+            background: #666;
+            border-bottom: 1px dashed #FF0000;
+        }
+
+        /*初始化子菜单不显示*/
+        ul li #submenu1, ul li #submenu {
+            display: none;
+        }
+
+        /*主菜单滑过时显示子菜单*/
+        ul li:hover #submenu, ul li:hover #submenu1 {
+            display: block;
+        }
+
+        ul li #submenu ul li a:hover, ul li #submenu1 ul li a:hover {
+            background: orangered;
+        }
+
+        .submenu_ul {
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="menu">
+    <div id="menu1">
+        <ul>
+            <li><a href="">首页</a></li>
+            <li><a href="">jQuery特效</a>
+                <div id="submenu">
+
+                    <ul class="submenu_ul">
+                        <li><a href="">jQuery图片特效</a></li>
+                        <li><a href="">jQuery导航特效</a></li>
+                        <li><a href="">jQuery选项卡特效</a></li>
+                        <li><a href="">jQuery文字特效</a></li>
+                    </ul>
+
+                </div>
+            </li>
+            <li><a href="">JavaScript特效</a></li>
+            <li><a href="">Flash特效</a>
+                <div id="submenu1">
+                    <ul class="submenu_ul">
+                        <li><a href="">Flash图片特效</a></li>
+                        <li><a href="">Flash导航特效</a></li>
+                        <li><a href="">Flash选项卡特效</a></li>
+                        <li><a href="">Flash文字特效</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="">div+css教程</a></li>
+            <li><a href="">HTML5教程</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

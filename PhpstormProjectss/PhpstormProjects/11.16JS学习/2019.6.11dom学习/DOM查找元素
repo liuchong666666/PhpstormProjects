@@ -1,0 +1,210 @@
+
+
+5.DOM树
+	（1）DOM元素树：以document对象为根，每个html标签都是元素树的一个节点
+	（2）DOM节点树：以document对象为根，每个标签、文本、属性、注释等都是节点树上的一个节点
+
+	Node对象的几个属性：
+		（1）parentNode：Node类型，当前节点的那个唯一的直接父节点对象
+		（2）childNodes：NodeList类型，当前节点的所有子节点，组成一个类数组对象NodeList
+		（3）firstChild：Node类型，当前节点的第一个子节点
+		（4）lastChild：Node类型，当前节点最后一个子节点
+		（5）nextSibing：Node类型，当前节点的下一个兄弟节点
+		（6）previousSibing：Node类型，当前节点的前一个兄弟节点
+		-----------------------
+		（7）nodeName：String类型
+		（8）nodeType：Number类型    1，2，3，8，9，10  元素、属性、文本、注释、文档
+		（9）nodeValue：String类型
+	
+
+可以通过nodeType数值判断类型
+
+
+
+节点名称
+	  nodeName：节点名称 ，String类型属性
+		nodeName 是只读的
+
+-------------------------------------------------------------------------	
+	|	节点类型	    |	nodeName
+-------------------------------------------------------------------------	
+	|	元素节点	    |	标签名
+	|	属性节点	    |	属性名
+	|	文本节点	    |	始终是#text		
+	|	注释节点	    |	始终是#comment
+	|	文档节点	    |	始终是#document
+-------------------------------------------------------------------------
+
+节点值：
+	nodeValue：节点的值， String类型属性
+-------------------------------------------------------------------------	
+	|	节点类型	    |	nodeName
+-------------------------------------------------------------------------	
+	|	元素节点	    |	undefined或null
+	|	属性节点	    |	属性值
+	|	文本节点	    |	文本本身		
+	|	注释节点	    |	注释文本本身
+	|	文档节点	    |	undefined或null
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+读取属性
+	读取属性的值
+		element.attributes 	  //获取元素节点所有属性节点--类数组对象
+		element.attributes[下标].value
+		element.attributes['属性名']    //常用
+		element.getAttributeNode('属性名').value
+		element.getAttribute('属性名')  //常用
+
+
+	修改属性
+		element.setAttribute(name,value); //IE8不支持！！！！！
+		
+		element.setAttributeNode(attrNode);//常用  //修改某个属性的值 //IE8支持
+		
+			eg：	var attr=document.createAttribute("class");
+				attr.nodeValue="highlight";	//创建class="highlight"
+				var h1=document.getElementById("title");
+				h1.setAttributeNode(attr);	//将h1里面添加attr属性
+、
+
+	移除属性
+		element.removeAttribute('属性名')  //常用 
+		element.removeAttributeNode(attrNode);
+
+
+	
+	判断属性
+		element.hasAttribute('属性名')    //true/false			element.hasAttributes();	//是否拥有属性//ie8及以下不支持此方法,不常用
+	
+
+
+
+
+
+
+
+
+通过HTML选取元素
+	
+	通过id选取元素
+		node.getElementById('id')//只能用document调用
+	通过标签名选取元素
+		node.getElementsByTagName('标签名')     类数组对象
+	通过name选取元素
+		node.getElementsByName('name属性值')
+
+	通过classname选取元素
+		node.getElementsByClassName('className属性值')
+	
+======================================================================================
+回顾：
+JavaScript中的引用类型
+	1、原生对象
+	2、自定义对象
+	3、宿主对象
+		DOM：DOM树，把HTML文档中所有内容都看作一个Node对象
+		BOM：document、window、history、screen、navigator、event、location
+	
+	Node对象的成员属性
+		nodeName：String类型
+		nodeType：Number类型    1，2，3，8，9  元素、属性、文本、注释、文档
+		nodeValue：String类型
+		------------------------------------------------------------
+		parentNode：Node  只有document没有，其他都有而且唯一
+		childNodes：NodeList类型，
+		firstChild：Node类型
+		lastChild：Node类型
+		nextSibling:Node
+		previousSibling:Node
+		----------------------------------------------------------
+
+		getElementById('id') : 返回值 元素节点（ElementNode）
+		getElementsByTagName('标签名')：返回值NameNodeList  类数组对象
+		注意：这两个查找元素的方法，普通的元素节点对象、文档节点对象可以调用-------document.getElementById();/ divNode.getElementById();
+	
+
+	
+DOM树有两种：
+	（1）DOM元素树：把文档中的标签全部看作Node对象
+	（2）DOM节点树：把文档中的标签看做树上的节点
+
+	元素树是节点树的一个子集，只包含其中的元素节点
+
+
+
+
+*******************************************************************************************************************************
+1.在DOM树中查找/选择元素节点
+
+	（1）document.getElementById('id');//返回ElementNode
+		注意：普通的元素节点对象没有此方法，只能document调用
+	（2）document/node.getElementsByTagName('标签名');//返回NodeList类数组对象
+
+	（3）document.getElementsByName('元素name属性名');//返回NodeList类数组对象
+
+	（4）document/node.getElementsByClassName("具备指定得class名"):NodeList//IE9以上才有效
+
+	（5）document/node.querySelector('css选择器');//返回ElementNode，返回第一个匹配元素
+
+	（6）document/node.querySelectorAll('css选择器');//NodeList，返回所有的元素
+	（7）document.all  // NodeList //获取HTMTL中所有的元素节点对象
+		document.all[index]    //index 为 nodeType
+		document.all['id']
+		document.all.id
+		document.all['name']
+		document.all.tags['tagName']
+		这个（7）所有方法不推荐使用 
+	（8）document.documentElement:获取页面中的HTML标签
+	（9）document.body:获取页面中的BODY标签
+
+
+		
+*******************************************************************************************************************************	
+
+2.DOM中的节点树和元素树
+
+	元素树中没有看不见的空格文本，还有注释等内容
+-------------------------------------------------------------------------------------
+			节点树		元素树
+-------------------------------------------------------------------------------------
+	获取父节点	parentNode	prentElementNode
+	获取全部子节点	childNodes	children
+	获取第一个子节点	firstChild		firstElementChild
+	获取最后一个子节点	lastChild		lastElementChild
+	获取下一个兄弟	nextSibling	nextElementSibling
+	获取上一个兄弟	previousSibling	previousElementSibling
+-------------------------------------------------------------------------------------
+
+3、使用DOM方法创建新的节点
+	注意：页面任意一个新节点都必须有document文档对象来创建--代码稍显复杂，但浏览器兼容性是最好的
+	（1）创建新的属性节点
+		var attr=document.createAttributeNode('');
+		attr.value='属性值';
+		element.setAttributeNode(attr);
+	
+	（2）创建新的元素节点
+		var element=document.createElement('元素名');
+		parent.appendChild(element);
+	（3）创建新的文本节点
+		var text = document.createTextNode('文本内容')；
+		parent.appendChild(txt);
+	（4）创建一个注释节点
+		var comment   = document.createComment('注释内容')；
+	（5）创建新的文档片段节点
+		var fragment=document.createDocumentFragmet( );
+			//将创建的东西最终都加入这里面，一次性加入文档，防止之前的每一次添加都闪频一次
+		fragment.appendChild(xxx);
+		fragment.appendChild(yyy);
+		parent.appendChild(fragment);
+	
+	说明：把一个新创建的节点添加到现存的DOM树上，可以使用如下方法：
+		（1）parent.appendChild(newChild)
+		（2）parent.insertBefore(newChild, existingChild);
+	
+	

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解码unicode</title>
+</head>
+<body>
+<script>
+    /*
+        //变成unicode编码
+        var input = prompt("请输入");
+        var result = [];
+        for (var i = 0; i < input.length; i++) {
+            //转为unicode编号
+            var num = input.charCodeAt(i);//number
+            //方法一：对于unicode不足五位的 用0代替，//见包装类型string类型相关.html//详情见19.5.31-img-->unicode不足五位的处理方法.png
+
+            //方法二：也可以用10000+不足五位的数，然后将第一位1替换为0
+            if (num < 10000) {
+                //10051
+                num = num + 10000 + "";
+                num = "0" + num.slice(1);//num.slice(1);截取从下标1开始到末尾
+            }
+            result.push(num);
+            console.log(result);
+        }
+        document.write(result.join(""));
+    */
+    /*解码unicdoe*/
+    var input = prompt("粘贴编码");
+    var char = [];
+    //每次取5位数字字符，翻译为一个字符
+    //下标每次向后移动5个字符，再取后5个字符
+    for (var i = 0; i < input.length++; i += 5) {
+        //i按个数的话就要i<input.length/5；i++
+        //var code = input.substring(i*5,i*5+5);//i=0.1.2.3
+        //i按下标的话，i<input.length;i+=5
+        //var code = input.substring(i,i+5);//i=0.1.2.3
+        var code = input.substring(i, i + 5);//原input  没做除5处理
+        console.log(code);
+        char.push(String.fromCharCode(code));//转码
+       // char.push(String.fromCharCode("00048"));//转码
+    }
+    document.write(char.join(""));
+</script>
+</body>
+</html>

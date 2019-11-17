@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <style type="text/css">
+        #first {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        #second {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 50px auto;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#first").click(function (e) {
+                    console.log("first");
+//            e.cancelBubble=true;
+                    e.stopPropagation();
+                }
+            )
+            $("#second").click(function (e) {
+                console.log("second");
+                e.stopPropagation();
+
+            })
+            $("body").click(function () {
+                console.log("body");
+            })
+        });
+    </script>
+</head>
+<body>
+<div id="first">
+    <div id="second"></div>
+</div>
+</body>
+</html>

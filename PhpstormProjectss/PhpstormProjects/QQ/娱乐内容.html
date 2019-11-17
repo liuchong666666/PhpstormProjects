@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>娱乐内容</title>
+    <style type="text/css">
+        a {
+            text-decoration: none;
+        }
+
+        /*从来没点过的链接*/
+        a:link {
+            color: aqua;
+        }
+
+        /*访问过的链接*/
+        a:visited {
+            color: red;
+        }
+
+        /*选择正被点中的元素*/
+        #btn:active {
+            color: cyan;
+        }
+
+        /*选择鼠标悬停的目标*/
+        #huaji1:hover {
+            width: 50px;
+            height: 50px;
+        }
+
+        #huaji2:hover {
+            width: 100px;
+            height: 100px;
+        }
+
+        #huaji3:hover {
+            width: 150px;
+            height: 150px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        #text:focus {
+            color: darkorchid;
+        }
+
+        /*图片缓慢变大*/
+        #gaoxiaopicture img {
+            cursor: pointer;
+            transition: all 0.6s;
+        }
+
+        #gaoxiaopicture img:hover {
+            transform: scale(1.3);
+
+        }
+
+        #head {
+            width: 1280px;
+            margin: 0 auto;
+            /*border: 1px solid red;*/
+            background: #cccccc;
+        }
+
+        #head_table {
+            width: 1260px;
+            height: 40px;
+            margin: 0px auto;
+            text-align: center;
+            background: #cccccc;
+        }
+
+        #head_table a:link, #head_table a:visited, #head_table a:active, #head_table a:hover {
+            color: #ffffff;
+        }
+
+        #head_table a:hover {
+            color: red;
+            border-bottom: 5px solid #ff0000;
+        }
+
+        #head_table td {
+            width: 140px;
+        }
+
+        #wuxu {
+            /*border: 1px solid red;*/
+            width: 1280px;
+            margin: 0 auto;
+            background: #004183;
+        }
+
+        #wuxu_div {
+            /*border: 1px solid red;*/
+            width: 1260px;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+
+        #wuxu_div ul {
+            width: 1260px;
+            height: 40px;
+            list-style-type: none;
+            margin: 0px auto;
+
+        }
+
+        #wuxu_div li {
+
+            width: 140px;
+            /*color: white;*/
+            float: left;
+        }
+
+        #wuxu a {
+            line-height: 40px;
+            color: #ffffff;
+            font-weight: bold;
+
+        }
+
+        #wuxu a:hover {
+            color: #ff3d3d;
+            border-bottom: 4px dashed red;
+        }
+
+        #nav_2 {
+            width: 1280px;
+            background: whitesmoke;
+            border: 1px solid rebeccapurple;
+            margin: 0 auto;
+        }
+
+        #nav_2 ul {
+            font-size: 20px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #nav_2 ul li {
+            text-align: center;
+            width: 320px;
+            /*height: 100px;*/
+            list-style: none;
+            float: left;
+            /*display: inline;*/
+        }
+
+        #nav_2 ul li a {
+            display: block;
+            color: #ffffff;
+            width: 320px;
+            margin: 0px;
+            padding: 0px;
+            background: #808080;
+            line-height: 100px;
+            border-right: 1px solid red;
+            border-bottom: 1px solid red;
+
+        }
+
+        #nav_2 ul li ul li {
+            height: 80px;
+        }
+
+        #nav_2 ul li ul li a {
+            background: #666666;
+            line-height: 79px;
+            border-right: 0px;
+        }
+
+        #nav_2 ul li a:hover {
+            background: #666666;
+            border-bottom: 1px dashed rebeccapurple;
+        }
+
+        #nav_2 ul li ul {
+            display: none;
+        }
+
+        #nav_2 ul li:hover ul {
+            display: block;
+        }
+
+        #nav_2 ul li ul li a:hover {
+            background: #333;
+        }
+
+        #nav_3 {
+            width: 1280px;
+            margin: 0 auto;
+            background: #808080;
+        }
+
+        #nav_3_div {
+            width: 900px;
+            height: 120px;
+            margin: 0 auto;
+            background: wheat;
+        }
+
+        #nav_3 ul {
+            margin: 0px;
+            padding: 0px;
+
+            text-align: center;
+            list-style: none;
+        }
+        #nav_3_div {
+            width: 800px;
+            height: 120px;
+            margin: 0 auto;
+            background: wheat;
+        }
+        #nav_3 ul li {
+            float: left;
+            text-align: center;
+            width: 200px;
+            height: 40px;
+
+        }
+
+        #nav_3 ul li a {
+            border-right: 1px solid red;
+            border-bottom: 1px solid red;
+            display: block;
+            line-height: 39px;
+            background: #cccccc;
+
+        }
+        #nav_3 ul li ul li a{
+            border-right: none;
+        }
+        #nav_3 ul li ul li{
+            height: 25px;
+        }
+        #nav_3 ul li ul li a{
+            line-height: 24px;
+        }
+        /*初始化子菜单隐藏*/
+        #nav_3 ul li ul {
+              display: none;
+          }
+        /*点击主菜单时 子菜单出现*/
+        #nav_3 ul li:hover ul {
+            display: block;
+        }
+        #nav_3 ul li ul li a:hover{
+            background: #004183;
+        }
+
+    </style>
+
+</head>
+<body>
+<!--表格+超链接导航菜单-->
+<div id="head">
+    <table id="head_table">
+        <tr>
+            <td><a href="http://news.sohu.com/v2" target="_blank">新闻</a></td>
+            <td><a href="http://www.baidu.com" target="_blank">百度</a></td>
+            <td><a href="http://www.youku.com/" target="_blank">电影</a></td>
+            <td><a href="http://www.4399.com/" target="_blank">娱乐</a></td>
+            <td><a href="https://www.taobao.com/" target="_blank">购物</a></td>
+            <td><a href="donghua.html" target="_blank">动画片</a></td>
+            <td><a href="zhaopian1.html" target="_blank">照片墙</a></td>
+            <td><a href="zhaopian2.html" target="_blank">重叠照片</a></td>
+            <td><a href="guess_number.html" target="_blank">猜数字</a></td>
+            <td><a href="auto_jcz.html" target="_blank">计算节操值</a></td>
+        </tr>
+    </table>
+</div>
+<!--无序列表+超链接导航菜单-->
+<div id="wuxu">
+    <div id="wuxu_div">
+        <ul>
+            <li><a href="">新闻</a></li>
+            <li><a href="">百度</a></li>
+            <li><a href="">电影</a></li>
+            <li><a href="">娱乐</a></li>
+            <li><a href="">购物</a></li>
+            <li><a href="">动画片</a></li>
+            <li><a href="">照片墙</a></li>
+            <li><a href="">重叠照片</a></li>
+            <li><a href="">猜数字</a></li>
+
+        </ul>
+    </div>
+</div>
+<!--二级菜单-->
+<div id="nav_2">
+    <div id="nav_2_div" style="height:100px;width:1280px; margin-bottom: 200px;display: block">
+
+        <!--新闻，影视，
+        </div>休闲：照片墙，动画片， 游戏：猜数字，重叠照片，-->
+        <ul>
+            <li><a href="">新闻</a></li>
+            <li><a href="">影视</a></li>
+            <li><a href="">休闲</a>
+                <ul>
+                    <li><a href="">照片墙</a></li>
+                    <li><a href="">动画片</a></li>
+                </ul>
+            </li>
+            <li><a href="">游戏</a>
+                <ul>
+                    <li><a href="">猜数字</a></li>
+                    <li><a href="">重叠照片</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<!--横向二级菜单-->
+<div id="nav_3">
+    <div id="nav_3_div">
+
+        <ul>
+            <li><a href="">新闻</a></li>
+            <li><a href="">影视</a></li>
+            <li><a href="">休闲</a>
+                <div id="nav_3_ul1">
+                    <ul>
+                        <li><a href="">照片墙</a></li>
+                        <li><a href="">动画片</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="">游戏</a>
+                <div id="nav_3_ul2">
+                    <ul>
+                        <li><a href="">猜数字</a></li>
+                        <li><a href="">重叠照片</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<table border="1px solid red" style="margin: 0px auto; ">
+    <caption><p style="font-size: 50px;color: aquamarine;">休闲区</p></caption>
+    <!--<tr>-->
+    <!--<td><input type="button" id="btn" value="请点击你需要的："></td>-->
+    <!--</tr>-->
+    <tr>
+        <td><a href="http://news.sohu.com/v2" target="_blank" id="xinwen">新闻</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.baidu.com" target="_blank" id="baidu">百度</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.youku.com/" target="_blank" id="dianying">电影</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.4399.com/" target="_blank" id="game">娱乐</a></td>
+    </tr>
+    <tr>
+        <td><a href="购物车.html" target="_blank" id="gouwu">购物车</a></td>
+    </tr>
+    <tr>
+        <td><a href="donghua.html" target="_blank">动画片</a></td>
+    </tr>
+    <tr>
+        <td><a href="zhaopian1.html" target="_blank">照片墙</a></td>
+    </tr>
+    <tr>
+        <td><a href="zhaopian2.html" target="_blank">重叠照片</a></td>
+    </tr>
+    <tr>
+        <td><a href="guess_number.html" target="_blank">猜数字</a></td>
+    </tr>
+    <tr>
+        <td><a href="auto_jcz.html" target="_blank">计算节操值</a></td>
+    </tr>
+    <tr>
+        <td><a href="show_photos.html" target="_blank">显示照片</a></td>
+    </tr>
+    <tr>
+        <td><a href="score.html" target="_blank">成绩计算</a></td>
+    </tr>
+    <tr>
+        <td><a href="lottery.html" target="_blank">投注彩票</a></td>
+    </tr>
+    <tr>
+        <td>搞笑表情图
+            <ol id="gaoxiaopicture">
+                <li><img src="lol_image/huaji1.jpg" id="huaji1" width="20px" height="20px" alt=""></li>
+                <br>
+                <li><img src="lol_image/huaji2.jpg" id="huaji2" width="20px" height="20px" alt=""></li>
+                <br>
+                <li><img src="lol_image/huaji3.jpg" id="huaji3" width="20px" height="20px" alt=""></li>
+            </ol>
+        </td>
+    </tr>
+    <tr>
+        <td>请输入你想说的话：<input type="text" id="text" value="" style="height: 50px ;width: 150px;font-size: 45px"></td>
+    </tr>
+</table>
+
+</body>
+</html>

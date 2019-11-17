@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            text-decoration: none;
+        }
+        /*从来没点过的链接*/
+        a:link {
+            color: aqua;
+        }
+
+        /*访问过的链接*/
+        a:visited {
+            color: red;
+        }
+
+        /*选择正被点中的元素*/
+        #btn:active {
+            color: cyan;
+        }
+
+        /*选择鼠标悬停的目标*/
+        #huaji1:hover {
+            width: 50px;
+            height: 50px;
+        }
+        #huaji2:hover {
+            width: 100px;
+            height: 100px;
+        }
+        #huaji3:hover {
+            width: 150px;
+            height: 150px;
+        }
+        td{
+            text-align:center;
+        }
+        #text:focus{
+            color: darkorchid;
+        }
+    </style>
+</head>
+<body>
+<table border="1px solid red" align="center">
+    <caption><p style="font-size: 50px;color: aquamarine">休闲区</p></caption>
+    <!--<tr>-->
+        <!--<td><input type="button" id="btn" value="请点击你需要的："></td>-->
+    <!--</tr>-->
+    <tr>
+        <td><a href="http://news.sohu.com/v2" target="_blank" id="xinwen">新闻</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.baidu.com" target="_blank" id="baidu">百度</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.youku.com/" target="_blank" id="dianying">电影</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.4399.com/" target="_blank" id="game">娱乐</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.taobao.com/" target="_blank" id="gouwu">购物</a></td>
+    </tr>
+    <tr>
+        <td><a href="donghua.html" target="_blank">动画片</a></td>
+    </tr>
+    <tr>
+        <td><a href="zhaopian1.html" target="_blank">照片墙</a></td>
+    </tr>
+    <tr>
+        <td><a href="zhaopian2.html" target="_blank">重叠照片</a></td>
+    </tr>
+    <tr>
+        <td>搞笑表情图
+            <ol>
+                <li ><img src="image/huaji1.jpg" id="huaji1" width="20px" height="20px" alt=""></li>
+                <br>
+                <li ><img src="image/huaji2.jpg" id="huaji2" width="20px" height="20px" alt=""></li>
+                <br>
+                <li ><img src="image/huaji3.jpg" id="huaji3" width="20px" height="20px" alt=""></li>
+            </ol>
+        </td>
+    </tr>
+    <tr>
+        <td>请输入你想说的话：<input type="text" id="text" value="" style="height: 50px ;width: 150px;font-size: 45px"></td>
+    </tr>
+</body>
+</html>

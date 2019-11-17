@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>沙箱小案例</title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<script>
+    (function () {
+        document.getElementById('btn').onclick = function () {
+            console.log("按钮被点击了");
+        }
+    }());
+    (function () {
+        var str = "小白喜欢小黑";
+        str = str.substr(2);
+        console.log(str);
+    }());
+
+    //沙箱
+    (function () {
+        var str = "小明喜欢小红";
+        console.log(str.substr(2));
+    }());
+</script>
+</body>
+</html>

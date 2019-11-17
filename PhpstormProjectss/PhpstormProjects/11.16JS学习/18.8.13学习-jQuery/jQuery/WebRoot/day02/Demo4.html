@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英雄联盟注册（表单验证）</title>
+    <style type="text/css">
+        form {
+            width: 60%;
+            padding: 10px;
+            margin: 100px auto;
+            border: 1px solid #CCCCCC;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        input {
+            width: 150px;
+            height: 30px;
+        }
+
+        /*正确的样式*/
+        .ok {
+            color: green;
+            border: 1px solid green;
+        }
+
+        /*错误的样式*/
+        .error {
+            color: red;
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript">
+        //在页面加载后，给文本框绑定事件
+        $(function () {
+            //给账号文本框绑定光标移除事件blur()
+            $("#code").blur(check_code);
+            $("#pad").blur(check_password);
+            $("#sure_pad").blur(check_sure_pad);
+            $("#Email").blur(check_Email);
+            $("#phone").blur(check_phone);
+        });
+
+        //验证账号的格式
+        function check_code() {
+            //1.获取账号的值
+            var code = $("#code").val();
+            //2.创建正则表达式并验证是否匹配
+            /*不晓得就查查常用正则表达式文档或者百度*/
+            var reg = /^\w{3,20}$/;
+            if (!reg.test(code)) {
+                //若不匹配，追加错误样式
+                $("#code_msg").addClass("error");
+            } else {
+                //若匹配，移除错误样式，追加正确样式
+                //否则会造成class="error  ok"两个样式并存了，以第一个的为主
+
+                $("#code_msg").removeClass("error").addClass("ok");
+            }
+        }
+
+        //验证密码的格式
+        function check_password() {
+            //先获取文本框的值
+            var pad = $("#pad").val();
+            //正则表达式
+            var reg = /^\w{6,20}$/;
+            //1.如果不匹配，显示红框
+            if (!reg.test(pad)) {
+                $("#pad_msg").addClass("error");
+            } else {//2.匹配，去除红框，追加绿框
+                $("#pad_msg").removeClass("error").addClass("ok");
+            }
+        }
+
+        //再次验证
+        function check_sure_pad() {
+            //先获取第一个密码文本框的值
+            //再获取第二个密码文本框的值
+            var pad = $("#pad").val();
+            var sure_pad = $("#sure_pad").val();
+            var reg = /^\w{6,20}$/;
+            if (!reg.test(sure_pad)) {//不满足密码基本格式要求时
+                $("#sure_pad_msg").addClass("error");
+            } else {
+                //当满足基本格式要求，判断与第一次输入的密码一致不
+                if (sure_pad != pad) {
+
+                    $("#sure_pad_msg").addClass("error");
+                } else {
+                    $("#sure_pad_msg").removeClass("error").addClass("ok");
+                }
+            }
+        }
+
+        //验证邮箱
+        function check_Email() {
+            //获取邮箱文本框的值
+            var email = $("#Email").val();
+//            创建正则表达式
+            var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            if (!reg.test(email)) {
+                $("#Email_msg").addClass("error");
+            } else {
+                $("#Email_msg").removeClass("error").addClass("ok");
+            }
+        }
+
+        //验证手机号
+        function check_phone() {
+            var phone = $("#phone").val();
+            var reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+            if (!reg.test(phone)) {
+                $("#phone_msg").addClass("error");
+            } else {
+                $("#phone_msg").removeClass("error").addClass("ok");
+            }
+        }
+    </script>
+</head>
+<body>
+<form action="#服务器">
+    <h1 align="center">注册账号</h1>
+    <p>
+        <!--一个空格是一个英文字母的大小，两个英文字母是一个汉字的大小，所以得四个-->
+        账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：
+        <input type="text" id="code"/>
+        <span id="code_msg">3-20位字母、数字、下划线的组合</span>
+    </p>
+    <p>
+        密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
+        <input type="password" id="pad"/>
+        <span id="pad_msg">6-30位字母、数字、下划线的组合</span>
+    </p>
+    <p>
+        确认密码&nbsp;：
+        <input type="password" id="sure_pad"/>
+        <span id="sure_pad_msg">请再次输入密码</span>
+    </p>
+    <p>
+        邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：
+        <input type="text" id="Email"/>
+        <span id="Email_msg">请输入你的邮箱</span>
+    </p>
+    <p>
+        手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：
+        <input type="text" id="phone"/>
+        <span id="phone_msg">请输入你的手机号</span>
+    </p>
+    <p align="center">
+        <input type="submit" value="注册"/>
+    </p>
+</form>
+</body>
+</html>

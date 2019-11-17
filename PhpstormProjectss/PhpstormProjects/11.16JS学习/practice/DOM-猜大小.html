@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猜大小</title>
+</head>
+<body>
+<script>
+    var num = parseInt(Math.random()*10)*10;
+    while (true) {
+        var input = prompt("请输入数字"+num);
+        if (input == 'exit'|| input == null) {
+            break;
+        }
+        if (parseInt(input) < num) {
+            alert('小了')
+        } else if (parseInt(input) > num) {
+            alert('大了')
+        } else if (parseInt(input) == num) {
+            alert('猜对了');
+            break;
+        } else {
+            alert('输入错误，请重新输入');
+        }
+    }
+</script>
+</body>
+</html>

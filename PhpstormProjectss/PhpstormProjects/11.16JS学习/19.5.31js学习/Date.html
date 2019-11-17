@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+<script>
+    /*
+    //毫秒数其实是封装了一个数，数存多大，这个日期就能存多大 Number.MAX_VALUE
+   var year =  Number.MAX_VALUE/365/24/60/60/1000;
+   console.log(year);*/
+    var d1 = new Date(0);
+    var now = new Date();
+    var birth = new Date("1999-9-9");
+    console.log(d1 + "," + now + "," + birth);
+    //var ms = now - birth;
+    //var days = ms/365/24/60/60/1000;
+    //    now.getYear();//这个会有千年虫的问题
+    var age = now.getFullYear() - birth.getFullYear();
+    var min = 30 - now.getMinutes();
+    birth.setFullYear(2019);//set方法发会直接修改原日期
+    var days = (birth - now) / 24 / 60 / 60 / 1000;//减后是毫秒数
+    var month = now.getMonth() + 1;
+    var day = now.getDay();
+    console.log(age + "," + min + "," + birth + "," + days);
+    console.log(month);//月从0-11
+    console.log(day);//星期s//日  一。。。。。。六
+                        //    0   1              6
+
+    var nowMs = now .getTime();//返回现在时间毫秒数
+    var nextMs = nowMs +5*24*60*60*1000;
+    var next = new Date(nextMs);
+    console.log(next);
+</script>
+</body>
+</html>

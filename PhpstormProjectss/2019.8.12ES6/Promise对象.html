@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<script>
+    /*
+    let promise = new Promise((resolve,reject)=>{
+        console.log('promise初始化状态：pending');//这里同步执行
+        setTimeout(()=>{
+            console.log('开启定时器模拟异步执行')
+//            resolve('异步返回执行成功')//状态从pending改为fulfilled
+            reject('异步返回执行失败')//状态改为rejected
+        },1000)
+    })
+    promise
+        .then((data)=>{//第一个回调，  成功resolve
+            console.log('resolve')
+            console.log(data)
+        },(data)=>{//第二个回调，失败reject
+            console.log('reject')
+            console.log(data)
+        });
+    console.log('代码继续执行')
+
+    */
+
+//相当于把获取接口的失败和成功分离了，各自执行自己的操作
+    
+    let promise = new Promise((resolve, reject) => {
+        console.log('promise初始化状态：pending');//这里同步执行
+        //api 参数 回调 格式
+        $.get(' https://www.easy-mock.com/mock/5d74618258e3a15823091922/example/promiseTest',{},function (result) {
+            console.log('ajax异步操作')
+            console.log(result)
+            if(result.ret){//获取成功
+                console.log('执行ok')
+                resolve(result.data)
+            }else{//获取失败
+                console.log('执行失败')
+                reject(result.data)
+            }
+        },'json')
+    })
+    promise
+        .then((data) => {//第一个回调，  成功resolve
+            console.log('resolve')
+            console.log(data)
+        }, (data) => {//第二个回调，成功reject
+            console.log('reject')
+            console.log(data.errorInfo)
+        });
+    console.log('代码继续执行')
+
+
+</script>
+</body>
+</html>

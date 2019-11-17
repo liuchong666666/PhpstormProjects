@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+    }
+</style>
+<script>
+    function create(){
+        var div = document.createElement('div');
+        var txt = document.createTextNode('123');
+        div.appendChild(txt);
+        var  fragment = document.createDocumentFragment();
+        fragment.appendChild(div);
+        document.body.appendChild(fragment);
+    }
+</script>
+<body>
+<button onclick="create()">创建</button>
+</body>
+</html>

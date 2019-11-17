@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery动画</title>
+    <style type="text/css">
+        #msg {
+            border: 1px solid #CCCCCC;
+            width: 100px;
+            padding: 10px;
+            text-align: center;
+            background-color: #dddddd;
+            display: none;
+        }
+
+        img {
+            /*给图片重新定位一下,才能用animate，脱离流定位*/
+            position: relative; /*相对定位 */
+            width: 200px;
+            height: 200px;
+        }
+
+        div {
+            background-color: #98bf21;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#b1").click(f1);
+            $("#b2").click(f2);
+            $("#c1").click(f3);
+            $("#c2").click(f4);
+            $("#d1").click(f5);
+            $("#d2").click(f6);
+            $("#ts").click(ts);
+            $("#yd").click(yd);
+            $("div").click(f7);
+        });
+        /*第一种动画*/
+        //将图片显示
+        function f1() {
+            //show,hide,normal,毫秒数
+            $("img").show("show");
+        }
+
+        //将图片隐藏
+        function f2() {
+            $("img").hide(2000);
+        }
+
+        /*第二种动画*/
+        //将图片显示
+        function f3() {
+
+            $("img").slideDown(2000);
+        }
+
+        //将图片隐藏
+        function f4() {
+            $("img").slideUp(2000);
+        }
+
+        /*第3种动画*/
+        //将图片显示
+        function f5() {
+
+            $("img").fadeIn(2000);
+        }
+
+        //将图片隐藏
+        function f6() {
+            $("img").fadeOut(2000);
+        }
+
+        /*动态弹出提示信息*/
+        function ts() {
+            $("#msg").fadeIn(2000).fadeOut(1000);
+
+        }
+
+        function yd() {
+            //{'left':'500px'} 是偏移量，表示
+            //以左侧为基准，向右偏移500像素,然后向下偏移300px
+            $("img").animate({'left': '500px'}, 2000).animate({'top': '300px'}, 3000);
+        }
+
+        //拉伸div：
+        //先纵向拉伸到300px
+        //再横向拉伸到300px
+        //再纵向拉回到100px
+        //在横向拉回到100px
+        function f7() {
+            $("div").animate({'height': '300px'}, 2000).animate({'width': '300px'}, 2000).animate({'height': '100px'}, 2000).animate({'width': '100px'}, 2000);
+        }
+    </script>
+</head>
+<body>
+<p>第1种动画
+    <button id="b1">第1种动画显示</button>
+    <button id="b2">第1种动画隐藏</button>
+</p>
+<p>第2种动画
+    <button id="c1">第2种动画显示</button>
+    <button id="c2">第2种动画隐藏</button>
+</p>
+<p> 第3种动画
+    <button id="d1">第3种动画显示</button>
+    <button id="d2">第3种动画隐藏</button>
+</p>
+<p>
+    <button id="ts">提示</button>
+    <button id="yd">移动</button>
+</p>
+<p>
+    <img src="../image/1.jpg" alt="">
+</p>
+<p id="msg">
+    操作成功
+</p>
+<div>
+
+</div>
+</body>
+</html>

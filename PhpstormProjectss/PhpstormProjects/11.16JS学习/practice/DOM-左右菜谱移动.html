@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右菜谱移动</title>
+</head>
+<style>
+    select {
+        width: 100px;
+        height: 100px;
+        float: left;
+    }
+</style>
+<body>
+<select multiple size="8" id="allDish">
+</select>
+<select multiple size="3" id="selectDish">
+</select>
+<script>
+    var arr = ['宫保鸡丁', '鱼香肉丝', '精讲肉丝', 'asdas'];
+    var fragment = document.createDocumentFragment();
+    //添加到列表
+    for (var i = 0; i < arr.length; i++) {
+
+        for (var i = 0; i < arr.length; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', i);
+            option.innerHTML = arr[i];
+            console.log(option.innerHTML + ',' + option.getAttribute('value'));
+            option.setAttribute('ondblclick', 'chooseDish(this)');//ondblclick双击
+            fragment.appendChild(option);
+        }
+    }
+    document.getElementById('allDish').appendChild(fragment);
+
+    //左选择
+    function chooseDish(option) {
+        //子节点被删除前应该接触所有绑定的事件，否则无法回收事件绑定所占内存
+        /*  var deleted = document.getElementById('allDish').removeChild(option);
+          option.setAttribute('ondblclick', 'backDish(this)');//移动前，修改双击事件绑定的函数
+          document.getElementById('selectDish').appendChild(deleted);
+  */
+        var arra = [];
+//        按原位置排列
+//        console.log('123');
+        var selectDish = document.getElementById('selectDish');
+        var opt = selectDish.getElementsByTagName("option");
+        for (var i = 0; i < opt.length; i++) {
+//            console.log('opt[i]');
+//            console.log( opt[i].innerHTML);
+            arra.push(opt[i].getAttribute('value'));
+            //  console.log(arra);
+            arra.sort(compare);
+            console.log(arra[i]);
+//            console.log(opt[i].getAttribute('value'));
+        }
+
+
+        var deleted = document.getElementById('allDish').removeChild(option);
+
+        option.setAttribute('ondblclick', 'backDish(this)');////移动前，修改双击事件绑定的函数
+        if (arra[0] == null) {
+            selectDish.appendChild(deleted);
+        }
+        for (var i = 0; i < arra.length; i++) {
+            console.log(typeof(arra[i]));
+            console.log(option.getAttribute('value'));
+            if (parseInt(option.getAttribute('value')) >= arra.length) {
+                selectDish.appendChild(deleted);
+            } else if (parseInt(option.getAttribute('value')) == 0) {
+                selectDish.insertBefore(deleted, selectDish.children[0]);
+            }
+            else {
+                if (parseInt(option.getAttribute('value')) < parseInt(arra[i])) {
+//                    console.log(option.getAttribute('value') + 'mmmm' + arra[i]);
+//                    console.log(opt[i]);
+                    selectDish.insertBefore(deleted, opt[i]);
+                }
+            }
+        }
+    }
+
+    //右选择
+    function backDish(option) {
+        var arra = [];
+//        按原位置排列
+//        console.log('123');
+        var allDish = document.getElementById('allDish');
+        var opt = allDish.getElementsByTagName("option");
+
+        for (var i = 0; i < opt.length; i++) {
+//            console.log('opt[i]');
+//            console.log( opt[i].innerHTML);
+            arra.push(opt[i].getAttribute('value'));
+            //  console.log(arra);
+            arra.sort(compare);
+            //console.log(arra[i]);
+//            console.log(opt[i].getAttribute('value'));
+        }
+
+
+        var deleted = document.getElementById('selectDish').removeChild(option);
+        option.setAttribute('ondblclick', 'chooseDish(this)');////移动前，修改双击事件绑定的函数
+        if (arra[0] == null) {
+            allDish.appendChild(deleted);
+        }
+        for (var i = 0; i < arra.length; i++) {
+            // console.log(typeof(arra[i]));
+            if (parseInt(option.getAttribute('value')) >= arra.length) {
+                allDish.appendChild(deleted);
+            } else if (parseInt(option.getAttribute('value')) == 0) {
+                allDish.insertBefore(deleted, allDish.children[0]);
+            }
+            else {
+                if (parseInt(option.getAttribute('value')) < parseInt(arra[i])) {
+//                    console.log(option.getAttribute('value') + 'mmmm' + arra[i]);
+//                    console.log(opt[i]);
+                    allDish.insertBefore(deleted, opt[i]);
+                }
+            }
+        }
+
+        //  allDish.appendChild(deleted);
+    }
+
+    function compare(a, b) {
+        return a - b;
+    }
+</script>
+</body>
+</html>

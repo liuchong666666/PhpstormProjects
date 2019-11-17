@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>咱们结婚吧</title>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function initial() {
+            //photo数组用来装img2
+            var imgs = [];
+            for (var i = 0; i < 10; i++) {
+                var imga = new Image();
+                imga.src = "../img/flower.png";
+                imgs.push(imga);
+            }
+            canvas = $("canvas");
+            canvas2 = $("canvas2");
+            canvas3 = $("canvas3");
+            ctx = canvas.getContext("2d");
+            ctx2 = canvas2.getContext("2d");
+            ctx3 = canvas3.getContext("2d");
+
+//            window.alert(window.screen.height);//获取屏幕宽高
+            var img = new Image();
+            img.src = "../img/bg.png";
+
+            var img2 = new Image();
+            img2.src = "../img/flower.png";
+            var img4 = new Image();
+            img4.src = "../img/person.png";
+            var img5 = new Image();
+            img5.src = "../img/answer0.png";
+            var img6 = new Image();
+            img6.src = "../img/answer1.png";
+
+            for (var i = 0; i < imgs.length; i++) {
+                //imgs数组 ： 99张图片
+                var imgb = imgs[i];
+                imgb.addEventListener("load", loop_img(imgb), false);
+            }
+
+
+            ctx3.drawImage(img, 0, 0, 1315, 520);
+            ctx3.drawImage(img4, 0, 0, 1300, 520);
+            ctx3.save();
+            ctx3.translate(450, 252);////把旋转的矩形平移进画布
+            ctx3.rotate(Math.PI / 4);//定义一个旋转的方法,确定要旋转多少弧度
+            ctx3.drawImage(img5, -60, -50);///2.绘制一个矩形，因为需求要求矩形以中心为轴进行旋转，但是canvas中rotate只能以画布左上角为轴，进行旋转
+            //因此，只要使矩形的中心和画布的左上角重合就可以了(起点的横纵坐标为矩形宽高的一半)
+            ctx3.restore();
+            ctx3.save();
+            ctx3.translate(850, 252);
+            ctx3.rotate(3 * Math.PI / 4);
+            ctx3.drawImage(img6, -60, -50);
+            ctx3.restore();
+            ctx3.font = "bold 36px 微软雅黑";
+            ctx3.fillStyle = "red";
+            ctx3.fillText("不", 845, 251);
+            ctx3.font = "bold 36px 微软雅黑";
+            ctx3.fillStyle = "red";
+            ctx3.fillText("好", 425, 251);
+
+
+            canvas2.addEventListener("click", canvas_click, false);
+        }
+
+        function loop_img(img2) {
+            return function () {
+//            alert(e.target);
+                console.log(img2);
+                var x, y, z;
+                x = random(92, 810);
+                y = 0;
+                z = random(80, 280);
+                loop = setInterval(function () {
+                    //
+                    //          console.log(x,y);
+
+                    y += 10;
+                    if (y >= 500) {
+                        y = random(-41, 200);
+                        x = random(92, 810);
+                        z = random(0, 80);
+                        ctx.clearRect(0, 0, 1315, 520);  //清除画布
+                    }
+                    ctx.drawImage(img2, x + 90, y + 92, 46, 40.5);//缩小0.5倍
+                    ctx.drawImage(img2, x, y);
+                    ctx.drawImage(img2, x + z, y);
+                    y += 10;
+                    if (y >= 500) {
+                        y = random(-41, 200);
+                        x = random(92, 810);
+                        z = random(0, 80);
+                    }
+                }, 1000);
+            }
+        }
+
+        function canvas_click(e) {
+            var e = event || window.event;
+            var cx = e.clientX;
+            var cy = e.clientY;
+
+//            console.log(cx + "," + cy);
+            //当鼠标点到指定区域才执行绘制图像
+            if (cx > 400 && cx < 500 && cy > 200 && cy < 300) {
+                console.log("进来" + cx + "," + cy);
+                //新建一个image对像，并绘制图像
+                //一次性时钟
+                var img7 = new Image();
+                img7.src = "../img/hart.png";
+                ctx2.drawImage(img7, 100, 50);
+            }
+        }
+
+        //随机指定范围值
+        function random(lower, upper) {
+            return Math.floor(Math.random() * (upper - lower) + lower);
+        }
+
+        window.addEventListener("load", initial, false);
+    </script>
+    <style>
+        body {
+            background: rgb(233, 167, 158);
+        }
+
+        #canvas {
+            position: absolute;
+        }
+
+        #canvas2 {
+            position: absolute;
+        }
+
+        #canvas3 {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas3" width="1320" height="520"></canvas>
+<!--canvas3放背景背景图-->
+<canvas id="canvas" width="1320" height="520">
+</canvas>
+<canvas id="canvas2" width="1320" height="520">
+</canvas>
+<!--第二个专门用来放点击后的事件生成img7图片-->
+</body>
+</html>

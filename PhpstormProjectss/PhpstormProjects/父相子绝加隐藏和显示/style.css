@@ -1,0 +1,31 @@
+div{
+    border: 10px dotted darkred;
+    margin: 0 auto;
+    width: 200px  ;
+    height: 200px;
+    background: red;
+    position: relative;
+
+}
+a img{
+    display: block;
+    width:200px;
+    height: 200px;
+
+    position: absolute;
+
+
+}
+div span {
+    display: none;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    color: white;
+    background: #000000;
+
+
+}
+div a:hover span{
+    display: block;
+}

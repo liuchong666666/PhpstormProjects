@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+</head>
+<style>
+    table{
+        width: 600px;
+        height: 300px;
+        text-align: center;
+        border-collapse: collapse;
+        border: 1px solid white;
+    }
+    thead td{
+        background-color: blue;
+        height: 50px;
+        border: 1px solid white;
+    }
+   tbody td{
+        height: 20px;
+       border: 1px solid red;
+    }
+    .cor{
+        background-color: cornflowerblue;
+    }
+</style>
+
+<body>
+<table id="data">
+    <thead>
+    <tr>
+        <td>名字</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>薪资</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>张三</td>
+        <td>男</td>
+        <td>20</td>
+        <td>10000</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>男</td>
+        <td>22</td>
+        <td>12000</td>
+    </tr>
+    <tr>
+        <td>翠花</td>
+        <td>女</td>
+        <td>18</td>
+        <td>10000</td>
+    </tr>
+    <tr>
+        <td>王五</td>
+        <td>男</td>
+        <td>23</td>
+        <td>20000</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    //加载完成后才行，不然有些取不到
+   /* console.log("123456");
+    var table = document.getElementById("data");
+    console.log(table);
+    var tbody = table.getElementsByTagName("tbody")[0];
+    console.log(tbody);
+    var tr = tbody.getElementsByTagName("tr");*/
+   var tr = document.querySelectorAll('#data tbody tr');
+    for(var i=0;i<tr.length;i++){
+        if(i%2==1){
+           tr[i].setAttribute('class','cor');
+        }
+    }
+</script>
+</body>
+</html>

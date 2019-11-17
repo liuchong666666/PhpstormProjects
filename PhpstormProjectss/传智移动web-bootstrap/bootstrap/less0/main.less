@@ -1,0 +1,19 @@
+@charset "UTF-8";
+@import "minxins";
+@import "topBar";
+@import "banner";
+
+
+/*运算*/
+@num:7;
+ul{
+  width: 100%*@num;
+  li{
+    width: 100%/@num;
+    color:red+yellow+blue;
+    background:gray*0.3;
+    /*内置函数*/
+    //border-color: lighten(red,20%);//比红色亮20%
+    border-color: darken(red,20%);//比红色低20%
+  }
+}

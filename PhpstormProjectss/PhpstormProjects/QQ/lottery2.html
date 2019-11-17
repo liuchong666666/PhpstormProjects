@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>恭喜你下注成功</title>
+    <style type="text/css">
+        #div0 {
+            /*text-align: center;*/
+            margin: 100px auto;
+            width: 450px;
+            height: 265px;
+            border: 3px dashed orangered;
+        }
+
+        td {
+            text-align: center;
+        }
+        .td{
+            width: 162px;
+            height: 25px;
+        }
+        table{
+            margin: 0 auto;
+        }
+    </style>
+    <script type="text/javascript">
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function onnum() {
+            //
+            <!--取值-->
+            var n1 = localStorage.getItem('number1');
+            var n2 = localStorage.getItem('number2');
+            var n3 = localStorage.getItem('number3');
+//            document.write(n1);
+//            document.write(n2);
+//            document.write(n3);
+            var span = document.getElementById("result1");
+            span.innerHTML = n1;
+            $('result2').innerHTML = n2;
+            $('result3').innerHTML = n3;
+        }
+
+        function delet_number1(a) {
+            //清除单个数据
+            localStorage.removeItem('number1');
+            $('result1').innerHTML = "";
+            alert("删除成功");
+
+        }
+
+        function delet_number2(b) {
+            localStorage.removeItem('number2');
+            $('result2').innerHTML = "";
+            alert("删除成功");
+        }
+
+        function delet_number3(c) {
+            localStorage.removeItem('number3');
+            $('result3').innerHTML = "";
+            alert("删除成功");
+        }
+
+    </script>
+</head>
+<body onload="onnum();">
+<div id="div0">
+
+    <img src="images/ico_7l.gif" alt="">
+    <table>
+        <tr>
+            <td colspan="3">请确定你的号码</td>
+
+        </tr>
+        <tr>
+            <td>第1注：</td>
+            <td class="td"><span id="result1" value="1"></span></td>
+            <td>
+                <button onclick="delet_number1(this);">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>第2注：</td>
+            <td><span id="result2"></span></td>
+            <td>
+                <button onclick="delet_number2(this);">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>第3注：</td>
+            <td><span id="result3"></span></td>
+            <td>
+                <button onclick="delet_number3(this);">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><button>确定</button></td>
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

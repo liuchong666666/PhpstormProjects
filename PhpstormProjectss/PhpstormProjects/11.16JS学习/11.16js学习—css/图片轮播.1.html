@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮播</title>
+    <style type="text/css">
+        img {
+            list-style-type: none;
+        }
+
+        ul {
+            border: 2px solid #CCCCCC;
+            width: 720px;
+            height: 963px;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        li {
+            width: 720px;
+            padding: 963px;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        var index = 0;//默认将第一个图片设为0
+        function start() {
+            setInterval(function () {
+                //接收这一组图片
+                var ul = document.getElementById("photos");
+                var lis = ul.getElementsByTagName("li");
+                //隐藏所有图片
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = "hide";
+                }
+                //将下一个index显示
+                index++;
+                lis[index % lis.length].className = "show";
+            }, 1000)
+        }
+    </script>
+</head>
+<body onload="start();">
+<ul id="photos">
+    <li class="show"><img src="image/1.jpg" alt=""></li>
+    <li class="hide"><img src="image/2.jpg" alt=""></li>
+    <li class="hide"><img src="image/3.png" alt=""></li>
+    <li class="hide"><img src="image/4.png" alt=""></li>
+</ul>
+</body>
+</html>

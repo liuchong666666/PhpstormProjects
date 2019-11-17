@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework2</title>
+    <style type="text/css">
+        tr, th, td {
+            border: 3px solid #cccccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            /*width: 298px;*/
+            width: 25%;
+            font-size: 20px;
+            background-color: orangered;
+        }
+
+        table {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        #divinput {
+            background: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+
+        $(function () {
+            changecolor();
+
+            $("input[value='增加']").click(function () {
+                var bookname=$("#bName").val();
+                var bookprice=$("#bPrice").val();
+                var bookinventory=$("#bStorage").val();
+
+                if (bookname == "" || bookprice == "" || bookinventory == "") {
+                    if (bookname == "") {
+                        alert("请输入书名");
+                        return;
+                    } else if (bookprice == "") {
+                        alert("价格未输入");
+                        return;
+                    } else if (bookinventory == "") {
+                        alert("请输入库存");
+                        return;
+                    } else {
+                        alert("请输入相关信息");
+                        return;
+                    }
+
+                } else {
+                    //创建新的一行,将文本框的值赋值给一行
+                    //创建4个td和一个tr
+                    var $td1 = $("<td>" + bookname + "</td>");
+                    var $td2 = $("<td></td>");
+                    $td2.text(bookprice);
+                    var $td3 = ("<td>" + bookinventory + "</td>");
+                    var $td4 = $("<td></td>");
+                    //获取克隆的按钮
+                    var $update=$($("input[value='修改']").get(0)).clone(true);
+                    var $delete=$($("input[value='删除']").get(0)).clone(true);
+                    $td4.append($update);
+                    $td4.append(" ");
+                    $td4.append($delete);
+                    var $tr=$("<tr></tr>");
+                    $tr.append($td1);
+                    $tr.append($td2);
+                    $tr.append($td3);
+                    $tr.append($td4);
+                    $("tr:last").before($tr);
+                    changecolor();
+                    $("#bName").val(" ");
+                    $("#bPrice").val(" ");
+                    $("#bStorage").val(" ");
+
+                }
+
+            })
+
+            $("input[value='删除']").click(function (e) {
+                //            console.log($(btn).parent().parent());
+                $(this).parent().parent().remove();
+                changecolor();
+            });
+            $("input[value='修改']").click(function (e) {
+
+//           console.log($(btn).val());//修改
+                if ($(this).val() == "修改") {
+                    //将按钮变成确定，将td的文本更换为input
+                    $(this).val("确定");
+                    /*
+                    var $td = $(btn).parent().parent().children().children();
+                    for (var i = 0; i < $td.length-2; i++) {
+    //                    $td.eq(i).readOnly=false;
+                        $td.eq(i).removeAttr("readOnly");
+                    }*/
+                    var tds = $(this).parent().siblings();
+                    for (var i = 0; i < tds.length; i++) {
+                        var $td=$(tds.get(i));
+                        $td.html("<input value='"+$td.text()+"' />");
+                    }
+                } else if ($(this).val() == "确定") {
+                    //将按钮变成修改，将input换成文本
+                    $(this).val("修改");
+                    /*
+                    var $td = $(btn).parent().parent().children().children();
+                    for (var i = 0; i < $td.length - 2; i++) {
+    //                    $td.eq(i).readOnly=true;
+                        $td.eq(i).attr("readOnly", "readOnly");
+    //                    console.log($td.eq(i).val());//获取修改后的值
+                    }*/
+                    var tds = $(this).parent().siblings();
+                    for (var i = 0; i < tds.length; i++) {
+                     var $td=$(tds.get(i));
+                     var $ipt=$($td.children()[0]);
+                     $td.html($ipt.val());
+                    }
+                }
+            });
+
+        })
+
+        //隔行变色
+        function changecolor() {
+            $("tr:not(:first):not(:last):even").css("background", "blue");
+            $("tr:not(:first):not(:last):odd").css("background", "gold");
+        }
+
+        //        window.onload = function () {
+        //            changecolor();
+        //            initial();
+        //        }
+    </script>
+
+</head>
+<body>
+<div>
+
+</div>
+<form action="" method="post">
+    <table id="book">
+        <tr>
+            <th>书名</th>
+            <th>价格（元）</th>
+            <th>库存（本）</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>西游记</td>
+            <td>50</td>
+            <td>90</td>
+            <td>
+                <input type="button" value="修改" class="change"/>
+                <input type="button" value="删除" class="delete"/>
+            </td>
+        </tr>
+        <tr>
+            <td>水浒传</td>
+            <td>60</td>
+            <td>99</td>
+            <td>
+                <input type="button" value="修改" class="change"/>
+                <input type="button" value="删除" class="delete"/>
+            </td>
+        </tr>
+        <tr>
+            <td>红楼梦</td>
+            <td>66</td>
+            <td>99</td>
+            <td>
+                <input type="button" value="修改" class="change"/>
+                <input type="button" value="删除" class="delete"/>
+            </td>
+        </tr>
+        <tr id="last_tr">
+            <td>
+                <input type="text" id="bName" value="">
+            </td>
+            <td>
+                <input type="text" id="bPrice" value="">
+            </td>
+            <td>
+                <input type="text" id="bStorage" value="">
+            </td>
+
+            <td>
+                <input type="button" value="增加"/>
+            </td>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

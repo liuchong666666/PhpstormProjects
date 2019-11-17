@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右浮动</title>
+    <style type="text/css">
+        div {
+            border: 1px solid red;
+            margin: 3px;
+        }
+
+        #outter {
+            width: 400px;
+            /*height: 400px;*/
+        }
+        #d1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        #d2{
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+        }
+        #d3{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        p{
+            border: 1px solid black;
+        }
+        /*向右浮动*/
+        #d1,#d2,#d3{
+            float: right;
+        }
+        /*消除浮动对p带来的影响*/
+        /*这种方式只能消除对p的影响，无法
+        消除对外层div的影响。*/
+        p{
+            /*clear: right;*/
+        }
+    </style>
+</head>
+<body>
+<div id="outter">
+    <div id="d1">d1</div>
+    <div id="d2">d2</div>
+    <div id="d3">d3</div>
+    <!--此div用于消除浮动影响，不是为了显示。
+    因此将其内容为空，没有边框及颜色。-->
+    <div style="border: 0;clear: right;"></div>
+</div>
+<p>天天、宝宝、京京</p>
+</body>
+</html>

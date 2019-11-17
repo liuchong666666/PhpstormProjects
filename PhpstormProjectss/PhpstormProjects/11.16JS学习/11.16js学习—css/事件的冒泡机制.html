@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的冒泡机制</title>
+    <style type="text/css">
+        div {
+            border: 1px solid #CCCCCC;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        #d1 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        #d2 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        #d3 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+    <script type="text/javascript">
+        function f1() {
+            alert("d1");
+        }
+
+        function f2() {
+            alert("d2");
+        }
+
+        function f3(e) {
+            alert("d3");
+            //取消冒泡
+            //这是考虑到浏览器兼容问题
+            if (e.stopPropagation) {
+                e.stopPropagation();//IE的取消事件的冒泡
+            } else {
+                e.cancelBubble = true;//其他浏览器的取消事件的冒泡
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="d1" onclick="f1();">
+    d1
+    <div id="d2" onclick="f2();">
+        d2
+        <div id="d3" onclick="f3(event);">d3</div>
+    </div>
+</div>
+</body>
+</html>

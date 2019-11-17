@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>真数组和伪数组</title>
+</head>
+<body>
+<script>
+    //伪数组和数组的区别
+    //真数组的长度是可变的
+    //伪数组长度是不可变得
+    //真数组可以使用数组中的方法
+    //伪数组不可以使用数组中的方法
+
+
+
+//
+//      function f1(){
+//        var sum=0;
+//        for(var i=0;i<arguments.length;i++){
+//            sum+=arguments[i];
+//        }
+//        console.log(sum);
+//    }
+//
+//    //arguments得到的是实参的个数及实参的每个值
+//    f1(10,20,30);
+//
+
+
+
+
+
+
+//    function f1(){
+//        var sum=0;
+//        arguments.forEach(function (t) {
+//
+//        });
+//        console.log(sum);
+//    }
+//
+//    //arguments得到的是实参的个数及实参的每个值
+//    f1(10,20,30,40);
+
+//    var arr=[10,20,30];
+//    arr.forEach(function (t) {  });
+
+var arr=[10,20];
+arr.forEach();//ctrl+鼠标左键点进去，看是不是Array调的方法，是就是数组
+console.dir(arr);
+
+
+//假数组实例对象的_proto_--->Array的prototype
+
+
+
+
+
+
+//  数组
+//    var arr = [10, 20, 30];
+//    arr[3]=100;
+//    console.log(arr.length);
+//    //对象---假数组
+//    var obj = {
+//        0: 10,
+//        1: 20,
+//        2: 30,
+//        length:3
+//    };
+//    console.log(obj.length);
+//    //对象没有length属性，自己加的一个
+//    obj[3]=1000;
+//    console.log(obj[3]);
+//    console.log(obj.length);
+//    //遍历数组
+//    for (var i = 0; i < arr.length; i++) {
+//        console.log(arr[i]);
+//    }
+//    for(var i=0;i<obj.length;i++){
+//        console.log(obj[i]);
+//    }
+</script>
+</body>
+</html>

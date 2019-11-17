@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包案例实现点赞功能</title>
+</head>
+<body>
+
+<input type="button" value="赞(1)"/>
+<input type="button" value="赞(1)"/>
+<script>
+
+    //获取所有按钮
+    //根据标签名获取元素
+    function $(tagName) {
+        return document.getElementsByTagName(tagName);
+    }
+
+    //    var btnobjs = $("input");
+    //    var value = 1;
+    //    for (var i = 0; i < btnobjs.length; i++) {
+    //        //为每个按钮注册点击事件
+    //        btnobjs[i].onclick = function () {
+    //            value = 1;
+    //            console.log('123');
+    //            this.value = "赞(" + (value++) + ")";
+    //        }
+    //    }
+    //闭包缓存数据
+    function getValue() {
+        var value = 1;
+        return function () {
+            //每一次点击的时候，都应该改变当前点击按钮的value值
+            this.value = "赞（" + (++value) + ")";
+            console.log(this);
+        }
+    }
+
+    //获取所有的按钮
+    var btnObjs = $('input');
+    //循环遍历每个按钮，注册点击事件
+    for (var i = 0; i < btnObjs.length; i++) {
+        btnObjs[i].onclick = getValue();
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-省市级联下拉</title>
+</head>
+<body>
+<h2>省市级联下拉</h2>
+<select id="province" multiple  size="8" onchange="changeCity(this.value)">
+    <option value="-1">--请选择--</option>
+</select>
+<select id="citys">
+    <option value="-1">--请选择--</option>
+</select>
+<script>
+    var ps = ['北京', '天津', '河北'];
+    var cs = [
+        ['东城区', '西城'],
+        ['河东区', '和平区'],
+        ['廊坊市', '石家庄市', '唐山市']
+    ];
+    var pSelect = document.getElementById('province');
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < ps.length; i++) {
+        var opt = document.createElement('option');
+        opt.setAttribute('value', i);
+        opt.innerHTML = ps[i];
+        fragment.appendChild(opt);
+    }
+    pSelect.appendChild(fragment);
+
+
+
+    function changeCity(province) {
+        var citys = document.getElementById('citys');
+        var fragment = document.createDocumentFragment();
+//        citys.innerHTML = '';//删除已有的地级城市,没法精确控制
+
+        while (citys.children.length > 1) {//删除已有的地级城市,可以通过  >几  进行精确控制
+            citys.removeChild(citys.lastElementChild);
+        }
+        if (province == -1) {
+            return;
+        }
+        for (var j = 0; j < cs[province].length; j++) {
+            var opt1 = document.createElement('option');
+            opt1.setAttribute('value', j);
+            opt1.innerHTML = cs[province][j];
+            fragment.appendChild(opt1);
+        }
+        citys.appendChild(fragment);
+    }
+
+</script>
+</body>
+</html>

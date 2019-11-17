@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态秒表</title>
+    <style type="text/css">
+        #seconds {
+            border: 1px solid #CCCCCC;
+            width: 100px;
+            height: 50px;
+            font-size: 3em;
+        }
+    </style>
+    <script type="text/javascript">
+        var time = 1;//默认毫秒为1
+
+        function start() {
+            id = setInterval(function () {
+
+                var p = document.getElementById("seconds");
+                p.innerHTML = time++;
+            }, 100)
+        }
+
+        function stop() {
+            clearInterval(id);
+        }
+
+        function clea() {
+            //将秒表屏幕中的数据清 除
+            var span = document.getElementById("seconds");
+            span.innerHTML = "0";
+            //将毫秒复位
+            time = 1;
+        }
+    </script>
+</head>
+<body>
+当前秒数：(单位：0.1秒)
+<p id="seconds">
+
+</p>
+<p>
+    <button onclick="start();">启动</button>
+    <button onclick="stop();">停止</button>
+    <button onclick="clea();">清零</button>
+</p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>unicode不足五位解决方法</title>
+</head>
+<body>
+<script>
+    //定义一个存储unicode字符串的数组result
+    //用户输入
+    //将用户输入的字符串，挨个转为unicode（for,num=unicode）
+    //将unicode转为字符串
+    //将不足五位的，用替换五个0数组place的方法 替换成五位（if(num<10000)）
+    //也可以用（10000）+（不足五位的数），然后将第一位1替换为0
+
+    //替换：  替换从place数组的   5-num.length（每个字符unicode编号的长度）
+    //将替换后的unicode用join（“”）拼接  然后用push加入result数组(result.push(num))
+    //最后将result数组拼成字符串打印输出
+    var result=[];
+    var input = prompt("请输入：");
+    for(var i =0;i<input.length;i++){
+        var num = input.charCodeAt(i);//number,没有length属性
+        var code = num+"";//转为字符串
+        if(num<10000){
+            var place=[0,0,0,0,0];
+            var start =5-code.length;
+          //  console.log(start);
+            for(var n=0;n<code.length;n++){
+                place[start]=code[n];
+                start++;
+            }
+          //  console.log(place);
+            num = place.join("");
+        //    console.log(num);
+        }
+        result.push(num);
+        console.log(result);
+    }
+    document.write(input+":"+result.join(""));
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "ret":true,//true就是说明执行成功
+  "data":{
+    "studentList":[{
+      "id":"001",
+      "name":"jack"
+    },
+      {
+        "id":"0012",
+        "name":"jack2"
+      },
+      {
+        "id":"003",
+        "name":"jack3"
+      }]
+  }
+}

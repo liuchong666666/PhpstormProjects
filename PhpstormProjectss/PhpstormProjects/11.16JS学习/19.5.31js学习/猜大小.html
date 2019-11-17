@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猜大小</title>
+</head>
+<body>
+<script>
+    var n = parseInt(Math.random() * (10 - 0 + 1) + 0);
+
+    //循环条件：input!=n  && input != 'exit'
+    //循环变量：input
+    // var input = -1;//随便给个无效的数字
+    //js只有两种作用域：1.函数  2.全局
+    //只有function里面的是局部作用域，其他都是全局（比如，while / do--while  里面var变量 就是全局的）
+    do {
+        console.log(n);
+        //提示用户输入数字/exit
+        var input = prompt("请输入一个数");//页面直接获得的数据都是字符串//全局作用域
+        if (input == "exit") {
+            alert("退出放弃");
+            break;
+        } else {
+            if (input != "") {
+            } else {//否则，类型转换
+                input = parseInt(input);
+                //比较
+                if (n > input) {
+                    console.log("小了");
+                } else if (n < input) {
+                    console.log("大了");
+                } else {
+                    console.log("猜对了");
+                }
+            }
+        }
+    }
+    while (input != n) ;
+    /*
+      var n = 10;
+    //循环条件：input!=n  && input != 'exit'
+    //循环变量：input
+   // var input = -1;//随便给个无效的数字
+    //js只有两种作用域：1.函数  2.全局
+   //只有function里面的是局部作用域，其他都是全局（比如，while / do--while  里面var变量 就是全局的）
+    //变量声明提前：相同作用域内，var...无论出现在什么位置。解析时，优先提取到js开始位置声明,相当于自动在前面 var input 只是undefined，值不会提前
+    while (input != n) {
+
+       //提示用户输入数字/exit
+     var input = prompt("请输入一个数");//页面直接获得的数据都是字符串// //变量声明提前：相同作用域内，var...无论出现在什么位置。解析时，优先提取到js开始位置声明
+       if (input != "") {
+           if (input == "exit") {
+               alert("退出放弃");
+               break;
+           } else {//否则，类型转换
+               input = parseInt(input);
+               //比较
+               if (n > input) {
+                   console.log("小了");
+               } else if (n < input) {
+                   console.log("大了");
+               } else {
+                   console.log("猜对了");
+               }
+           }
+       }
+   }*/
+</script>
+</body>
+</html>

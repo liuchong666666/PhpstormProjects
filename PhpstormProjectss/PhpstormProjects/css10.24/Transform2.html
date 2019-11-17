@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transform2</title>
+    <style>
+        .stage{
+            background: royalblue;
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            position: relative;
+            float: left;
+            margin: 15px;
+
+            perspective: 1200px;/*perspective属性有两种书写形式，一种用在舞台元素上（动画元素们的共同父辈元素）；第二种就是用在当前动画元素上，*/
+            -webkit-perspective: 1200px;
+            -moz-perspective: 1200px;
+            -o-perspective: 1200px;
+        }
+        .container{
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;/*transform-style: preserve-3d是少不了的。一般而言，该声明应用在3D变换的兄弟元素们的父元素上，也就是舞台元素。*/
+
+        }
+        .container img{
+            position: absolute;
+        }
+
+
+
+
+        /*z轴值越大时，元素也离观看者更近，从视觉上元素就变得更大；*/
+        /*反之其值越小时，元素也离观看者更远，从视觉上元素就变得更小。*/
+        /*.container img:nth-child(1){*/
+            /*z-index:1;*/
+            /*opacity: 0.6;*/
+        /*}*/
+        /*.s1 img:nth-child(2){*/
+            /*z-index: 2;*/
+            /*-webkit-transform: translate3d(30px,30px,200px);*/
+            /*-moz-transform: translate3d(30px,30px,200px);*/
+            /*-ms-transform: translate3d(30px,30px,200px);*/
+            /*-o-transform: translate3d(30px,30px,200px);*/
+            /*transform: translate3d(30px,30px,200px);*/
+        /*}*/
+        /*.s2 img:nth-child(2){*/
+            /*z-index: 2;*/
+            /*-webkit-transform: translate3d(30px,30px,-200px);*/
+            /*-moz-transform: translate3d(30px,30px,-200px);*/
+            /*-ms-transform: translate3d(30px,30px,-200px);*/
+            /*-o-transform: translate3d(30px,30px,-200px);*/
+            /*transform: translate3d(30px,30px,-200px);*/
+        /*}*/
+
+
+
+
+
+        /*!*使用translateZ()函数可以让元素在Z轴进行位移，当其值为负值时，元素在Z轴越移越远，导致元素变得较小。*/
+        /*反之，当其值为正值时，元素在Z轴越移越近，导致元素变得较大。*!*/
+        /*.s1 img:nth-child(1){*/
+            /*z-index:1;*/
+        /*}*/
+        /*.s1 img:nth-child(2){*/
+            /*z-index:2;*/
+            /*opacity: 0.6;*/
+            /*-webkit-transform: translateZ(200px);*/
+            /*-moz-transform: translateZ(200px);*/
+            /*-ms-transform: translateZ(200px);*/
+            /*-o-transform: translateZ(200px);*/
+            /*transform: translateZ(200px);*/
+        /*}*/
+        /*.s2 img:nth-child(1){*/
+            /*z-index:1;*/
+            /*opacity: 0.6;*/
+        /*}*/
+        /*.s2 img:nth-child(2){*/
+            /*z-index:2;*/
+            /*-webkit-transform: translateZ(-200px);*/
+            /*-moz-transform: translateZ(-200px);*/
+            /*-ms-transform: translateZ(-200px);*/
+            /*-o-transform: translateZ(-200px);*/
+            /*transform: translateZ(-200px);*/
+        /*}*/
+
+
+        /*.container img:nth-child(1){*/
+            /*z-index: 1;*/
+            /*opacity: 0.6;*/
+        /*}*/
+        /*.s1 img:nth-child(2){*/
+            /*z-index: 2;*/
+
+            /*-webkit-transform: scaleZ(5) rotateX(45deg);*/
+            /*-moz-transform: scaleZ(5) rotateX(45deg);*/
+            /*-ms-transform: scaleZ(5) rotateX(45deg);*/
+            /*-o-transform: scaleZ(5) rotateX(45deg);*/
+            /*transform: scaleZ(5) rotateX(45deg);*/
+        /*}*/
+        /*.s2 img:nth-child(2){*/
+            /*z-index: 2;*/
+
+            /*-webkit-transform: scaleZ(0.25) rotateX(45deg);*/
+            /*-moz-transform: scaleZ(0.25) rotateX(45deg);*/
+            /*-ms-transform: scaleZ(0.25) rotateX(45deg);*/
+            /*-o-transform: scaleZ(0.25) rotateX(45deg);*/
+            /*transform: scaleZ(0.25) rotateX(45deg);*/
+        /*}*/
+
+
+        .container img:nth-child(1){
+            z-index: 1;
+            opacity:0.4;
+        }
+        .s1 img:nth-child(2){
+            z-index: 2;
+
+            -webkit-transform: rotateX(45deg);
+            -moz-transform: rotateX(45deg);
+            -ms-transform: rotateX(45deg);
+            -o-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+        }
+        .s2 img:nth-child(2){
+            z-index: 2;
+
+            -webkit-transform: rotateY(45deg);
+            -moz-transform: rotateY(45deg);
+            -ms-transform: rotateY(45deg);
+            -o-transform: rotateY(45deg);
+            transform: rotateY(45deg);
+          
+        }
+        .s3 img:nth-child(2){
+            z-index: 2;
+
+            -webkit-transform: rotateZ(45deg);
+            -moz-transform: rotateZ(45deg);
+            -ms-transform: rotateZ(45deg);
+            -o-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+        }
+        .s4 img:nth-child(2){
+            z-index: 2;
+
+            -webkit-transform: rotate3d(0.6,1,0.6,45deg);
+            -moz-transform: rotate3d(0.6,1,0.6,45deg);
+            -ms-transform: rotate3d(0.6,1,0.6,45deg);
+            -o-transform: rotate3d(0.6,1,0.6,45deg);
+            transform: rotate3d(0.6,1,0.6,45deg);
+        }
+    </style>
+</head>
+<body>
+<div class="stage s1">
+    <div class="container">
+        <img src="images/i6.png" alt="">
+        <img src="images/i6.png" alt="">
+    </div>
+</div>
+<div class="stage s2">
+    <div class="container">
+        <img src="images/i6.png" alt="">
+        <img src="images/i6.png" alt="">
+    </div>
+</div>
+<div class="stage s3">
+    <div class="container">
+        <img src="images/i6.png" alt="">
+        <img src="images/i6.png" alt="">
+    </div>
+</div>
+<div class="stage s4">
+    <div class="container">
+        <img src="images/i6.png" alt="">
+        <img src="images/i6.png" alt="">
+    </div>
+</div>
+</body>
+</html>

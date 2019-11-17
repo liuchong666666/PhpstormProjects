@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐播放器</title>
+    <style>
+        @font-face {
+            font-family: fontname;
+            src: url('fontname.ttf');
+        }
+
+        #all {
+            margin: 0 auto;
+            width: 400px;
+            height: 600px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+        }
+
+        #header {
+            margin: 0 auto;
+            width: 390px;
+            height: 100px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 40px;
+            font-family: fontname;
+            color: white;
+            background-color: aqua;
+
+        }
+
+        #nav {
+            margin: 10px auto;
+            width: 390px;
+            height: 50px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+
+        }
+
+        #music_name {
+            float: left;
+            width: 240px;
+            height: 40px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+            margin: 5px;
+            text-align: center;
+            line-height: 40px;
+
+        }
+
+        #music_time {
+            float: right;
+            width: 100px;
+            height: 40px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+            margin: 5px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #div_audio {
+            margin: 10px auto;
+            width: 390px;
+            height: 50px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+        }
+
+        #music_directory {
+            margin: 10px auto;
+            width: 390px;
+            height: 350px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+        }
+
+        #music_directory table {
+            margin: 10px auto;
+            width: 300px;
+            height: 340px;
+            border: 1px solid red;
+            border-radius: 20px 20px;
+            text-align: center;
+        }
+        #tbody td:hover{
+            background-color: aqua;
+        }
+        td {
+
+            border: 1px solid red;
+            border-radius: 20px 20px;
+        }
+
+        audio {
+            width: 390px;
+            height: 50px;
+        }
+        a{
+            text-decoration: none;
+            color:blue;
+        }
+    </style>
+    <script src="music.js"></script>
+</head>
+<body>
+<div id="all">
+    <div id="header">
+        音乐播放器
+    </div>
+    <div id="nav">
+        <div id="music_name">暂无</div>
+        <div id="music_time">00:00</div>
+    </div>
+    <div id="div_audio">
+        <audio controls id="media">
+        </audio>
+    </div>
+    <div id="music_directory">
+        <table>
+            <tbody id="tbody">
+            <!--<tr><td><a href="javascript:play(name,src)"></a></td></tr>-->
+            </tbody>
+            <tfoot>
+            <tr>
+                <td><a href="javascript:loadmusic();">换歌</a></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+</body>
+</html>

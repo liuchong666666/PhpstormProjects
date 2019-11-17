@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onclick</title>
+    <script type="text/javascript">
+        function a(num) {
+
+            var num1=Math.random()*10;
+
+            alert(num1);
+            document.getElementById(num).value=num1;
+            return num1;
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="a1">
+<input type="button" onclick="a('a1');">
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragment</title>
+</head>
+<style>
+    .red{
+       color: red;
+    }
+</style>
+<body>
+
+</body>
+<script>
+    var h2=document.createElement('h2');
+    var text = document.createTextNode('二级标题');
+    h2.appendChild(text);
+
+    var attr = document.createAttribute('class');
+    attr.value='red';
+    h2.setAttributeNode(attr);
+    var div = document.createElement('div');
+    div.appendChild(h2);
+    var div2 = document.createElement('div');
+    var text2 = do cument.createTextNode('二级标题');
+    div2.appendChild(text2);
+
+    var fragment = document.createDocumentFragment();
+    //将创建的东西最终都加入这里面，一次性加入文档，防止之前的每一次添加都会闪频一次
+    fragment.appendChild(div);
+    fragment.appendChild(div2);
+    document.body.appendChild(fragment);
+</script>
+</html>

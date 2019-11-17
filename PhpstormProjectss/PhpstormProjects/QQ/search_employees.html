@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search_employees</title>
+    <style type="text/css">
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            margin: 0px auto;
+            border-collapse: collapse;
+            border: 3px solid #CCCCCC;
+        }
+
+        th, td {
+            border: 3px solid #CCCCCC;
+            padding: 10px;
+            width: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script>
+        $(function () {
+            load_search();
+            load_change();
+        })
+
+        function load_search() {
+            //先模拟三组数据
+            var data = [
+                {"hero": "亚索", "money": 6600, "skin": "源计划", "job": "中单", "skills": "乱飘"},
+                {"hero": "暗夜猎手", "money": 6300, "skin": "冠军", "job": "射手", "skills": "乱滚"},
+                {"hero": "滑板鞋", "money": 6300, "skin": "草衣", "job": "射手", "skills": "滑起走"}
+
+            ];
+            //在页面加载后遍历数据插入到tbody里面
+            //遍历
+            $(data).each(function () {
+                var $tr = $("<tr><td>" + this.hero + "</td><td>" + this.money + "</td><td>" + this.skin + "</td><td>" + this.job + "</td><td>" + this.skills + "</td></tr>");
+                //然后插入到tbody下面
+//            console.log(this.hero);
+                $("tbody").append($tr);
+//            console.log($("#tbody"));
+
+
+            });
+        }
+
+        function load_change() {
+            //定义一个数组
+            var skills = [
+                ["请选择"],
+                ["亚索—Q", "W", "E", "R"],
+                ["暗夜—Q", "W", "E", "R"],
+                ["滑板—Q", "W", "E", "R"]
+            ];
+//            console.log($(skills[1]).children().eq(1));
+            //写函数change
+            $("#hero_menu").change(function () {
+                //先获取当前英雄的值
+                var $hero_val = $("#hero_menu").val();
+//                console.log($hero_val);
+                //删除当前所有技能
+                $("#skill").empty();
+                var $hero_option = skills[$hero_val];//当前点击的英雄对应的技能数组
+//                console.log($hero_option.length);
+                for (var i = 0; i < $hero_option.length; i++) {
+                    var $option = $(
+                        "<option>" + $hero_option[i] + "</option>"
+                    );
+                    $("#skill").append($option);//将option追加到技能选择下面
+                }
+    });
+            //然后重新添加技能到这个英雄下面的技能
+            //获取当前英雄的技能
+
+
+        }
+
+    </script>
+</head>
+<body>
+<h1>查询英雄</h1>
+<table>
+    <thead>
+    <tr>
+        <th>英雄名</th>
+        <th>金额</th>
+        <th>皮肤</th>
+        <th>职位</th>
+        <th>技能</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+
+</table>
+<!--onchange是值改变事件，当值发生改变时触发-->
+<div  style="width: 400px;margin: 0 auto;text-align: center">
+英雄
+<select name="英雄选择联动菜单" id="hero_menu">
+    <option value="0">请选择</option>
+    <option value="1">亚索</option>
+    <option value="2">暗夜猎手</option>
+    <option value="3">滑板鞋</option>
+</select>
+技能
+<select name="" id="skill">
+    <option>请选择</option>
+</select>
+</div>
+</body>
+</html>

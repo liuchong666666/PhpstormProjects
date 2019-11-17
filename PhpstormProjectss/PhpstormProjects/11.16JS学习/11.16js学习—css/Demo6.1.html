@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用argument模拟方法的重载</title>
+    <script type="text/javascript">
+        function sum() {
+            var a = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                a += arguments[i];
+            }
+            return a;
+        }
+
+    </script>
+</head>
+<body>
+<button onclick="alert(sum(1,2,3))" >
+    1-3的和
+</button>
+<button onclick="alert(sum(1,2,3,4,5,6))">
+    1-6的和
+</button>
+</body>
+</html>

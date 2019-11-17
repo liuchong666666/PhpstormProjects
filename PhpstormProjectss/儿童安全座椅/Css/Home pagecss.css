@@ -1,0 +1,180 @@
+body {
+    margin: 0 auto;
+}
+
+#all {
+    width: 1340px;
+    height: auto;
+    margin: 0 auto;
+
+}
+
+div {
+    border: 1px red solid;
+}
+
+#nav {
+ position: fixed;
+    width: 1340px;
+    height: 66px;
+
+}
+
+#sildeshow {
+    margin-top: 66px;
+    width: 1340px;
+    height: 680px;
+}
+
+#history {
+    width: 1340px;
+    height: 431px;
+    position: relative;
+}
+
+#display {
+    width: 1340px;
+    height: 790px;
+}
+
+#culture {
+    width: 1340px;
+    height: 710px;
+}
+
+#boottom {
+    width: 1340px;
+    height: 400px;
+}
+
+#logo {
+    float: left;
+    width: 550px;
+    height: 66px;
+}
+
+#catalogue {
+    float: left;
+    /*display: inline;*/
+    /*width: 730px;*/
+    /*height: 66px;*/
+
+}
+
+#catalog {
+    /*display: inline;*/
+    border: 1px red solid;
+    width: 730px;
+    height: 65px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /*float: left;*/
+}
+
+#catalog li {
+    /*display: inline;*/
+    border: 1px red solid;
+
+    width: 180px;
+    height: 65px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    float: left;
+    text-align: center; /*文字水平居中*/
+    line-height: 65px; /*文字垂直居中*/
+    background: aquamarine;
+}
+
+#logo img {
+    margin-left: 50px;
+    width: 100px;
+    height: 65px;
+}
+
+#sildeshow img {
+    width: 1340px;
+    height: 678px;
+}
+#hr0{
+   margin-top: 215.5px;
+    /*display: inline;*/
+}
+#his{
+    width: 1008px;
+    height: 240px;
+    border: 1px royalblue solid;
+    float: left;
+    position: absolute;
+    top: 90px;
+    left: 167.5px;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+
+}
+#his li{
+    float: left;
+    border: 1px red solid;
+    width: 250px;
+    height: 240px;
+    text-align: center;
+    background: honeydew ;
+    background-color:rgba(0,0,0,0.5);
+}
+/*
+#his li img{
+    width: 250px;
+    height: 240px;
+}*/
+/*图片缓慢变大*/
+#his li  {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#his li:hover {
+    transform: scale(1.2);
+
+}
+/*.his_center  {*/
+    /*cursor: pointer;*/
+    /*transition: all 0.3s;*/
+/*}*/
+
+/*.his_center:hover {*/
+    /*transform: scale(1.2);*/
+
+/*}*/
+
+.his_center{
+
+    margin-top: 57.6px;
+}
+#display{
+    margin: 0 auto;
+    text-align: center;
+}
+#display_h1{
+    margin-top: 30px;
+    font-size: 50px;
+}
+#display_table table {
+ margin: 10px auto;
+
+}
+#display_table img {
+   width: 250px;
+    height: 250px;
+
+}
+#display_table img  {
+cursor: pointer;
+transition: all 0.3s;
+}
+
+#display_table img:hover {
+transform: scale(1.2);
+
+}

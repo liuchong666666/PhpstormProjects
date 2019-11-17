@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用jQuery</title>
+    <!--引入jQuery-->
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <!--由于我们自己写的js需要调用jQuery，
+    所以必须将其写在引用jQuery之后。-->
+    <script type="text/javascript">
+        //        /*使用原始的js实现字体变大效果*/
+        function big() {
+
+            //获取所有的p
+            var ps = document.getElementsByTagName("p");//这样可以直接取p，
+            // 因为p是body的孩子，body是document的孩子
+
+            //遍历所有的p，逐个变大
+            for (var i = 0; i < ps.length; i++) {
+                var p = ps[i];
+                //取原始字体大小:14px
+                var font_size = p.style.fontSize;//14px
+                //获取整数值，再+1
+                //font_size.replace("px","")//将px替换去掉
+                var size = parseInt(font_size.replace("px", ""));
+                //加1后设置给p
+                p.style.fontSize = (size + 1) + "px";
+            }
+        }
+
+        function small() {
+            //获取所有p
+            var ps = document.getElementsByTagName("p");
+
+            //遍历所有p，并将它们变小
+            for (var i = 0; i < ps.length; i++) {
+                var p = ps[i];
+                //获取原始字体大小：14px
+                var font_size = p.style.fontSize;
+                var size = parseInt(font_size.replace("px", ""));
+                p.style.fontSize = (size - 1) + "px";
+            }
+
+        }
+
+        //   /*使用jQuery实现字体变大效果*/
+        function big2() {
+            //获取所有的p的字体大小
+            //$("p")是jQuery的元素选择器
+            //可以选中页面上所有的p
+            //css是jQuery提供的方法，用于操作样式。
+            var font_size = $("p").css("font-size");
+            //截取出数值
+            var size = parseInt(font_size.replace("px", ""));
+            //加1，然后设置给p
+            $("p").css("font-size", (size + 1) + "px");
+        }
+
+        function small2() {
+            //获取所有字体大小
+            var font_size = $("p").css("font-size");
+            //截取出数值
+            var size = parseInt(font_size.replace("px", ""));
+            //捉个变小
+            $("p").css("font-size", (size - 1) + "px");
+        }
+    </script>
+</head>
+<body>
+<button onclick="big();">js+</button>
+<button onclick="big2();">jQuery+</button>
+<button onclick="small();">js-</button>
+<button onclick="small2();">jQuery-</button>
+<h1>jQuery的使用步骤</h1>
+<p style="font-size: 14px">1.引用jQuery</p>
+<p style="font-size: 14px">2.使用jQuery选择器定位节点</p>
+<p style="font-size: 14px">3.调用jQuery方法操作节点</p>
+</body>
+</html>

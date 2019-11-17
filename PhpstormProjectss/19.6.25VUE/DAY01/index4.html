@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if,v-show,v-for指令</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--<div v-if="show">hello world</div>  直接从dom树移除-->
+    <!--<div v-show="show">hello world</div>  用的display:none,不会销毁dom再重新创建, 用这个最好-->
+    <div v-show="show">hello world</div>
+    <button @click="handleClick">toggle</button>
+    <ul>
+        <!--v-for:循环展示数据    item of list---item       -->
+        <!--:key  提升每一项渲染的效率,每一项key值不能相同-->
+        <!--<li v-for="item of list" :key="item">{{item}}</li>-->
+        <!--数据相同的可以这样写, 数据需要变更时,这样就不可以了-->
+        <li v-for="(item,index) of list" :key="index">{{item}}</li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el: "#root",
+        data: {
+            show: true,
+            list: [1, 1, 3]
+        },
+        methods: {
+            handleClick: function () {
+                this.show = !this.show;
+            }
+        }
+    })
+</script>
+</body>
+</html>

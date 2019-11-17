@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div {
+        float: left;
+        height: 300px;
+        line-height: 300px;
+        text-align: center;
+    }
+
+    #center {
+        background: red;
+    }
+
+    #center:hover {
+        cursor: pointer;
+    }
+
+    #left, #right {
+        width: 200px;
+        background: darkorange;
+    }
+
+    #left {
+        display: none;
+    }
+
+</style>
+<script>
+
+    function read(btn) {
+        alert(btn.innerText);
+        btn.innerHTML = '读取中...请稍等';
+    }
+
+    function toggle(div2) {
+        if (div2.innerHTML == '&lt;&lt;') {
+            div2.innerHTML = '&gt;&gt;';
+           // console.log(div2.previousSibling.previousSibling.previousSibling.previousSibling.nodeName);
+            div2.previousSibling.previousSibling.previousSibling.previousSibling.style.display = 'block';
+        }
+        else {
+            div2.innerHTML = '&lt;&lt;';
+            document.getElementById('left').style.display = 'none';
+        }
+    }
+
+</script>
+<body>
+<h1>1</h1>
+<!--this指button对象-->
+<button onclick="read(this)">读取报表</button>
+
+<h2>2</h2>
+<div id="left">树形列表</div>
+<!--this指center对象-->
+<div id="center" onclick="toggle(this)">&lt;&lt;</div>
+<div id="right">内容的主体</div>
+</body>
+</html>

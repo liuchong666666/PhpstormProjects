@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        .d1{
+            width: 200px;
+            height: 100px;
+        }
+        .d2{
+            width: 100px;
+            height: 50px;
+        }
+       /* .d1{
+            position: relative;
+        }
+        .d2{
+            margin: auto;
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }*/
+
+
+       /* .d1{
+           display: table-cell;
+            vertical-align: middle;
+            text-align: center;/当子元素称为内联块级元素，这个对其也有作用/
+        }
+        .d2{
+            display: inline-block;
+        }*/
+/*
+        .d1{
+        }
+        .d2{
+            transform: translate(50%,50%);
+        }*/
+
+        .d1{
+            display: flex;
+            /*flex: 1;*/
+        }
+        .d2{
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+<div class="d1">
+    <div class="d2"></div>
+    <!--<div class="d2"></div>-->
+</div>
+<script>
+
+    console.log('a')
+    setTimeout(function () {
+       console.log(a)
+    },0)
+
+    var a=1;
+    while(true){
+
+    }
+</script>
+</body>
+</html>

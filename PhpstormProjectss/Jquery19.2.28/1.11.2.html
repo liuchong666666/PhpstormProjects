@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        window.onload=function () {
+            console.log($("input[name='username']"));
+            console.log($('#text ul li'));
+        }
+        function xianshi() {
+            var value = $("#textsearch").val();
+            console.log(value);
+            //内容过滤选择器:contains(text)  	匹配包含给定文本的元素
+            $("#text li:contains('" + value + "')").css("background", "red");
+
+        }
+    </script>
+</head>
+<body>
+<div id="text">
+    <ul>
+        <li>web前端</li>
+        <li>java开发</li>
+        <li>数据结构</li>
+        <li>操纵系统</li>
+    </ul>
+    <input type="text" id="textsearch"/>
+    <input type="button" value="显示" id="xianshi" onclick="xianshi();"/>
+    账号：<input type="text" name="username">
+    密码：<input type="password" name="password">
+</div>
+</body>
+</html>

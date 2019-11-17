@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索框</title>
+    <style>
+        body{
+            font-size: 12px;
+        }
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+       div.search_container{
+            width: 300px;
+            position: relative;
+           border: 1px solid #000;
+
+        }
+        .search_container input {
+            border: 2px solid #E4393C;
+        }
+        input[value="搜索"]{
+            background-color:#E4393C;
+            font-family: '黑体';
+            color:#fff;
+            font-size:1.15em ;
+        }
+
+        #hint{
+            position:absolute;
+            border: 1px solid #E4393C;
+            height: 100px;
+            width: 175px;
+            box-shadow:0 0 3px 2px #aaa;
+            display: none;
+        }
+    </style>
+    <script>
+        function showHint() {
+            document.getElementById('hint').style.display='block';
+        }
+        function hideHint() {
+            document.getElementById('hint').style.display='none';
+        }
+    </script>
+</head>
+<body>
+<br/>
+<br/>
+&nbsp;&nbsp;
+<div class="search_container">
+    <input type id="search" onfocus="showHint()" onblur="hideHint()"/><input type="button" value="搜索"/>
+    <div id="hint">
+        asdasdasdasdasdasdasda
+    </div>
+</div>
+<div>
+    <!--asdasdasdasdasdasdasda-->
+</div>
+</body>
+</html>

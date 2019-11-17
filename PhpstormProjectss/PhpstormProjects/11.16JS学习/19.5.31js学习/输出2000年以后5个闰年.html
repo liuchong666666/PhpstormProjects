@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出五个2000年后的闰年</title>
+</head>
+<body>
+<script>
+
+    // 不确定循环次数的时候最好用while循环
+    //计算闰年
+    //n%4==00&&n%100!=0||n%400==0
+    /*
+        下面是错误的！！！！
+        var n = 0;
+        alert(1);
+        for (var i = 2000; i > 2000; i++) {
+            if ((i % 4 == 0 && i % 100 != 0) || (i % 400 == 0)) {
+                console.log(i);
+                continue;
+                n++;
+                if (n == 5) {
+                    break;
+                }
+            }
+        }*/
+   /* var count = 0;
+    var year = 2001;
+    while (count < 5) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            console.log(year);
+            count++;
+        }
+            year++;
+    }*/
+    var count = 0;
+    var year = 2001;
+    while (count < 5) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            console.log(year);
+            count++;
+        }
+        if (count > 0) {
+            year+=4;//当找到第一个闰年，就+4  可以减少循环次数，可以提高效率
+        } else {
+            year++;
+        }
+    }
+</script>
+</body>
+</html>

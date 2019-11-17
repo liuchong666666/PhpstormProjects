@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级菜单</title>
+    <style type="text/css">
+        #div1 {
+            border: 1px solid red;
+            background: white;
+            width: 900px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        ul {
+            /*width: 900px;*/
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul li {
+
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+            height: 30px;
+            width: 150px;
+            float: left;
+            list-style-type: none; /*或者用display: inline;*/
+
+        }
+
+        a {
+
+            text-decoration: none;
+            color: #ffffff;
+            width: 149px;
+
+            margin: 0px;
+            /*padding: 0px 0px 0px 8px;*/
+            display: block;
+            background: #808080;
+            line-height: 29px;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        /*定义子菜单的宽高，颜色，区别于主菜单*/
+        ul li ul li {
+            height: 25px;
+        }
+
+        ul li ul li a {
+            background: #666;
+            line-height: 24px;
+        }
+
+        /*定义鼠标滑过某个菜单项时的样式*/
+        ul li a:hover {
+            background: #666;
+            border-bottom: 1px dashed #FF0000;
+        }
+
+        /*定义子菜单初始状态为隐藏*/
+        ul li ul {
+            display: none; /*也可以用visiblity:hidden;*/
+        }
+
+        /*当鼠标滑过时下拉子菜单显示样式*/
+
+        ul li:hover ul {
+            display: block; /*也可以用visibility: visible;  */
+        }
+
+        ul li ul li a:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <ul>
+        <li><a href="">首页</a></li>
+        <li><a href="">jquery特效</a>
+            <ul id="ul0">
+                <li><a href="">jQuery图片特效</a></li>
+                <li><a href="">jQuery导航特效</a></li>
+                <li><a href="">jQuery选项卡特效</a></li>
+                <li><a href="">jQuery文特效</a></li>
+            </ul>
+        </li>
+        <li><a href="">JavaScript特效</a></li>
+        <li><a href="">flash特效</a>
+            <ul id="ul2">
+                <li><a href="">flash图片特效</a></li>
+                <li><a href="">flash导航特效</a></li>
+                <li><a href="">flash选项卡特效</a></li>
+                <li><a href="">flash文字特效</a></li>
+                </ulid>
+                </li>
+
+            </ul>
+        <li><a href="">div+css教程</a></li>
+        <li><a href="">HTML5教程</a></li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="video_1.js"></script>
+    <style>
+        #advImg{
+            position: absolute;
+            left: 263px;
+            top: 115px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="advImg">
+    <img src="../source/adv.jpg">
+</div>
+<!--<video controls id="media" width="720" height="300">-->
+    <!--<source id="vSource" src="../source/video.mp4"/>-->
+<!--</video>-->
+<video  id="media" width="720" height="300">
+    <source id="vSource" src="../source/video.mp4"/>
+</video>
+<div>
+    <input type="button" value="播放" id="btnPlay"/>
+    <!--<input type="button" value="暂停" id="btnPause"/>-->
+    <div id="vdoDuration">视频长度</div>
+</div>
+</body>
+</html>

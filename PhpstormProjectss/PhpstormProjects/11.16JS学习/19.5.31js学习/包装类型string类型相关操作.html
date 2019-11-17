@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包装类型</title>
+</head>
+<body>
+<script>
+    var str = "hello";//原始类型数据，存栈
+    //var strObj = new String(str);//包装类自己实现的new对象
+    str += "world";
+    //strObj=null;//包装类自己实现的释放
+    console.log(str);
+
+    var num = 5.5;
+    //var numObj = new  Number(num);//包装类型//包装类自己实现的new对象
+    num = num.toFixed(2);
+    //numObj = null;//释放包装类型对象！//包装类自己实现的释放
+
+    var str = "Hello World";
+    str.toLowerCase();//hello world//如果用变量接住str=str.toLowerCase(); 下面就会是hello world
+    //因为在堆中方法一调用完了没变量接住，就会被回收
+    document.write(str);//Hello World
+
+    //=====================================================================================================================
+    /*
+    一般进行判断的时候 ，最好等号两边同时转大写或者转小写
+      var emails = ["123","2",'235'];
+      var input = prompt("请输入邮箱");
+      emails.push(input.toLowerCase());
+      input = prompt("输入第二个邮箱");
+      //重复验证
+      var i;
+      for (i = 0; i < emails.length; i++) {
+          if (input.toLowerCase() == emails[i].toLowerCase()) {
+              alert("已被使用");
+              break;
+          }
+      }
+      if (i == emails.length) {
+          emails.push(input.toLowerCase());
+          alert("注册成功");
+      }
+  */
+    //======================================================================================================================================
+    /*
+     //验证码
+     var code = "5Asd";
+     var input = "";
+     //while((input=prompt("请输入验证码"+code))!=code){
+     //   alert("验证码错误");
+     //}
+     while (true) {//为true时 死循环，在循环内用break退出
+         input = prompt("请输入验证码" + code);
+         if (input.toLowerCase() != code.toLowerCase()) {//比较时可以不用变量接，如果后面要用，就必须要变量接
+             alert("错误");
+         } else {
+             break;
+         }
+     }
+     document.write("登录正确");*/
+    //====================================================================================================================================================================================
+    var str = "511666199909991173";
+    //倒数第二位，//获取指定位置字符：var char=str.chartAt(index);在index位置的char
+    var char = str.charAt(str.length - 2);
+    console.log(char);//7
+
+
+    /*
+        //获取知道哪个位置的unicode编号：var num=str.charCodeAt(index）;//返回数字
+        input = prompt("输入：");
+        //var result = "";
+        var result = [];
+        for (var i = 0; i < input.length; i++) {
+            //result+=input.charCodeAt(i);//最好不要用这种方式，因为每次都会在内存创建新空间，最好用数组加入
+            console.log(typeof(input.charCodeAt(i)));
+            result.push(input.charCodeAt(i));
+        }
+        //频繁对字符串+=，要用数组代替！！
+        //step1：每个子字符串放入数组
+        //step2：join("")拼接数组元素
+        document.write(result.join(""));
+     */
+    /*
+        //处理字母（127以内），汉字（5位），数字（127以内）unicode编号不一致情况   不足五位的都加0成五位
+        //获取知道哪个位置的unicode编号：var num=str.charCodeAt(index）;//返回数字
+        var input = prompt("输入：");
+        //var result = "";
+        var result = [];
+        for (var i = 0; i < input.length; i++) {
+            //result+=input.charCodeAt(i);//最好不要用这种方式，因为每次都会在内存创建新空间，最好用数组加入
+            //console.log(typeof(input.charCodeAt(i)));//number
+            var num = input.charCodeAt(i);
+            if (num < 10000) {//只要不足5位都要补齐
+                var arr = [0, 0, 0, 0, 0];
+                var code = num + "";//将num转为String
+                var start = 5 - code.length;
+                for (var n = 0; n < code.length; n++) {
+                    arr[start] = code[n];//与code.charCodeAt(n)一样的
+                    start++;//可以放在n++后面（n++，  start++;）
+                }
+                num = arr.join("");//字符串
+            }
+            result.push(num);
+        }
+        //频繁对字符串+=，要用数组代替！！
+        //step1：每个子字符串放入数组
+        //step2：join("")拼接数组元素
+        document.write(input+"<br/>");
+        document.write(result.join(""));
+
+    */
+    //将输入的转为unicode编号
+    //获取输入的，并将其转为unicode，每次转完的字符 加入数组中，
+    //最后将数组拼成字符串打印输出
+
+    var input = prompt("请输入");
+    var result = [];
+    for (var i = 0; i < input.length; i++) {
+        //转为unicode编号
+        var num = input.charCodeAt(i);//number
+        //方法一：对于unicode不足五位的 用0代替，详情见19.5.31-img-->unicode不足五位的处理方法.png
+
+        /*if (num < 10000) {
+            //声明并赋值一个【0，0，0，0，0】数组
+            var arr = [0, 0, 0, 0, 0];
+            //将num转为字符串
+            var code = num + "";//此时的一个字母或者一个数字的unicode//这种方法转字符串最优，因为底层代码就是这样实现的  比toString（）方法好
+            //开始替换位置为 arr.length -code.length   :  5-code.length
+            var start = 5 - code.length;
+            for (var n = 0; n < code.length; n++) {
+                arr[start] = code[n];
+                start++;//挨个替换，n也++了
+            }
+            num = arr.join("");//将arr数组拼成字符串
+        }*/
+
+        //方法二：也可以用10000+不足五位的数，然后将第一位1替换为0
+        if (num < 10000) {
+            //10051
+            num = num + 10000 + "";
+            num = "0" + num.slice(1);//num.slice(1);截取从下标1开始到末尾
+        }
+        result.push(num);
+        console.log(result);
+    }
+    document.write(result.join(""));
+
+</script>
+</body>
+</html>

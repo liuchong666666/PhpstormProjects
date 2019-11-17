@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水仙花数</title>
+</head>
+<body>
+<script>
+    /*  找出100-999之间的所有水仙花数
+        水仙花数（自恋数）
+        153=1*1*1+5*5*5+3*3*3
+     */
+    //循环条件：num<=999
+    //循环变量：num  从100开始，每次+1
+    /*循环体：
+        取出百位
+        取出十位
+        取出个位
+        判断 num==百位*百位*百位+十位*十位*十位+个位*个位*个位
+        输出num
+     */
+    /* for (var num = 100; num <= 999; num++) {
+         var hd = parseInt(num / 100);//百位
+         var ten = parseInt((num % 100)/10);
+         var one = num % 10;
+
+         if(num==hd*hd*hd+ten*ten*ten+one*one*one){
+             console.log("水仙数"+num);
+             console.log((num / 100)+"，，"+((num % 100)/10)+"，，"+(num % 10));
+             console.log(hd+"，，"+ten+"，，"+one);
+         }
+     }*/
+    //水仙花数：153=1*1*1+5*5*5+3*3*3
+    //    循环变量：num   从100增加到999
+    //    循环条件：num<=999
+    /*
+    * 循环体：
+    *   取出百位，
+    *   取出十位
+    *   取出个位
+    *   判断 num=百位*百位*百位+十位*十位*十位+个位*个位*个位
+    *   输出num
+    * */
+    for (var num = 100; num <= 999; num++) {
+        //取出百位
+        var hd = parseInt(num / 100);
+        //取出十位
+        var ten = parseInt((num % 100) / 10);
+        //取出个位
+        var one = num%10;
+        if(num==hd*hd*hd+ten*ten*ten+one*one*one){
+            console.log(num);
+        }
+
+    }
+</script>
+</body>
+</html>

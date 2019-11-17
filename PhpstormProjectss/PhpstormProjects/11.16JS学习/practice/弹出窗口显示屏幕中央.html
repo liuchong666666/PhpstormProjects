@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出窗口显示屏幕中央</title>
+</head>
+<body>
+<button onclick="openWin()">打开新窗口</button>
+<script>
+    function openWin() {
+        var totalWidth = screen.availWidth;//window.innerWidth
+        var totalHeight =screen.availHeight;// window.innerHeight
+        var winWidth = 400;//窗口宽度
+        var winHeight = 300;
+        var left = (totalWidth - winWidth) / 2;
+        var top = (totalHeight - winHeight) / 2;
+        window.open(
+            '2.html',
+            'NewWindow',
+            'width=' + winWidth + ',height=' + winHeight + ',top=' + top + ',left=' + left
+        );
+    }
+</script>
+</body>
+</html>

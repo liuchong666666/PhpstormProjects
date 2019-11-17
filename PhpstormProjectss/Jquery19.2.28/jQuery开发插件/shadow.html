@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阴影</title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/shaow.js"></script>
+    <script>
+        $(document).ready(function () {
+          /*
+            //  $("h1").shadow_simple(50,0.1,-1);
+            //使用参数映射完成参数设置，option:参数对象，封装所有的参数信息
+            $("h1").shadow_map({
+                slices: 10,
+                opacity: 0.1,
+                zIndex: -1
+            });
+            var obj1 = {name: "jimmy", age: 18, hobby: "read"};
+            var obj2 = {name: "tommy", gender: "Male"};
+//            var newobj = $.extend(obj1, obj2);//obj2会覆盖obj1，后面覆盖前面，obj1会被改变
+            var newobj = $.extend({},obj1, obj2);//这样写，obj1不会被改变
+
+            console.log(obj1);
+            console.log(obj2);
+            console.log(newobj);
+            console.log("newobj"+newobj);//这样成字符串了
+            */
+
+          /*
+          //默认参数值
+            $("h1").shadow_callback({opacity:0.2,slices:50});//默认参数值
+        */
+/*
+          //调用回调函数
+            var option={
+                slices:10,
+                opacity:0.2,
+                offset:function(i){
+                    return {x:i,y:i*2};
+                }
+            };
+//            $("h1").shadow_callback({offset:function(i){
+//              return {x:i,y:i*2};
+//           }});//这样也可以
+           $("h1").shadow_callback(option);
+*/
+        //定制参数，定制默认值
+            var option={
+                slices:10,
+                opacity:0.2,
+                offset:function(i){
+                    return {x:i,y:i*2};
+                }
+            };
+            $("h1").shadow_dingzhi(option);
+
+
+
+        })
+    </script>
+</head>
+<body>
+<h1>hello my name is tom,i'm19</h1>
+</body>
+</html>

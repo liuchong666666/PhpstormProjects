@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>使用HTML DOM创建一个表格</h2>
+<button id="createTable">创建表格</button>
+<button id="addDa">加载数据</button>
+<script>
+    //    var arr = [
+    //        ['百事可乐', 2.5, 2000],
+    //        ['可口可乐', 2.0, 3000]
+    //    ];
+    var data = [
+        {'name': "百事可乐", 'price': '2.5', 'count': 2000},
+        {'name': "可口可乐", 'price': '2.5', 'count': 3000},
+        {'name': "非常雪碧", 'price': '2.5', 'count': 4000}
+    ];
+    var createTable = document.getElementById('createTable');
+    var addDa = document.getElementById('addDa');
+    createTable.onclick = function () {
+        createTab();
+    };
+    addDa.onclick = function () {
+        addData();
+    };
+    var t = document.createElement('table');
+
+    function createTab() {
+        t.border = 1;
+        t.width = 600;
+        document.body.appendChild(t);
+
+        //创建标题
+        var caption = t.createCaption();
+        caption.innerHTML = '员工统计表';
+        //添加THEAD
+        var thead = t.createTHead();
+        var thd0 = thead.insertRow(0);
+        var thr0 = thd0.insertCell();
+        thr0.innerHTML = '名称';
+        var thr1 = thd0.insertCell();
+        thr1.innerHTML = '单价';
+        var thr2 = thd0.insertCell();
+        thr2.innerHTML = '库存数量';
+        var thr3 = thd0.insertCell();
+        thr3.innerHTML = '操作';
+    }
+
+    function addData() {
+        for (var i = 0; i < data.length; i++) {
+            var allData = data[i];
+            //添加TBODY
+            var tr0 = t.insertRow();//创建tr
+            var td00 = tr0.insertCell();//创建td
+            td00.innerHTML = allData['name'];
+            var td01 = tr0.insertCell();
+            td01.innerHTML = allData['price'];
+            var td02 = tr0.insertCell();//创建td
+            td02.innerHTML = allData['count'];
+            var td03 = tr0.insertCell();
+            td03.innerHTML = '<input type="button" value="删除" onclick="del(this)"/>'
+
+        }
+    }
+
+    function del(btn) {
+        var index = btn.parentNode.parentNode.rowIndex;//返回所在行位置
+        t.deleteRow(index);
+    }
+
+
+</script>
+</body>
+</html>

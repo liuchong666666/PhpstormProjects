@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //解决异步编程的方案之一
+    //这是个状态机，内部封装了不同状态的数据，有个指针
+    function* myGenerator(){
+        console.log('业务逻辑A')
+       let res = yield 'hello'
+        console.log(res)
+        console.log('业务逻辑B')
+        yield 'world'
+        console.log('执行完了')
+
+    }
+    let mg =myGenerator();//这样直接调用，没效果
+//    mg.next();//需要用next（）调用
+//    mg.next();
+//    mg.next();
+    console.log(mg.next())
+    console.log(mg.next('hehe'))
+    console.log(mg.next())
+    //具体业务就是在yield里面些逻辑
+    //然后用next调用
+</script>
+</body>
+</html>

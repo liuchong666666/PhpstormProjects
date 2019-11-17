@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小型计算器</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+<!--&lt;!&ndash;输入区&ndash;&gt;-->
+<!--<div id="KBD">-->
+
+<!--</div>-->
+<!--&lt;!&ndash;&lt;!&ndash;显示结果区&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="result"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;小型空白区&ndash;&gt;-->
+<!--<div id="space"></div>-->
+<!--&lt;!&ndash;键盘区&ndash;&gt;-->
+<!--<div id="keyboard">-->
+<form action="https://pay.qq.com/ipay/index.shtml?c=qqacct_save&ch=qqcard,qqwallet,weixin,kj&n=60&aid=pay.index.header.paycenter&ADTAG=pay.index.header.paycenter" target="_blank">
+<div id="qb">
+    <span>请充值10QB使用（1次10QB）：<input type="text"/></span><a href="https://pay.qq.com/" id="cz1"><input type="button" value=" " id="cz" style="width: 52px ;height: 27px"></a>
+    <!--请充值10QB使用（1次10QB）：<input type="text"/><input type="submit" value="充值" id="cz">-->
+</div>
+    <table><!--/*添加点击事件*/-->
+        <tr>
+            <td colspan="4" id="first"><input type="text" id="nummessege"/></td>
+
+        </tr>
+        <tr>
+            <td colspan="4" id="space"> <input type="button" value="C" id="C" onclick="onclickclear()"class="button2"></td>
+        </tr>
+        <!--<tr class="weizhi">-->
+            <!--&lt;!&ndash;<td ><input type="button" value="CE" id="CE" onclick="onclickclear()" class="button"></td>&ndash;&gt;-->
+            <!--<td ><input type="button" value="C" id="C" onclick="onclickclear()"class="button"></td>-->
+            <!--&lt;!&ndash;<td ><input type="button" value="《" id="《" onclick="onclicknumber()"class="button"></td>&lt;!&ndash;回退&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;除&ndash;&gt;-->
+            <!--&lt;!&ndash;<td ><input type="button" value="/" id="/" onclick="onclicknum('/')"class="button"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <tr class="weizhi">
+            <td ><input type="button" value="7" id="7" onclick="onclicknum(7)"class="button"></td>
+            <td ><input type="button" value="8" id="8" onclick="onclicknum(8)"class="button"></td>
+            <td ><input type="button" value="9" id="9" onclick="onclicknum(9)"class="button"></td>
+            <!--乘-->
+            <td id="ride"><input type="button" value="*" id="*" onclick="onclicknum('*')"class="button"></td>
+        </tr>
+        <tr class="weizhi">
+            <td ><input type="button" value="4" id="4" onclick="onclicknum(4)"class="button"></td>
+            <td ><input type="button" value="5" id="5" onclick="onclicknum(5)"class="button"></td>
+            <td ><input type="button" value="6" id="6" onclick="onclicknum(6)"class="button"></td>
+            <!--减-->
+            <td id="subtract"><input type="button" value="-" id="-" onclick="onclicknum('-')"class="button"></td>
+        </tr>
+        <tr class="weizhi">
+            <td ><input type="button" value="1" id="1" onclick="onclicknum(1)"class="button"></td>
+            <td ><input type="button" value="2" id="2" onclick="onclicknum(2)"class="button"></td>
+            <td ><input type="button" value="3" id="3" onclick="onclicknum(3)"class="button"></td>
+            <!--加-->
+            <td><input type="button" value="+" id="add" onclick="onclicknum('+')"class="button"></td>
+        </tr>
+        <tr class="weizhi">
+            <!--加减 add and subtract-->
+            <td><input type="button" value="=" id="=" onclick="onclickresult('=')"class="button"></td>
+            <td><input type="button" value="0" id="0" onclick="onclicknum(0)"class="button"></td>
+            <!--小数点-->
+            <td ><input type="button" id="." value="." onclick="onclicknum('.')"class="button"></td>
+            <!--等于-->
+            <td ><input type="button" value="/" id="/" onclick="onclicknum('/')"class="button">
+                </td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>

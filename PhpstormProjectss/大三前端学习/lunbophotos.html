@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lunbophotos</title>
+    <style type="text/css">
+        img{
+            width:960px;
+            height:350px;
+        }
+        #tupian li{
+            padding: 0px;
+            margin: 0px;
+            width: 960px;
+            height: 350px;
+            float: left;
+            list-style-type: none;
+        }
+        #tupian{
+            width: 3840px;
+            height: 350px;
+            padding: 0px;
+            margin: 0px;
+            position: relative;
+            /*position: absolute;*/
+            /*border: 1px solid blue;*/
+
+        }
+        #zuiwaiceng{
+            margin: 0px auto;
+            width: 960px;
+            height: 350px;
+            overflow: hidden;
+            /*position: relative;*/
+            /*border: 1px solid red;*/
+        }
+    </style>
+    <script type="text/javascript" src="jquery.js"> </script>
+    <script>
+        $(function () {
+            setInterval(roll,3000);
+        })
+        function roll() {
+            $("#tupian").animate({'left':'-960px'}
+            ,function () {
+                $(this).css({left:'0px'});
+                $(this).children("li").first().remove().clone(true).appendTo(this);
+            }
+            );
+        }
+    </script>
+</head>
+<body>
+<div id="zuiwaiceng">
+    <ul id="tupian">
+        <li><img src="photos/lunbo_photos/2.jpg" alt=""></li>
+        <li><img src="photos/lunbo_photos/3.jpg" alt=""></li>
+
+    </ul>
+
+</div>
+</body>
+</html>

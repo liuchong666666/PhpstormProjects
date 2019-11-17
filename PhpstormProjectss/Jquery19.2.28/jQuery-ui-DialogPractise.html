@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.theme.min.css"/>
+    <script src="jquery-1.11.1.js"></script>
+    <script src="jQuery-ui/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#frm").dialog({
+
+                autoOpen: false,
+                buttons: [
+                    {
+                        text: "确定信息无误",
+                        click: function () {
+//                            $("#frma").submit();
+                            $(this).dialog("close");
+                        }
+                    },
+                    {
+                        text: "返回修改",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                ],
+                open: function () {
+                    console.log("open");
+                }
+            });
+            $("input[type='submit']").click(function () {
+                $("#spanName").text($("#name").val());
+                $("#spanAdmin").text($("#admin").val());
+                $("#spanPhone").text($("#phone").val());
+                $("#frm").dialog("open");
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="frm" title="信息提交中">
+    姓 名：<span id="spanName"></span><br/>
+    账 号：<span id="spanAdmin"></span><br/>
+    手机号：<span id="spanPhone"></span>
+</div>
+<form action="231" id="frma">
+    姓名：<input type="text" value="" id="name"/><br/>
+    账号：<input type="text" value="" id="admin"/><br/>
+    密码：<input type="text" value="" id="phone"/><br/>
+</form>
+<input type="submit" id="btn_submit" value="确定">
+</body>
+</html>

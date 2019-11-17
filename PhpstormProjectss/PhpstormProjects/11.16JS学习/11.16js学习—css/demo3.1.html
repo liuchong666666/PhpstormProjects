@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猜骰子</title>
+    <script type="text/javascript">
+        //先定义一个全局变量 all
+        var all_num = parseInt((Math.random() * 10)/2 ) + 1;
+
+        function guess() {
+//            获取文本框
+            var input = document.getElementById("num");
+//            获取段落
+            var p = document.getElementById("result");
+//            获取文本框的值
+            var a = input.value;
+            if (a == "" || isNaN(a)) {
+                p.innerHTML = "请输入1-6之间的数字"
+            } else {
+                if (a > all_num) {
+                    p.innerHTML = "大了！   温馨提示：请稍微再小一点。。。";
+                } else if (a < all_num) {
+                    p.innerHTML = "小了！   温馨提示：请稍微再大一点。。。";
+                } else {
+                    p.innerHTML = "恭喜你猜对了！！";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>猜骰子游戏</h1>
+<input type="text" id="num">
+<input type="button"  value="猜" onclick="guess()">
+<p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slice+substring+substr</title>
+</head>
+<body>
+<script>
+    //    var subStr = str.slice(start,end+1) ；返回一个子字符串 // 和数组完全相同	支持倒数
+    //    var substr = str.substring(start,end+1)用法同slice！唯一差别：不支持负值作为参数
+    //上面两种含头不含尾
+    //     var substr =str.substr(start,*count*);//（开始，个数）；这种方法不用考虑含头不含尾
+    //    以上三个方法省略第二个参数，默认都是取到结尾！
+    //其他语言只有substring  所以最好记第二种
+
+
+    var str = "511666199909991173";
+    //var birthday = str.slice(6,6+8);
+    //var birthday=str.slice(-4-8,-4);//从后往前取
+    //    var birthday = str.substring(6, 6 + 8);//建议这种
+    //    var  birthday = str.substr(6,8);//6是开始下标，8是个数
+    var birthday = str.substr(1);
+    //    以上三个方法省略第二个参数，默认都是取到结尾！
+
+    console.log(birthday);
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style type="text/css">
+        .panel {
+            border: 4px solid #dddddd;
+            width: 192px;
+            height: 240px;
+            margin: 100px auto;
+        }
+
+        .panel p, .panel button {
+            font-family: "微软雅黑";
+            font-size: 20px;
+            margin: 4px;
+            float: left;
+
+        }
+
+        .panel p {
+            width: 122px;
+            height: 26px;
+            border: 1px solid #ddd;
+            padding: 6px;
+            overflow: hidden;
+        }
+
+        .panel button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #dddddd;
+        }
+    </style>
+    <script type="text/javascript">
+        //参数e用来接收传入的event对象
+        function cal(e) {
+            //1.获取事件源，只处理button的事件
+            var obj = e.srcElement || e.target;
+
+//            alert(obj.nodeName);//元素名
+            if (obj.nodeName != "BUTTON") {
+                return;
+            }
+            var p = document.getElementById("screen");
+            var value = obj.value;
+            if (value == "C") {
+                //2.如果是【C】，则清空p
+                p.innerText = "";
+            }
+
+            else if (value == "=") {
+                //3.如果是【=】，则运算
+                var exp = p.innerText;
+                try {
+                    var result = eval("(" + exp + ")");//加上括号避免出现错误
+                    //如果正确执行，将结果写入p
+                    p.innerText = result;
+                } catch (e) {
+                    //发生异常，给予错误的提示
+                    p.innerText = "Error.";
+                    //如输入*/时或者其它非法输入时提示
+                }
+            }
+
+            else {
+                //4.如果是其他按钮，则将value追加到p中
+                p.innerText += value;
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<!--在最外层的dvi上这侧单机事件，传入event对象。
+    然后在函数中通过event判断初事件来源于哪一个button，
+    进而做出应有的处理。
+    这样做的好处是，可以避免在button上大量的注册事件。-->
+<div class="panel" onclick="cal(event);">
+    <div>
+        <p id="screen"></p>
+        <button value="C">C</button>
+        <div style="clear:both"></div>
+    </div>
+    <div>
+        <button value="7">7</button>
+        <button value="8">8</button>
+        <button value="9">9</button>
+        <button value="/">/</button>
+
+        <button value="4">4</button>
+        <button value="5">5</button>
+        <button value="6">6</button>
+        <button value="*">*</button>
+
+        <button value="1">1</button>
+        <button value="2">2</button>
+        <button value="3">3</button>
+        <button value="-">-</button>
+
+        <button value="0">0</button>
+        <button value=".">.</button>
+        <button value="=">=</button>
+        <button value="+">+</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>堆叠顺序</title>
+    <style type="text/css">
+        #d1 {
+            width: 10px;
+            height: 10px;
+            border: 1px solid red;
+            margin: 350px auto; /*让div居中*/
+            position: relative;
+        }
+
+        #d01 {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            top: -50px;
+
+        }
+
+        #d02 {
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        #d03 {
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            top: -270px;
+            left: 50px;
+        }
+        body{
+            background-color: #330000;
+        }
+        img:hover{
+            z-index: 1;
+
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="d1">
+    <img src="image/01.jpg" alt="" id="d01">
+    <img src="image/02.jpg" alt="" id="d02">
+    <img src="image/03.jpg" alt="" id="d03">
+</div>
+</body>
+</html>

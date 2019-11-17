@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字加粗</title>
+    <script src="../js/jquery-1.11.1.js"></script>
+    <script src="../js/tqueryui.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#fw").click(function () {
+                $("#ul").changeBgColor();
+                $("#ul li").swapClass("bold","italic").css("background","blue");
+            })
+        })
+    </script>
+    <style type="text/css">
+       li{
+           list-style-type: none;
+           width: 500px;
+           height: 30px;
+           margin-top: 10px;
+           border: 1px solid black;
+           font-size: 20px;
+       }
+        .bold{
+            font-weight: bold;
+        }
+        .italic{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul">
+    <li class="bold">钢铁是咋样炼成的</li>
+    <li class="italic">机器猫</li>
+    <li class="bold">喜羊羊</li>
+    <li class="italic">熊出没</li>
+    <li class="bold">金刚葫芦娃</li>
+    <li class="bold">金刚葫芦娃2</li>
+</ul>
+<input type="button" value="切换粗字" id="fw">
+</body>
+</html>

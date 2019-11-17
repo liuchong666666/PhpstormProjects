@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品图</title>
+    <style>
+        #show img{
+            width: 200px;
+            height: 200px;
+            display:none;
+        }
+        #show img:target{
+
+            display:block;
+        }
+        #sp1{
+
+        }
+        /*第一幅图片的动画*/
+        @-webkit-keyframes splAnim{
+            0%{
+                transform:translate(-200px);
+            }
+            100%{
+                transform:translate(0);
+            }
+        }
+        #sp1:target{
+            display: inline-block;
+            -webkit-animation: splAnim 2s linear 0s 1 normal;
+            -webkit-animation-fill-mode:both;
+        }
+        /*第二幅图片的动画*/
+        @-webkit-keyframes splAnim2{
+            0%{
+                transform:translate(0,200px);
+            }
+            100%{
+                transform:translate(0);
+            }
+        }
+        #sp2:target{
+            /*display: inline-block;*/
+            -webkit-animation:splAnim2 2s linear 0s 1 normal;
+            -webkit-animation-fill-mode:both;
+        }
+        /*第三幅图片的动画*/
+        @-webkit-keyframes splAnim3{
+            0%{
+                transform: scale(0);
+            }
+            80%{
+                transform:scale(1.2);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        #sp3:target{
+            display: inline-block;
+            -webkit-animation:splAnim3 2s;
+            -webkit-animation-fill-mode:both;
+        }
+        /*第四个*/
+        @-webkit-keyframes splAnim4{
+            0%{
+                transform:rotate(0deg) scale(0);
+            }
+
+            100%{
+                transform:rotate(360deg) scale(1);
+            }
+        }
+        #sp4:target{
+            display:inline-block;
+            -webkit-animation: splAnim4 2s;
+            -webkit-animation-fill-mode:both;
+        }
+    </style>
+</head>
+<body>
+<div id="nav">
+    <a href="#sp1">商品1</a>
+    <a href="#sp2">商品2</a>
+    <a href="#sp3">商品3</a>
+    <a href="#sp4">商品4</a>
+</div>
+<div id="show">
+    <img id="sp1" src="images/p001.jpg" alt="">
+    <img id="sp2" src="images/p002.jpg" alt="">
+    <img id="sp3" src="images/p003.jpg" alt="">
+    <img id="sp4" src="images/p004.jpg" alt="">
+</div>
+</body>
+</html>

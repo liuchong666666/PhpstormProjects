@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>function</title>
+    <script>
+        (function () {
+            console.log("it begin...");
+        })();
+    </script>
+</head>
+<body>
+<script>
+    /*
+    //变量声明和方法的声明提前，
+    //提前到当前作用域的顶端！！
+    function compare(a,b) {
+        return a-b;
+    }*/
+    var compare = new Function("a", "b", "return  a-b");//这种创建对象的方式，必须放使用前
+    var arr = [3, 5, 2, 123, 13, 31, 22, 7, 1];
+    arr.sort();
+    document.write(arr + "<br/>");
+    document.write(arr.sort(compare));
+    //  var compare = new Function("a", "b", "return  a-b");//这种创建对象的方式，必须放使用前，放这里没起作用
+
+
+    //如果给一个参数，就执行平方
+    /* function calc(n){
+         alert(n*n);
+     }*/
+    //var calc = new Function("n", "alert(n*n);");
+    //如果给2个参数，就执行加法
+    /*function calc(n,m) {
+        alert(n+m);
+    }*/
+    //var calc = new Function("n", "m", "alert(n+m);");
+
+
+    //用arguments模拟重载
+    function calc() {
+        //arguments:
+        if (arguments.length == 1) {
+            //length==1说明给了一个参数
+            //console.log(typeof(arguments[0]));
+            var n = parseFloat(arguments[0]);
+            alert(n * n);
+        } else {
+            var n = parseFloat(arguments[0]);
+            var m = parseFloat(arguments[1]);
+            alert(n + m);
+        }
+    }
+
+    //  document.write  向网页加载流传入新}内容
+   /* function add(){
+    var sum=0;
+    for(var i=0;i<arguments.length;i++){
+        var n=parseInt(arguments[i]);
+        sum+=n;
+    }
+    return sum;
+}
+document.write("<br/>"+add(5,7,8,9,6));*/
+
+    /*
+        //检验给的字符串是不是空字符串
+        function isEmpty(str) {
+            if (str === undefined) {//要比undefined用三等于
+                return true;
+            } else if (str == null) {
+                return true;
+            } else {
+                var reg = /^\s*$/;//验证不加g
+                return reg.test(str);
+            }
+        }
+
+        while (true) {
+            var input = prompt("请输入");
+            if (!isEmpty(input)) {
+                document.write("<br/>" + input + "<br/>");
+                break;
+            } else {
+                alert("输入不能为空");
+            }
+        }
+        */
+    //检验给的是不是空字符串
+    function isEmpty(str) {
+        if (str === undefined) {
+            return true;
+        } else if (str == null) {
+            return true;
+        } else {
+            var reg = /^\s*$/;
+            return reg.test(str);
+        }
+    }
+
+    while (true) {
+        var input = prompt("请输入");
+        if (!isEmpty(input)) {
+            document.write(input);
+            break;
+        } else {
+            alert("输入不能为空");
+        }
+    }
+
+    //左边空白
+    var ltrim = function (str) {
+        var reg = /^\s+/;
+        return str.replace(reg, "");
+    }
+    //右边空白
+    var rtrim = function (str) {
+        var reg = /\s+$/;
+        return str.replace(reg, "");
+    }
+</script>
+<button onclick="calc(13)">算平方</button><!--13+undefined == NaN-->
+<button onclick="calc(13,45)">算加法</button>
+
+<script>
+    (function () {
+        console.log("it end...");
+    })();
+</script>
+</body>
+</html>

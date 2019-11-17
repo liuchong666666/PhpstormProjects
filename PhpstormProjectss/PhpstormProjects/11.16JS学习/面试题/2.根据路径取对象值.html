@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    var obj = { a: [{ b: { c: 3 } }] };
+    var obj = { a: { b: { c: 3 } } };
+    //  var result= fn.get(obj, 'a[0].b.c');
+    function get(obj,url){
+        var data = obj
+        var url = url.split('.')
+        for(var i=0;i<url.length;i++){
+            var urlitem = url[i].replace(/\[|\]/g,'').split('')
+            for(var j=0;j<urlitem.length;j++){
+                try{
+                    data =data[urlitem[j]]
+                }catch(error){
+                    return error
+                }
+
+            }
+        }
+        return data
+    }
+//    var result = get(obj,'a[0].b.d')
+    var result = get(obj,'a.b.d')
+    console.log(result)
+
+
+    //数组15个方法：
+// push：在数组的最后面添加内容
+    //pop:删除数组最后一个
+    //unshift：再数组第一个前面添加
+    //shift：删除数组一个
+    //concat：拼接数组
+    //join：把数组每一项用特定字符连起来
+    //slice（a，b）：从下标a开始截取到b（含a不含b）
+    //splice（a，b，c）：从下标a开始截取b个元素，并用c替换截取的元素
+    //sort（）；排序
+    //reverse：翻转
+    //forEach：遍历数组
+    //every：
+//172.16.150.23:8080/database/some_table/meta_info
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示照片</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        div{margin: 0 auto;
+            width: 900px;
+            height: 700px;
+            border:20px inset #006633;
+        }
+
+        img{
+            width: 200px;
+        }
+        h1{
+            text-align: center;
+        }
+        ol{
+            padding: 0px;
+        }
+        li{border: 2px solid white;
+            width:221px;
+            height: 166px; ;
+            text-align: center;
+            list-style-type:none;
+            float: left;
+        }
+        a{
+            text-decoration: none;
+        }
+        li:hover{
+            border: 2px dashed cornflowerblue;
+        }
+
+        #clear{
+            width: auto;
+            height: 20px;
+            clear: both;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>显示照片到下框</h1>
+    <hr size="5" color="grey">
+    <ol>
+        <li><a href="images/01.jpg" target="iframe">风景1<br><img src="images/01.jpg" alt=""></a></li>
+        <li><a href="images/02.jpg"target="iframe">风景2<br><img src="images/02.jpg" alt=""></a></li>
+        <li><a href="images/03.jpg"target="iframe">风景3<br><img src="images/03.jpg" alt=""></a></li>
+        <li><a href="images/04.jpg"target="iframe">风景4<br><img src="images/04.jpg" alt=""></a></li>
+    </ol>
+    <div id="clear"></div>
+    <iframe src="" name="iframe" width="500px" height="335px" align="center" ></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建、插入、删除、复制、toggleClass</title>
+    <style type="text/css">
+        .yellow{
+            background: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        function insert_click() {
+//            创建DOM节点
+        var $obj=$("<div>123</div>");
+            //插入DOM节点
+        $("body").append($obj);
+        console.log($obj);
+        }
+        
+        function btn_click() {
+            console.log("你打我呀，你打我呀");
+        }
+        function copy_click(e) {
+            var newbtn=$("#btnTest").clone();
+            var btn=$("#Test").clone(true);//加true才复制分离的行为
+            $(e).before(newbtn);
+            $(e).before(btn);
+        }
+        window.onload=function () {
+            $("#Test").bind("click",function () {
+               console.log("你打我呀！");
+            });
+        }
+        function btn_cl() {
+            //toggleClass有就移除，没得就添加,多次点击就看出效果
+            $("div").toggleClass("yellow");
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" value="操作" onclick="insert_click();"/>
+<input type="button" id="btnTest" value="测试" onclick="btn_click();"/>
+<input type="button" id="Test" value="分离行为测试"/>
+<input type="button" value="复制" onclick="copy_click(this);"/>
+<div class="yellow">hello</div>
+<div >hello</div>
+<input type="button" value="toggleClass测试" onclick="btn_cl();">
+</body>
+</html>

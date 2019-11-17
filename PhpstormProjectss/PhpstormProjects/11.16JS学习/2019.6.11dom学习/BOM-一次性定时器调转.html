@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #cnt{
+        color: red;
+    }
+</style>
+<body>
+<h2>登录成功！</h2>
+<h3>欢迎回来！<span id="cnt">4</span>秒钟后自动跳转首页...</h3>
+<script>
+    var counter = 3;
+    var timer = null;
+
+    function jump() {
+        if (counter >= 0) {
+            document.getElementById('cnt').innerHTML = counter;
+            counter--;
+        }
+        //修改页面显示的URL-即页面跳转
+        else {
+            clearInterval(timer);
+            window.location.href = '2.html';
+        }
+    }
+    timer = setInterval(jump, 1000);
+</script>
+</body>
+</html>

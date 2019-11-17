@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json结构化简历</title>
+</head>
+<body>
+<div id="result"></div>
+
+<script>
+  /*  function a() {
+        var str ="[4|2|4][1|9][1|2|4|2|1][1|2|4|2|1][1|2|4|2|1][1|2|4|2|1][1|2|4|2|1][1|9]"
+        str=str.substring(1,str.length-1)
+        str = str.split('][')
+        str.forEach(function (item,index) {
+            str[index]=item.split('|')
+        })
+        str.forEach(function (item,index) {
+            item.forEach(function (item2,index) {
+                console.log(item2)
+            })
+        })
+    }
+    a();*/
+  let qobject = { a: [{ b: { c: 3 } }] };
+  const fn = {
+      get(qobject, condition) {
+          let conditionItem = condition.split(".");
+//          console.log('cond:'+conditionItem)
+          let data = qobject;
+          for (let i = 0; i < conditionItem.length; i++) {
+              let item = conditionItem[i].replace(/\[|\]/g, "").split("");
+              for (let j = 0; j < item.length; j++) {
+                  console.log('item:'+item)
+                  console.log(data[item[j]])//data是每次挨到递归的  因为每次之后又赋值给data就是每次的结果再执行
+                  try {
+                      console.log('data:'+data)
+                      console.log('item[j]:'+item[j])
+                      data = data[item[j]];
+
+                  } catch (error) {
+                      return [`Is err about ${conditionItem[i-1]}`, null];
+                  }
+              }
+          }
+          return data;
+      }
+  };
+  let result= fn.get(qobject, 'a[0].b.c');
+  console.log(result); // => null, 3
+
+
+</script>
+</body>
+</html>

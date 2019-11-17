@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style type="text/css">
+        table {
+            margin: 0 auto;
+            width: 600px;
+
+            border: 1px solid red;
+            border-collapse: collapse;
+            margin-top: 50px;
+        }
+
+        table th, table td {
+            text-align: center;
+            border: 3px solid #CCCCCC;
+        }
+
+        table td {
+            height: 40px;
+        }
+
+        table th {
+            background: #eeeeee;
+        }
+
+    </style>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript">
+        function add_shopping(btn) {
+            /*先判断购物车里面是否已经有相同的物品*/
+            //1.先获取上表格的英雄名字
+            var $tds = $(btn).parent().siblings();
+            var name = $tds.eq(0).text();
+            console.log(name);
+            //2.再获取购物车里面的商品名字
+
+            //先获取购物车里面的每一行
+            var $trs = $("#goods tr");
+            console.log($trs);
+            //然后遍历每一行找出商品名称
+            //将名称和商品名称对比
+            for (var i = 0; i < $trs.length; i++) {
+                var goods_name = $trs.eq(i).children().eq(0).text();
+                console.log(goods_name);
+                if (goods_name == name) {
+                    //相同则数量+1
+                    //获取购物车的inputs的文本框
+                    var $inputs_text = $trs.eq(i).children().eq(2).children().eq(1);
+                    console.log($inputs_text);
+                    var inputs_amount = $inputs_text.val();
+                    $inputs_text.val(++inputs_amount);
+                    //获取购物车的单价
+                    var input_price = $trs.eq(i).children().eq(1).text();
+                    console.log(input_price);
+                    //计算金额
+                    $trs.eq(i).children().eq(3).text(input_price * inputs_amount);
+                    total();
+                    return;
+                }
+
+            }
+            //增加一行
+            //获取商品里面的单价
+            var price = $tds.eq(1).text();
+            //创建一行，插入tbody下
+            var $tr = $('<tr>' +
+                '<td>' + name + '</td>' +
+                '<td>' + price + '</td>' +
+                '<td>' +
+                '<input type="button" value="-" onclick="decrease(this)">' +
+                '<input type="text" style="width: 50px" value="1">' +
+                '<input type="button" value="+" onclick="increase(this)">' +
+                '</td>' +
+                '<td>' + price + '</td>' +
+                '<td>' +
+                '<input type="button" value="X" onclick="del(this);">' +
+                '</td>' +
+                '</tr>'
+            );
+            $("#goods").append($tr);
+            total();
+
+
+            /* var $inputs = $trs.eq(i).children().eq(2).eq(1);
+             console.log($inputs);
+             //获取购物车文本框的值
+             var inputs_amount = $inputs.val();
+             console.log(inputs_amount);
+             if (goods_name == name) {
+
+//                  进行对比，如果相同 则数量加一
+                 //金额进行计算
+//                    console.log($inputs);
+
+                 //文本框值+1
+                 $inputs.val(++inputs_amount);
+//                    console.log($inputs_amount);
+                 //获取单价
+                 var inputs_price = $trs.children().eq(1).text();
+                 console.log(inputs_price);
+                 //计算金额
+                 $trs.children().eq(3).text(inputs_amount * inputs_price);
+                 console.log(inputs_price);
+                 return;
+             }
+         }*/
+            /*
+
+                        //先根据按钮获取单价
+                        var price = $tds.eq(1).text();
+
+
+                        //创建一行，插入tbody下
+                        var $tr = $('<tr>' +
+                            '<td>' + name + '</td>' +
+                            '<td>' + price + '</td>' +
+                            '<td>' +
+                            '<input type="button" value="-" onclick="decrease(this)">' +
+                            '<input type="text" style="width: 50px" value="1">' +
+                            '<input type="button" value="+" onclick="increase(this)">' +
+                            '</td>' +
+                            '<td>' + price + '</td>' +
+                            '<td>' +
+                            '<input type="button" value="X" onclick="del(this);">' +
+                            '</td>' +
+                            '</tr>'
+                        );
+
+                        $("#goods").append($tr);
+                        total();*/
+
+        }
+
+        //删除
+        function del(btn) {
+            var $tr = $(btn).parent().parent();
+            $tr.remove();
+            total();
+        }
+
+        /*
+        //错误的
+        //增加
+        function increase(btn) {
+            //1.先获取文本框,并将其值加1
+            //文本框是加号的哥哥  用prev（）
+            var $text = $(btn).prev();
+            console.log($text);
+            var amount = parseInt($text.val());
+            $text.val(++amount);
+            //2.取单价 计算金额
+            var price = $("#goods td").eq(1).text();
+            $("#goods td").eq(3).text(price * amount);
+        }
+
+        //减少
+        function decrease(btn) {
+            var $text = $(btn).next();
+            console.log($text);
+
+            var amount = parseInt($text.val());
+            if (amount == 1) {
+                return;//js中return 不返回值，让程序中断 ，不往下执行
+            }
+            $text.val(--amount);
+            console.log(amount);
+            //2.取单价 计算金额
+            var price = $("#goods td").eq(1).text();
+            $("#goods td").eq(3).text(price * amount);
+        }*/
+        //增加
+        function increase(btn) {
+            //1.获取文本框的值
+            var $text = $(btn).prev();
+            //数量
+            var amount = parseInt($text.val());
+//            console.log(amount);
+            $text.val(++amount);
+//            console.log($text.val());
+            //获取单价
+            var price = parseFloat($(btn).parent().prev().text());
+//            console.log(price);
+            //计算金额
+            $(btn).parent().next().text(price * amount);
+            total();
+        }
+
+        //减少
+        function decrease(btn) {
+            //获取文本框的值
+            var $text = $(btn).next();
+            var amount = parseInt($text.val());
+            //判断数量是否等于1
+            if (amount == 1) {
+                return//返回不执行下面的程序
+            }
+            $text.val(--amount);
+//            console.log(amount);
+            //获取单价
+            var price = parseFloat($(btn).parent().prev().text());
+
+            //计算金额
+            $(btn).parent().next().text(price * amount);
+            total();
+        }
+
+        //合计
+        function total() {
+            //获取商品下的每一行
+            var $trs1 = $("#goods tr");
+            var sum = 0;
+            //遍历每一行，找到每一行的金额
+            for (var i = 0; i < $trs1.length; i++) {
+                var $td1 = $trs1.eq(i).children().eq(3);
+                var mny = parseFloat($td1.text());
+                sum += mny;
+            }
+            $("#total").text(sum);
+        }
+
+
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <th>英雄</th>
+        <th>单价（金币）</th>
+        <th>皮肤</th>
+        <th>库存</th>
+        <th>好评率</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>疾风剑豪</td>
+        <td>6600</td>
+        <td>源计划</td>
+        <td>654</td>
+        <td>99%</td>
+        <td>
+            <input type="button" value="加入购物车" onclick="add_shopping(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>VN</td>
+        <td>6300</td>
+        <td>冠军</td>
+        <td>666</td>
+        <td>95%</td>
+        <td>
+            <input type="button" value="加入购物车" onclick="add_shopping(this);">
+        </td>
+    </tr>
+    <tr>
+        <td>滑板鞋</td>
+        <td>6300</td>
+        <td>草衣</td>
+        <td>999</td>
+        <td>97%</td>
+        <td>
+            <input type="button" value="加入购物车" onclick="add_shopping(this);">
+        </td>
+    </tr>
+</table>
+<h2 align="center"><button><a href="search_employees.html">点击查看英雄信息</a></button></h2>
+<table>
+    <thead>
+    <tr>
+        <th>商品</th>
+        <th>单价（元）</th>
+        <th>数量</th>
+        <th>金额（元）</th>
+        <th>删除</th>
+    </tr>
+    </thead>
+    <tbody id="goods">
+    <!--<tr>-->
+        <!--<td>滑板鞋</td>-->
+        <!--<td>6300</td>-->
+        <!--<td>-->
+            <!--<input type="button" value="-">-->
+            <!--<input type="text" style="width: 50px">-->
+            <!--<input type="button" value="+">-->
+        <!--</td>-->
+        <!--<td>6300</td>-->
+        <!--<td>-->
+            <!--<input type="button" value="X">-->
+        <!--</td>-->
+    <!--</tr>-->
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" style="text-align: right">总计</td>
+        <td id="total"></td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

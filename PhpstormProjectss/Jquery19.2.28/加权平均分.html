@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加权平均分</title>
+    <style type="text/css">
+
+    </style>
+    <script>
+
+        /*   $("input[value='计算']").click(function () {
+               var atext=$(".a");
+               console.log(atext.length);
+               var btext=$(".b");
+               for(var i=0;i<atext.length;i++){
+               console.log(atext.eq(i).val(),btext.eq(i).val());
+               }
+           })*/
+        function adda() {
+            var total = 0;
+            var score = 0;
+            var atext =document.getElementsByClassName("a");
+            var btext = document.getElementsByClassName("b");
+            var aa = 0;
+            var bb = 0;
+            var cc = 0;
+            var ddd = 0;
+            for (var i = 0; i < atext.length; i++) {
+                aa = parseFloat(atext[i].value);
+                bb = parseFloat(btext[i].value);
+                console.log(aa, bb);
+                cc = aa * bb;
+                console.log(cc);
+                ddd += cc;
+                score += bb;
+                console.log(score);
+                console.log("加之后" + ddd);
+
+            }
+            var dd = ddd / score;
+            if(dd<70){
+                alert("很遗憾，你没过学位分70，加油，还可以刷分,"+dd+"分");
+            }else{
+                alert("恭喜你过了,"+dd+"分");
+            }
+            var div=document.getElementById("div");
+            div.innerHTML=dd;
+        }
+
+    </script>
+</head>
+<body>
+高数A上：请输入成绩：<input type="text" class="a" value="93"><br/>
+1请输入该课学分：<input type="text" class="b" value="4"><br/><br/>
+高数A下：请输入成绩：<input type="text" class="a" value="78"><br/>
+2请输入该课学分：<input type="text" class="b" value="5"><br/><br/>
+
+英语A1：请输入成绩：<input type="text" class="a" value="75"><br/>
+3请输入该课学分：<input type="text" class="b" value="3"><br/><br/>
+
+英语A2：请输入成绩：<input type="text" class="a" value="62"><br/>
+4请输入该课学分：<input type="text" class="b" value="3"><br/><br/>
+
+英语A3：请输入成绩：<input type="text" class="a" value="60"><br/>
+5请输入该课学分：<input type="text" class="b" value="3"><br/><br/>
+
+英语A4：请输入成绩：<input type="text" class="a" value="61"><br/>
+6请输入该课学分：<input type="text" class="b" value="3"><br/><br/>
+
+大学物理B：请输入成绩：<input type="text" class="a" value="70"><br/>
+7请输入该课学分：<input type="text" class="b" value="4"><br/><br/>
+
+数据结构与算法：请输入成绩：<input type="text" class="a" value="69"><br/>
+8请输入该课学分：<input type="text" class="b" value="4"><br/><br/>
+
+动画原理与应用：请输入成绩：<input type="text" class="a" value="79"><br/>
+9请输入该课学分：<input type="text" class="b" value="4"><br/><br/>
+
+人机交互设计：请输入成绩：<input type="text" class="a" value="85"><br/>
+10请输入该课学分：<input type="text" class="b" value="4"><br/><br/>
+
+计算机图形学：请输入成绩：<input type="text" class="a" value="79"><br/>
+11请输入该课学分：<input type="text" class="b" value="4"><br/><br/>
+
+平面设计：请输入成绩：<input type="text" class="a" value="85"><br/>
+12请输入该课学分：<input type="text" class="b" value="3.5"><br/><br/>
+
+<input type="button" value="计算" onclick="adda();">
+<div id="div"></div>
+</body>
+</html>

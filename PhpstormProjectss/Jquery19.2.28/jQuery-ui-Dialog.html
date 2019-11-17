@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="jQuery-ui/jquery-ui.theme.min.css"/>
+    <script src="jquery-1.11.1.js"></script>
+    <script src="jQuery-ui/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //设置对话框,先将html中的以对话框形式隐藏
+            $("#dialog").dialog({
+                autoOpen: false,//以对话框形式隐藏
+                /* 方法一：
+                buttons: {
+                     "Ok": function () {
+                         $(this).dialog("close");
+                     },
+                     "Cancel": function () {
+                         $(this).dialog("close");
+                     }
+                 }*/
+                //方法二：用数组
+                buttons: [
+                    {
+                        text: "Ok",
+                        click: function () {
+                        //自己加事件
+                        }
+                    },
+                    {
+                        text: "Cancel",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                ],
+            });
+            // 点击按钮打开
+            $("#btnOpen").click(function () {
+                $("#dialog").dialog("open");
+            })
+        });
+    </script>
+
+</head>
+<body>
+<div id="dialog" title="用户信息">
+    用户名称：李晓峰<br/>
+    用户年龄：19 <br/>
+    用户爱好：123 <br/>
+    <input type="button" value="Test">
+</div>
+<input type="button" id="btnOpen" value="打开">
+</body>
+</html>

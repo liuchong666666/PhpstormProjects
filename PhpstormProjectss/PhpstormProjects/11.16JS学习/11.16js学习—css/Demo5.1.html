@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录验证</title>
+    <style type="text/css">
+        form {
+            margin: 200px auto;
+            width: 500px;
+            border: 1px solid #CCCCCC;
+        }
+
+        form h1 {
+            border: 1px solid #CCCCCC;
+            margin: 0px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        form p {
+            margin: 0px;
+            padding: 20px;
+            border: 1px solid #CCCCCC;
+        }
+
+        form div {
+            text-align: center;
+            margin: 0px;
+            padding: 5px;
+            border: 1px solid #CCCCCC;
+        }
+
+        .error_msg {
+            border: 1px solid red;
+            color: red;
+        }
+
+    </style>
+    <script type="text/javascript">
+        //校验账号
+        function check_name() {
+            //获取账号文本框
+            var input = document.getElementById("name");
+            //获取提示框span
+            var span = document.getElementById("name_msg");
+            //获取账号文本框的值
+            var name = input.value;
+            var reg = /^\w{3,20}$/;
+            //用正则判断账号是否符合规范
+            if (reg.test(name)) {
+                //如何规范就让span的属性变为空
+                span.className = "";
+                return true;
+            } else {
+                //如果不符合，就添加提示错误的样式
+                span.className = "error_msg";
+                return false;
+            }
+        }
+
+        //校验密码
+        function check_pwd() {
+            //获取密码文本框
+            var input = document.getElementById("pwd");
+            //获取span
+            var span = document.getElementById("pwd_msg");
+            //获取密码文本框的值
+            var pwd = input.value;
+            var reg = /^\w{6,20}$/;
+            //判断是否符合规范
+            if (reg.test(pwd)) {
+                span.className = "";
+                return true;
+            } else {
+                span.className = "error_msg";
+                return false;
+            }
+
+        }
+    </script>
+</head>
+<body>
+<form action="http://www.tmooc.cn"
+      onsubmit="return(check_name()+check_pwd())==2">
+    <h1>登录</h1>
+    <p>
+        账号：<input type="text" id="name" onblur="check_name();">
+        <span id="name_msg">3-20位字母、数字下划线</span>
+    </p>
+    <p>
+        密码：<input type="password" id="pwd" onblur="check_pwd();">
+        <span id="pwd_msg">6-20位字母、数字下划线</span>
+    </p>
+
+    <div>
+        <input type="submit" value="确定">
+    </div>
+
+</form>
+</body>
+</html>

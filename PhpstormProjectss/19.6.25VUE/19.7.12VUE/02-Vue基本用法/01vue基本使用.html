@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <h1>{{msg+'123'}}</h1>
+    <h1>{{'msg'}}</h1>
+    <!--自动运算-->
+    <h1>{{1+1}}</h1>
+    <h2>{{ {'name':'lc'} }}</h2>
+    <h2>{{person.name}}</h2>
+    <h2>{{ 1>2?'真的':'假的'}}</h2>
+    <!--可以使用内置对象的方法-->
+    <p>{{msg2.split('').reverse().join('')}}</p>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            msg: '黄瓜',
+            person: {
+                name: 'wu'
+            },
+            msg2:'hello vue'
+        }
+    })
+</script>
+</body>
+</html>

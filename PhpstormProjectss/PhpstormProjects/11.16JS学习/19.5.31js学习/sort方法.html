@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort方法</title>
+</head>
+<body>
+<script>
+    /*比较器,升序*/
+    function compareASC(a, b) {
+        return a - b;
+    }
+
+
+    var arr1 = [1, 9, 8, 5, 7, 6, 2, 12, 123, 2, 23, 3, 31];
+    document.write(arr1.sort() + "<br/>");//这是按字符串pk排序,//字符串参与关系运算，从第一个字符开始，取出每个PK  unicode编号
+    document.write(arr1.sort(compareASC) + "<br/>");//
+
+
+    //用匿名函数
+    //function compare(a,b){return a-b;}
+    //var compare=function(a,b){return a-b;}
+    //arr.sort(compare)
+    //直接arr.sort(function(a,b){return a-b;})
+    document.write(arr1.sort(function (a, b) {return b-a;}) + "<br/>")
+</script>
+</body>
+</html>

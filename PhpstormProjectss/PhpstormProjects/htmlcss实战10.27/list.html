@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员列表</title>
+    <link rel="stylesheet" href="list.css" type="text/css">
+</head>
+<body>
+<!--logo区-->
+<div id="logo">
+    <img src="images/logo.png">
+    <a href="#">[退出]</a>
+</div>
+<!--导航区-->
+<div id="nav">
+    <!--<table id="t3" align="center">-->
+    <!--<tr>-->
+    <!--<th><img src="images/index_off.png" alt=""></th>-->
+    <!--<th><img src="images/role_off.png" alt=""></th>-->
+    <!--<th><img src="images/admin_off.png" alt=""></th>-->
+    <!--<th><img src="images/fee_off.png" alt=""></th>-->
+    <!--<th><img src="images/account_off.png" alt=""></th>-->
+    <!--<th><img src="images/bill_on.png" alt=""></th>-->
+    <!--<th><img src="images/report_off.png" alt=""></th>-->
+    <!--<th><img src="images/info_off.png" alt=""></th>-->
+    <!--<th><img src="images/pwd_off.png" alt=""></th>-->
+    <!--<th><img src="images/service_off.png" alt=""></th>-->
+    <!--</tr>-->
+    <!--</table>-->
+
+
+
+
+    <!--每一个功能有两个图标，以主页为例。
+        其中index_on是带有边框的图标，index_off是不带边框的图标，使用类选择器是为了便于切换图标-->
+    <ul>
+        <li><a href="#" class="index_off"></a></li>
+        <li><a href="#" class="role_off"></a></li>
+        <li><a href="#" class="admin_off"></a></li>
+        <li><a href="#" class="fee_off"></a></li>
+        <li><a href="#" class="account_off"></a></li>
+        <li><a href="#" class="service_off"></a></li>
+        <li><a href="#" class="bill_on"></a></li>
+        <li><a href="#" class="report_off"></a></li>
+        <li><a href="#" class="info_off"></a></li>
+        <li><a href="#" class="pwd_off"></a></li>
+    </ul>
+</div>
+<!--核心区-->
+<div id="main">
+    <!--核心区除了内容之外，还有背景-->
+    <!--<div id="top1"></div>-->
+    <!--内容区-->
+    <div id="content">
+        <!--操作区-->
+        <div id="operate">
+            <input type="button" value="增加" class="add"/>
+        </div>
+        <!--数据区-->
+        <div id="data">
+            <table id="t2">
+                <thead>
+                <tr>
+                    <th><input type="checkbox" id="check_all"/><label for="check_all">全选</label></th>
+                    <th>管理员ID</th>
+                    <th>姓名</th>
+                    <th>拥有角色</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>1</td>
+                    <td>唐僧</td>
+                    <td>法师、领导、boss、核心</td>
+                    <td><input type="button" value="修改" class="modify"/>
+                        <input type="button" value="删除" class="delete"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>2</td>
+                    <td>孙悟空</td>
+                    <td>战士</td>
+                    <td><input type="button" value="修改" class="modify"/>
+                        <input type="button" value="删除" class="delete"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>3</td>
+                    <td>猪八戒</td>
+                    <td>坦克</td>
+                    <td><input type="button" value="修改" class="modify"/>
+                        <input type="button" value="删除" class="delete"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>4</td>
+                    <td>沙悟净</td>
+                    <td>刺客</td>
+                    <td><input type="button" value="修改" class="modify"/>
+                        <input type="button" value="删除" class="delete"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!--分页区-->
+        <div id="page">
+            <a href="#">上一页</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#" class="current_page">3</a><!--当前页-->
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">下一页</a>
+        </div>
+        <!--消息提示框-->
+        <div id="msg">
+            <input type="button" value="x">
+            <p>操作成功！</p>
+
+        </div>
+    </div>
+</div>
+<!--版权区-->
+<div id="footer">
+    <p>&lt;源自北美的技术，最优秀的师资，最真实的企业环境，最适用的实战项目&gt;</p>
+    <p>版权所有&copy;加拿大达内IT培训集团有限公司</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息</title>
+</head>
+<body>
+<script>
+    var emp = {
+        _monthSalary: 0,
+        get monthSalary() {
+            return this._monthSalary;
+        },
+        set monthSalary(value) {
+            this._monthSalary = value;
+        },
+        get yearSalary() {
+            return this.monthSalary * 12;
+        },
+        set yearSalary(value) {
+            this.monthSalary = value / 12;
+        }
+    };
+    emp.monthSalary = 12000;
+    console.log(emp.monthSalary);
+
+    var stu={
+        chinese:95,
+        math:85,
+        get total(){
+            return this.chinese+this.math;
+        },
+    };
+    console.log(stu.total);
+    //stu.total=275;//从逻辑不能改，因为 有两个值相加
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>color</title>
+    <style>
+        #myDiv{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function  initial() {
+            //1获取元素
+            var btnFill=$("btnFill");
+            myDiv=$("myDiv");
+            color=$("txtColor");
+            //2绑定事件
+            btnFill.addEventListener("click",btnFill_click,false);
+        }
+        function  btnFill_click() {
+            myDiv.style.backgroundColor=color.value;
+            console.log(color.value);
+        }
+        window.addEventListener("load",initial,false);
+    </script>
+</head>
+<body>
+    <input type="color" id="txtColor"/>
+    <hr/>
+    <div id="myDiv"></div><br/>
+    <input type="button" id="btnFill" value="填充"/>
+</body>
+</html>

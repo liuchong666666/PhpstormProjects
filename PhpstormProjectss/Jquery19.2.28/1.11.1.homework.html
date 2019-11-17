@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework</title>
+    <style type="text/css">
+        tr, th, td {
+            border: 3px solid #cccccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            /*width: 298px;*/
+            width: 25%;
+            font-size: 20px;
+            background-color: orangered;
+        }
+
+        table {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        input {
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        window.onload = function () {
+            changecolor();
+        }
+
+        function changecolor() {
+            //隔行变色
+            $("tr:not(:first):even") && $("tr:not(:last):even").css("background", "blue");
+            $("tr:not(:first):odd") && $("tr:not(:last):odd").css("background", "gold");
+        }
+
+        //增加后清除各个输入框的值
+        function clearaddtext() {
+            var $text = $(".text");
+            for (var i = 0; i < $text.length; i++) {
+                $text.eq(0).val("");
+                $text.eq(1).val("");
+                $text.eq(2).val("");//库存
+            }
+        }
+
+        function add() {
+//            获取文本框的值 //$(".text").eq(0).val()
+            var $text = $(".text");
+            for (var i = 0; i < $text.length; i++) {
+                var bookname = $text.eq(0).val();
+                var bookprice = $text.eq(1).val();
+                var bookinventory = $text.eq(2).val();//库存
+                console.log(bookname);
+            }
+            if(bookname==""||bookprice==""||bookinventory==""){
+                 if(bookname==""){
+                    alert("请输入书名");
+                     return;
+                }else if(bookprice==""){
+                    alert("价格未输入");
+                     return;
+                }else if(bookinventory==""){
+                    alert("请输入库存");
+                     return;
+                }else{
+                    alert("请输入相关信息");
+                     return;
+                }
+
+            }else{
+                //创建新的一行,将文本框的值赋值给一行
+                var $tr = $(' <tr>' +
+                    '            <td>' +
+                    '                <input type="text" value="' + bookname + '" readOnly>' +
+                    '            </td>' +
+                    '            <td>' +
+                    '                <input type="text" value="' + bookprice + '" readOnly>' +
+                    '            </td>' +
+                    '            <td>' +
+                    '                <input type="text" value="' + bookinventory + '" readOnly>' +
+                    '            </td>' +
+                    '            <td>' +
+                    '                <input type="button" value="修改" class="change" onclick="change_btn(this);">\n' +
+                    '                <input type="button" value="删除" class="delete" onclick="delete_btn(this);">\n' +
+                    '            </td>\n' +
+                    '        </tr>');
+                //将这一行插入到表格中
+                $tr.appendTo($("#book"));
+                changecolor();
+                clearaddtext();
+            }
+
+        }
+
+        function change_btn(btn) {
+//           console.log($(btn).val());//修改
+            if (innerHTML) {  $(btn).val("确定");
+
+                var $td = $(btn).parent().parent().children().children();
+                for (var i = 0; i < $td.length - 2; i++) {
+//                    $td.eq(i).readOnly=false;
+                    $td.eq(i).removeAttr("readOnly");
+                }
+            } else if ($(btn).val() == "确定") {
+                $(btn).val("修改");
+                var $td = $(btn).parent().parent().children().children();
+                for (var i = 0; i < $td.length - 2; i++) {
+//                    $td.eq(i).readOnly=true;
+                    $td.eq(i).attr("readOnly", "readOnly");
+//                    console.log($td.eq(i).val());//获取修改后的值
+                }
+            }
+
+
+        }
+
+        function delete_btn(btn) {
+//            console.log($(btn).parent().parent());
+            $(btn).parent().parent().remove();
+            changecolor();
+        }
+    </script>
+
+</head>
+<body>
+<form action="" method="post">
+    <table id="book">
+        <tr>
+            <th>书名</th>
+            <th>价格（元）</th>
+            <th>库存（本）</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td><input type="text" value=" 西游记" readOnly></td>
+            <td><input type="text" value=" 50" readOnly></td>
+            <td><input type="text" value=" 99" readOnly></td>
+            <td>
+                <input type="button" value="修改" class="change" onclick="change_btn(this);">
+                <input type="button" value="删除" class="delete" onclick="delete_btn(this);">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" value="水浒传" readOnlyy></td>
+            <td><input type="text" value=" 60" readOnly></td>
+            <td><input type="text" value=" 99" readOnly></td>
+            <td>
+                <input type="button" value="修改" class="change" onclick="change_btn(this);">
+                <input type="button" value="删除" class="delete" onclick="delete_btn(this);">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" value=" 红楼梦" readOnly></td>
+            <td><input type="text" value=" 66" readOnly></td>
+            <td><input type="text" value=" 99" readOnly></td>
+            <td>
+                <input type="button" value="修改" class="change" onclick="change_btn(this);">
+                <input type="button" value="删除" class="delete" onclick="delete_btn(this);">
+            </td>
+        </tr>
+    </table>
+    <table id="addbook">
+        <tr>
+            <th>
+                <input type="text" class="text" value="">
+            </th>
+            <th>
+                <input type="text" class="text" value="">
+            </th>
+            <th>
+                <input type="text" class="text" value="">
+            </th>
+
+            <th>
+                <input type="button" value="增加" onclick="add();">
+            </th>
+
+
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

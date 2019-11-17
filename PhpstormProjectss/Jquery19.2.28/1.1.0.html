@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1.1.0</title>
+    <style type="text/css">
+        #myDiv {
+            width: 200px;
+            height: 500px;
+            /*border: 1px solid red;*/
+            margin-top: 6px;
+            background: red;
+        }
+
+        .hiden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <!--<script src="tQuery-1.11.1.js"></script>-->
+    <script src="tQuery-1.1.0.js"></script>
+    <script>
+        /*window.onload = function () {
+//            $("#myDiv").append($("<div>hello  tar</div>"));
+//            $("<div>hello</div>").appendTo($("#myDiv"));
+//            $("#hello").insertBefore($("#myDiv"));
+//            $("#hello").remove();
+//            $("#myDiv").append($(".hi"));
+//            $(".lo").append($(".hi"));
+//        var a=document.getElementsByClassName("lo");
+//        for(var i=0;i<a.length;i++){
+//            console.log(a[i].tagName);
+//        }
+//           alert($("#myDiv").html());
+
+        }*/
+
+        function remove() {
+            $("#hello").remove();
+
+        }
+
+        function hiden_btn() {
+            $("#myDiv").hide(3000);
+        }
+
+        function show_btn() {
+            $("#myDiv").show(3000);
+        }
+        function slidenUp_btn() {
+            $("#myDiv").slideUp();
+        }
+        function slidenDown_btn() {
+            $("#myDiv").slideDown();
+        }
+       /* function fadeOut_btn() {
+            $("#myDiv").fadeOut();
+        }*/
+        function fadeIn_btn() {
+            $("#myDiv").fadeIn();
+        }
+        window.onload=function () {
+            //绑定事件
+            $("#btnfadeout").bind("click",function () {//click单机事件
+                $("#myDiv").fadeOut(3000);
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="lo" id="lo1">lo1</div>
+<div class="lo">lo2</div>
+<p class="hi">hi2</p>
+<div class="hi">hi3</div>
+<div id="myDiv">
+    <div id="hmo">hello tar</div>
+    <div id="hello">hello world</div>
+</div>
+<input type="button" id="remove_div" value="remove" onclick="remove();"/>
+<input type="button" id="hiden_btn" value="hiden" onclick="hiden_btn();"/>
+<input type="button" id="shouw_btn" value="show" onclick="show_btn();"/>
+<input type="button" id="slidenup" value="slidenUp" onclick="slidenUp_btn();"/>
+<input type="button" id="slidendown" value="slideDown" onclick="slidenDown_btn();"/>
+<input type="button" id="btnfadeout" value="fadeOut" />
+<input type="button" id="fadein" value="fadeIn" onclick="fadeIn_btn();">
+</body>
+</html>

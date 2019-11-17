@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery选择器图片轮播</title>
+    <style type="text/css">
+        img {
+            list-style-type: none;
+        }
+
+        ul {
+            border: 2px solid red;
+            width: 720px;
+            height: 963px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        li {
+            width: 720px;
+            height: 963px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /*显示*/
+        .show {
+            display: block;
+        }
+
+        /*隐藏*/
+        .hide {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript">
+        var index = 0;//记录循环次数
+        /* function start() {
+             setInterval(function () {
+                 //将显示的图片隐藏
+                 // 或者所有的隐藏，就用$("li").hide();
+                 //visible可见的，可见性过滤选择器
+
+                 $("li:visible").hide();
+                 //将下一张图片显示
+                 //++index%$("li").length
+                 //eq(index)基本选择器，下标等于index的元素
+                 //eq("+()+")  拼接
+                 var a = (++index % $("li").length);
+                 $("li:eq(" + a + ")").show();
+             }, 1000);
+         }*/
+       function start() {
+            setInterval(function () {
+                //将显示的图片隐藏
+                // 或者所有的隐藏，就用$("li").hide();
+                //visible可见的，可见性过滤选择器
+                var $lis = $("#photos li");
+                console.log($lis);
+                $lis.hide();
+                //将下一张图片显示
+                //++index%$("li").length
+                //eq(index)基本选择器，下标等于index的元素
+                //eq("+()+")  拼接
+                var a = (++index % $lis.length);
+                console.log(a);
+                $lis.eq(a).show();
+                alert(1);
+//                console.log( $("$lis.eq(" + a + ")"));
+
+            }, 1000);
+        }
+    </script>
+</head>
+<!--onload是页面加载事件
+  表示再页面加载后调用start（）函数-->
+<body onload="start();">
+<!--<body>-->
+<ul id="photos">
+    <li class="show"><img src="../image/1.jpg" alt=""></li>
+    <li class="hide"><img src="../image/2.jpg" alt=""></li>
+    <li class="hide"><img src="../image/3.png" alt=""></li>
+    <li class="hide"><img src="../image/4.png" alt=""></li>
+</ul>
+</body>
+</html>

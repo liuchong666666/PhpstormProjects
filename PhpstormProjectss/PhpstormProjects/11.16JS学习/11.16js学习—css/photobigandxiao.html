@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片放大两秒后还原</title>
+    <style type="text/css">
+        div {
+            text-align: center;
+            margin: 80px auto;
+        }
+
+        .show {
+
+            width: 400px;
+            height: 500px;
+
+        }
+        .big{
+            width: 500px;
+            height: 600px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        var a;
+        function  big(){ {
+            var img=document.getElementById("image");
+            img.className="big";
+            setTimeout(function () {
+                img.className="show";
+            },2000)
+        }}
+
+    </script>
+</head>
+<body>
+<div>
+    <img src="1.jpg" alt="" id="image" class="show" onclick="big();">
+</div>
+</body>
+</html>

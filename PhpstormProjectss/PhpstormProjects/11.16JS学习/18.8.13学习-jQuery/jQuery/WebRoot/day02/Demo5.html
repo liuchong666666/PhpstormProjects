@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询员工</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse; /*边框合并*/
+        }
+
+        th, td {
+            border: 1px solid #CCCCCC;
+            padding: 10px;
+            width: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            //页面加载后自动查询出员工数据
+            //并根据该数据生成tr，插入到table中
+            load_emp();
+        });
+
+        //查询员工的方法
+        function load_emp() {
+            //发出请求，访问服务端，得到数据
+            //由于目前我们没学如何访问服务端
+            //因此该数据就模拟了。
+            //模拟了三个员工的数组
+            //emps是DOM对象，转换成jQuery对象 $(emps)
+            var emps = [
+                {"empno": "001", "name": "张三", "age": 40, "sex": "男", "job": "总监"},
+                {"empno": "002", "name": "美四", "age": 38, "sex": "女", "job": "美工"},
+                {"empno": "003", "name": "王五", "age": 42, "sex": "男", "job": "web工程师"},
+            ];
+            //遍历员工数组
+            //JS方式遍历：for(var i=0;i<emps.length;i++){}
+            //each() 是jQuery封装的遍历方法
+            //含义是每次循环都执行某function（）{}
+            //jquery会自动循环的
+            $(emps).each(function () {
+                //获取本次循环的数据
+                //只有在each（function）{}方法中：this就是本次循环的数据
+                //this;
+                //this= {"empno": "001", "name": "张三", "age": 40, "sex": "男", "job": "总监"}   this等于这样一个对象
+                //根据这个数据生成tr，插入到table
+                //可以这样写  var $tr = $("<tr><td>" + this.empno + "</td><td>" + this.name + "</td><td>" + this.age + "</td><td>" + this.sex + "</td><td>" + this.job + "</td></tr>");
+                //也可以向下面这样写:
+                //创建一个空的行
+                var $tr = $("<tr></tr>");
+                //将这个空行插入到table下
+                $("tbody").append($tr);
+                //给空行追加五列
+                //编号列
+                $tr.append("<td></td>");
+                $("td:last").text(this.empno);
+                //姓名列
+                $tr.append("<td></td>");
+                $("td:last").text(this.name);
+                //年龄列
+                $tr.append("<td></td>");
+                $("td:last").text(this.age);
+                //性别列
+                $tr.append("<td></td>");
+                $("td:last").text(this.sex);
+                //职位列
+                $tr.append("<td></td>");
+                $("td:last").text(this.job);
+            });
+        }
+    </script>
+</head>
+<body>
+<h1>员工列表</h1>
+<table>
+    <thead>
+    <tr>
+        <th>遍号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>职位</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</body>
+</html>

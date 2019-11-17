@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建自定义对象</title>
+    <script type="text/javascript">
+        //使用第1种方法创建对象
+        //有几个临时变量，暂时封装一下，作为运算中间的变量时
+        function f1() {
+            //创建对象
+            var teacher = new Object();
+            teacher.name = "嗯哼老师";
+            teacher.age = 40;
+            teacher.work = function () {
+                alert("我学js");
+            };
+            //使用对象
+            alert(teacher.name + "," + teacher.age);
+            teacher.work();//调方法需要加括号
+
+        }
+
+        //使用第2种方式创建对象
+        //作为一个公共方法，返回一个对象，为了别人使用方便
+        function f2() {
+            //创建对象
+            var s = new Student("张三", 20);
+            alert(s.name + "," + s.age);
+            s.work();
+            //使用对象
+        }
+
+        //使用第2种得预置一个带有格式要求的对象
+        function Student(name, age) {
+            this.name = name;
+            this.age = age;
+            this.work = function () {
+                alert("我学js");
+            };
+
+        }
+
+        //使用第三种方法创建对象
+        //从服务端取数，封装服务端数据
+        function f3() {
+            var programmer = {
+                "name": "lisi",
+                "age": 20,
+                "work": function () {
+                    alert("我写js");
+                }
+            };
+            //使用对象
+            alert(programmer.name + "," + programmer.age);
+            programmer.work();
+        }
+    </script>
+</head>
+<body>
+<button onclick="f1();">按钮1</button>
+<button onclick="f2();">按钮2</button>
+<button onclick="f3();">按钮3</button>
+</body>
+</html>

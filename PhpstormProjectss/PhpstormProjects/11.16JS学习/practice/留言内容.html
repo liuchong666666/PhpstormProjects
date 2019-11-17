@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言</title>
+</head>
+<style>
+    .lc {
+        opacity: 0.5;
+    }
+
+    .hc {
+        opacity: 1;
+    }
+</style>
+<body>
+<h1>发表留言</h1>
+姓名：<input id="userName" class="lc"/><br/>
+留言区：
+<textarea name="" id="content" cols="30" rows="10" class="lc"></textarea><br/>
+<input type="checkbox" onclick="checkContent(this)"/>我已阅读了《常见问题列表》<br/>
+<input type="submit" id="btnSubmit" disabled/>
+<script>
+    var userName = document.getElementById('userName');
+    var content = document.getElementById('content');
+    var btnSubmit=document.querySelector('#btnSubmit');
+    var name_tip = '请输入你的姓名';
+    var content_tip = '请输入你的留言';
+    userName.value = name_tip;
+    content.innerHTML = content_tip;
+    var html = '';
+    userName.onfocus = function () {
+        if (userName.value == name_tip) {
+            userName.className = 'hc';
+            userName.value = '';
+        }
+    };
+    userName.onblur = function () {
+        if (userName.value == '') {
+            userName.className = 'lc';
+            userName.value = name_tip;
+        }
+    };
+    content.onfocus = function () {
+        if (content.value == content_tip) {
+            content.className = 'hc';
+            content.value = '';
+        }
+    };
+    content.onblur = function () {
+        console.log(content.value);
+        if (content.value == '') {
+            content.className = 'lc';
+            content.value = content_tip;
+        }
+    };
+
+    function checkContent(checkbox) {
+        console.log(checkbox.checked);
+        btnSubmit.disabled=!checkbox.checked;
+    }
+
+</script>
+</body>
+</html>

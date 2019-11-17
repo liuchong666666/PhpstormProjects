@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证插件</title>
+    <link rel="stylesheet" href="formValidator/style/validator.css"/>
+    <script src="formValidator/jquery-1.11.1.js"></script>
+    <script src="formValidator/formValidator_min.js"></script>
+    <script src="formValidator/formValidatorRegex.js"></script><!--//需要正则就引入正则的js文件，最好引入一下，可能这个里面引用了相关内容-->
+    <script>
+        $(document).ready(function(){
+            //1、表单验证初始化($.formValidator.initConfig)
+            $.formValidator.initConfig();
+
+            //2、初始化uname
+            $("#uname").formValidator({
+                onempty:"用户名称不能为空",
+                onshow:"请输入用户名称,6-18位",
+                onfocus:"字母、数字、下划线组成",
+                oncorrect:"恭喜你,用户名称可用"
+            }).InputValidator({
+                type:"size", //默认值，可以省略
+                min:6,
+                max:18,
+                onerror:"用户名称必须是6-18位"
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+<form action="frmLogin" method="get">
+    <table>
+        <tr>
+            <td>用户名称</td>
+            <td>
+                <input type="text" name="unname" id="uname"/>
+            </td>
+            <td>
+                <div id="unameTip"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="提交"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

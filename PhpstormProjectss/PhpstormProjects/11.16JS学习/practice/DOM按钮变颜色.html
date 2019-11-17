@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        function changeColor(className) {
+            var div=document.getElementById("msg");
+//            alert(div);//object
+           // div.setAttribute('class',className);//老IE不支持
+            var attr = document.createAttribute("class");//IE8支持
+            attr.value=className;//nodeValue已过时
+            div.setAttributeNode(attr);
+        }
+    </script>
+</head>
+<body>
+<div id="msg">hello world</div>
+<button onclick="changeColor('red')">变红</button>
+<button onclick="changeColor('yellow')">变黄</button>
+</body>
+
+</html>

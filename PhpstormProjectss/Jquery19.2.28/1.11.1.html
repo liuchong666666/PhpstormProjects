@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        function btn() {
+            $("#ww").html("Google");
+            $("#ww").attr("href", "https://www.google.com");
+            $("#ww").css("font-size", "30px");
+            $("#ww").css({"font-size": "30px", "background": "red"});
+        }
+
+        function DJ() {
+            /*
+                        //  DOM->jQuery
+                        var elem=document.getElementById("ww");
+                        var $obj=$(elem);//DOM->jQuery
+                        $obj.css({"font-size":"30px","background":"red"});
+                        */
+            //jQuery->DOM
+            var $obj = $("#ww");
+            var elem = $obj.get(0); //jQuery->DOM
+            console.log(elem.id);
+        }
+
+        window.onload = function () {
+            /*g
+               $("#book div").css("font-size", "30px");//查找d1下面所有div
+              $("#movie>div").css("background", "red");//只查找d1下面的直接子节点div   孙子div不找，因为div（）下面的还是div（）里面的 所以会被影响
+              */
+           // $("#movie+div").css("background", "red");//“+”查找下一个兄弟节点
+            $("#book+#food").css("background", "red");//没效果，因为book与food不是兄弟
+            $("#movie+#food").css("background", "blue");//必须紧挨着当前元素的兄弟
+            $("#book~#food").css("background", "red");//查找~下面所有的兄弟 ~以上的查不到
+        }
+    </script>
+</head>
+<body>
+<a href="htttps://www.baudu.com" id="ww">百度</a>
+<input type="button" value="更换" onclick="btn();">
+<input type="button" value="DOM与jQuery" onclick="DJ();">
+<div id="book">
+    <div>a</div>
+    <div>b</div>
+    <div>c</div>
+    <div>d</div>
+</div>
+<div id="movie">
+    <div>e</div>
+    <div>f</div>
+    <div>
+        <div style="background: gold;">i</div>
+        g
+    </div>
+    <div>h</div>
+</div>
+<div id="food">
+    <div>肉串</div>
+    <div>烤肉</div>
+    <div>烤羊腿</div>
+    <div>鱼香肉丝</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function initial(){
+            $("rdoMale").setCustomValidity("请选择性别");
+            $("XueLi").setCustomValidity("请选择学历");
+            $("txtPwd2").addEventListener("blur",check_pwd,false);
+            $("rdoMale").addEventListener("change",check_gender,false);
+            $("rdoFemale").addEventListener("change",check_gender,false);
+            $("XueLi").addEventListener("change",check_xueli,false);
+        }
+        function check_xueli(){
+            $("XueLi").setCustomValidity("");
+        }
+        function check_gender() {
+            $("rdoMale").setCustomValidity("");
+        }
+        function check_pwd(){
+            if($("txtPwd").value!=$("txtPwd2").value){
+                $("txtPwd2").setCustomValidity("两次密码不一致");
+            }else{
+                $("txtPwd2").setCustomValidity("");
+            }
+        }
+        window.addEventListener("load",initial,false);
+    </script>
+</head>
+<body>
+<form action="">
+    <table>
+        <tr>
+            <td>用户名称</td>
+            <td><input type="text"  name="txtName" id="txtName"  placeholder="请输入用户名" /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>用户密码</td>
+            <td><input type="password" name="txtPwd" id="txtPwd"  pattern="([A-Za-z]|[0-9]|-|_){4,16}"></td>
+            <td>密码由6-16个字符组成，请使用英文字母加数字或符号的组合密码</td>
+        </tr>
+        <tr>
+            <td>验证密码</td>
+            <td><input type="password" name="txtPwd2" id="txtPwd2" ></td>
+            <td>与用户密码相同</td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td><input type="radio" name="rdoGender" id="rdoMale" value="0">男
+                <input type="radio" name="rdoGender" id="rdoFemale" value="1">女</td>
+            <td></td>
+       </tr>
+        <tr>
+            <td>学历</td>
+            <td><select name="XueLi" id="XueLi" >
+                <option value="0">请选择...</option>
+                <option value="1">小学</option>
+                <option value="2">初中</option>
+                <option value="3">高中</option>
+                <option value="4">大学</option>
+            </select></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>自我介绍</td>
+            <td><textarea name="txtSelf" id="txtSelf" cols="20" rows="10"></textarea></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="submit" value="提交"></td>
+
+        </tr>
+    </table>
+</form>
+</body>
+</html>

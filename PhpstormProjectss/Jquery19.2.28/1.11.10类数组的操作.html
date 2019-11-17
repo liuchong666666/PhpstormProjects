@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            //1.获取所有的li
+            var $li = $("ul li");//但凡前面加$的都是jQuery的
+           //2、打印元素个数
+            console.log("元素个数："+$li.length);
+            //3.通过each方法循环遍历数组中的元素
+            $li.each(function (i) {
+                //i表示当前遍历的元素索引
+                //this表示当前遍历出来的DOM元素
+                console.log("索引"+i);
+                console.log("dom元素："+this);
+                console.log("转换为jQuery元素："+$(this));
+                $(this).html($(this).html()+i);//把下标加到文本后面
+                console.log("索引为"+$li.index(this));
+
+            });
+            //:获取当前数组中指定索引处的DOM元素
+            $("input[type='button']").click(function () {
+                var index=parseInt($("#txtIndex").val());
+                var $li=$($("li").eq(index));
+                console.log($li.html());
+                }
+            );
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li>USA</li>
+    <li>CN</li>
+    <li>JP</li>
+    <li>UK</li>
+    <li>CA</li>
+</ul>
+<input type="text" value="" id="txtIndex"/> <input type="button" value="打印">
+</body>
+</html>

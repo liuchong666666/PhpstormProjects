@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>从小到大排序</title>
+    <script type="text/javascript">
+        function sort() {
+            var ary = [2, 50, 10, 60, 40, 9];
+            for (var i = 0; i < ary.length; i++) {//控制几轮，冒泡机制，有几个数就比较几轮
+                for (var j =0; j < ary.length-1; j++) {//每一组，里面比较几次，比较ary.length-1次
+                    var m = compare(ary[j+1], ary[j])
+                    if (m < 0) {
+                        temp = ary[j];
+                        ary[j] = ary[j+1];
+                        ary[j+1] = temp;
+                    }
+                }
+                console.log(ary);
+
+            }
+            alert(ary);
+        }
+
+        function compare(j, i) {
+            return j - i;
+
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="排序" onclick="sort();">
+</body>
+</html>

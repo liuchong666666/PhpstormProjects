@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>★★★时钟★★★</title>
+</head>
+<style>
+    #clock {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        border: 1px solid #aaa;
+        border-radius: 50%; /*圆角*/
+        position: relative; /*相对定位：relative*/
+    }
+
+    .p {
+        position: absolute; /*绝对定位：absolute 和 fixed 统称为绝对定位*/
+        left: 150px;
+        transform-origin: left center; /*修改旋转的中心*/
+    }
+
+    .hour {
+        width: 60px;
+        height: 12px;
+        background: #aaf;
+        top: 144px;
+        /*transform: rotate(45deg);*/
+    }
+
+    .minute {
+        width: 120px;
+        height: 8px;
+        background: #afa;
+        top: 146px;
+        /*transform: rotate(1deg);*/
+
+    }
+
+    .second {
+        width: 150px;
+        height: 4px;
+        background: #faa;
+        top: 148px;
+    }
+
+</style>
+<body>
+<div id="clock">
+    <div class="p hour"></div>
+    <div class="p minute"></div>
+    <div class="p second"></div>
+</div>
+<script>
+    //设置标题闪烁
+    var counter = 0;
+    setInterval(changeTitle,1000);
+    function changeTitle() {
+        if (counter == 0) {
+            document.title = '☆☆☆时钟☆☆☆';
+            counter = 1;
+        } else if (counter == 1) {
+            document.title = '★★★时钟★★★';
+            counter=0;
+        }
+    }
+
+
+
+
+    function drawClock() {
+
+        var now = new Date();
+        var h = now.getHours() % 12;//24小时制变成12小时
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+
+
+        var hpointer =
+            document.getElementsByClassName('hour')[0];
+        //  12/360=m/?度
+        hpointer.style.transform = 'rotate(' + (h * 30 - 90) + 'deg)';//因为浏览器默认0度在水平方向，而始终是竖直方向，所以减90
+
+        var mpointer =
+            document.getElementsByClassName('minute')[0];
+        //  60/360 = m /?
+        mpointer.style.transform = 'rotate(' + (m * 6 - 90) + 'deg)';
+
+        var spointer =
+            document.getElementsByClassName('second')[0];
+        //  60/360 = m /?
+        spointer.style.transform = 'rotate(' + (s * 6 - 90) + 'deg)';//因为浏览器默认0度在水平方向，而始终是竖直方向，所以减90
+
+    }
+
+    drawClock();
+
+    window.setInterval(drawClock, 1000);
+</script>
+</body>
+</html>

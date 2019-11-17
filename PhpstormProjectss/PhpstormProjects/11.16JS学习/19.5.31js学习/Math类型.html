@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math类型</title>
+</head>
+<body>
+<script>
+    /*
+    var s1 = 75;
+    var s2 = 90;
+    var s3 = 80;
+    var arr=[2,3,4,1,8,6,9];
+    console.log(Math.max(s1,s2,s3));
+    var max=Math.min.apply(Math,arr);//数组中求一个最大值
+    console.log(max);
+    */
+
+    /*
+        //随机生产四位验证码
+        //step1：将所有的数字和字母，装入一个数组备用
+        var codes = [];
+        //unicode编码
+        //数字：48-57
+        for (var i = 48; i <= 57; codes.push(i), i++) ;
+        //大写字母：65-90
+        for (var i = 65; i <= 90; codes.push(i), i++) ;
+        //小写字母：97-122
+        for (var i = 97; i <= 122; codes.push(i), i++) ;
+        console.log(codes.length);
+
+        function getCode() {
+            //codes里面一共有62个
+            var arr = [];
+            for (var i = 0; i < 4; i++) {
+                //从0-61之间取随机
+                var index = Math.floor(Math.random() * (61 - 0 + 1) + 0);
+                var char = String.fromCharCode(codes[index]);
+                arr.push(char);
+            }
+    //        document.write("验证码：" + arr.join(""));
+            return arr.join("");
+        }
+
+        //去掉前后的空格
+        function trim(str) {
+            var reg = /(^\s+)|(\s+$)/g;
+            return str.replace(reg, "");
+        }
+
+        while (true) {
+            var code = getCode();
+            var input = prompt("请输入验证码：" + code);
+           //  var reg = /^[a-zA-Z0-9]{4}$/; if (reg.test(input)) {}//推荐用这个方法如下面的//用这个就省了trim//有必要在输入后进行判断//
+            input = trim(input);
+            if (input.toUpperCase() == code.toUpperCase()) {
+                document.write("登录成功");
+                break;
+            } else {
+                alert("验证码错误");
+            }
+        }
+    */
+
+
+    //生成随机六位数验证码
+    //数字、大小写字母放入一个数组(codes1)备用
+    //unicode
+    //数字:48-57;
+    var codes1 = [];
+    for (var i = 48; i <= 57; codes1.push(i), i++) ;
+    //大写字母：65-90
+    for (var i = 65; i <= 90; codes1.push(i), i++) ;
+    //小写字母：97-122
+    for (var i = 97; i <= 122; codes1.push(i), i++) ;
+
+    function getCode1() {
+        var arr = []
+        for (var i = 0; i < 4; i++) {
+            var index = Math.floor(Math.random() * (61 - 0 + 1) + 0);
+            arr.push(String.fromCharCode(codes1[index]));
+        }
+        return arr.join("");
+    }
+
+    /*
+        function trim(str) {
+            var reg = /^(\s+)|(\s+)$/;
+            return str.replace(reg, "");
+        }
+    */
+    while (true) {
+        var code1 = getCode1();
+        var input = prompt("请输入验证码" + code1);
+        var reg = /^[a-zA-Z0-9]{4}$/;//用这个就省了trim//有必要在输入后进行判断
+        if (reg.test(input)) {
+            if (input.toLowerCase() == code1.toLowerCase()) {
+                document.write("登录成功");
+                break;
+            } else {
+                alert("验证码错误");
+            }
+        } else {
+            alert("验证码格式错误");
+        }
+    }
+</script>
+</body>
+</html>

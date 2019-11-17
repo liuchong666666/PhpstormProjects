@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆验证</title>
+    <style type="text/css">
+        form {
+            width: 500px;
+            margin: 150px auto; /*垂直上150距离，水平居中*/
+            border: 1px solid #CCCCCC;
+        }
+
+        form h1 {
+            text-align: center; /*居中*/
+            margin: 0;
+            padding: 5px;
+            border: 1px solid #CCCCCC;
+        }
+
+        form p {
+            margin: 0px;
+            padding: 20px;
+            border: 1px solid #CCCCCC;
+        }
+
+        form div {
+            margin: 0px;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #CCCCCC;
+        }
+
+        /*当错误时显示红框*/
+        .error_msg {
+            border: 1px solid red;
+            color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        //校验用户名
+        function check_name() {
+            //获取账号文本框
+            var input = document.getElementById("name");
+            //获取账号提示的span
+            var span = document.getElementById("name_msg");
+            //获取文本框的值
+            var name = input.value;
+            var reg = /^\w{3,20}$/;
+            if (!reg.test(name)) {
+                //如果不匹配，给span增加错误样式
+                //className属性等价于元素的class
+                //把span属性改成error_msg
+                span.className = "error_msg";
+                return false;//如果不匹配就返回false，为下面的表单提交返回值
+            } else {
+                //如果匹配要移除错误样式
+                //空的就移除了
+                span.className = "";
+                return true;
+            }
+
+        }
+
+        function check_pwd() {
+            //获取密码文本框
+            var input = document.getElementById("pwd");
+            //获取span
+            var span = document.getElementById("pwd_msg");
+            //获取密码文本框的值
+            var pwd = input.value;
+            var reg = /^\w{6,20}$/;
+            if (!reg.test(pwd)) {
+                //如果不匹配，则span显示红色
+                span.className = "error_msg";
+                return false;
+            } else {
+                //如果匹配，则移除样式
+                span.className = "";
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+<!--表单用于输入登陆信息，提交给服务器-->
+<!--onsubmit是表单提交事件，在点击提交按钮时触发，
+触发时先调用onsubmit内的方法，
+若该方法返回true则会提交表单，返回false则不提交。
+    即，此处声明的方法可以起到拦截提交的作用-->
+<form action="http://www.tmooc.cn"
+      onsubmit="return (check_name()+check_pwd())==2;">
+    <!--布尔值+布尔值结果为数字-->
+    <h1>登录</h1>
+    <p>
+        账号：<input type="text" id="name" onblur="check_name();">
+        <!--onblur光标事件-->
+        <span id="name_msg">3-20位字母、数字、下划线</span>
+    </p>
+    <p>
+        密码：<input type="password" id="pwd" onblur="check_pwd();">
+        <span id="pwd_msg">6-20位字母、数字、下划线</span>
+    </p>
+    <div><input type="submit" value="登录"></div>
+</form>
+</body>
+</html>
